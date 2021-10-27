@@ -25,6 +25,7 @@ deploy:
   app: 'beeokitchen'
   env: 'beeokitchen-env'
   bucket_name: 'beeokitchen'
+  skip_cleanup: true
   on:
     branch: main   
 
