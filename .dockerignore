@@ -1,0 +1,9 @@
+#compiled output
+/dist
+/node_modules
+/test
+/.idea
+/env
+#OS
+.DS_Store
+.git
