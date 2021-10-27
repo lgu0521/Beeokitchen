@@ -26,8 +26,7 @@ deploy:
   on:
     branch: main
 
-notifications: # 변경사항이 있을때 알림을 받을 수 있도록
-  email:수정
+notifications: # 변경사항이 있을때 알림을 받을 수 있도록 email:수정
     on_success: change
     on_failure: always
     recipients:
