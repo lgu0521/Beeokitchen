@@ -13,7 +13,7 @@ before_install:
 
 branches: # 해당 브렌치로 push 될 경우에만 반응합니다
   only:
-    - main
+    - master
 
 deploy:
   provider: elasticbeanstalk
