@@ -24,7 +24,9 @@ deploy:
   region: 'ap-northeast-2'
   app: 'beeokitchen'
   env: 'beeokitchen-env'
-  bucket_name: 'beeokitchen' 
+  bucket_name: 'beeokitchen'
+  on:
+    branch: main   
 
 notifications: # 변경사항이 있을때 알림을 받을 수 있도록
   email:수정
