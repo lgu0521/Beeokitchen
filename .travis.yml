@@ -8,7 +8,7 @@ services: # docker 로 감싸서 배포할거에요
   - docker
 
 before_install: 
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
   - docker build -t $DOCKER_USERNAME/beeokitchen -f Dockerfile ./
 
 branches: # 해당 브렌치로 push 될 경우에만 반응합니다
@@ -17,8 +17,8 @@ branches: # 해당 브렌치로 push 될 경우에만 반응합니다
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id: '$AWS_ACCESS_ID'
-  secret_access_key: '$AWS_SECRET_ID'
+  access_key_id: $AWS_ACCESS_ID
+  secret_access_key: $AWS_SECRET_ID
   region: 'ap-northeast-2'
   app: 'beeokitchen'
   env: 'beeokitchen-env'
