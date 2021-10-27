@@ -17,10 +17,8 @@ branches: # 해당 브렌치로 push 될 경우에만 반응합니다
 
 deploy:
   provider: elasticbeanstalk
-  access_key_id:
-    secure: '$AWS_ACCESS_ID'
-  secret_access_key:
-    secure: '$AWS_SECRET_ID'
+  access_key_id: '$AWS_ACCESS_ID'
+  secret_access_key: '$AWS_SECRET_ID'
   region: 'ap-northeast-2'
   app: 'beeokitchen'
   env: 'beeokitchen-env'
