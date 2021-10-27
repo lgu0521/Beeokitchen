@@ -25,7 +25,7 @@ const StartupList = (Props: InferGetServerSidePropsType<typeof getServerSideProp
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const resData = await fetch(process.env.API_URL + "api/startup-form/getlist");
+    const resData = await fetch(process.env.API_URL + "/api/startup-form/getlist");
     const sendData = await resData.json();
     console.log(sendData);
     if (!sendData) {

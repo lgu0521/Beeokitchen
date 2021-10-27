@@ -7,7 +7,7 @@ const AdminCreateMeau = () => {
     const onSubmit = async (data: MenuCreateDTO) => {
         const url = await GetSingleDownloadUrl(data.tmpUrl);
         data.url = url;
-        const res = await fetch(process.env.API_URL + "api/menu/create", {
+        const res = await fetch(process.env.API_URL + "/api/menu/create", {
             method: 'POST',
             body: JSON.stringify(data)
         });
