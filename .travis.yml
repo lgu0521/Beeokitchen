@@ -20,8 +20,8 @@ deploy:
   access_key_id: $AWS_ACCESS_ID
   secret_access_key: $AWS_SECRET_ID
   region: 'ap-northeast-2'
-  app: 'beeokitchen'
-  env: 'Beeokitchen-env'
+  app: 'beeo-env'
+  env: 'beeo-env'
   bucket_name: 'beeokitchen'
   on:
     branch: main
