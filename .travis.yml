@@ -9,13 +9,13 @@ services: # docker 로 감싸서 배포할거에요
 
 before_install: 
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
-  - docker build -t $DOCKER_USERNAME/beeokitchen -f Dockerfile ./
+  - docker build -t beeokitchen -f Dockerfile ./
 
 branches: # 해당 브렌치로 push 될 경우에만 반응합니다
   only:
     - main
 script: 
-  - docker run -e CI=true $DOCKER_USERNAME/beeokitchen npm run test
+  - docker run -e CI=true beeokitchen npm run test
 
 after_success:
   - echo "test success! try to deploy"
