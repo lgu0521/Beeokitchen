@@ -1,11 +1,10 @@
 FROM node:16.10.0 as base
+
+RUN mkdir -p /app
 WORKDIR /app
 
 COPY package.json package-lock.json ./
 RUN npm ci
-
-ENV CONTINUOUS_INTEGRATION=1
-ENV NODE_ENV=production
 
 COPY . .
 RUN npm run build

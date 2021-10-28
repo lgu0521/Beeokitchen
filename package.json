@@ -7,7 +7,7 @@
     "build:dev": "env-cmd -f ./env/delveopment.env next build",
     "start:dev": "env-cmd -f ./env/delveopment.env next start",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 8081",
     "lint": "next lint",
     "test" : "exit"
   },

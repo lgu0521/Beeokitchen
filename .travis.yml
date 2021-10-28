@@ -22,7 +22,7 @@ deploy:
   region: 'ap-northeast-2'
   app: 'Beeokit'
   env: 'Beeokit-env'
-  bucket_name: 'beeokitchen'
+  bucket_name: 'elasticbeanstalk-ap-northeast-2-223046282350'
   on:
     branch: main
 
