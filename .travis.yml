@@ -23,7 +23,6 @@ deploy:
   app: 'beeo-env'
   env: 'beeo-env'
   bucket_name: 'beeokitchen'
-  bucket_path: 'beeokitchen'
   on:
     branch: main
 
