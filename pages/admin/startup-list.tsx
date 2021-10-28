@@ -1,7 +1,7 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from "next";
+import { GetStaticProps, InferGetServerSidePropsType, InferGetStaticPropsType } from "next";
 import { StartUpFormDTO } from "../../dto/startup-form.dto";
 
-const StartupList = (Props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const StartupList = (Props: InferGetStaticPropsType<typeof getStaticProps>) => {
     const formList: StartUpFormDTO[] = Props.sendData;
     console.log(Props);
     return (
@@ -24,7 +24,7 @@ const StartupList = (Props: InferGetServerSidePropsType<typeof getServerSideProp
 };
 
 
-export const getServerSideProps: GetServerSideProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
     const resData = await fetch(process.env.API_URL + "/api/startup-form/getlist");
     const sendData = await resData.json();
     console.log(sendData);

@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from 'styled-components';
@@ -44,7 +44,7 @@ const Img = styled.img`
     }
 `;
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const res = await fetch(process.env.API_URL + "/api/banner");
   const BannerList: BannerListDTO[] = await res.json();
 

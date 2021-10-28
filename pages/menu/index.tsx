@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
 import styled from 'styled-components';
 import seasonal from '../../public/menu/seasonal_bot_img.jpeg';
@@ -101,7 +101,7 @@ const Meau: NextPage<Props> = ({ GimbabList }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
     const res = await fetch(process.env.API_URL + "/api/menu/Gimbab");
     const GimbabList: MenuListDTO[] = await res.json();
 

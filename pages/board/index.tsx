@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetStaticProps, NextPage } from "next";
 import PageNationListView from '../../components/PageNationListView';
 import AccordionListView from '../../components/AccordionListView';
 import PageMainTitle from '../../components/PageMainTitle';
@@ -42,7 +42,7 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList }) => {
 };
 
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
     const resNotice = await fetch(process.env.API_URL + '/api/notice/');
     const resFaq = await fetch(process.env.API_URL + '/api/faq/');
     const noticeList: NoticeListDTO[] = await resNotice.json();

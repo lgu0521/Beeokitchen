@@ -1,4 +1,4 @@
-import { GetServerSideProps, NextPage } from "next";
+import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import styled from 'styled-components';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -76,7 +76,7 @@ const Wrap = styled.div`
     }
 `
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
     const res = await fetch(process.env.API_URL + '/api/store');
     const storeList: StoreAllListDTO[] = await res.json();
 
