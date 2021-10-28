@@ -6,10 +6,10 @@
     "dev": "env-cmd -f ./env/delveopment.env next dev",
     "build:dev": "env-cmd -f ./env/delveopment.env next build",
     "start:dev": "env-cmd -f ./env/delveopment.env next start",
-    "build": "next build",
-    "start": "next start -p 8081",
     "lint": "next lint",
-    "test" : "exit"
+    "build": "next build",
+    "start": "next start",
+    "vercel-deploy": "next build && next export"
   },
   "dependencies": {
     "@toast-ui/react-editor": "^3.1.0",
