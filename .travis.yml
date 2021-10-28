@@ -11,20 +11,24 @@ before_install:
   - echo $DOCKER_PASSWORD | docker login -u $DOCKER_USERNAME --password-stdin
   - docker build -t $DOCKER_USERNAME/beeokitchen -f Dockerfile ./
 
+script:
+  - docker run -e CI=true $DOCKER_USERNAME/beeokitchen npm run test -- --coverage
+
 branches: # 해당 브렌치로 push 될 경우에만 반응합니다
   only:
     - main
 
-deploy:
-  provider: elasticbeanstalk
-  access_key_id: $AWS_ACCESS_ID
-  secret_access_key: $AWS_SECRET_ID
-  region: 'ap-northeast-2'
-  app: 'beeo-env'
-  env: 'beeo-env'
-  bucket_name: 'beeokitchen'
-  on:
-    branch: main
+# deploy:
+#   provider: elasticbeanstalk
+#   access_key_id: $AWS_ACCESS_ID
+#   secret_access_key: $AWS_SECRET_ID
+#   region: 'ap-northeast-2'
+#   app: 'beeo-env'
+#   env: 'beeo-env'
+#   bucket_name: 'beeokitchen'
+#   bucket_path: 'beeokitchen'
+#   on:
+#     branch: main
 
 notifications: # 변경사항이 있을때 알림을 받을 수 있도록 email:수정
     on_success: change
