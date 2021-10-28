@@ -14,6 +14,11 @@ before_install:
 branches: # 해당 브렌치로 push 될 경우에만 반응합니다
   only:
     - main
+script: 
+  - docker run -e CI=true $DOCKER_USERNAME/beeokitchen npm run test
+
+after_success:
+  - echo "test success! try to deploy"
 
 deploy:
   provider: elasticbeanstalk
