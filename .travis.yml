@@ -17,6 +17,7 @@ branches: # 해당 브렌치로 push 될 경우에만 반응합니다
 
 deploy:
   provider: elasticbeanstalk
+  skip_cleanup: true
   access_key_id: $AWS_ACCESS_ID
   secret_access_key: $AWS_SECRET_ID
   region: 'ap-northeast-2'
