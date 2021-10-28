@@ -1,12 +1,12 @@
 FROM node:16.10.0 as base
 
-RUN mkdir -p /app
+RUN mkdir -p ./app
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json package-lock.json ./app/
 RUN npm ci
 
-COPY . .
+COPY . ./app/
 RUN npm run build
 
 # next 의 default port 는 3000 번 이지만 beanstalk 의 default port 는 8081 이기 때문에
