@@ -4,33 +4,44 @@ import { Carousel } from "react-responsive-carousel";
 import styled from 'styled-components';
 import { BannerListDTO } from "../dto/banner-create.dto";
 import { PageFullWidthLayout } from '../components/GlobalComponents';
-
+import IsUserWithLogin from '../components/Auth';
+import { useState } from 'react';
+import AdminMainBannerComponent from '../components/admin/main';
+import Layout from '../components/Layout';
 interface Props {
   BannerList: BannerListDTO[]
 }
 
 const Home: NextPage<Props> = ({ BannerList }) => {
-  const images = BannerList.map(item => {
-    return { url: item.url }
-  });
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  IsUserWithLogin().then(
+    () => {
+      setIsAdmin(true);
+    }
+  );
 
   return (
-    <PageFullWidthLayout>
-      <Carousel showThumbs={false} swipeable={true}>
+    <Layout>
+      <PageFullWidthLayout>
+        <Carousel showThumbs={false} swipeable={true}>
+          {
+            BannerList.map((item, key) => (
+              <div key={key}>
+                <Img src={item.url} alt="" />
+              </div>
+            ))
+          }
+        </Carousel>
         {
-          BannerList.map((item, key) => (
-            <div key={key}>
-              <Img src={item.url} alt="" />
-            </div>
-          ))
+          isAdmin ? <AdminMainBannerComponent /> : null
         }
-      </Carousel>
-    </PageFullWidthLayout>
+      </PageFullWidthLayout>
+    </Layout>
   )
 }
 
 const Img = styled.img`
-
     @media only screen and (max-width: 600px) {
       object-fit: fill;
       height: 300px;
@@ -45,7 +56,7 @@ const Img = styled.img`
 `;
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const res = await fetch(process.env.API_URL + "/api/banner");
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
   const BannerList: BannerListDTO[] = await res.json();
 
   if (!BannerList) {

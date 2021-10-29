@@ -9,7 +9,7 @@ export interface MenuCreateDTO extends MenuDTO {
     tmpUrl: File,
 }
 
-export interface MenuDelelteDTO extends MenuDTO {
+export interface MenuDelelteDTO {
     id: string,
     catagory: string
 }

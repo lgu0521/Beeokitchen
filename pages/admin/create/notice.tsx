@@ -24,7 +24,7 @@ const AdminCreateNotice = () => {
         if (editorRef.current && titleInput) {
             const content = editorRef.current.getInstance().getMarkdown();
             console.log(titleInput + "  " + content);
-            const res = await fetch(process.env.API_URL + "/api/notice/create", {
+            const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/notice/create", {
                 method: 'POST',
                 body: JSON.stringify({
                     title: titleInput,

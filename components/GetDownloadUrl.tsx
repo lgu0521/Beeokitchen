@@ -22,12 +22,12 @@ const GetMultiDownloadUrl = async (FileList: File[]): Promise<string[]> => {
     return downloadUrls;
 };
 
-const GetSingleDownloadUrl = async (File: File): Promise<string> => {
+const GetSingleDownloadUrl = async (file: File): Promise<string> => {
     var downloadUrl: string = "";
     try {
         const firestorage: FirebaseStorage = getStorage(firebase, "gs://beeokitchen-env.appspot.com");
-        var refStorage = ref(firestorage, '/store/' + File.name);
-        var uploadTask = await uploadBytes(refStorage, File);
+        var refStorage = ref(firestorage, '/store/' + file.name);
+        var uploadTask = await uploadBytes(refStorage, file);
         const downloadUrlPromise = await getDownloadURL(refStorage);
         downloadUrl = await downloadUrlPromise;
     } catch (e) {

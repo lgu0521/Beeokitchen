@@ -6,6 +6,7 @@ import { PageLayout, Button, Content, Title3 } from "../../components/GlobalComp
 import PageMainTitle from "../../components/PageMainTitle";
 import Style from "../../components/style";
 import { InputForm, Form, ButtonForm, SelectForm } from '../../components/Form';
+import Layout from "../../components/Layout";
 
 interface BoxItem {
     step: string,
@@ -52,7 +53,7 @@ const StartUpPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<StartUpFormDTO>();
 
     const onSubmit = async (data: StartUpFormDTO) => {
-        const res = await fetch(process.env.API_URL + "/api/startup-form/create", {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/startup-form/create", {
             method: 'POST',
             body: JSON.stringify(data)
         });
@@ -64,6 +65,7 @@ const StartUpPage = () => {
 
     return (
         <>
+        <Layout>
             <PageMainTitle title="창업안내" description="비오키친과 함께 하실 점주님을 모집합니다. 세계적인 브랜드의 성공 철학을 공유합니다." />
             <PageLayout></PageLayout>
             <PageLayout>
@@ -132,7 +134,7 @@ const StartUpPage = () => {
                 </Style.Table>
                 <Button width="180px" onClick={() => setIsFormClick(true)}>상담 신청하기</Button>
             </PageLayout>
-
+            </Layout>
             {
                 isFormClick ?
                     <Style.Modal>

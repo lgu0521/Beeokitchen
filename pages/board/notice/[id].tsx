@@ -7,6 +7,7 @@ import { Viewer, ViewerProps } from '@toast-ui/react-editor';
 import PageMainTitle from '../../../components/PageMainTitle';
 import { PageLayout } from '../../../components/GlobalComponents';
 import styled from 'styled-components';
+import Layout from '../../../components/Layout';
 
 interface Props {
     notice: NoticeDTO
@@ -18,44 +19,45 @@ const TuiNoSSRWrapper = dynamic<ViewerProps>(() => import('../../../components/V
 const TuiWrapper = React.forwardRef((props: ViewerProps, ref) => (
     <TuiNoSSRWrapper {...props} />
 ));
-TuiWrapper.displayName= 'Editor';
+TuiWrapper.displayName = 'Editor';
 
 const NoticeDetailPage = ({ notice }: Props) => {
     return (
         <div>
-            <PageMainTitle title="공지사항 및 보도자료" />
-            <PageLayout>
-                <Table>
-                    <colgroup>
-                        <col width="" />
-                        <col width="" />
-                        <col width="" />
-                    </colgroup>
-                    <Thead>
-                        <tr>
-                            <th>{notice.title}</th>
-                            <th>{notice.datetime}</th>
-                        </tr>
-                    </Thead>
-                    <Tbody>
-                        <tr>
-                            <th rowSpan={2}>
-                                {
-                                    <TuiWrapper initialValue={notice.content} />
-                                }
-                            </th>
-                        </tr>
-                    </Tbody>
-                </Table>
-            </PageLayout>
-
+            <Layout>
+                <PageMainTitle title="공지사항 및 보도자료" />
+                <PageLayout>
+                    <Table>
+                        <colgroup>
+                            <col width="" />
+                            <col width="" />
+                            <col width="" />
+                        </colgroup>
+                        <Thead>
+                            <tr>
+                                <th>{notice.title}</th>
+                                <th>{notice.datetime}</th>
+                            </tr>
+                        </Thead>
+                        <Tbody>
+                            <tr>
+                                <th rowSpan={2}>
+                                    {
+                                        <TuiWrapper initialValue={notice.content} />
+                                    }
+                                </th>
+                            </tr>
+                        </Tbody>
+                    </Table>
+                </PageLayout>
+            </Layout>
         </div>
     );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }: Params) => {
     const { id } = params;
-    const res = await fetch(process.env.API_URL+`/api/notice/${id}`);
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/notice/${id}`);
     const notice: NoticeDTO = await res.json();
 
     if (!notice) {

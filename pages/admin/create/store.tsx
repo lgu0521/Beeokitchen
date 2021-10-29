@@ -9,7 +9,7 @@ const AdminCreateStore = () => {
     const onSubmit = async (data: StoreCreateDTO) => {
         const downloadUrls: string[] = await GetMultiDownloadUrl(data.tmpUrl);
         data.url = downloadUrls;
-        const res = await fetch(process.env.API_URL + "/api/store/create", {
+        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/store/create', {
             method: 'POST',
             body: JSON.stringify(data)
         });

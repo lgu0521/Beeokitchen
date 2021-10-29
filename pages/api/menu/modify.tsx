@@ -15,7 +15,8 @@ const ModifyMenu = async (req: NextApiRequest, res: NextApiResponse) => {
                 content: reqBody.content,
                 url: reqBody.url,
             });
-            
+            console.log(reqBody.catagory);
+            console.log(docUpdate);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

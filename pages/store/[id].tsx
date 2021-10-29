@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import { StoreDTO } from '../../dto/store-create.dto';
 import { PageLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
 import Image from 'next/image'
+import Layout from '../../components/Layout';
 
 interface Props {
     store: StoreDTO
@@ -14,6 +15,7 @@ interface Props {
 const StoreDetailPage: NextPage<Props> = ({ store }) => {
 
     return (
+        <Layout>
         <PageLayout>
             <BoxWrap>
                 <Wrap>
@@ -35,12 +37,13 @@ const StoreDetailPage: NextPage<Props> = ({ store }) => {
                 </Wrap>
             </BoxWrap>
         </PageLayout>
+        </Layout>
     );
 };
 
 export const getServerSideProps: GetServerSideProps = async ({ params }: Params) => {
     const { id } = params;
-    const res = await fetch(process.env.API_URL + `/api/store/${id}`);
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/store/${id}`);
     const store = await res.json();
 
     if (!store) {

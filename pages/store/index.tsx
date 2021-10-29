@@ -6,40 +6,41 @@ import React from "react";
 import PageMainTitle from "../../components/PageMainTitle";
 import { StoreAllListDTO } from '../../dto/store-create.dto';
 import { PageLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
+import Layout from "../../components/Layout";
+
 interface Props {
     storeList: StoreAllListDTO[]
 }
 const Brand: NextPage<Props> = ({ storeList }) => {
-    console.log(storeList);
     return (
         <>
-            <PageMainTitle title="매장" description="비오키친과 함께 하실 점주님을 모집합니다. 세계적인 브랜드의 성공 철학을 공유합니다." />
-            <PageLayout>
-                {
-                    storeList.map((item, key) => (
-                        <BoxWrap key={key}>
-                            <Box>
-                                <Link href={`/store/${item.id}`}>
-                                    <a>
-                                        <Image src={item.url} alt="" width="100%" height="100%" layout="responsive" objectFit="cover" />
-                                        <Wrap>
-                                            <Title2 style={{ color: "#494949", marginBottom: "15px" }}>{item.name}</Title2>
-                                            <Title3 style={{ color: "#7e7e7e", marginBottom: "5px" }}>{item.location}</Title3>
-                                            <Title4 style={{ color: "#a68537", marginBottom: "15px" }}>{item.operation}</Title4>
-                                            <Title2 style={{ color: "#666" }}>{item.phonenumber}</Title2>
-                                        </Wrap>
-                                    </a>
-                                </Link>
-                            </Box>
-
-                        </BoxWrap>
-                    ))
-                }
-            </PageLayout>
+            <Layout>
+                <PageMainTitle title="매장" description="비오키친과 함께 하실 점주님을 모집합니다. 세계적인 브랜드의 성공 철학을 공유합니다." />
+                <PageLayout>
+                    {
+                        storeList.map((item, key) => (
+                            <BoxWrap key={key}>
+                                <Box>
+                                    <Link href={`/store/${item.id}`}>
+                                        <a>
+                                            <Image src={item.url} alt="" width="100%" height="100%" layout="responsive" objectFit="cover" />
+                                        </a>
+                                    </Link>
+                                    <Wrap>
+                                        <Title2 style={{ color: "#494949", marginBottom: "15px" }}><input value={item.name} /></Title2>
+                                        <Title3 style={{ color: "#7e7e7e", marginBottom: "5px" }}>{item.location}</Title3>
+                                        <Title4 style={{ color: "#a68537", marginBottom: "15px" }}>{item.operation}</Title4>
+                                        <Title2 style={{ color: "#666" }}>{item.phonenumber}</Title2>
+                                    </Wrap>
+                                </Box>
+                            </BoxWrap>
+                        ))
+                    }
+                </PageLayout>
+            </Layout>
         </>
     );
 };
-
 
 const BoxWrap = styled.div`
     display: inline-block;
@@ -77,7 +78,7 @@ const Wrap = styled.div`
 `
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const res = await fetch(process.env.API_URL + '/api/store');
+    const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/store');
     const storeList: StoreAllListDTO[] = await res.json();
 
     if (!storeList) {
@@ -91,6 +92,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
 
     }
-
 }
+
 export default Brand;

@@ -25,7 +25,7 @@ const StartupList = (Props: InferGetStaticPropsType<typeof getStaticProps>) => {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-    const resData = await fetch(process.env.API_URL + "/api/startup-form");
+    const resData = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/startup-form");
     const sendData = await resData.json();
     console.log(sendData);
     if (!sendData) {
