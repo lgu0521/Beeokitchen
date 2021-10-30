@@ -6,7 +6,7 @@ export interface MenuDTO {
 }
 
 export interface MenuCreateDTO extends MenuDTO {
-    tmpUrl: File,
+    tmpUrl: File[],
 }
 
 export interface MenuDelelteDTO {

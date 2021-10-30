@@ -15,12 +15,6 @@ interface Props {
 const Home: NextPage<Props> = ({ BannerList }) => {
   const [isAdmin, setIsAdmin] = useState(false);
 
-  IsUserWithLogin().then(
-    () => {
-      setIsAdmin(true);
-    }
-  );
-
   return (
     <Layout>
       <PageFullWidthLayout>

@@ -13,7 +13,6 @@ const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
     const { register, handleSubmit, formState: { errors } } = useForm<MenuCreateDTO>();
 
     const onSubmit = async (data: MenuCreateDTO) => {
-        console.log(data);
         const sendData: MenuModifyDTO = {
             id: MenuValue.id,
             title: data.title,
@@ -22,7 +21,8 @@ const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
             url: MenuValue.url
         };
 
-        if (data.tmpUrl) {
+        if (data.tmpUrl.length > 0) {
+            console.log(data.tmpUrl);
             const url = await GetSingleDownloadUrl(data.tmpUrl);
             sendData.url = url;
         }
@@ -31,6 +31,7 @@ const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
             method: 'POST',
             body: JSON.stringify(sendData)
         });
+
         console.log(res);
     }
 

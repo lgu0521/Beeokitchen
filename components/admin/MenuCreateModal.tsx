@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { MenuCreateDTO } from '../../dto/menu-create.dto';
 import BasicModal from '../BasicModal';
-import { GetSingleDownloadUrl } from '../GetDownloadUrl';
+import { GetMultiDownloadUrl } from '../GetDownloadUrl';
 
 const MenuCreateModal = () => {
     const router = useRouter();
@@ -11,8 +11,8 @@ const MenuCreateModal = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<MenuCreateDTO>();
 
     const onSubmit = async (data: MenuCreateDTO) => {
-        const url = await GetSingleDownloadUrl(data.tmpUrl);
-        data.url = url;
+        const url = await GetMultiDownloadUrl(data.tmpUrl);
+        data.url = url[0];
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/create", {
             method: 'POST',
             body: JSON.stringify(data)

@@ -1,6 +1,6 @@
 import { Form, InputForm, ButtonForm } from '../../components/BasicForm'
 import firebase from '../../service/firebase';
-import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence } from 'firebase/auth'
+import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, signOut, browserSessionPersistence } from 'firebase/auth'
 import AdminLayout from '../../components/AdminLayout';
 import { PageLayout } from '../../components/GlobalComponents';
 import { useRouter } from 'next/dist/client/router';
@@ -17,7 +17,7 @@ const AdminLoginPage = () => {
     const Submit = async ({ email, password }: LoginData) => {
         console.log(email, password);
         try {
-            setPersistence(firebaseAuth, browserLocalPersistence).then(
+            setPersistence(firebaseAuth, browserSessionPersistence).then(
                 () => {
                     return signInWithEmailAndPassword(firebaseAuth, email, password);
                 }
@@ -28,6 +28,11 @@ const AdminLoginPage = () => {
             console.log(error);
         }
     }
+
+    const LoginOut = async() =>{
+        const singOut = await signOut(firebaseAuth);
+        router.push('/menu');
+    }
     return (
         <AdminLayout>
             <PageLayout>
@@ -37,6 +42,7 @@ const AdminLoginPage = () => {
                     <ButtonForm name="로그인" />
                 </Form>
             </PageLayout>
+            <button onClick={LoginOut}>로그아웃</button>
         </AdminLayout>
     );
 };
