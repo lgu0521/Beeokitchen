@@ -24,7 +24,6 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
 
     return (
         <>
-            <Title2>총: {itemCount}</Title2>
             <Table>
                 <colgroup>
                     <col width="50px" />
@@ -36,8 +35,8 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
                         viewItemList.map((item, key) => {
                             return (
                                 <tr key={key}>
-                                    <td><Title3>{key + 1}</Title3></td>
-                                    <th><Link href={`/board/notice/${item.id}`}><a><Title3>{item.title}</Title3></a></Link></th>
+                                    <td style={{textAlign:'center'}}><Title3>{key + 1}</Title3></td>
+                                    <th><Link href={`/board/notice/${item.id}`}><a><Title3 style={{fontWeight:600}}>{item.title}</Title3></a></Link></th>
                                     <td><Title3>{item.datetime}</Title3></td>
                                 </tr>)
                         })
@@ -51,12 +50,11 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
 
 const Tbody = styled.tbody`
     & td, th{
-        height: 60px;
         border-bottom: 1px solid #dddddd;
         text-align: center;
         color: #292929;
         letter-spacing: -0.04em;
-        padding: 10px;
+        padding: 20px;
         font-weight: normal;
     }
     td{
@@ -68,7 +66,6 @@ const Tbody = styled.tbody`
 `
 
 const Table = styled.table`
-    border-top: 2px solid #175436;
     display: inline-block;
     border-spacing: 0;
     width: 100%;

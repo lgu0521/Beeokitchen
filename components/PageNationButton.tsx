@@ -17,7 +17,7 @@ const PageNationButton = ({ itemCount, pageSize, onPageChange }: Props) => {
                     <Li onClick={() => onPageChange(1)}>처음</Li>
                     {Array(totallPageCount).fill(1).map((page, key) => (
                         <Li key={key} onClick={() => onPageChange(key + 1)}>
-                            {key + 1}
+                            <PageNumber>{key + 1}</PageNumber>
                         </Li>
                     ))}
                     <Li onClick={() => onPageChange(totallPageCount)}>마지막</Li>
@@ -39,13 +39,18 @@ const Ul = styled.ul`
 `
 
 const Li = styled.li`
-    width:70px;
-    height: 50px;
+display: table-cell;
+    margin: 5px;
+`
+
+const PageNumber = styled.span`
+    display: table-cell;
+    width:30px;
+    height: 30px;
     color: white;
     border-radius: 10px;
     text-align: center;
     vertical-align: middle;
-    display: table-cell;
     padding: 5px;
     font-weight: bold;
     background-color: #175436;
@@ -57,8 +62,6 @@ const Li = styled.li`
         -webkit-transition: background-color 0.3s;
     };
 `
-
-
 
 
 export default PageNationButton

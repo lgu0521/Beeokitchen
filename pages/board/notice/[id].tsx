@@ -5,7 +5,7 @@ import { NoticeDetailDTO } from '../../../dto/notice-create.dto'
 import dynamic from 'next/dynamic';
 import { Viewer, ViewerProps } from '@toast-ui/react-editor';
 import PageMainTitle from '../../../components/PageMainTitle';
-import { PageLayout } from '../../../components/GlobalComponents';
+import { Button, PageLayout } from '../../../components/GlobalComponents';
 import styled from 'styled-components';
 import Layout from '../../../components/Layout';
 import Link from 'next/link';
@@ -27,21 +27,16 @@ const NoticeDetailPage = ({ notice }: Props) => {
     const { user } = useAuth();
     return (
         <div>
-                <PageMainTitle title="공지사항 및 보도자료" />
+                <PageMainTitle title="공지사항 및 보도자료" description1="비오키친의 최신 소식입니다"/>
                 <PageLayout>
                     {
                         user ? <Link href="/admin/notice/123"><a>수정하기</a></Link> : null
                     }
                     <Table>
-                        <colgroup>
-                            <col width="" />
-                            <col width="" />
-                            <col width="" />
-                        </colgroup>
                         <Thead>
                             <tr>
-                                <th>{notice.title}</th>
-                                <th>{notice.datetime}</th>
+                                <th style={{width:"80%"}}>{notice.title}</th>
+                                <th style={{width:"20%"}}>{notice.datetime}</th>
                             </tr>
                         </Thead>
                         <Tbody>
@@ -55,6 +50,7 @@ const NoticeDetailPage = ({ notice }: Props) => {
                         </Tbody>
                     </Table>
                 </PageLayout>
+                <Button >목록으로</Button>
         </div>
     );
 };
@@ -80,17 +76,11 @@ export const getServerSideProps: GetServerSideProps = async ({ params }: Params)
 
 const Table = styled.table`
     border-top: 2px solid #175436;
-    border-bottom: 2px solid #175436;
+    border-bottom: 1px solid #175436;
     text-align: left;
     margin: 0 auto;
-    @media only screen and (max-width: 600px) {
-        width: 90%;
-    }
-    @media only screen and (min-width: 600px) {
-        width: 80%;
-    }
     @media only screen and (min-width: 768px) {
-        width: 80%;
+        width: 100%;
     }
 `
 const Thead = styled.thead`
@@ -107,6 +97,7 @@ const Thead = styled.thead`
 const Tbody = styled.tbody`
     display: inline-block;
     padding: 20px;
+    min-height: 300px;
     table{
         border: 1px solid black;
         border-spacing: 0;

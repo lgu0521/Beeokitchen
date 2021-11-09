@@ -104,9 +104,6 @@ const LineWrap = styled.div`
     height: ${(props: NavProps) => props.height ? props.height : ""};
     width: ${(props: WrapProps) => props.width ? props.width : ""};
     box-shadow: 4px 4px 4px rgb(0 0 0 / 5%);
-    @media only screen and (min-width: 768px){
-        height: 60px !important;
-    }
 `
 
 const Nav = styled.div`
@@ -114,7 +111,6 @@ const Nav = styled.div`
     height: ${(props: NavProps) => props.height ? props.height : ""};
     box-sizing: border-box;
     background: #2c2c2c;
-    box-shadow: 0 3px 3px rgb(0 0 0 / 20%) !important;
 
 `
 const PcHeade = styled.div`

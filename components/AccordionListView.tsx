@@ -11,7 +11,7 @@ const AccordionListView = ({ title, content }: FaqDTO, ) => {
             <AccordionListBox>
                 <AccordionItemBox>
                     <Button onClick={() => setIsOpen(!isOpen)}>
-                        <Title3>Q. {title}</Title3>
+                        <Title3 style={{fontWeight:600}}>Q. {title}</Title3>
                         <DropIcon isOpen={isOpen} />
                     </Button>
                 </AccordionItemBox>
@@ -28,7 +28,7 @@ const AccordionListView = ({ title, content }: FaqDTO, ) => {
 const Button = styled.button`
     display: block;
     width: 100%;
-    padding: 12px 40px 12px 0;
+    padding: 20px;
     text-align: left;
     position: relative;
     border-radius: 0; //button basic style remove
@@ -74,7 +74,7 @@ const AccordionTextBox = styled.div<{ isOpen: boolean }>`
     text-align: left;
     padding: 0 8px;
     overflow: hidden;
-    height: ${props => props.isOpen ? '100px' : '0px'};
+    height: ${props => props.isOpen ? '70px' : '0px'};
     transition: height 0.35s ease;
 `
 
