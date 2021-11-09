@@ -7,46 +7,6 @@ import styled from 'styled-components';
 const AdminHeader = () => {
     return (
         <div>
-            <PcHeade>
-                <Nav height="50px">
-                    <Wrap width="60%" height="100%">
-                        <Ul>
-                            <Li>
-                                <Link href="/admin/setting">
-                                    <a>기본설정</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/menu">
-                                    <a>메뉴 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/store">
-                                    <a>매장 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/faq">
-                                    <a>FAQ 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/notice">
-                                    <a>공지사항 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/startup-list">
-                                    <a>창업문의</a>
-                                </Link>
-                            </Li>
-                        </Ul>
-                    </Wrap>
-                    <Wrap width="20%" height="100%" />
-                </Nav>
-            </PcHeade>
-            <MobileHeade>
                 <Nav height="50px">
                     <LineWrap width="100%" height="50px">
                     <Ul>
@@ -83,7 +43,6 @@ const AdminHeader = () => {
                         </Ul>
                     </LineWrap>
                 </Nav>
-            </MobileHeade>
         </div>
 
     )
@@ -153,6 +112,10 @@ const LineWrap = styled.div`
 const Nav = styled.div`
     width: 100%;
     height: ${(props: NavProps) => props.height ? props.height : ""};
+    box-sizing: border-box;
+    background: #2c2c2c;
+    box-shadow: 0 3px 3px rgb(0 0 0 / 20%) !important;
+
 `
 const PcHeade = styled.div`
     box-sizing: border-box;

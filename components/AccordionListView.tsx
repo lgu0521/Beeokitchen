@@ -11,8 +11,7 @@ const AccordionListView = ({ title, content }: FaqDTO, ) => {
             <AccordionListBox>
                 <AccordionItemBox>
                     <Button onClick={() => setIsOpen(!isOpen)}>
-                        <QuestionIcon />
-                        <Title3>{title}</Title3>
+                        <Title3>Q. {title}</Title3>
                         <DropIcon isOpen={isOpen} />
                     </Button>
                 </AccordionItemBox>
@@ -46,7 +45,7 @@ const DropIcon = styled.span<{ isOpen: boolean }>`
     background-size: contain;
     transform: rotate(${props => props.isOpen ? '-180deg' : '0deg'});
     transition: transform .3s ease;
-
+    top: 0px;
     @media only screen and (max-width: 600px) {
         right: 5px;
         width: 10px;
@@ -60,30 +59,11 @@ const DropIcon = styled.span<{ isOpen: boolean }>`
         width: 15px;
     }
 `
-const QuestionIcon = styled.span`
-    position: relative;
 
-    background: url("http://www.saladykorea.com/superboard/images/sb_ico_faq_q.png") no-repeat 20px center;
-
-    @media only screen and (max-width: 600px) {
-        background-size: 20px auto;
-        padding: 10px 20px;
-        background-position: 5px;
-    }
-    @media only screen and (min-width: 600px) {
-        background-size: 20px auto;
-        padding: 10px 20px;
-        background-position: 5px;
-    }
-    @media only screen and (min-width: 768px) {
-        padding: 10px 25px;
-        background-size: 30px auto;
-    }
-`
 const AccordionListBox = styled.article`
     display: inline-block;
     border-bottom: 1px solid #175436;
-    width: 80%;
+    width: 100%;
 `
 const AccordionItemBox = styled.head`
     width: 100%;

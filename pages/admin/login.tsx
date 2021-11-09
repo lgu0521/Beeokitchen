@@ -1,5 +1,4 @@
 import { Form, InputForm, ButtonForm } from '../../components/BasicForm'
-import AdminLayout from '../../components/AdminLayout';
 import { PageLayout } from '../../components/GlobalComponents';
 import { AuthProvider, useAuth } from '../../hook/AuthProvider';
 
@@ -9,7 +8,7 @@ type LoginData = {
 }
 
 const AdminLoginPage = () => {
-    const { user, error, SignInWithEmailAndPassword, LoginOut} = useAuth();
+    const { user, error, SignInWithEmailAndPassword, LoginOut } = useAuth();
 
     const Submit = async ({ email, password }: LoginData) => {
         await SignInWithEmailAndPassword(email, password);
@@ -17,7 +16,7 @@ const AdminLoginPage = () => {
     }
 
     return (
-        <AdminLayout>
+        <>
             <PageLayout>
                 <Form onSubmit={Submit}>
                     <InputForm label="이메일" type="email" name="email" placeholder="이메일을 입력해주세요" />
@@ -27,7 +26,7 @@ const AdminLoginPage = () => {
             </PageLayout>
             {user ? user.uid : "정보 없음"}
             <button onClick={LoginOut}>로그아웃</button>
-        </AdminLayout>
+        </>
     );
 };
 

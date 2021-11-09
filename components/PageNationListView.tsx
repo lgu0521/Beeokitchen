@@ -71,6 +71,6 @@ const Table = styled.table`
     border-top: 2px solid #175436;
     display: inline-block;
     border-spacing: 0;
-    width: 80%;
+    width: 100%;
 `
 export default PageNationView;
