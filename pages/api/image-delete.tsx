@@ -11,7 +11,7 @@ const ImageDelete = async (req: NextApiRequest, res: NextApiResponse) => {
             await deleteObject(refStorage);
             res.status(200).json({ message: "success" });
         } catch (e) {
-            console.log(e.message);
+            console.log(e);
         }
     } else {
         // Handle any other HTTP method

@@ -10,11 +10,16 @@ const AuthService = {
             return {
                 user: userCred.user
             }
-        } catch (e) {
-            return {
-                error: e.message
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                return {
+                    error: err.message,
+                };
+            }else{
+                return {error: "error"}
             }
         }
+
     },
 
     LoginOut: async () => {

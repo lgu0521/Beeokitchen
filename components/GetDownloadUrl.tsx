@@ -33,6 +33,7 @@ const GetSingleDownloadUrl = async (ImageFile: File[]): Promise<ImageBlock> => {
         const downloadUrlPromise = await getDownloadURL(refStorage);
 
         imageData = {
+            order: 0,
             storageRef: refStorage.fullPath,
             downloadUrl: await downloadUrlPromise
         }
