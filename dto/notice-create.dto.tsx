@@ -17,3 +17,7 @@ export interface NoticeModifyDTO extends NoticeDTO {
 export interface NoticeListDTO extends NoticeDTO {
     id: string
 }
+
+export interface NoticeDetailDTO extends NoticeDTO {
+    id: string
+}

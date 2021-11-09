@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StartUpFormDTO } from "../../dto/startup-form.dto";
 import GridBox from "../../components/GridBox";
-import { PageLayout, Button, Content, Title3 } from "../../components/GlobalComponents";
+import { PageLayout, Button, Content, Title3, Title1 } from "../../components/GlobalComponents";
 import PageMainTitle from "../../components/PageMainTitle";
 import Style from "../../components/style";
 import { InputForm, Form, ButtonForm, SelectForm } from '../../components/Form';
-import Layout from "../../components/Layout";
+import styled from "styled-components";
 
 interface BoxItem {
     step: string,
@@ -53,6 +53,7 @@ const StartUpPage = () => {
     const { register, handleSubmit, formState: { errors } } = useForm<StartUpFormDTO>();
 
     const onSubmit = async (data: StartUpFormDTO) => {
+        console.log(data);
         const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/startup-form/create", {
             method: 'POST',
             body: JSON.stringify(data)
@@ -65,15 +66,15 @@ const StartUpPage = () => {
 
     return (
         <>
-        <Layout>
-            <PageMainTitle title="창업안내" description="비오키친과 함께 하실 점주님을 모집합니다. 세계적인 브랜드의 성공 철학을 공유합니다." />
+            <PageMainTitle title="창업안내" description1="비오키친과 함께 하실 점주님" description2="세계적인 브랜드의 성공 철학을 공유합니다" />
             <PageLayout></PageLayout>
             <PageLayout>
-                <PageMainTitle title="창업절차" />
+                <Title1 style={{ fontWeight: 600, color:"#15AA5A" }}>창업 절차</Title1>
                 <GridBox boxItems={BoxItems} col={4} mdCol={3} smCol={2} height="100px" />
             </PageLayout>
             <PageLayout>
-                <PageMainTitle title="예상 투자비용" />
+            <Title1 style={{ fontWeight: 600, color:"#15AA5A" }}>예상 투자비용</Title1>
+            <TableBox>
                 <Style.Table>
                     <colgroup>
                         <col width="270px" />
@@ -132,9 +133,9 @@ const StartUpPage = () => {
                         </tr>
                     </Style.Tfoot>
                 </Style.Table>
+                </TableBox>
                 <Button width="180px" onClick={() => setIsFormClick(true)}>상담 신청하기</Button>
             </PageLayout>
-            </Layout>
             {
                 isFormClick ?
                     <Style.Modal>
@@ -160,6 +161,8 @@ const StartUpPage = () => {
         </>
     );
 };
-
+const TableBox = styled.div`
+margin: 30px;
+`
 
 export default StartUpPage;

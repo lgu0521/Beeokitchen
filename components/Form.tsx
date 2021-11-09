@@ -33,7 +33,7 @@ border-bottom:2px solid #175436;
 const Option = styled.option`
 `
 
-const InputDIV = styled.tr`
+const Tr = styled.tr`
 height: 30px;
 `
 
@@ -132,21 +132,23 @@ const InputForm = ({
     ...rest
 }: any) => {
     return (
-        <InputDIV>
+        <Tr>
             <Th><Label>{label}</Label></Th>
             <Th><Input {...register(name)} {...rest} /></Th>
-        </InputDIV>
+        </Tr>
     );
 };
 
 interface OptionType {
-    value: string
+    value: string,
+    name?: string
 }
 interface SelectProps {
     register?: any,
     name: string,
     label: string,
     options: OptionType[],
+    defaultValue?: string,
     children?: React.ReactNode
 
 }
@@ -155,20 +157,21 @@ const SelectForm = ({
     name,
     label,
     options,
+    defaultValue,
     children
 }: SelectProps) => {
     return (
-        <InputDIV>
+        <Tr>
             <Th><Label>{label}</Label></Th>
-            <Th> <Select {...register(name)}>
+            <Th> <Select {...register(name)} defaultValue={defaultValue}>
                 {
                     options.map((item, key) => {
-                        return <Option value={item.value} key={key}>{item.value}</Option>
+                        return <Option value={item.value} key={key}>{item.name}</Option>
                     })
                 }
 
             </Select></Th>
-        </InputDIV>
+        </Tr>
     );
 };
 
@@ -177,8 +180,12 @@ const ButtonForm = ({
     ...rest
 }: any) => {
     return (
-        <Button type="submit" {...rest}>
-            {name} </Button>
+        <Tr>
+            <Th colSpan={2} style={{textAlign:"center"}}>
+                <Button type="submit" {...rest}>
+                    {name} </Button>
+            </Th>
+        </Tr>
     );
 };
 

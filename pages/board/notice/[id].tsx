@@ -1,16 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { GetServerSideProps } from 'next';
 import { Params } from 'next/dist/server/router';
-import { NoticeDTO } from '../../../dto/notice-create.dto'
+import { NoticeDetailDTO } from '../../../dto/notice-create.dto'
 import dynamic from 'next/dynamic';
 import { Viewer, ViewerProps } from '@toast-ui/react-editor';
 import PageMainTitle from '../../../components/PageMainTitle';
 import { PageLayout } from '../../../components/GlobalComponents';
 import styled from 'styled-components';
 import Layout from '../../../components/Layout';
+import Link from 'next/link';
+import { useAuth } from '../../../hook/AuthProvider';
 
 interface Props {
-    notice: NoticeDTO
+    notice: NoticeDetailDTO
 }
 const TuiNoSSRWrapper = dynamic<ViewerProps>(() => import('../../../components/ViewEditor'), {
     ssr: false,
@@ -22,11 +24,14 @@ const TuiWrapper = React.forwardRef((props: ViewerProps, ref) => (
 TuiWrapper.displayName = 'Editor';
 
 const NoticeDetailPage = ({ notice }: Props) => {
+    const { user } = useAuth();
     return (
         <div>
-            <Layout>
                 <PageMainTitle title="공지사항 및 보도자료" />
                 <PageLayout>
+                    {
+                        user ? <Link href="/admin/notice/123"><a>수정하기</a></Link> : null
+                    }
                     <Table>
                         <colgroup>
                             <col width="" />
@@ -50,7 +55,6 @@ const NoticeDetailPage = ({ notice }: Props) => {
                         </Tbody>
                     </Table>
                 </PageLayout>
-            </Layout>
         </div>
     );
 };
@@ -58,7 +62,7 @@ const NoticeDetailPage = ({ notice }: Props) => {
 export const getServerSideProps: GetServerSideProps = async ({ params }: Params) => {
     const { id } = params;
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/notice/${id}`);
-    const notice: NoticeDTO = await res.json();
+    const notice: NoticeDetailDTO = await res.json();
 
     if (!notice) {
         return {

@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { StartUpFormListDTO } from '../../../dto/startup-form.dto';
 
 const GetStartUpForm = async (req: NextApiRequest, res: NextApiResponse<Array<StartUpFormListDTO>>) => {

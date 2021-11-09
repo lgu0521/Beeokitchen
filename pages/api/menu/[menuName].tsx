@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { MenuListDTO } from '../../../dto/menu-create.dto';
 
 const GetMenuList = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -16,7 +16,9 @@ const GetMenuList = async (req: NextApiRequest, res: NextApiResponse) => {
         catagory: item.data().catagory,
         title: item.data().title,
         content: item.data().content,
-        url: item.data().url
+        order: item.data().order,
+        storageRef: item.data().storageRef,
+        downloadUrl: item.data().downloadUrl
       }
 
       resJsonArray.push(docData);

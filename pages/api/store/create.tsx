@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, setDoc, Timestamp, collection } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { StoreCreateDTO,StoreDTO } from "../../../dto/store-create.dto";
 
 const CreateStore = async (req: NextApiRequest, res: NextApiResponse) => {

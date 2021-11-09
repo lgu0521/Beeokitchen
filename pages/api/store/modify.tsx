@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, setDoc, updateDoc, collection } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { StoreModifyDTO, StoreDTO } from "../../../dto/store-create.dto";
 
 const ModifyStore = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -16,7 +16,7 @@ const ModifyStore = async (req: NextApiRequest, res: NextApiResponse) => {
                 phonenumber: reqBody.phonenumber,
                 url: reqBody.url,
             });
-
+            console.log(docUpdate);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

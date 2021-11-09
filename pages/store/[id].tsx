@@ -1,29 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GetServerSideProps, InferGetServerSidePropsType, NextPage } from 'next';
 import { Params } from 'next/dist/server/router';
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import styled from 'styled-components';
-import { StoreDTO } from '../../dto/store-create.dto';
+import { StoreDetailDTO } from '../../dto/store-create.dto';
 import { PageLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
 import Image from 'next/image'
-import Layout from '../../components/Layout';
+import StoreModifyAndDeleteModal from '../../components/admin/StoreModifyAndDeleteModal';
+import { useAuth } from '../../hook/AuthProvider';
 
 interface Props {
-    store: StoreDTO
+    store: StoreDetailDTO
 }
 const StoreDetailPage: NextPage<Props> = ({ store }) => {
-
+    const { user } = useAuth();
+    
     return (
-        <Layout>
+        <>
         <PageLayout>
             <BoxWrap>
+                {
+                    user? <StoreModifyAndDeleteModal {...store}/> : null
+                }
                 <Wrap>
                     <Carousel showThumbs={false} swipeable={true}>
                         {
                             store.url.map((item, key) => (
                                 <div key={key}>
-                                    <Image src={item} alt="" />
+                                    <Image src={item} alt="" width="100%" height="100%"/>
                                 </div>
                             ))
                         }
@@ -37,7 +42,7 @@ const StoreDetailPage: NextPage<Props> = ({ store }) => {
                 </Wrap>
             </BoxWrap>
         </PageLayout>
-        </Layout>
+        </>
     );
 };
 
@@ -63,7 +68,7 @@ const BoxWrap = styled.div`
     display: block;
     width: 100%;
     border: 1px solid #ddd;
-
+    position: relative;
 `
 
 const Wrap = styled.div`

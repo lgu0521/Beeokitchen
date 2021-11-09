@@ -1,9 +1,7 @@
 import { Form, InputForm, ButtonForm } from '../../components/BasicForm'
-import firebase from '../../service/firebase';
-import { getAuth, signInWithEmailAndPassword, setPersistence, browserLocalPersistence, signOut, browserSessionPersistence } from 'firebase/auth'
 import AdminLayout from '../../components/AdminLayout';
 import { PageLayout } from '../../components/GlobalComponents';
-import { useRouter } from 'next/dist/client/router';
+import { AuthProvider, useAuth } from '../../hook/AuthProvider';
 
 type LoginData = {
     email: string,
@@ -11,28 +9,13 @@ type LoginData = {
 }
 
 const AdminLoginPage = () => {
-    const firebaseAuth = getAuth(firebase);
-    const router = useRouter();
+    const { user, error, SignInWithEmailAndPassword, LoginOut} = useAuth();
 
     const Submit = async ({ email, password }: LoginData) => {
-        console.log(email, password);
-        try {
-            setPersistence(firebaseAuth, browserSessionPersistence).then(
-                () => {
-                    return signInWithEmailAndPassword(firebaseAuth, email, password);
-                }
-            );
-            router.push('/');
-
-        } catch (error) {
-            console.log(error);
-        }
+        await SignInWithEmailAndPassword(email, password);
+        console.log(user);
     }
 
-    const LoginOut = async() =>{
-        const singOut = await signOut(firebaseAuth);
-        router.push('/menu');
-    }
     return (
         <AdminLayout>
             <PageLayout>
@@ -42,6 +25,7 @@ const AdminLoginPage = () => {
                     <ButtonForm name="로그인" />
                 </Form>
             </PageLayout>
+            {user ? user.uid : "정보 없음"}
             <button onClick={LoginOut}>로그아웃</button>
         </AdminLayout>
     );

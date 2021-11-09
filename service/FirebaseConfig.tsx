@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 
-const firebaseConfig = {
+const FirebaseConfig = {
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
@@ -10,6 +10,6 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
 }
 
-const firebase = initializeApp(firebaseConfig);
+const firebase = initializeApp(FirebaseConfig);
 
 export default firebase;

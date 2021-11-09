@@ -6,8 +6,8 @@ const fontSizes = {
   md: calcEm(0.82), //18px
   lg: calcEm(0.91), //20px
   xl: calcEm(1.09), //24px
-  xxl: calcEm(1.45), //32px
-  titleSize: calcEm(2) //44px
+  xxl: calcEm(1.45), //23.2px
+  titleSize: calcEm(2) //32px
 };
 
 const paddings = {

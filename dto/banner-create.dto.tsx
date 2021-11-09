@@ -1,17 +1,9 @@
-export interface BannerDTO {
-    order: number
-    url: string,
- }
+import { ImageBlock, TmpImageBlock } from './image-create.dto'
 
-export interface BannerCreateDTO extends BannerDTO{
-    tmpUrl: File, //JSON.stringify 변환이 불가능 하기때문에 url로 string 저장
+export interface BannerDTO extends ImageBlock {
+    id?: string
 }
 
-export interface BannerDeleteDTO{
-    id: string,
+export interface BannerDeleteDTO {
+    id: string
 }
-
-export interface BannerListDTO extends BannerDTO{
-    id: string,
-}
-

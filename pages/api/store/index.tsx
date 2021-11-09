@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, collection, getDocs } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { StoreAllListDTO } from '../../../dto/store-create.dto';
 
 const GetStoreList = async (req: NextApiRequest, res: NextApiResponse<Array<StoreAllListDTO>>) => {
@@ -15,7 +15,7 @@ const GetStoreList = async (req: NextApiRequest, res: NextApiResponse<Array<Stor
         location: item.data().location,
         operation: item.data().operation,
         phonenumber: item.data().phonenumber,
-        url: item.data().url[0]
+        url: item.data().url
       }
       resJsonArray.push(docData);
     });

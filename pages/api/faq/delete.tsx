@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, deleteDoc } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { FaqDeleteDTO } from "../../../dto/faq-create.dto";
 
 const DeleteFaq = async (req: NextApiRequest, res: NextApiResponse) => {

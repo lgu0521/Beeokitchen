@@ -1,5 +1,6 @@
 import { FirebaseStorage, getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import firebase from '../service/firebase';
+import firebase from '../service/FirebaseConfig';
+import { ImageBlock } from '../dto/image-create.dto'
 
 const GetMultiDownloadUrl = async (FileList: File[]): Promise<string[]> => {
     var downloadUrls = [] as string[];
@@ -22,20 +23,25 @@ const GetMultiDownloadUrl = async (FileList: File[]): Promise<string[]> => {
     return downloadUrls;
 };
 
-const GetSingleDownloadUrl = async (ImageFile: File[]): Promise<string> => {
-    console.log(ImageFile[0].name);
-    var downloadUrl: string = "";
+const GetSingleDownloadUrl = async (ImageFile: File[]): Promise<ImageBlock> => {
+    var imageData = {} as ImageBlock;
+    console.log(ImageFile);
     try {
-        const firestorage: FirebaseStorage = getStorage(firebase, "gs://beeokitchen-env.appspot.com");
-        var refStorage = ref(firestorage, '/store/'+ImageFile[0].name);
-        var uploadTask = await uploadBytes(refStorage, ImageFile[0]);
+        const firestorage: FirebaseStorage = getStorage(firebase, process.env.NEXT_PUBLIC_FIREBASE_DATA_BASEURL);
+        const refStorage = ref(firestorage, '/store/' + ImageFile[0].name);
+        await uploadBytes(refStorage, ImageFile[0]);
         const downloadUrlPromise = await getDownloadURL(refStorage);
-        downloadUrl = await downloadUrlPromise;
+
+        imageData = {
+            storageRef: refStorage.fullPath,
+            downloadUrl: await downloadUrlPromise
+        }
+
     } catch (e) {
         console.log(e);
     }
 
-    return downloadUrl;
+    return imageData;
 };
 
 export { GetMultiDownloadUrl, GetSingleDownloadUrl };

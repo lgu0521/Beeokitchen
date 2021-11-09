@@ -1,16 +1,21 @@
 import { MenuCreateDTO, MenuModifyDTO, MenuDelelteDTO } from '../../dto/menu-create.dto';
-import { useForm } from 'react-hook-form';
-import { GetSingleDownloadUrl } from '../GetDownloadUrl';
-import BasicModal from '../BasicModal';
 import { useState } from 'react';
 import Image from 'next/image';
-import { route } from 'next/dist/server/router';
-import { Router, useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/dist/client/router';
+// component
+import { GetSingleDownloadUrl } from '../GetDownloadUrl';
+import { Form, InputForm, ButtonForm, SelectForm } from '../Form';
+import BasicModal from '../BasicModal';
+import ImageUploadAndChange from '../ImageUploadAndChange';
+//이미지
+import EditIcon from '../../public/Edit.png'
+import DeleteIcon from '../../public/Delete.png'
+import styled from 'styled-components';
 
 const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
     const router = useRouter();
+    const [menuValue, setMenuValue] = useState(MenuValue);
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const { register, handleSubmit, formState: { errors } } = useForm<MenuCreateDTO>();
 
     const onSubmit = async (data: MenuCreateDTO) => {
         const sendData: MenuModifyDTO = {
@@ -18,21 +23,25 @@ const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
             title: data.title,
             content: data.content,
             catagory: data.catagory,
-            url: MenuValue.url
+            order: menuValue.order,
+            storageRef: menuValue.storageRef,
+            downloadUrl: menuValue.downloadUrl
         };
 
-        if (data.tmpUrl.length > 0) {
-            console.log(data.tmpUrl);
-            const url = await GetSingleDownloadUrl(data.tmpUrl);
-            sendData.url = url;
+        console.log(sendData);
+
+        try {
+            await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify", {
+                method: 'POST',
+                body: JSON.stringify(sendData)
+            });
+
+            setIsModalOpen(false);
+            router.push('/menu');
+
+        } catch (e) {
+            alert('다시 시도해주세요');
         }
-
-        const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify", {
-            method: 'POST',
-            body: JSON.stringify(sendData)
-        });
-
-        console.log(res);
     }
 
     const DeleteMenu = async () => {
@@ -52,32 +61,55 @@ const MenuModifyAndDeleteModal = (MenuValue: MenuModifyDTO) => {
         }
     }
 
-    return (
-        <>
-            <button onClick={() => setIsModalOpen(true)}>수정</button>
-            <button onClick={DeleteMenu}>삭제</button>
-            <BasicModal onClose={() => setIsModalOpen(false)} isModalOpen={isModalOpen}>
-                <div>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <label>메뉴 카테고리</label>
-                        <select {...register("catagory")} defaultValue={MenuValue.catagory}>
-                            <option value="Gimbab">김밥</option>
-                            <option value="LunchBox">도시락</option>
-                            <option value="Salad">샐러드</option>
-                            <option value="Beverage">음료</option>
-                        </select>
-                        <label>메뉴 이름</label>
-                        <input defaultValue={MenuValue.title} {...register("title")} />
-                        <label>설명</label>
-                        <input defaultValue={MenuValue.content} {...register("content")} />
-                        <label>이미지</label>
-                        <input type="file" {...register("tmpUrl")} />
-                        <button type="submit">제출</button>
-                    </form>
-                </div>
-            </BasicModal>
-        </>
-    );
-};
+    const DragAndDropItem = (item:any) =>{
+        console.log(item);
+        setMenuValue(item);
+    }
 
-export default MenuModifyAndDeleteModal;
+
+        return (
+            <>
+                <Wrap>
+                    <Icon>
+                        <Image src={EditIcon} width="20px" height="20px" onClick={() => setIsModalOpen(true)} />
+                    </Icon>
+                </Wrap>
+                <BasicModal onClose={() => setIsModalOpen(false)} isModalOpen={isModalOpen}>
+                    <Form onSubmit={onSubmit}>
+                        <SelectForm name="catagory" label="메뉴 카테고리" defaultValue={menuValue.catagory} options={[
+                            { value: "Gimbab", name: "김밥" },
+                            { value: "도시락", name: "도시락" },
+                            { value: "샐러드", name: "샐러드" },
+                            { value: "음료", name: "음료" }]} />
+                        <InputForm label="메뉴 이름" defaultValue={menuValue.title} name="title" />
+                        <InputForm label="설명" defaultValue={menuValue.content} name="content" />
+                        <ImageUploadAndChange InitialItem={menuValue} GetItem={DragAndDropItem} />
+                        <ButtonForm name="제출" />
+                    </Form>
+                    <Icon>
+                        <Image src={DeleteIcon} width="25px" height="25px" onClick={DeleteMenu} />
+                    </Icon>
+                </BasicModal>
+            </>
+        );
+    };
+
+
+    const Icon = styled.button`
+    display: table-cell;
+    padding: 5px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 100%;
+    margin-left: 5px;
+    border: 1px solid #175436;
+`
+
+    const Wrap = styled.div`
+    display: table;
+    position: absolute;
+    float: right;
+    right: 0;
+    padding: 30px;
+`
+    export default MenuModifyAndDeleteModal;

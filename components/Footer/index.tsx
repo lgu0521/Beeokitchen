@@ -5,7 +5,7 @@ import styled from 'styled-components';
 const Wrap = styled.div`
 background: #222222;
     width: 100%;
-    height:100px;
+    height:80px;
     border-bottom: 1px black solid;
     display: flex;
     justify-content: center;

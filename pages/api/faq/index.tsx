@@ -1,13 +1,13 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { FaqListDTO } from '../../../dto/faq-create.dto';
 
 const GetFaqList = async (req: NextApiRequest, res: NextApiResponse<Array<FaqListDTO>>) => {
     const firestore = getFirestore(firebase);
     var resJsonArray = [] as FaqListDTO[];
     try {
-        const querySnapshot = await getDocs(collection(firestore, "Banner"));
+        const querySnapshot = await getDocs(collection(firestore, "Faq"));
         querySnapshot.forEach((item) => {
             const docData: FaqListDTO = {
                 id: item.id,

@@ -18,7 +18,10 @@ export interface StoreModifyDTO extends StoreDTO {
     id: string,
 }
 
-export interface StoreAllListDTO extends Omit<StoreDTO, 'url'>{
-    id: string,
-    url: string
+export interface StoreAllListDTO extends StoreDTO{
+    id: string
+}
+
+export interface StoreDetailDTO extends StoreDTO{
+    id: string
 }

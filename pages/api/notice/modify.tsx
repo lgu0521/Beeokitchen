@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, setDoc, updateDoc, collection } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { NoticeModifyDTO } from "../../../dto/notice-create.dto";
 
 const ModifyNotice = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -14,7 +14,7 @@ const ModifyNotice = async (req: NextApiRequest, res: NextApiResponse) => {
                 content: reqBody.content,
                 datetime: reqBody.datetime,
             });
-
+            console.log(res);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

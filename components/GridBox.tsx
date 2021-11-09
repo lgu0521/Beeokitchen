@@ -21,6 +21,7 @@ interface GridProps extends GridItemProps{
 const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
     return (
         <>
+        <ContentBox>
             { boxItems.map((item, key) => (
                 <GridItem key={key} height={height} col={col} mdCol={mdCol} smCol={smCol}>
                     <GridWrap>
@@ -38,6 +39,7 @@ const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
                 </GridItem>
             ))
             }
+            </ContentBox>
         </>
     );
 };
@@ -48,6 +50,9 @@ const FONT_STYLE = {
 
 }
 
+const ContentBox = styled.div`
+margin: 30px;
+`
 const Wrap = styled.div`
 margin: 7px 0;
 `
@@ -59,7 +64,7 @@ vertical-align: middle;
 const GridItem = styled.div<GridItemProps>`
     height: ${(props) => props.height ? props.height : '100px'};
     display: table;
-    margin: 10px;
+    margin: 5px;
     box-sizing: border-box;
     background: #f7f7f7;
     text-align: center;

@@ -7,7 +7,8 @@ import { NoticeListDTO } from '../../dto/notice-create.dto';
 import { FaqListDTO } from '../../dto/faq-create.dto';
 import { PageLayout } from '../../components/GlobalComponents';
 import styled from "styled-components";
-import Layout from "../../components/Layout";
+import FaqModifyAndDeleteModal from '../../components/admin/FaqModifyAndDeleteModal'
+import { useAuth } from "../../hook/AuthProvider";
 interface Props {
     noticeList: NoticeListDTO[],
     faqList: FaqListDTO[]
@@ -16,30 +17,33 @@ interface Props {
 const BrandPage: NextPage<Props> = ({ noticeList, faqList }) => {
     const [isFaq, setIsFaq] = useState(true);
     const [isNotice, setIsNotice] = useState(false);
+    const { user } = useAuth();
+
+    console.log(faqList);
     return (
         <>
-            <Layout>
-                <PageMainTitle title="게시판" description="비오키친과 함께 하실 점주님을 모집합니다. 세계적인 브랜드의 성공 철학을 공유합니다." />
-                <PageLayout>
-                    <TabButton isOpen={isFaq} onClick={() => { setIsFaq(true); setIsNotice(false) }}>FAQ</TabButton>
-                    <TabButton isOpen={isNotice} onClick={() => { setIsFaq(false); setIsNotice(true) }}>공지사항</TabButton>
-                </PageLayout>
-                <PageLayout>
-                    {
-                        isFaq ? <>
-                            {
-                                faqList.map((item, key) => (
-                                    <div key={key}>
-                                        <AccordionListView {...item} />
-                                    </div>
-                                ))}
-                        </> : null
-                    }
-                    {
-                        isNotice ? <PageNationListView itemList={noticeList} pageSize={5} /> : null
-                    }
-                </PageLayout>
-            </Layout>
+            <PageLayout>
+                <TabButton isOpen={isFaq} onClick={() => { setIsFaq(true); setIsNotice(false) }}>FAQ</TabButton>
+                <TabButton isOpen={isNotice} onClick={() => { setIsFaq(false); setIsNotice(true) }}>공지사항</TabButton>
+            </PageLayout>
+            <PageLayout>
+                {
+                    isFaq ? <>
+                        {
+                            faqList.map((item, key) => (
+                                <div key={key}>
+                                    {
+                                        user ? <FaqModifyAndDeleteModal {...item} /> : null
+                                    }
+                                    <AccordionListView {...item} />
+                                </div>
+                            ))}
+                    </> : null
+                }
+                {
+                    isNotice ? <PageNationListView itemList={noticeList} pageSize={5} /> : null
+                }
+            </PageLayout>
         </>
     );
 };

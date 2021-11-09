@@ -1,8 +1,9 @@
-export interface MenuDTO {
+import { ImageBlock } from "./image-create.dto";
+
+export interface MenuDTO extends ImageBlock{
     catagory: string,
     title: string,
-    content: string,
-    url: string
+    content: string
 }
 
 export interface MenuCreateDTO extends MenuDTO {

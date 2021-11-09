@@ -13,7 +13,6 @@ const BasicModal = ({ onClose, isModalOpen, children }: ModalProps) => {
             { isModalOpen ?
                 <Modal>
                     <ModalContent>
-                        <button onClick={() => onClose()}>닫기</button>
                         {children}
                     </ModalContent>
                 </Modal> : null
@@ -45,23 +44,23 @@ export const ModalContent = styled.div`
 
     @media only screen and (max-width: 600px) {
         padding: 10px;
-        width: 90%;
+        width: 40%;
     }
     @media only screen and (min-width: 600px) {
         padding: 10px;
-        width:80%;
+        width: 40%;
     }
     @media only screen and (min-width: 768px) {
         padding: 20px;
-        width: 70%;
+        width: 40%;
     }
     @media only screen and (min-width: 992px) {
         padding: 20px;
-        width: 60%;
+        width: 40%;
     }
     @media only screen and (min-width: 1200px) {
         padding: 20px;
-        width: 50%;
+        width: 40%;
     }
 `;
 

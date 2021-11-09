@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, deleteDoc } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { BannerDeleteDTO } from "../../../dto/banner-create.dto";
 
 const DeleteBanner = async (req: NextApiRequest, res: NextApiResponse) => {

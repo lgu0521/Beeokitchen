@@ -1,29 +1,21 @@
 import styled from 'styled-components';
-import { Title1, Content } from '../components/GlobalComponents';
+import { Content, Title1, Title4 } from '../components/GlobalComponents';
 
 interface Props {
     title: string,
-    description?: string
+    description1?: string,
+    description2?: string
 }
 
-const PageMainTitle = ({ title, description }: Props) => {
+const PageMainTitle = ({ title, description1, description2 }: Props) => {
 
     return (
         <>
             <ContentBox>
-                <ContentWrap>
-                    <Title1>{title}</Title1>
-                    {
-                        description ?
-                            <>
-                                <Wrap>
-                                    <Content>{description}</Content>
-                                </Wrap>
-                                <Line/>
-                                </> : <Line bottom="30px"/>
-                    }
-                    
-                </ContentWrap>
+                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{title}</Title1>
+                <Line />
+                <Content style={{ paddingTop: "20px"}}>{description1}</Content>
+                <Content style={{ paddingTop: "5px"}}>{description2}</Content>
             </ContentBox>
         </>
     );
@@ -31,34 +23,19 @@ const PageMainTitle = ({ title, description }: Props) => {
 
 const ContentBox = styled.div`
     width: 100%;
-    height: 150px;
+    display: inline-block;
     text-align: center;
-    display: table;
+    background: rgba(1, 103, 53, 0.3);
+    padding: 20px 0;
 `;
 
-const ContentWrap = styled.div`
-    height: 100%;
-    vertical-align: middle;
-    display: table-cell;
-    position: relative;
-    
-`;
-
-const Wrap = styled.div`
-    color: #666;
-    margin-top: 10px;
-    margin-bottom: 30px;
-
-`
-
-const Line = styled.span<{"bottom"?:string}>`
+const Line = styled.span`
 &:after{
     content: '';
     width: 30px;
     height: 3px;
     background: #333;
     position: absolute;
-    bottom: ${(props) => props.bottom ? props.bottom : '10px'};
     left: 50%;
     margin-left: -15px;}
 `

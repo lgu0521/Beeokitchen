@@ -147,7 +147,7 @@ const Button = styled.button < PropsType > `
 `;
 
 const PageLayout = styled.div`
-    display: block;
+    position: relative;
     width:100%;
     padding: 30px 10px;
     overflow: auto;
@@ -156,7 +156,10 @@ const PageLayout = styled.div`
     @media only screen and (max-width: 768px) {
         width: auto;
     }
-    @media only screen and (min-width: 1200px) {
+    @media only screen and (min-width: 1000px) {
+        width: 1000px;
+    }
+    @media only screen and (min-width: 1600px) {
         width: 1200px;
     }
 `

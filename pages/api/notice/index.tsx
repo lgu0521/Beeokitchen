@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, collection, query, where, getDocs } from "firebase/firestore";
-import firebase from '../../../service/firebase';
+import firebase from '../../../service/FirebaseConfig';
 import { NoticeListDTO } from '../../../dto/notice-create.dto';
 
 const NoticeList = async (req: NextApiRequest, res: NextApiResponse<Array<NoticeListDTO>>) => {
