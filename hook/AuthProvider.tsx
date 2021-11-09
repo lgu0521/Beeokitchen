@@ -13,7 +13,7 @@ interface Value {
 const defaultValue: Value = {
     user: undefined,
     setUser: undefined,
-    error: undefined,
+    error: "",
     SignInWithEmailAndPassword: (email: string, password: string) => {
         return Promise.resolve('SignInWithEmailAndPassword');
     },
