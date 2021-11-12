@@ -5,7 +5,6 @@ import { StoreCreateDTO } from "../../../dto/store-create.dto";
 import { GetMultiDownloadUrl } from "../../../components/GetDownloadUrl";
 import { PageLayout } from "../../../components/GlobalComponents";
 import { ButtonForm, Form, InputForm } from "../../../components/Form";
-import PageMainTitle from "../../../components/PageMainTitle";
 
 const AdminCreateStore = () => {
     const onSubmit = async (data: StoreCreateDTO) => {
@@ -19,7 +18,6 @@ const AdminCreateStore = () => {
 
     return (
         <PageLayout>
-            <PageMainTitle title="매장 추가"/>
             <Form onSubmit={onSubmit}>
                 <InputForm label="매장 이름" placeholder="매장이름을 입력해주세요" name="name"/>
                 <InputForm label="매장 위치" placeholder="매장 위치" name="location"/>

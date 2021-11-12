@@ -1,8 +1,7 @@
 html,
-body {
+body, *{
   padding: 0;
   margin: 0;
-  font-family: 'Noto Sans KR';
 }
 
 a {
@@ -14,7 +13,9 @@ a {
   box-sizing: border-box;
 }
 
-
+input, button, select, option, textarea {
+  font-size: 100%;
+}
 ul {
    list-style: none;
    padding: 0px;
@@ -24,4 +25,5 @@ h1, h2, h3, h4, h5, h6, p{
   margin: 0px;
   padding: 0px;
   font-weight: normal;
+  font-family: 'Noto Sans KR';
 }

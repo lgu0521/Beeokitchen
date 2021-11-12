@@ -13,6 +13,7 @@ const BasicModal = ({ onClose, isModalOpen, children }: ModalProps) => {
             { isModalOpen ?
                 <Modal>
                     <ModalContent>
+                    <button onClick={onClose}>닫기</button>
                         {children}
                     </ModalContent>
                 </Modal> : null

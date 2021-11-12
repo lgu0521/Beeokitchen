@@ -50,7 +50,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
 
 const Tbody = styled.tbody`
     & td, th{
-        border-bottom: 1px solid #dddddd;
+        border-bottom: 1px solid ${props => props.theme.colors.line};
         text-align: center;
         color: #292929;
         letter-spacing: -0.04em;

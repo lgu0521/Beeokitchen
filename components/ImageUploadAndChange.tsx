@@ -33,7 +33,6 @@ const ImageUploadAndChange = ({ InitialItem, GetItem }: DragAndDropInitializePro
         } catch (e) {
             alert('다시 시도해주세요');
         }
-
     }
 
     const ChangeImage = async (e: any, index: number) => {

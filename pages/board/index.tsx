@@ -9,19 +9,21 @@ import { PageLayout, Title2 } from '../../components/GlobalComponents';
 import styled from "styled-components";
 import FaqModifyAndDeleteModal from '../../components/admin/FaqModifyAndDeleteModal'
 import { useAuth } from "../../hook/AuthProvider";
+import { PageTitleDTO } from "../../dto/page-title.dto";
 interface Props {
     noticeList: NoticeListDTO[],
-    faqList: FaqListDTO[]
+    faqList: FaqListDTO[],
+    PageTitle: PageTitleDTO
 }
 
-const BrandPage: NextPage<Props> = ({ noticeList, faqList }) => {
+const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
     const [isFaq, setIsFaq] = useState(true);
     const [isNotice, setIsNotice] = useState(false);
     const { user } = useAuth();
 
     return (
         <>
-        <PageMainTitle title="게시판" description1="항상 고객님의 의견에 귀 기울이는" description2="비오키친이 되도록 노력하겠습니다" />
+       <PageMainTitle {...PageTitle} />
             <PageLayout style={{ display: "flex" }}>
                 <Nav>
                     <Title2>
@@ -38,12 +40,12 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList }) => {
                         isFaq ? <>
                             {
                                 faqList.map((item, key) => (
-                                    <div key={key}>
+                                    <>
                                         {
                                             user ? <FaqModifyAndDeleteModal {...item} /> : null
                                         }
-                                        <AccordionListView {...item} />
-                                    </div>
+                                        <AccordionListView {...item} key={key}/>
+                                    </>
                                 ))}
                         </> : null
                     }
@@ -61,6 +63,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const resFaq = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/faq/');
     const noticeList: NoticeListDTO[] = await resNotice.json();
     const faqList: FaqListDTO[] = await resFaq.json();
+    const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/page-title/Board');
+    const PageTitle:PageTitleDTO = await resPageTitle.json();
+
 
     if (!noticeList && !faqList) {
         return {
@@ -70,7 +75,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             noticeList,
-            faqList
+            faqList,
+            PageTitle
         }
 
     }
@@ -83,7 +89,7 @@ display: inline-flex;
 `
 const ContextBox = styled.div`
 width: 100%;
-border-top: 3px solid #175436;
+border-top: 3px solid ${props => props.theme.colors.line};
 `
 
 const TabButton = styled.span<{ isOpen: boolean }>`

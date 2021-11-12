@@ -1,6 +1,5 @@
 import { FaqCreateDTO } from "../../../dto/faq-create.dto";
 import { PageLayout } from "../../../components/GlobalComponents";
-import PageMainTitle from "../../../components/PageMainTitle";
 import { Form, InputForm } from "../../../components/Form";
 
 const AdminCreateFaq = () => {
@@ -13,7 +12,6 @@ const AdminCreateFaq = () => {
 
     return (
         <PageLayout>
-            <PageMainTitle title="FAQ 추가"/>
             <Form onSubmit={onSubmit}>
                 <InputForm label="순번" placeholder="매장이름을 입력해주세요" name="order"/>
                 <InputForm label="제목" placeholder="매장이름을 입력해주세요" name="title"/>

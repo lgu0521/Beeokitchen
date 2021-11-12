@@ -9,7 +9,6 @@ const DeleteMenu = async (req: NextApiRequest, res: NextApiResponse) => {
             const firestore = getFirestore(firebase);
             const reqBody: MenuDelelteDTO = JSON.parse(req.body);
             const docDelete = await deleteDoc(doc(firestore, reqBody.catagory, reqBody.id));
-
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

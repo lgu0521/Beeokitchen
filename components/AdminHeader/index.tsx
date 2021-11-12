@@ -1,48 +1,47 @@
 import { PageFullWidthLayout } from '../../components/GlobalComponents'
 import Link from 'next/link';
 import styled from 'styled-components';
-
+import { useAuth } from '../../hook/AuthProvider';
 
 
 const AdminHeader = () => {
+    const { LoginOut } = useAuth();
     return (
         <div>
-                <Nav height="50px">
-                    <LineWrap width="100%" height="50px">
+            <Nav height="50px">
+                <LineWrap width="100%" height="50px">
                     <Ul>
-                            <Li>
-                                <Link href="/admin/setting">
-                                    <a>기본설정</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/menu">
-                                    <a>메뉴 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/store">
-                                    <a>매장 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/faq">
-                                    <a>FAQ 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/create/notice">
-                                    <a>공지사항 추가</a>
-                                </Link>
-                            </Li>
-                            <Li>
-                                <Link href="/admin/startup-list">
-                                    <a>창업문의</a>
-                                </Link>
-                            </Li>
-                        </Ul>
-                    </LineWrap>
-                </Nav>
+                        <Li>
+                            <Link href="/admin/create/menu">
+                                <a>메뉴 추가</a>
+                            </Link>
+                        </Li>
+                        <Li>
+                            <Link href="/admin/create/store">
+                                <a>매장 추가</a>
+                            </Link>
+                        </Li>
+                        <Li>
+                            <Link href="/admin/create/faq">
+                                <a>FAQ 추가</a>
+                            </Link>
+                        </Li>
+                        <Li>
+                            <Link href="/admin/create/notice">
+                                <a>공지사항 추가</a>
+                            </Link>
+                        </Li>
+                        <Li>
+                            <Link href="/admin/startup-list">
+                                <a>창업문의</a>
+                            </Link>
+                        </Li>
+                        <Li>
+                            <button onClick={LoginOut}>로그아웃</button>
+                        </Li>
+                    </Ul>
+                </LineWrap>
+            </Nav>
         </div>
 
     )
@@ -118,13 +117,6 @@ const PcHeade = styled.div`
     background: #2c2c2c;
     box-shadow: 0 3px 3px rgb(0 0 0 / 20%) !important;
     @media only screen and (max-width:991px){
-        display: none !important;
-    }
-`
-const MobileHeade = styled.div`
-    box-sizing: border-box;
-    box-shadow: 0 3px 3px rgb(0 0 0 / 20%) !important;
-    @media only screen and (min-width: 991px){
         display: none !important;
     }
 `

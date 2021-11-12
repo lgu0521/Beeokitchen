@@ -8,15 +8,17 @@ import { StoreAllListDTO, StoreModifyDTO } from '../../dto/store-create.dto';
 import { PageLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
 import StoreModifyAndDeleteModal from '../../components/admin/StoreModifyAndDeleteModal'
 import { useAuth } from "../../hook/AuthProvider";
+import { PageTitleDTO } from "../../dto/page-title.dto";
 
 interface Props {
-    storeList: StoreAllListDTO[]
+    storeList: StoreAllListDTO[],
+    PageTitle: PageTitleDTO
 }
-const Brand: NextPage<Props> = ({ storeList }) => {
+const Brand: NextPage<Props> = ({ storeList,PageTitle }) => {
     const { user } = useAuth();
     return (
         <>
-            <PageMainTitle title="매장" description1="나를 위한 관리가 시작되는 곳" description2=""/>
+           <PageMainTitle {...PageTitle} />
             <PageLayout>
                 {
                     storeList.map((item: StoreModifyDTO, key) => (
@@ -82,6 +84,8 @@ const Wrap = styled.div`
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/store');
     const storeList: StoreAllListDTO[] = await res.json();
+    const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/page-title/Store');
+    const PageTitle:PageTitleDTO = await resPageTitle.json();
 
     if (!storeList) {
         return {
@@ -90,7 +94,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
     return {
         props: {
-            storeList
+            storeList,
+            PageTitle
         }
 
     }

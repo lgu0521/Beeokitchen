@@ -51,7 +51,7 @@ const colors = {
   white: "#FFFFFF",
   gray_1: "#222222",
   gray_2: "#767676",
-  green_1: "#3cb46e",
+  line: "#326F54",
 };
 
 const device = {

@@ -28,7 +28,6 @@ const AccordionListView = ({ title, content }: FaqDTO, ) => {
 const Button = styled.button`
     display: block;
     width: 100%;
-    padding: 20px;
     text-align: left;
     position: relative;
     border-radius: 0; //button basic style remove
@@ -62,13 +61,13 @@ const DropIcon = styled.span<{ isOpen: boolean }>`
 
 const AccordionListBox = styled.article`
     display: inline-block;
-    border-bottom: 1px solid #175436;
+    padding: 20px;
+    border-bottom: 1px solid ${props => props.theme.colors.line};
     width: 100%;
 `
 const AccordionItemBox = styled.head`
     width: 100%;
     display: inline-block;
-    padding: 5px 0px;
 `
 const AccordionTextBox = styled.div<{ isOpen: boolean }>`
     text-align: left;

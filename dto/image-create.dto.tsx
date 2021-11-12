@@ -4,7 +4,7 @@ export interface TmpImageBlock {
 export interface ImageBlock {
     order: number
     storageRef: string,
-    downloadUrl:string
+    downloadUrl: string
 }
 
 export interface ImageBlocks {

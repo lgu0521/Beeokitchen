@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 import { Content, Title1, Title4 } from '../components/GlobalComponents';
-
-interface Props {
-    title: string,
-    description1?: string,
-    description2?: string
-}
-
-const PageMainTitle = ({ title, description1, description2 }: Props) => {
-
+import { useAuth } from '../hook/AuthProvider';
+import PageTitleModeifyModal from './admin/PageTitleModeifyModal';
+import {PageTitleDTO} from '../dto/page-title.dto'
+const PageMainTitle = (props: PageTitleDTO) => {
+    const { user } = useAuth();
     return (
         <>
             <ContentBox>
-                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{title}</Title1>
+                {
+                    user ? <PageTitleModeifyModal {...props}/> : null
+                }
+                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{props.title}</Title1>
                 <Line />
-                <Content style={{ paddingTop: "20px"}}>{description1}</Content>
-                <Content style={{ paddingTop: "5px"}}>{description2}</Content>
+                <Content style={{ paddingTop: "20px" }}>{props.content_1}</Content>
+                <Content style={{ paddingTop: "5px" }}>{props.content_2}</Content>
             </ContentBox>
         </>
     );

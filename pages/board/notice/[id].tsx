@@ -10,9 +10,11 @@ import styled from 'styled-components';
 import Layout from '../../../components/Layout';
 import Link from 'next/link';
 import { useAuth } from '../../../hook/AuthProvider';
+import { PageTitleDTO } from '../../../dto/page-title.dto';
 
 interface Props {
-    notice: NoticeDetailDTO
+    notice: NoticeDetailDTO,
+    PageTitle: PageTitleDTO
 }
 const TuiNoSSRWrapper = dynamic<ViewerProps>(() => import('../../../components/ViewEditor'), {
     ssr: false,
@@ -23,11 +25,11 @@ const TuiWrapper = React.forwardRef((props: ViewerProps, ref) => (
 ));
 TuiWrapper.displayName = 'Editor';
 
-const NoticeDetailPage = ({ notice }: Props) => {
+const NoticeDetailPage = ({ notice, PageTitle }: Props) => {
     const { user } = useAuth();
     return (
         <div>
-                <PageMainTitle title="공지사항 및 보도자료" description1="비오키친의 최신 소식입니다"/>
+                <PageMainTitle {...PageTitle} />
                 <PageLayout>
                     {
                         user ? <Link href="/admin/notice/123"><a>수정하기</a></Link> : null
@@ -59,6 +61,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }: Params)
     const { id } = params;
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + `/api/notice/${id}`);
     const notice: NoticeDetailDTO = await res.json();
+    const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/page-title/Notice");
+    const PageTitle: PageTitleDTO = await resPageTitle.json();
 
     if (!notice) {
         return {
@@ -68,7 +72,8 @@ export const getServerSideProps: GetServerSideProps = async ({ params }: Params)
 
     return {
         props: {
-            notice
+            notice,
+            PageTitle
         }
     }
 }

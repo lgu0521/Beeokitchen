@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StartUpFormDTO } from "../../dto/startup-form.dto";
 import GridBox from "../../components/GridBox";
-import { PageLayout, Button, Content, Title3, Title1 } from "../../components/GlobalComponents";
+import { PageLayout, PageFullWidthLayout, Button, Content, Title3, Title1 } from "../../components/GlobalComponents";
 import PageMainTitle from "../../components/PageMainTitle";
 import Style from "../../components/style";
 import { InputForm, Form, ButtonForm, SelectForm } from '../../components/Form';
 import styled from "styled-components";
+import { PageTitleDTO } from "../../dto/page-title.dto";
+import { GetStaticProps } from "next";
 
 interface BoxItem {
     step: string,
@@ -46,9 +48,11 @@ const BoxItems: BoxItem[] = [
         step: "Step.08",
         procedure: "전화 및 방문상담",
     }
-
 ]
-const StartUpPage = () => {
+interface Props {
+    PageTitle: PageTitleDTO
+}
+const StartUpPage = ({PageTitle}:Props) => {
     const [isFormClick, setIsFormClick] = useState(false);
     const { register, handleSubmit, formState: { errors } } = useForm<StartUpFormDTO>();
 
@@ -64,10 +68,37 @@ const StartUpPage = () => {
         }
     }
 
+    const CONTENT_BOX_STYLE = {
+        height: "400px",
+        backgroundColor: "white",
+        backgroundSize: "cover",
+    }
+
+    const CONTENT_TITLE_STYLE = {
+        marginBottom: "20px",
+        display: "block",
+        color: "black",
+    }
+
+    const FONT_STYLE = {
+        color: "black"
+    }
     return (
         <>
-            <PageMainTitle title="창업안내" description1="비오키친과 함께 하실 점주님" description2="세계적인 브랜드의 성공 철학을 공유합니다" />
-            <PageLayout></PageLayout>
+            <PageMainTitle {...PageTitle} />
+            <PageFullWidthLayout style={{ ...CONTENT_BOX_STYLE, backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/StartupMain%2F%E1%84%8E%E1%85%A1%E1%86%BC%E1%84%8B%E1%85%A5%E1%86%B8%E1%84%8B%E1%85%A1%E1%86%AB%E1%84%82%E1%85%A2%201%20(1).png?alt=media&token=37e754e9-a781-448a-8ca5-a74478f85d31')" }}>
+                <ContentWrap>
+                    <Title1 style={CONTENT_TITLE_STYLE}>발로 뛰는 사장님을 모십니다.</Title1>
+                    <Content style={FONT_STYLE}>
+                        <ContentUnit>
+                        세상에 힘들이지 않고 운영되는 매장은 없습니다.
+                        </ContentUnit>
+                        <ContentUnit>
+                            매장 상황을 누구보다 잘 알고, 매장을 직접 꼼꼼하게 관리 해주실 점주님과 패밀리십 체결을 희망합니다.
+                        </ContentUnit>
+                    </Content>
+                </ContentWrap>
+            </PageFullWidthLayout>
             <PageLayout>
                 <Title1 style={{ fontWeight: 600, color:"#15AA5A" }}>창업 절차</Title1>
                 <GridBox boxItems={BoxItems} col={4} mdCol={3} smCol={2} height="100px" />
@@ -161,8 +192,47 @@ const StartUpPage = () => {
         </>
     );
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/page-title/StartUp");
+    const PageTitle: PageTitleDTO = await resPageTitle.json();
+
+    if (!PageTitle) {
+        return {
+            notFound: true,
+        }
+    }
+
+    return {
+        props: {
+            PageTitle
+        }
+    }
+}
+
 const TableBox = styled.div`
 margin: 30px;
+`
+
+const ContentWrap = styled.div`
+    height: 100%;
+    vertical-align: middle;
+    display: table-cell;
+`;
+
+const ContentUnit = styled.p`
+    @media only screen and (max-width: 600px) {
+        padding: 0px 50px;
+    }
+    @media only screen and (min-width: 600px) {
+        padding: 0px 100px;
+    }
+    @media only screen and (min-width: 992px) {
+        padding: 0px 200px;
+    }
+    @media only screen and (min-width: 1200px) {
+        padding: 0px 300px;
+    }
 `
 
 export default StartUpPage;

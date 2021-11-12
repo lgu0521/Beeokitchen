@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styled from 'styled-components';
-import Logo from '../../public/logo.jpeg'
+import Logo from '../../public/logo.png'
 import Image from 'next/image';
 
 const Header = () => {
@@ -9,7 +9,7 @@ const Header = () => {
             <PcHeade>
                 <Nav height="100px">
                     <Wrap width="20%" height="100%">
-                        <Image height={70} width={78} src={Logo} alt=""/>
+                        <Image height={60} width={200} src={Logo} alt="" objectFit="contain"/>
                     </Wrap>
                     <Wrap width="60%" height="100%">
                         <Ul>
@@ -46,7 +46,7 @@ const Header = () => {
             <MobileHeade>
                 <Nav height="75px">
                     <Wrap width="100%" height="75px">
-                        <Image height={60} width={68} src={Logo} alt="" />
+                    <Image height={60} width={150} src={Logo} alt="" objectFit="contain"/>
                     </Wrap>
                     <LineWrap width="100%" height="50px">
                         <Ul>
