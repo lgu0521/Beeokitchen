@@ -3,6 +3,9 @@ import { Content, Title1, Title4 } from '../components/GlobalComponents';
 import { useAuth } from '../hook/AuthProvider';
 import PageTitleModeifyModal from './admin/PageTitleModeifyModal';
 import {PageTitleDTO} from '../dto/page-title.dto'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 const PageMainTitle = (props: PageTitleDTO) => {
     const { user } = useAuth();
     return (
@@ -11,10 +14,15 @@ const PageMainTitle = (props: PageTitleDTO) => {
                 {
                     user ? <PageTitleModeifyModal {...props}/> : null
                 }
-                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{props.title}</Title1>
+                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{props.title || <Skeleton/>}</Title1>
                 <Line />
-                <Content style={{ paddingTop: "20px" }}>{props.content_1}</Content>
-                <Content style={{ paddingTop: "5px" }}>{props.content_2}</Content>
+                <Content style={{ paddingTop: "20px" }}>{props.content_1 || <Skeleton/>}</Content>
+                {
+                    props.content_2?
+                    <Content style={{ paddingTop: "5px" }}>{props.content_2 || <Skeleton/>}</Content>
+                    :null
+                }
+                
             </ContentBox>
         </>
     );

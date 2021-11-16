@@ -8,20 +8,8 @@ const ModifyMenu = async (req: NextApiRequest, res: NextApiResponse) => {
         try {
             const firestore = getFirestore(firebase);
             const reqBody: MenuDTO = JSON.parse(req.body);
-            const newDocRef = doc(firestore, reqBody.catagory, reqBody.id);
-            console.log(reqBody);
-            const docUpdate = await updateDoc(newDocRef, {
-                catagory: reqBody.catagory,
-                title: reqBody.title,
-                content: reqBody.content,
-                orderList: reqBody.orderList,
-                image: {
-                    order: reqBody.image.order,
-                    storageRef: reqBody.image.storageRef,
-                    downloadUrl: reqBody.image.downloadUrl
-                }
-            });
-
+            const newDocRef = doc(firestore, "Menu", reqBody.id);
+            const docUpdate = await updateDoc(newDocRef, reqBody);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

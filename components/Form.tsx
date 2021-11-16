@@ -95,7 +95,7 @@ text-align: left;
 
 const Form = ({ defaultValues, children, onSubmit }: any) => {
     const methods = useForm({ defaultValues });
-    const { handleSubmit } = methods;
+    const { handleSubmit, formState: { errors } } = methods;
     return (
 
         <FormStyle onSubmit={
@@ -113,6 +113,7 @@ const Form = ({ defaultValues, children, onSubmit }: any) => {
                                     ...{
                                         ...child.props,
                                         register: methods.register,
+                                        error: errors,
                                         key: child.props.name
                                     }
                                 })
@@ -121,20 +122,22 @@ const Form = ({ defaultValues, children, onSubmit }: any) => {
                     })
                 }
             </Table></FormStyle>
-
     );
 };
 
 const InputForm = ({
     register,
+    errors,
     name,
     label,
     ...rest
 }: any) => {
+    console.log(name);
     return (
         <Tr>
             <Th><Label>{label}</Label></Th>
-            <Th><Input {...register(name)} {...rest} /></Th>
+            <Th><Input id={name} {...register(name)} {...rest} /></Th>
+            { errors.name && "Last name is required" }
         </Tr>
     );
 };
@@ -149,6 +152,7 @@ interface SelectProps {
     label: string,
     options: OptionType[],
     defaultValue?: string,
+    required:boolean,
     children?: React.ReactNode
 
 }
@@ -181,7 +185,7 @@ const ButtonForm = ({
 }: any) => {
     return (
         <Tr>
-            <Th colSpan={2} style={{textAlign:"center"}}>
+            <Th colSpan={2} style={{ textAlign: "center" }}>
                 <Button type="submit" {...rest}>
                     {name} </Button>
             </Th>

@@ -8,8 +8,8 @@ import DragIcon from '../public/drag.png';
 interface Props {
     InitialItemList: {
         id: string,
-        orderList: number,
-        title: string
+        order: number,
+        menu: string
     }[],
     GetItem: (item: any) => void
 }
@@ -28,7 +28,7 @@ const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
         items.splice(result.destination.index, 0, reorderedItem);
 
         items.map((item, index) => {
-            item.orderList = index as number
+            item.order = index as number
         });
         setItemList(items);
     }
@@ -40,7 +40,7 @@ const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
                     <div {...provided.droppableProps}
                         ref={provided.innerRef}>
                         {itemList.map((item, index) => (
-                            <Draggable key={index} draggableId={item.orderList.toString()} index={index}>
+                            <Draggable key={index} draggableId={item.order.toString()} index={index}>
                                 {(provided) => (
                                     <div ref={provided.innerRef}
                                         {...provided.dragHandleProps}
@@ -48,12 +48,11 @@ const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
                                         style={{ ...provided.draggableProps.style }}>
                                         <Wrap>
                                             <Image src={DragIcon} width="30px" height="30px" />
-                                            <Title3 style={{ fontWeight: 600 }}>{item.title}</Title3>
+                                            <Title3 style={{ fontWeight: 600 }}>{item.menu}</Title3>
                                         </Wrap>
                                     </div>
                                 )}
                             </Draggable>)
-
                         )}
                         {provided.placeholder}
                     </div>

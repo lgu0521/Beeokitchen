@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from 'styled-components';
@@ -8,6 +8,9 @@ import IsUserWithLogin from '../hook/AuthStateChanged';
 import { useState } from 'react';
 import AdminMainBannerComponent from '../components/admin/main';
 import { useAuth } from '../hook/AuthProvider';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import Image from 'next/image';
 
 interface Props {
   BannerList: BannerDTO[]
@@ -22,7 +25,11 @@ const Home: NextPage<Props> = ({ BannerList }) => {
           {
             BannerList.map((item, key) => (
               <div key={key}>
-                <Img src={item.downloadUrl} alt="" />
+                {
+                  item.downloadUrl?<Img  src={item.downloadUrl} alt="" />
+                  :<Skeleton count={10} height={100}/>
+                }
+                
               </div>
             ))
           }
@@ -38,6 +45,7 @@ const Home: NextPage<Props> = ({ BannerList }) => {
 const Img = styled.img`
     max-height: 600px;
     object-fit: scale-down;
+    width:100%;
     @media only screen and (max-width: 600px) {
       object-fit: fill;
       height: 300px;
@@ -51,7 +59,7 @@ const Img = styled.img`
     }
 `;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
   const BannerList: BannerDTO[] = await res.json();
 

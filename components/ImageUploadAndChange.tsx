@@ -4,9 +4,10 @@ import { ImageBlock } from '../dto/image-create.dto';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { GetSingleDownloadUrl } from './GetDownloadUrl';
+const DefaultImage = "https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/meau1.png?alt=media&token=742645d6-d01a-4cac-8f10-d3e70e817f0c";
 
 interface DragAndDropInitializeProps {
-    InitialItem: ImageBlock,
+    InitialItem?: ImageBlock,
     GetItem: (item: any) => void
 }
 
@@ -25,13 +26,19 @@ const ImageUploadAndChange = ({ InitialItem, GetItem }: DragAndDropInitializePro
     }, [imageItem]);
 
     const deleteImageItem = async () => {
-        try {
-            await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/image-delete", {
-                method: 'POST',
-                body: imageItem.storageRef
-            });
-        } catch (e) {
-            alert('다시 시도해주세요');
+        if (imageItem) {
+            try {
+                await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/image-delete", {
+                    method: 'POST',
+                    body: imageItem.storageRef
+                });
+
+
+            } catch (e) {
+                alert('다시 시도해주세요');
+            }
+        } else {
+            alert("이미지를 올려주세요");
         }
     }
 
@@ -52,11 +59,8 @@ const ImageUploadAndChange = ({ InitialItem, GetItem }: DragAndDropInitializePro
 
     return (
         <>
-            <ImageBox>
-                <Image src={imageItem.downloadUrl} width="350px" height="200px" layout="fixed" />
-                <InputFile onChangeInput={ChangeImage} name="이미지 바꾸기" />
-                <button onClick={() => { deleteImageItem }}>삭제</button>
-            </ImageBox>
+            <Image src={imageItem ? imageItem.downloadUrl : DefaultImage} width={80} height={80} objectFit="cover" />
+            <InputFile onChangeInput={ChangeImage} name="이미지 바꾸기" />
         </>
     );
 };
@@ -65,25 +69,23 @@ const InputFile = ({ onChangeInput, name, id, index }: InputFileProps) => {
     return (
         <>
             <Label htmlFor={id ? id : "addImage"}>{name}</Label>
-            <input onChange={(e) => onChangeInput(e, index != undefined ? index : null)} type="file" id={id ? id : "addImage"} />
+            <input style={{ display: "none" }} onChange={(e) => onChangeInput(e, index != undefined ? index : null)} type="file" id={id ? id : "addImage"} />
         </>
     )
 }
 
-const Label = styled.label`
-padding: 6px 25px;
-  background-color:#FF6600;
-  border-radius: 4px;
-  color: white;
-  cursor: pointer;
-`
 
-const ImageBox = styled.div`
-    border: 1px solid #D2D4DE;
-    border-radius: 20px;
-    width: 100%;
-    background-color: white;
-    padding: 10px 20px;
+const Label = styled.label`
+    display: flex;
+    align-items: center;
+    padding: 0px 11px;
+    height: 33px;
+    background-color:#FF6600;
+    border-radius: 10px;
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
 `
 
 export default ImageUploadAndChange;

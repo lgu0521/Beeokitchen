@@ -2,6 +2,9 @@ import firebase from '../service/FirebaseConfig';
 import { onAuthStateChanged, getAuth } from 'firebase/auth'
 import { useAuth } from './AuthProvider';
 import { useEffect, useState } from 'react';
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+
 interface LayoutProps {
     children: React.ReactNode;
 }
@@ -19,7 +22,7 @@ const AuthStateChanged = ({ children }: LayoutProps) => {
     }, []);
 
     if (loading) {
-        return <h1>Loading...</h1>
+        return <Skeleton/>
     }
 
     return (

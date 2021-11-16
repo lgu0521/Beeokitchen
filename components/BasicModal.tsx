@@ -1,6 +1,8 @@
 import React, { Children, Dispatch, SetStateAction, useState } from 'react';
 import styled from 'styled-components';
-
+import { Title1 } from './GlobalComponents';
+import Image from 'next/image';
+import XIcon from '../public/Close.png';
 interface ModalProps {
     onClose: () => void,
     isModalOpen: Boolean,
@@ -13,8 +15,17 @@ const BasicModal = ({ onClose, isModalOpen, children }: ModalProps) => {
             { isModalOpen ?
                 <Modal>
                     <ModalContent>
-                    <button onClick={onClose}>닫기</button>
+                        <ModalWrap>
+                        <Header>
+                            <Title style={{width:"50%",textAlign: "left"}}>✍️ Edit</Title>
+                            <CloseIcon onClick={onClose}>
+                                <Image src={XIcon} width={35} height={35}/>
+                            </CloseIcon>
+                        </Header>
+                        <Body>
                         {children}
+                        </Body>
+                        </ModalWrap>
                     </ModalContent>
                 </Modal> : null
             }
@@ -34,6 +45,31 @@ export const Modal = styled.div`
   background-color: rgba(0,0,0,0.4);
 `;
 
+export const Title = styled.div`
+font-size: 28px;
+`;
+
+export const Header = styled.div`   
+    display: flex;
+    border-bottom: 2px solid black;
+    align-content: space-between;
+    width: 100%;
+    padding-bottom: 10px;
+`;
+
+const Body = styled.div`
+    margin: 20px 0px;
+`;
+
+const ModalWrap = styled.div`
+    padding: 40px;
+`
+
+const CloseIcon = styled.div`
+    width: 50%;
+    text-align: right;
+    cursor: pointer;
+`
 export const ModalContent = styled.div`
     background-color: #fefefe;
     margin: 5% auto;
@@ -42,27 +78,7 @@ export const ModalContent = styled.div`
     border-radius: 20px;
     border: 0px;
     display: table;
-
-    @media only screen and (max-width: 600px) {
-        padding: 10px;
-        width: 40%;
-    }
-    @media only screen and (min-width: 600px) {
-        padding: 10px;
-        width: 40%;
-    }
-    @media only screen and (min-width: 768px) {
-        padding: 20px;
-        width: 40%;
-    }
-    @media only screen and (min-width: 992px) {
-        padding: 20px;
-        width: 40%;
-    }
-    @media only screen and (min-width: 1200px) {
-        padding: 20px;
-        width: 40%;
-    }
+    max-width: 600px;
 `;
 
 

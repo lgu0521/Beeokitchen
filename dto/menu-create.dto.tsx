@@ -1,16 +1,27 @@
 import { ImageBlock } from "./image-create.dto";
 
 export interface MenuDTO {
-    id : string,
-    orderList: number,
+    id: string,
     catagory: string,
-    title: string,
+    menu: string,
     content: string,
-    image: any
+    order: number,
+    image: ImageBlock
 }
 
-export interface MenuCreateDTO extends Omit<MenuDTO, "id">{
-    id? : string
+export interface MenuCatagoryDTO {
+    id: string,
+    order: number,
+    catagory: string,
+    content: string,
+}
+
+export interface MenusWithCatagoryDTO extends MenuCatagoryDTO {
+    menus: MenuDTO[]
+}
+
+export interface MenuCreateDTO extends Omit<MenuDTO, "id"> {
+    id?: string
 }
 
 export interface MenuDelelteDTO {

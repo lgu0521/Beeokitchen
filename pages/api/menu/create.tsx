@@ -8,20 +8,9 @@ const CreateMenu = async (req: NextApiRequest, res: NextApiResponse) => {
         try {
             const firestore = getFirestore(firebase);
             const reqBody: MenuCreateDTO = JSON.parse(req.body);
-            const newDocRef = doc(collection(firestore, reqBody.catagory));
-            const querySnapshot = await getDocs(collection(firestore, reqBody.catagory));
-            const docData: MenuCreateDTO = {
-                catagory: reqBody.catagory,
-                title: reqBody.title,
-                content: reqBody.content,
-                orderList: querySnapshot.size + 1,
-                image: {
-                    order: reqBody.image.order,
-                    storageRef: reqBody.image.storageRef,
-                    downloadUrl: reqBody.image.downloadUrl
-                }
-            }
-            const docRef = await setDoc(newDocRef, docData);
+            const newDocRef = doc(collection(firestore, "Menu"));
+            const querySnapshot = await getDocs(collection(firestore, "Menu"));
+            const docRef = await setDoc(newDocRef, { ...reqBody, order: querySnapshot.size + 1 });
 
             res.status(200).json({ message: "success" });
         } catch (e) {
