@@ -9,12 +9,13 @@ interface Props {
     InitialItemList: {
         id: string,
         order: number,
-        menu: string
+        title: string
     }[],
     GetItem: (item: any) => void
 }
 
 const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
+    console.log(InitialItemList);
     const [itemList, setItemList] = useState(InitialItemList);
     console.log(itemList);
     useEffect(() => {
@@ -28,7 +29,7 @@ const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
         items.splice(result.destination.index, 0, reorderedItem);
 
         items.map((item, index) => {
-            item.order = index as number
+            item.order = (index as number) + 1;
         });
         setItemList(items);
     }
@@ -48,7 +49,7 @@ const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
                                         style={{ ...provided.draggableProps.style }}>
                                         <Wrap>
                                             <Image src={DragIcon} width="30px" height="30px" />
-                                            <Title3 style={{ fontWeight: 600 }}>{item.menu}</Title3>
+                                            <Title3 style={{ fontWeight: 600 }}>{item.title}</Title3>
                                         </Wrap>
                                     </div>
                                 )}

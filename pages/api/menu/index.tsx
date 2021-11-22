@@ -16,7 +16,7 @@ const GetMenuCatagoryAndMenuList = async (req: NextApiRequest, res: NextApiRespo
     await Promise.all(categories.map(async (item) => {
       let menus: MenuDTO[] = [];
 
-      const querySnapshotMenuList = await getDocs(query(collection(firestore, "Menu"), where("catagory", "==", item.catagory), orderBy("order")));
+      const querySnapshotMenuList = await getDocs(query(collection(firestore, "Menu"), where("catagory", "==", item.title), orderBy("order")));
       querySnapshotMenuList.forEach((m) => menus.push({ ...m.data(), id: m.id } as MenuDTO));
 
       resJsonArray.push({ ...item, menus: menus });

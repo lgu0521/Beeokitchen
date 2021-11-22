@@ -1,14 +1,17 @@
+//Basic
 import { GetStaticProps, NextPage } from 'next';
 import Image from 'next/image';
+import { useAuth } from '../../hook/AuthProvider';
+//Style
 import styled from 'styled-components';
-import { Title1, Title2, Title3, Content, PageLayout } from '../../components/GlobalComponents';
+import { Title1, Title3, Content, PageLayout, PageFullWidthLayout, Title2, Title4 } from '../../components/GlobalComponents';
+//Component
 import PageMainTitle from '../../components/PageMainTitle';
+import { MenuEdit, MenuDefaulEdit } from '../../components/admin/MenuEdit';
+//DTO
 import { MenusWithCatagoryDTO } from '../../dto/menu-create.dto';
 import { PageTitleDTO } from '../../dto/page-title.dto';
-import MenuEdit from '../../components/admin/MenuEdit';
-import { useAuth } from '../../hook/AuthProvider';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
+import MenuCatagoryEdit from '../../components/admin/MenuCatagoryEdit';
 
 interface Props {
     menusWithCatagory: MenusWithCatagoryDTO[],
@@ -17,7 +20,6 @@ interface Props {
 
 const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
     const { user } = useAuth();
-    console.log(menusWithCatagory);
 
     const DragAndDropItem = (item: any) => {
         console.log(item);
@@ -26,28 +28,48 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
     return (
         <>
             <PageMainTitle {...PageTitle} />
-            <div>{/*  style={{ background: " rgba(244, 234, 211, 0.3)" }} */}
-                {menusWithCatagory.map((catagory, index) => (
-                    <PageLayout>
-                        <Title1 style={{ fontWeight: 600, color: "#15AA5A" }}>{catagory.catagory}</Title1>
-                        <Content style={{ marginTop: "5px" }}>{catagory.content}</Content>
-                        {
-                            catagory.menus.map((menu, index) => (
-                                <ImageItem>
-                                    {
-                                        user ?
-                                            <MenuEdit MenuIndex={index} Menus={catagory.menus} /> : null
-                                    }
-                                    <StyledImage src={menu.image.downloadUrl} alt="" height={320} width={320} layout="intrinsic" />
-                                    <Title3 style={{ fontWeight: 600 }}>{menu.menu || <Skeleton />}</Title3>
-                                    <Content style={{ marginTop: "5px", color: "#666" }}>{menu.content || <Skeleton />}</Content>
-                                </ImageItem>
-                            ))
-                        }
-                        <Line />
-                    </PageLayout>
-                ))}
-            </div>
+            <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)", display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div style={{ maxWidth: "1200px" }}>
+                    {menusWithCatagory.map((catagory, i) => (
+                        <>
+                            <Header key={i}>
+                                {
+                                    user ?
+                                        <MenuCatagoryEdit MenuCatagory={catagory} MenuCatagorys={menusWithCatagory} /> : null
+                                }
+                                <li>
+                                    <Title2 style={{ fontWeight: 600, color: "#15AA5A" }}>{catagory.title}</Title2>
+                                </li>
+                                <li>
+                                    <Title4>{catagory.content}</Title4>
+                                </li>
+                            </Header>
+                            <Main>
+                                {
+                                    catagory.menus.map((menu, i) => (
+                                        <>
+                                            <li>
+                                                {
+                                                    user ?
+                                                        <MenuEdit MenuIndex={i} Menus={catagory.menus} /> : null
+                                                }
+                                                <ImageWrap src={menu.image.downloadUrl} alt="" height={380} width={380} layout="intrinsic" />
+                                                <ResTitle3>{menu.title}</ResTitle3>
+                                                <Title4 style={{ fontWeight: 700, marginTop: "10px", color: "#50555C" , lineHeight:"120%"}}>
+                                                    {menu.content}<br />
+                                                    <span style={{ color: "#50555C",fontWeight: 400 }}>{menu.content}</span>
+                                                </Title4>
+
+                                            </li>
+
+                                        </>
+                                    ))
+                                }
+                            </Main>
+                        </>
+                    ))}
+                </div>
+            </PageFullWidthLayout>
         </>
     );
 };
@@ -70,21 +92,87 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 }
 
-const Line = styled.div`
-    width: 100%;
-    border: 1px solid #15AA5A;
+const ResTitle3 = styled(Title3)`
+    font-weight: 700;
+    margin-top: 0px;
+    @media only screen and (min-width: 992px) {
+        margin-top: 30px !important;
+    }      
 `
 
-const StyledImage = styled(Image)`
+const ImageWrap = styled(Image)`
     border-radius: 100%;
-    padding: 15px !important;
+    @media only screen and (max-width: 600px) {
+        padding: 15px !important;
+    }
+    @media only screen and (min-width: 600px) {
+        padding: 30px !important;
+    }
+    @media only screen and (min-width: 768px) {
+        padding: 30px !important;
+    }
+    @media only screen and (min-width: 992px) {
+        padding: 0px !important;
+    }
 `
 
-const ImageItem = styled.div`
-    width:50%;
-    display: inline-block;
+const Header = styled.ul`
+    li:nth-child(2){
+        font-weight: 400;
+        margin-top:10px;
+    }
+    @media only screen and (max-width: 600px) {
+        margin-top: 50px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin-top: 50px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin-top: 80px;
+    }
+    @media only screen and (min-width: 992px) {
+        margin-top: 100px;
+    }
+    @media only screen and (min-width: 1200px) {
+        margin-top: 140px;
+    }
+`
+
+const Main = styled.ul`
     position: relative;
-    margin: 30px 0;
-`
+    text-align: center;
+    
+    li{ 
+        display: inline-block;
+        width: 50%;
+        @media only screen and (max-width: 600px) {
+            margin: 30px 0px;
+        }
+        @media only screen and (min-width: 600px) {
+            margin: 50px 0px;
+        }
+        @media only screen and (min-width: 768px) {
+            margin: 60px 0px;
+        }
+        @media only screen and (min-width: 992px) {
+            margin: 70px 0px;
+        }
+        @media only screen and (min-width: 1200px) {
+            margin: 80px 0px;
+        }
+    }
+    ::after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 1.5px;
+        top: 100%;
+        left: 0;
+        background: #15AA5A;
+    }
 
+    :last-child ::after{
+        height: 0px;
+    }
+`
 export default Meau;

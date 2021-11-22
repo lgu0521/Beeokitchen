@@ -21,7 +21,10 @@ const Layout = ({ children }: LayoutProps) => {
                 user ? <AdminHeader /> : null
             }
             <Header />
+            <main>
             {children}
+            </main>
+            
             <Footer />
         </>
     );

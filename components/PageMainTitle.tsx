@@ -1,49 +1,68 @@
 import styled from 'styled-components';
-import { Content, Title1, Title4 } from '../components/GlobalComponents';
 import { useAuth } from '../hook/AuthProvider';
 import PageTitleModeifyModal from './admin/PageTitleModeifyModal';
-import {PageTitleDTO} from '../dto/page-title.dto'
-import Skeleton from 'react-loading-skeleton'
+import { PageTitleDTO } from '../dto/page-title.dto'
 import 'react-loading-skeleton/dist/skeleton.css'
+import { Title1, Title3 } from '../components/GlobalComponents';
 
 const PageMainTitle = (props: PageTitleDTO) => {
     const { user } = useAuth();
+
     return (
         <>
             <ContentBox>
                 {
-                    user ? <PageTitleModeifyModal {...props}/> : null
+                    user ? <PageTitleModeifyModal {...props} /> : null
                 }
-                <Title1 style={{ paddingBottom: "10px", fontWeight: 500 }}>{props.title || <Skeleton/>}</Title1>
-                <Line />
-                <Content style={{ paddingTop: "20px" }}>{props.content_1 || <Skeleton/>}</Content>
+                <Wrap>
+                    <Title1>{props.title}</Title1>
+                </Wrap>
+                <Title3>{props.content_1}</Title3>
                 {
-                    props.content_2?
-                    <Content style={{ paddingTop: "5px" }}>{props.content_2 || <Skeleton/>}</Content>
-                    :null
+                    props.content_2 ?
+                        <Title3 style={{ paddingTop: "7px" }}>{props.content_2}</Title3>
+                        : null
                 }
-                
             </ContentBox>
         </>
     );
 };
 
+const Wrap = styled.div`
+    @media only screen and (max-width: 600px) {
+        padding-bottom: 10px;
+    }
+    @media only screen and (min-width: 600px) {
+        padding-bottom: 10px;
+    }
+    @media only screen and (min-width: 768px) {
+        padding-bottom: 20px;
+    }
+    @media only screen and (min-width: 992px) {
+        padding-bottom: 22px;
+    }
+`
+
 const ContentBox = styled.div`
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    background: rgba(1, 103, 53, 0.3);
-    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0px auto;
+    height: 28vh;
+    background: #15AA5A;
+    @media only screen and (max-width: 600px) {
+        padding: 20px 0;
+    }
+    @media only screen and (min-width: 600px) {
+        padding: 30px 0;
+    }
+    @media only screen and (min-width: 768px) {
+        padding: 50px 0;
+    }
+    @media only screen and (min-width: 992px) {
+        padding: 70px 0;
+    }
 `;
 
-const Line = styled.span`
-&:after{
-    content: '';
-    width: 30px;
-    height: 3px;
-    background: #333;
-    position: absolute;
-    left: 50%;
-    margin-left: -15px;}
-`
 export default PageMainTitle;

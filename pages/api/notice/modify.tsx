@@ -14,7 +14,6 @@ const ModifyNotice = async (req: NextApiRequest, res: NextApiResponse) => {
                 content: reqBody.content,
                 datetime: reqBody.datetime,
             });
-            console.log(res);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);
@@ -24,4 +23,13 @@ const ModifyNotice = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 }
 
+
+
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '10mb' // Set desired value here
+        }
+    }
+}
 export default ModifyNotice;

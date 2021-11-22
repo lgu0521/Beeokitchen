@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getFirestore, doc, setDoc, Timestamp, collection } from "firebase/firestore";
+import { getFirestore, doc, setDoc, getDocs, collection } from "firebase/firestore";
 import firebase from '../../../service/FirebaseConfig';
-import { StoreCreateDTO,StoreDTO } from "../../../dto/store-create.dto";
+import { StoreCreateDTO } from "../../../dto/store-create.dto";
 
 const CreateStore = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
@@ -9,14 +9,9 @@ const CreateStore = async (req: NextApiRequest, res: NextApiResponse) => {
             const firestore = getFirestore(firebase);
             const reqBody:StoreCreateDTO = JSON.parse(req.body);
             const newDocRef = doc(collection(firestore, "Store"));
-            const docData :StoreDTO= {
-                name: reqBody.name,
-                phonenumber: reqBody.phonenumber,
-                location: reqBody.location,
-                operation: reqBody.operation,
-                url: reqBody.url,
-            }
-            const docRef = await setDoc(newDocRef, docData);
+            const querySnapshot = await getDocs(collection(firestore, "Store"));
+            const docRef = await setDoc(newDocRef, { ...reqBody, order: querySnapshot.size + 1 });
+
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

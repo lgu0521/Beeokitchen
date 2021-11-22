@@ -1,15 +1,17 @@
-import { ImageBlock } from "../../dto/image-create.dto";
-import { MenuCreateDTO } from "../../dto/menu-create.dto";
-import { useRouter } from 'next/dist/client/router';
+//Basic
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
+//DTO
+import { ImageBlock } from "../../dto/image-create.dto";
+import { MenuCreateDTO } from "../../dto/menu-create.dto";
+//Component
 import ImageUploadAndChange from '../ImageUploadAndChange';
-import S from './Menu.style';
-import { Content } from "../GlobalComponents";
+//Style
+import S from '../../styles/AdminModal.style';
 
 const CreateMenu = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const [initialItem, setInitialItem] = useState<ImageBlock>();
+    const [initialItem, setInitialItem] = useState<ImageBlock>({} as ImageBlock);
 
     const onSubmit = async (data: MenuCreateDTO) => {
         try {
@@ -20,11 +22,9 @@ const CreateMenu = () => {
                     image: initialItem
                 } as MenuCreateDTO)
             });
-
-            if (typeof window != null) {
+            if(typeof window != null){
                 window.location.reload();
             }
-
         } catch (e) {
             alert(e);
         }
@@ -45,7 +45,7 @@ const CreateMenu = () => {
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>메뉴 이름</S.Label>
-                    <S.Input placeholder="메뉴 이름을 입력해주세요" {...register('menu', { required: true, maxLength: 20 })} />
+                    <S.Input placeholder="메뉴 이름을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>메뉴 설명</S.Label>
@@ -54,7 +54,7 @@ const CreateMenu = () => {
                 <S.InputWrap>
                     <S.Label>메뉴 이미지</S.Label>
                     <S.ImageInput>
-                        <ImageUploadAndChange GetItem={(item: ImageBlock) => setInitialItem(item)} />
+                        <ImageUploadAndChange GetItem={(item: ImageBlock) => setInitialItem(item)}/>
                     </S.ImageInput>
                 </S.InputWrap>
                 <S.Button>저장</S.Button>

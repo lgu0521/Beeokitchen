@@ -1,13 +1,11 @@
-const calcEm = (size: number) => `${size}em`;
+const calcEm = (size: number) => `${size}rem`;
 
 const fontSizes = {
-  xm: calcEm(0.59), //13px
-  sm: calcEm(0.73), //16px
-  md: calcEm(0.82), //18px
-  lg: calcEm(0.91), //20px
-  xl: calcEm(1.09), //24px
-  xxl: calcEm(1.45), //23.2px
-  titleSize: calcEm(2) //32px
+  title5: calcEm(1.3), //13px
+  title4: calcEm(1.5), //15px
+  title3: calcEm(1.8), //18px
+  title2: calcEm(3.2), //32px
+  title1: calcEm(5.4), //54px
 };
 
 const paddings = {

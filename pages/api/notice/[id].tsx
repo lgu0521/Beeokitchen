@@ -25,5 +25,12 @@ const NoticeList = async (req: NextApiRequest, res: NextApiResponse<NoticeDetail
     }
 }
 
+export const config = {
+    api: {
+        bodyParser: {
+            sizeLimit: '5mb' // Set desired value here
+        }
+    }
+}
 
 export default NoticeList;

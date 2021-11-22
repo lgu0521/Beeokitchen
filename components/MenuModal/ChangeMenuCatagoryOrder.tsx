@@ -1,23 +1,23 @@
-import { MenuDTO } from "../../dto/menu-create.dto";
+import { MenuCatagoryDTO, MenuDTO } from "../../dto/menu-create.dto";
 import { useState } from 'react';
-import S from './Menu.style';
 import ModifyOrderDropAndDrop from '../ModifyOrderDropAndDrop';
 
 interface Props {
-    initialMenus: MenuDTO[]
+    initialMenus: MenuCatagoryDTO[]
 }
 
 const ChangeMenuOrder = ({ initialMenus }: Props) => {
     const [modifyOrderMenuList, setModifyOrderMenuList] = useState(initialMenus);
+
     const onSubmit = async () => {
         try {
             modifyOrderMenuList.forEach(async (item) => {
-                await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify", {
+                await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify/catagory", {
                     method: 'POST',
                     body: JSON.stringify(item)
                 });
             })
-            if(typeof window != null){
+            if (typeof window != null) {
                 window.location.reload();
             }
         } catch (e) {
@@ -28,7 +28,7 @@ const ChangeMenuOrder = ({ initialMenus }: Props) => {
     return (
         <>
             <ModifyOrderDropAndDrop InitialItemList={modifyOrderMenuList}
-                GetItem={(item: MenuDTO[]) => setModifyOrderMenuList(item)} />
+                GetItem={(item: MenuCatagoryDTO[]) => setModifyOrderMenuList(item)} />
             <button onClick={onSubmit}>저장</button>
         </>
     );

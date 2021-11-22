@@ -6,15 +6,15 @@ import EditIcon from '../../public/Edit.png'
 import styled from 'styled-components';
 import BasicModal from '../BasicModal';
 
-import ModifyAndDeleteMenuValue from '../MenuForms/ModifyAndDeleteMenuValue';
-import ChangeMenuOrder from '../MenuForms/ChangeMenuOrder';
-import CreateMenu from '../MenuForms/CreateMenu';
+import ModifyAndDeleteMenuValue from '../MenuModal/ModifyAndDeleteMenuValue';
+import ChangeMenuOrder from '../MenuModal/ChangeMenuOrder';
+import CreateMenu from '../MenuModal/CreateMenu';
 interface Props {
     MenuIndex: number,
     Menus: MenuDTO[]
 }
 
-const MenuEdit = ({ MenuIndex, Menus }: Props) => {
+export const MenuEdit = ({ MenuIndex, Menus }: Props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [modalName, setModalName] = useState<string>('');
 
@@ -60,6 +60,31 @@ const MenuEdit = ({ MenuIndex, Menus }: Props) => {
     )
 }
 
+
+export const MenuDefaulEdit = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    return (
+        <>
+            <EditWrap>
+                <EditButton>
+                    <Image src={EditIcon} width={30} height={30} objectFit="none" />
+                </EditButton>
+                <EditUl>
+                    <EditLi>
+                        <span onClick={() => {
+                            setIsModalOpen(true);
+                        }}>메뉴 추가하기</span>
+                    </EditLi>
+                </EditUl>
+            </EditWrap>
+            <BasicModal onClose={() => setIsModalOpen(false)} isModalOpen={isModalOpen}>
+                <CreateMenu />
+            </BasicModal>
+        </>
+    )
+}
+
 const EditLi = styled.li`
     padding: 10px 0px;
     cursor: pointer;
@@ -99,4 +124,4 @@ const EditButton = styled.button`
         box-shadow: 0px 0px 5px 0.1px #DDDDDD;
     }
 `
-export default MenuEdit;
+export default { MenuEdit, MenuDefaulEdit };

@@ -1,4 +1,4 @@
-import { FirebaseStorage, getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { FirebaseStorage, getStorage, ref, uploadBytes, getDownloadURL, listAll } from 'firebase/storage';
 import firebase from '../service/FirebaseConfig';
 import { ImageBlock } from '../dto/image-create.dto'
 
@@ -25,11 +25,12 @@ const GetMultiDownloadUrl = async (FileList: File[]): Promise<string[]> => {
 
 const GetSingleDownloadUrl = async (ImageFile: File[]): Promise<ImageBlock> => {
     var imageData = {} as ImageBlock;
-    console.log(ImageFile);
+    const d:Date = new Date();
     try {
         const firestorage: FirebaseStorage = getStorage(firebase, process.env.NEXT_PUBLIC_FIREBASE_DATA_BASEURL);
-        const refStorage = ref(firestorage, '/store/' + ImageFile[0].name);
-        await uploadBytes(refStorage, ImageFile[0]);
+        const refStorage = ref(firestorage, 'Menu/' + d );
+        
+        await uploadBytes(refStorage, ImageFile[0], {customMetadata: {'trash': 'Y'}});
         const downloadUrlPromise = await getDownloadURL(refStorage);
 
         imageData = {
@@ -37,7 +38,6 @@ const GetSingleDownloadUrl = async (ImageFile: File[]): Promise<ImageBlock> => {
             storageRef: refStorage.fullPath,
             downloadUrl: await downloadUrlPromise
         }
-
     } catch (e) {
         console.log(e);
     }

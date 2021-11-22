@@ -98,7 +98,7 @@ const DragAndDrop = ({ InitialItemList, DeleteItem, GetItem }: DragAndDropInitia
                                             {...provided.dragHandleProps}
                                             {...provided.draggableProps}>
                                             <ImageBox>
-                                                <Image src={item.downloadUrl} width="350px" height="200px" layout="fixed" />
+                                                <Image src={item.downloadUrl} width={100} height={100} objectFit="cover"/>
                                                 <InputFile onChangeInput={ChangeImage} name="이미지 바꾸기" id={`tmpUrl"+${index}`} index={index} />
                                                 <button onClick={() => { deleteAndSetItemList(index) }}>삭제</button>
                                             </ImageBox>
@@ -120,7 +120,7 @@ export const InputFile = ({ onChangeInput, name, id, index }: InputFileProps) =>
     return (
         <>
             <Label htmlFor={id ? id : "addImage"}>{name}</Label>
-            <input onChange={(e) => onChangeInput(e, index != undefined ? index : null)} type="file" id={id ? id : "addImage"} />
+            <input style={{display:"none"}} onChange={(e) => onChangeInput(e, index != undefined ? index : null)} type="file" id={id ? id : "addImage"} />
         </>
     )
 }

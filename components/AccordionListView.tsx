@@ -59,13 +59,13 @@ const DropIcon = styled.span<{ isOpen: boolean }>`
     }
 `
 
-const AccordionListBox = styled.article`
+const AccordionListBox = styled.div`
     display: inline-block;
     padding: 20px;
     border-bottom: 1px solid ${props => props.theme.colors.line};
     width: 100%;
 `
-const AccordionItemBox = styled.head`
+const AccordionItemBox = styled.div`
     width: 100%;
     display: inline-block;
 `

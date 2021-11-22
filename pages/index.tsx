@@ -6,7 +6,7 @@ import { BannerDTO } from "../dto/banner-create.dto";
 import { PageFullWidthLayout } from '../components/GlobalComponents';
 import IsUserWithLogin from '../hook/AuthStateChanged';
 import { useState } from 'react';
-import AdminMainBannerComponent from '../components/admin/main';
+import BannerEdit from '../components/admin/BannerEdit';
 import { useAuth } from '../hook/AuthProvider';
 import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
@@ -21,21 +21,15 @@ const Home: NextPage<Props> = ({ BannerList }) => {
   return (
     <>
       <PageFullWidthLayout>
-        <Carousel showThumbs={false} swipeable={true}>
+        <Carousel showThumbs={false} swipeable={true} autoPlay={true} infiniteLoop={true} showStatus={false}>
           {
             BannerList.map((item, key) => (
-              <div key={key}>
-                {
-                  item.downloadUrl?<Img  src={item.downloadUrl} alt="" />
-                  :<Skeleton count={10} height={100}/>
-                }
-                
-              </div>
+                <Img src={item.downloadUrl} alt="" />
             ))
           }
         </Carousel>
         {
-          user ? <AdminMainBannerComponent BannerList={BannerList} /> : null
+          user ? <BannerEdit initialItems={BannerList} /> : null
         }
       </PageFullWidthLayout>
     </>
@@ -43,20 +37,8 @@ const Home: NextPage<Props> = ({ BannerList }) => {
 }
 
 const Img = styled.img`
-    max-height: 600px;
-    object-fit: scale-down;
-    width:100%;
-    @media only screen and (max-width: 600px) {
-      object-fit: fill;
-      height: 300px;
-    }
-    @media only screen and (min-width: 600px) {
-      object-fit: fill;
-      height: 400px;
-    }
-    @media only screen and (min-width: 768px) {
-      height: auto;
-    }
+    height: 69vh;
+    object-fit: cover;
 `;
 
 export const getStaticProps: GetServerSideProps = async (context) => {

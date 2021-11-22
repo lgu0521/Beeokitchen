@@ -1,10 +1,9 @@
 import { ImageBlock } from "../../dto/image-create.dto";
 import { MenuDTO } from "../../dto/menu-create.dto";
-import { useRouter } from 'next/dist/client/router';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import ImageUploadAndChange from '../ImageUploadAndChange';
-import S from './Menu.style';
+import S from '../../styles/AdminModal.style';
 import DeleteIcon from '../../public/Delete.png'
 import Image from 'next/image';
 
@@ -17,6 +16,10 @@ const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const onSubmit = async (data: MenuDTO) => {
+        if (initialMenu.catagory != data.catagory) {
+            initialMenu.order = 0;
+        }
+
         try {
             await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify", {
                 method: 'POST',
@@ -62,10 +65,10 @@ const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
                     <option value="샐러드">샐러드</option>
                     <option value="음료">음료</option>
                 </S.Select>
-                <S.Input {...register("menu", { required: true, maxLength: 20 })} defaultValue={initialMenu.menu} />
+                <S.Input {...register("title", { required: true, maxLength: 20 })} defaultValue={initialMenu.title} />
                 <S.Input  {...register("content", { required: true, maxLength: 20 })} defaultValue={initialMenu.content} />
                 <S.ImageInput>
-                    <ImageUploadAndChange InitialItem={initialMenu.image} GetItem={(item: ImageBlock) => setImage(item)} />
+                    <ImageUploadAndChange InitialItem={ImageValue} GetItem={(item: ImageBlock) => setImage(item)}/>
                 </S.ImageInput>
                 <S.Button>제출</S.Button>
             </S.Form>

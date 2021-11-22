@@ -1,22 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import { getFirestore, doc, setDoc, updateDoc, collection } from "firebase/firestore";
 import firebase from '../../../service/FirebaseConfig';
-import { StoreModifyDTO, StoreDTO } from "../../../dto/store-create.dto";
+import { StoreDTO } from "../../../dto/store-create.dto";
 
 const ModifyStore = async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'POST') {
         try {
             const firestore = getFirestore(firebase);
-            const reqBody: StoreModifyDTO = JSON.parse(req.body);
+            const reqBody: StoreDTO = JSON.parse(req.body);
             const newDocRef = doc(firestore, "Store", reqBody.id);
-            const docUpdate = await updateDoc(newDocRef, {
-                name: reqBody.name,
-                location: reqBody.location,
-                operation: reqBody.operation,
-                phonenumber: reqBody.phonenumber,
-                url: reqBody.url,
-            });
-            console.log(docUpdate);
+            const docUpdate = await updateDoc(newDocRef, reqBody);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

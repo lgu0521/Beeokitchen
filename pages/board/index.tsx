@@ -4,15 +4,15 @@ import AccordionListView from '../../components/AccordionListView';
 import PageMainTitle from '../../components/PageMainTitle';
 import { useState } from "react";
 import { NoticeListDTO } from '../../dto/notice-create.dto';
-import { FaqListDTO } from '../../dto/faq-create.dto';
+import { FaqDTO } from '../../dto/faq-create.dto';
 import { PageLayout, Title2 } from '../../components/GlobalComponents';
 import styled from "styled-components";
-import FaqModifyAndDeleteModal from '../../components/admin/FaqModifyAndDeleteModal'
+import FaqEdit from '../../components/admin/FaqEdit'
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 interface Props {
     noticeList: NoticeListDTO[],
-    faqList: FaqListDTO[],
+    faqList: FaqDTO[],
     PageTitle: PageTitleDTO
 }
 
@@ -40,12 +40,12 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
                         isFaq ? <>
                             {
                                 faqList.map((item, key) => (
-                                    <>
+                                    <div key={key}>
                                         {
-                                            user ? <FaqModifyAndDeleteModal {...item} /> : null
+                                            user ? <FaqEdit initialItem={item} initialItems={faqList} /> : null
                                         }
-                                        <AccordionListView {...item} key={key}/>
-                                    </>
+                                        <AccordionListView {...item}/>
+                                    </div>
                                 ))}
                         </> : null
                     }
@@ -62,7 +62,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const resNotice = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/notice/');
     const resFaq = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/faq/');
     const noticeList: NoticeListDTO[] = await resNotice.json();
-    const faqList: FaqListDTO[] = await resFaq.json();
+    const faqList: FaqDTO[] = await resFaq.json();
     const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/page-title/Board');
     const PageTitle:PageTitleDTO = await resPageTitle.json();
 

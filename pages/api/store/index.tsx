@@ -1,25 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { getFirestore, collection, getDocs } from "firebase/firestore";
+import { getFirestore, collection, getDocs, query, orderBy } from "firebase/firestore";
 import firebase from '../../../service/FirebaseConfig';
-import { StoreAllListDTO } from '../../../dto/store-create.dto';
+import { StoreDTO } from '../../../dto/store-create.dto';
 
-const GetStoreList = async (req: NextApiRequest, res: NextApiResponse<Array<StoreAllListDTO>>) => {
+const GetStoreList = async (req: NextApiRequest, res: NextApiResponse<Array<StoreDTO>>) => {
   const firestore = getFirestore(firebase);
-  var resJsonArray = [] as StoreAllListDTO[];
+  var resJsonArray = [] as StoreDTO[];
   try {
-    const querySnapshot = await getDocs(collection(firestore, 'Store'));
-    querySnapshot.forEach((item) => {
-      const docData: StoreAllListDTO = {
-        id: item.id,
-        name: item.data().name,
-        location: item.data().location,
-        operation: item.data().operation,
-        phonenumber: item.data().phonenumber,
-        url: item.data().url
-      }
-      resJsonArray.push(docData);
-    });
-
+    const querySnapshotMenuCatagoryList = await getDocs(query(collection(firestore, "Store"), orderBy("order")));
+    querySnapshotMenuCatagoryList.forEach((c) => resJsonArray.push({ ...c.data(), id: c.id } as StoreDTO));
     res.status(200).json(resJsonArray);
   } catch (e) {
     console.error("Error adding document: ", e);

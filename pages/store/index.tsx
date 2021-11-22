@@ -4,88 +4,95 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from "react";
 import PageMainTitle from "../../components/PageMainTitle";
-import { StoreAllListDTO, StoreModifyDTO } from '../../dto/store-create.dto';
-import { PageLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
-import StoreModifyAndDeleteModal from '../../components/admin/StoreModifyAndDeleteModal'
+import { StoreDTO } from '../../dto/store-create.dto';
+import { PageFullWidthLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
+import StoreEdit from '../../components/admin/StoreEdit'
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 
 interface Props {
-    storeList: StoreAllListDTO[],
+    storeList: StoreDTO[],
     PageTitle: PageTitleDTO
 }
-const Brand: NextPage<Props> = ({ storeList,PageTitle }) => {
+const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
     const { user } = useAuth();
     return (
         <>
-           <PageMainTitle {...PageTitle} />
-            <PageLayout>
-                {
-                    storeList.map((item: StoreModifyDTO, key) => (
-                        <BoxWrap key={key}>
-                            {user ? <StoreModifyAndDeleteModal {...item} /> : null}
-                            <Box>
-                                <Link href={`/store/${item.id}`}>
-                                    <a>
-                                        <Image src={item.url[0]} alt="" width="100%" height="100%" layout="responsive" objectFit="cover" />
-                                    </a>
-                                </Link>
-                                <Wrap>
-                                    <Title2 style={{ color: "#494949", marginBottom: "15px" }}>{item.name}</Title2>
-                                    <Title3 style={{ color: "#7e7e7e", marginBottom: "5px" }}>{item.location}</Title3>
-                                    <Title4 style={{ color: "#a68537", marginBottom: "15px" }}>{item.operation}</Title4>
-                                    <Title2 style={{ color: "#666" }}>{item.phonenumber}</Title2>
-                                </Wrap>
-                            </Box>
-                        </BoxWrap>
-                    ))
-                }
-            </PageLayout>
+            <PageMainTitle {...PageTitle} />
+            <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)" }}>
+                <ContentBox>
+                    {
+                        storeList.map((item: StoreDTO, key) => (
+                            <ContentWrap key={key}>
+                                {user ? <StoreEdit initialItem={item} initialItems={storeList} /> : null}
+                                <div>
+                                    <Image src={item.image.downloadUrl} alt="" width="100%" height="100%" layout="responsive" objectFit="cover" />
+                                </div>
+                                <TextWrap>
+                                    <Title3 style={{ color: "#008B48", fontWeight: 600 }}>{item.title}</Title3>
+                                    <Title4 style={{ fontWeight: 600 }}>Tel {item.phonenumber}</Title4>
+                                </TextWrap>
+                                <Title4 style={{ color: "#7e7e7e", padding: "15px" }}>{item.operation}</Title4>
+                            </ContentWrap>
+                        ))
+                    }
+                </ContentBox>
+            </PageFullWidthLayout>
         </>
     );
 };
+const ContentBox = styled.ul`
+    width: 100%;
+    margin: 0 auto;
+    padding: 0px 40px;
+    @media only screen and (max-width: 768px) {
+        width: auto;
+    }
+    @media only screen and (min-width: 1000px) {
+        width: 1000px;
+    }
+    @media only screen and (min-width: 1600px) {
+        width: 1200px;
+    }
+`;
 
-const BoxWrap = styled.div`
-    display: inline-block;
-    position: relative;
-    vertical-align: top;
-    padding: 12px;
+const ContentWrap = styled.li`
+    float:left;
+    border: 2px solid #15AA5A;
     text-align: left;
     @media only screen and (max-width: 600px) {
-        width: 90%;
+        width: calc(90% - 20px);
+        margin: 0 8px 20px 8px;
     }
     @media only screen and (min-width: 600px) {
-        width: 50%;
+        width: calc(50% - 20px);
+        margin: 0 8px 20px 8px;
     }
     @media only screen and (min-width: 992px) {
-        width: 33%;
+        width: calc(33% - 20px);
+        margin: 0 8px 20px 8px;
     }
 `
-
-const Box = styled.div`
-    border: 1px solid #ddd;
-`
-
-const Wrap = styled.div`
-    @media only screen and (max-width: 600px) {
-        padding: 10px 10px;
-        height: 150px;
-    }
-    @media only screen and (min-width: 600px) {
-        padding: 20px 20px;
-        height: 150px;
-    }
-    @media only screen and (min-width: 768px) {
-        padding: 25px 25px;
-        height: 190px;
+const TextWrap = styled.div`
+    display:flex;
+    justify-content: space-between;
+    align-content: center;
+    position: relative;
+    padding: 15px;
+    ::after{
+        content: '';
+        position: absolute;
+        width: 96%;
+        top: 100%;
+        left: 2%;
+        border-bottom: 2px solid #15AA5A;
     }
 `
-
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/store');
-    const storeList: StoreAllListDTO[] = await res.json();
+    const storeList: StoreDTO[] = await res.json();
     const resPageTitle = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/page-title/Store');
-    const PageTitle:PageTitleDTO = await resPageTitle.json();
+    const PageTitle: PageTitleDTO = await resPageTitle.json();
 
     if (!storeList) {
         return {
@@ -101,4 +108,4 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 }
 
-export default Brand;
+export default StorePage;

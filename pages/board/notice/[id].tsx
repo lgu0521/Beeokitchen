@@ -32,7 +32,7 @@ const NoticeDetailPage = ({ notice, PageTitle }: Props) => {
                 <PageMainTitle {...PageTitle} />
                 <PageLayout>
                     {
-                        user ? <Link href="/admin/notice/123"><a>수정하기</a></Link> : null
+                        user ? <Link href={"/admin/notice/"+ notice.id}><a>수정하기</a></Link> : null
                     }
                     <Table>
                         <Thead>

@@ -1,27 +1,19 @@
+import { ImageBlock } from "./image-create.dto";
+
 export interface StoreDTO {
-    name: string,
+    id: string,
+    order:number,
+    title: string,
     location: string,
-    operation: string,
     phonenumber: string,
-    url: string[]
+    operation: string,
+    image: ImageBlock
 }
 
-export interface StoreCreateDTO extends StoreDTO {
-    tmpUrl: File[],
+export interface StoreCreateDTO extends Omit<StoreDTO, "id"> {
+    id?: string
 }
 
 export interface StoreDeleteDTO {
-    id: string
-}
-
-export interface StoreModifyDTO extends StoreDTO {
-    id: string,
-}
-
-export interface StoreAllListDTO extends StoreDTO{
-    id: string
-}
-
-export interface StoreDetailDTO extends StoreDTO{
     id: string
 }

@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { NoticeCreateDTO, NoticeModifyDTO, NoticeDeleteDTO, NoticeDetailDTO } from '../../../dto/notice-create.dto';
+import { NoticeDetailDTO } from '../../../dto/notice-create.dto';
 import { EditorProps, Editor } from '@toast-ui/react-editor';
 import styled from 'styled-components';
 import '@toast-ui/editor/dist/toastui-editor.css';
@@ -28,33 +28,34 @@ const ModifyAndDeleteNoticePage = ({ notice }: Props) => {
     const router = useRouter();
     const {id} = router.query;
     const editorRef = useRef<Editor>(null);
-    const [titleInput, setTitleInput] = useState("");
+    const [titleInput, setTitleInput] = useState(notice.title);
     
     const Submit = async () => {
         if (editorRef.current && titleInput) {
             const content = editorRef.current.getInstance().getMarkdown();
-            console.log(titleInput + "  " + content);
             const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/notice/modify", {
                 method: 'POST',
                 body: JSON.stringify({
                     id: id,
                     title: titleInput,
                     content: content,
-                    datetime: '2021-10-30'
-                })
-            });
+                    datetime: new Date()
+                }),
+            },
+                
+              );
         }
     }
+
     return (
         <Container>
-            <input name="titleInput" value={titleInput} defaultValue={notice.title} onChange={(e) => setTitleInput(e.target.value)} />
+            <input name="titleInput" value={titleInput} onChange={(e) => setTitleInput(e.target.value)} />
             <TuiWrapper height="800px" initialEditType="wysiwyg" useCommandShortcut={true}
                 ref={editorRef} initialValue={notice.content}/>
             <Button onClick={Submit}>저장</Button>
         </Container>
     );
 };
-
 
 export const getServerSideProps: GetServerSideProps = async ({ params }: Params) => {
     const { id } = params;
