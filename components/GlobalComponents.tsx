@@ -42,10 +42,10 @@ const Title3 = styled.h3`
     letter-spacing: 1px;
     @media only screen and (max-width: 310px) {
         letter-spacing: 0px !important;
-        font-size: ${props => props.theme.fontSizes.title5};
+        font-size: ${props => props.theme.fontSizes.title6};
     }
     @media only screen and (min-width: 310px) {
-        font-size: ${props => props.theme.fontSizes.title4};
+        font-size: ${props => props.theme.fontSizes.title6};
     }
     @media only screen and (min-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title3};
@@ -65,10 +65,10 @@ const Title3 = styled.h3`
 const Title4 = styled.h4`
     letter-spacing: 1px;
     @media only screen and (max-width: 600px) {
-        font-size: 1.2rem
+        font-size: ${props => props.theme.fontSizes.title7};
     }
     @media only screen and (min-width: 600px) {
-        font-size: ${props => props.theme.fontSizes.title5};
+        font-size: ${props => props.theme.fontSizes.title7};
     }
     @media only screen and (min-width: 768px) {
         font-size: ${props => props.theme.fontSizes.title4};
@@ -84,10 +84,10 @@ const Title4 = styled.h4`
 const Title5 = styled.h5`
     letter-spacing: 1px;
     @media only screen and (max-width: 600px) {
-        font-size: ${props => props.theme.fontSizes.title5};;
+        font-size: ${props => props.theme.fontSizes.title8};;
     }
     @media only screen and (min-width: 600px) {
-        font-size: ${props => props.theme.fontSizes.title5};
+        font-size: ${props => props.theme.fontSizes.title8};
     }
     @media only screen and (min-width: 768px) {
         font-size: ${props => props.theme.fontSizes.title5};
@@ -100,25 +100,26 @@ const Title5 = styled.h5`
     }
 `;
 
-const Content = styled.p`
+const Title6 = styled.p`
+    letter-spacing: 1px;
     @media only screen and (max-width: 600px) {
-        font-size: ${props => props.theme.fontSizes.xm};;
+        font-size: ${props => props.theme.fontSizes.title8};;
     }
     @media only screen and (min-width: 600px) {
-        font-size: ${props => props.theme.fontSizes.sm};
+        font-size: ${props => props.theme.fontSizes.title8};
     }
     @media only screen and (min-width: 768px) {
-        font-size: ${props => props.theme.fontSizes.md};
+        font-size: ${props => props.theme.fontSizes.title5};
     }
     @media only screen and (min-width: 992px) {
-        font-size: ${props => props.theme.fontSizes.md};
+        font-size: ${props => props.theme.fontSizes.title5};
     }
     @media only screen and (min-width: 1200px) {
-        font-size: ${props => props.theme.fontSizes.lg};
+        font-size: ${props => props.theme.fontSizes.title6};
     }
 `;
 
-export { Title1, Title2, Title3, Title4, Title5, Content, Button, PageLayout, PageFullWidthLayout };
+export { Title1, Title2, Title3, Title4, Title5,Title6, Button, PageFullWidthLayout, PageMaxNoCSSLayout };
 
 interface PropsType {
     width?: string;
@@ -148,21 +149,16 @@ const Button = styled.button < PropsType > `
     cursor: pointer;
 `;
 
-const PageLayout = styled.div`
-    position: relative;
-    width:100%;
-    padding: 30px 10px;
-    overflow: auto;
-    text-align: center;
+
+const PageMaxNoCSSLayout = styled.div`
+    max-width: 1200px;
+    width: 100%;
     margin: 0 auto;
-    @media only screen and (max-width: 768px) {
-        width: auto;
+    @media only screen and (max-width: 600px) {
+        padding: 0 10px;
     }
-    @media only screen and (min-width: 1000px) {
-        width: 1000px;
-    }
-    @media only screen and (min-width: 1600px) {
-        width: 1200px;
+    @media only screen and (min-width: 600px) {
+        padding: 0 40px;
     }
 `
 

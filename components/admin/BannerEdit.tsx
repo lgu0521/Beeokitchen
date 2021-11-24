@@ -53,6 +53,7 @@ export const BannerEdit = ({ initialItems }: Props) => {
 
 const EditLi = styled.li`
     padding: 10px 0px;
+    z-index: 1;
     cursor: pointer;
     font-size: ${props => props.theme.fontSizes.md};
     :hover{
@@ -61,6 +62,7 @@ const EditLi = styled.li`
 `
 const EditUl = styled.ul`
     display: none;
+    
     position: absolute;
     right:0;
     background-color: white;
@@ -72,9 +74,9 @@ const EditUl = styled.ul`
 `
 const EditWrap = styled.div`
     position: relative;
-    float: right;
+    z-index: 1;
     &:hover ${EditUl} {
-        display: block;
+        display: inline-block;
     }
 `
 

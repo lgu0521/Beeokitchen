@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useAuth } from '../../hook/AuthProvider';
 //Style
 import styled from 'styled-components';
-import { Title1, Title3, Content, PageLayout, PageFullWidthLayout, Title2, Title4 } from '../../components/GlobalComponents';
+import { Title5, Title3, PageMaxNoCSSLayout, PageFullWidthLayout, Title2, Title4 } from '../../components/GlobalComponents';
 //Component
 import PageMainTitle from '../../components/PageMainTitle';
 import { MenuEdit, MenuDefaulEdit } from '../../components/admin/MenuEdit';
@@ -28,8 +28,8 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
     return (
         <>
             <PageMainTitle {...PageTitle} />
-            <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ maxWidth: "1200px" }}>
+            <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)" ,display: "flex", flexDirection: "column", alignItems: "center"}}>
+                <PageMaxNoCSSLayout>
                     {menusWithCatagory.map((catagory, i) => (
                         <>
                             <Header key={i}>
@@ -53,22 +53,21 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                                                     user ?
                                                         <MenuEdit MenuIndex={i} Menus={catagory.menus} /> : null
                                                 }
+                                                
                                                 <ImageWrap src={menu.image.downloadUrl} alt="" height={380} width={380} layout="intrinsic" />
                                                 <ResTitle3>{menu.title}</ResTitle3>
-                                                <Title4 style={{ fontWeight: 700, marginTop: "10px", color: "#50555C" , lineHeight:"120%"}}>
-                                                    {menu.content}<br />
-                                                    <span style={{ color: "#50555C",fontWeight: 400 }}>{menu.content}</span>
-                                                </Title4>
-
+                                                <Title5 style={{ fontWeight: 700, marginTop: "10px", color: "#50555C" , lineHeight:"120%"}}>
+                                                    {menu.content1}<br />
+                                                    <MenuContent2>{menu.content2}</MenuContent2>
+                                                </Title5>
                                             </li>
-
                                         </>
                                     ))
                                 }
                             </Main>
                         </>
                     ))}
-                </div>
+                </PageMaxNoCSSLayout>
             </PageFullWidthLayout>
         </>
     );
@@ -91,6 +90,13 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
     }
 }
+const MenuContent2 = styled.span`
+    color: #50555C;
+    font-weight: 400;
+    @media only screen and (max-width: 600px) {
+        display:none;
+    }
+`
 
 const ResTitle3 = styled(Title3)`
     font-weight: 700;

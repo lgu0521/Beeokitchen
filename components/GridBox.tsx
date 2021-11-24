@@ -1,19 +1,19 @@
 import styled from 'styled-components';
-import { Title2, Title3 } from './GlobalComponents';
+import { Title2, Title3, Title4 } from './GlobalComponents';
 
 interface BoxItem {
     step: string,
     procedure: string,
 }
 
-interface GridItemProps{
+interface GridItemProps {
     height: string,
     col: number,
     mdCol: number,
     smCol: number
 }
 
-interface GridProps extends GridItemProps{
+interface GridProps extends GridItemProps {
     boxItems: BoxItem[]
 }
 
@@ -22,20 +22,16 @@ const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
     return (
         <>
         <ContentBox>
-            { boxItems.map((item, key) => (
+            {boxItems.map((item, key) => (
                 <GridItem key={key} height={height} col={col} mdCol={mdCol} smCol={smCol}>
-                    <GridWrap>
                     <Wrap>
-                    <Title2 style={FONT_STYLE}>
-                        {item.step}
-                    </Title2>
+                        <Title4 style={{ marginBottom: "9px", fontWeight: 900,color:"#404346" }}>
+                            {item.step}
+                        </Title4>
+                        <Title3 style={{ fontWeight: 700, color:"#404346" }}>
+                            {item.procedure}
+                        </Title3>
                     </Wrap>
-                    <Wrap>
-                    <Title3>
-                        {item.procedure}
-                    </Title3>
-                    </Wrap>
-                    </GridWrap>
                 </GridItem>
             ))
             }
@@ -44,50 +40,70 @@ const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
     );
 };
 
-const FONT_STYLE = {
-    color: "black",
-    fontWeight: 500
 
-}
-
-const ContentBox = styled.div`
-margin: 30px;
-`
 const Wrap = styled.div`
-margin: 7px 0;
+    
 `
-const GridWrap = styled.div`
-display: table-cell;
-vertical-align: middle;
-`
-
-const GridItem = styled.div<GridItemProps>`
-    height: ${(props) => props.height ? props.height : '100px'};
-    display: table;
-    margin: 5px;
-    box-sizing: border-box;
-    background: #f7f7f7;
-    text-align: center;
-    float: left;
+const ContentBox = styled.div`
+    display: inline-block;
+    line-height: 170%;
     @media only screen and (max-width: 600px) {
-        padding: 10px 10px;
-        width: calc(100%/${(props) => props.smCol ? props.smCol : 2} - 23px);
+        margin: 20px 10px 40px 10px;
     }
     @media only screen and (min-width: 600px) {
-        padding: 10px 20px;
-        width: calc(100%/${(props) => props.smCol ? props.smCol : 2} - 23px);
+        margin: 30px 0px 80px 0px;
     }
     @media only screen and (min-width: 768px) {
-        padding: 10px 20px;
-        width: calc(100%/${(props) => props.mdCol ? props.mdCol : 3} - 23px);
+        margin: 40px 0px 120px 0px;
+    }
+`
+const GridItem = styled.div<GridItemProps>`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    float:left;
+    text-align: center;
+    border: 2px solid #CC3D3D;
+    @media only screen and (max-width: 600px) {
+        height: 70px;
+        border-radius: 15px;
+    }
+    @media only screen and (min-width: 600px) {
+        height: 70px;
+        border-radius: 15px;
+    }
+    @media only screen and (min-width: 768px) {
+        height: 100px;
+        border-radius: 20px;
+    }
+    background: #F9F0EC;
+    cursor: pointer;
+
+    @media only screen and (max-width: 600px) {
+        margin: 5px 5px;
+        width: calc(100%/${(props) => props.smCol ? props.smCol : 2} - 10px);
+    }
+    @media only screen and (min-width: 600px) {
+        margin: 5px 10px;
+        width: calc(100%/${(props) => props.smCol ? props.smCol : 2} - 20px);
+    }
+    @media only screen and (min-width: 768px) {
+        margin: 5px 10px;
+        width: calc(100%/${(props) => props.mdCol ? props.mdCol : 3} - 20px);
     }
     @media only screen and (min-width: 992px) {
-        padding: 10px 30px;
-        width: calc(100%/${(props) => props.col ? props.col : 4} - 23px);
+        margin: 10px;
+        width: calc(100%/${(props) => props.col ? props.col : 4} - 20px);
     }
-    @media only screen and (min-width: 1200px) {
-        padding: 10px 30px;
-        width: calc(100%/${(props) => props.col ? props.col : 4} - 23px);
+    :hover{
+        background: #CC3D3D;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+        ${Wrap} > *{
+            color: white !important;
+        }
+        
     }
 `
 

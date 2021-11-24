@@ -59,7 +59,7 @@ const ModifyAndDeleteMenuCatagory = ({ initialMenuCatagory }: Props) => {
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>카테고리 설명</S.Label>
-                    <S.Input  {...register("content", { required: true, maxLength: 20 })} defaultValue={initialMenuCatagory.content} />
+                    <S.Input  {...register("content", { required: true, maxLength: 40 })} defaultValue={initialMenuCatagory.content} />
                 </S.InputWrap>
                 <S.Button>제출</S.Button>
             </S.Form>

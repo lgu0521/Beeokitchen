@@ -41,7 +41,7 @@ const ImageUploadAndChange = ({ InitialItem, GetItem }: DragAndDropInitializePro
         {
             imageItem?
             <Image src={imageItem ? imageItem.downloadUrl : DefaultImage} width={80} height={80} objectFit="cover" />
-            : null
+            : <p>이미지 정보 없음</p>
         }
             <Label htmlFor="addImage">이미지 바꾸기</Label>
             <input style={{ display: "none" }} onChange={(e) => ChangeImage(e)} type="file" id="addImage" />

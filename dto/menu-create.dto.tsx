@@ -1,15 +1,16 @@
 import { ImageBlock } from "./image-create.dto";
 
-export interface MenuDTO {
+export type MenuDTO ={
     id: string,
     catagory: string,
     title: string,
-    content: string,
+    content1: string,
+    content2: string,
     order: number,
     image: ImageBlock
 }
 
-export interface MenuCatagoryDTO {
+export type MenuCatagoryDTO = {
     id: string,
     order: number,
     title: string,

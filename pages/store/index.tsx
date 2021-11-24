@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState } from "react";
 import PageMainTitle from "../../components/PageMainTitle";
 import { StoreDTO } from '../../dto/store-create.dto';
-import { PageFullWidthLayout, Title2, Title3, Title4 } from '../../components/GlobalComponents';
+import { PageFullWidthLayout, PageMaxNoCSSLayout, Title5, Title3, Title4 } from '../../components/GlobalComponents';
 import StoreEdit from '../../components/admin/StoreEdit'
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
@@ -20,57 +20,64 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
         <>
             <PageMainTitle {...PageTitle} />
             <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)" }}>
-                <ContentBox>
+                <PageMaxNoCSSLayout>
+                    <ContentUl>
                     {
                         storeList.map((item: StoreDTO, key) => (
-                            <ContentWrap key={key}>
+                            <Contentli key={key}>
                                 {user ? <StoreEdit initialItem={item} initialItems={storeList} /> : null}
-                                <div>
-                                    <Image src={item.image.downloadUrl} alt="" width="100%" height="100%" layout="responsive" objectFit="cover" />
-                                </div>
+                                <ImageWrap>
+                                    <Image src={item.image.downloadUrl} alt="" layout="fill" objectFit="cover" />
+                                </ImageWrap>
                                 <TextWrap>
-                                    <Title3 style={{ color: "#008B48", fontWeight: 600 }}>{item.title}</Title3>
-                                    <Title4 style={{ fontWeight: 600 }}>Tel {item.phonenumber}</Title4>
+                                    <Title3 style={{ color: "#008B48", fontWeight: 700 }}>{item.title}</Title3>
+                                    <Title5 style={{ fontWeight: 700 }}>Tel {item.phonenumber}</Title5>
                                 </TextWrap>
-                                <Title4 style={{ color: "#7e7e7e", padding: "15px" }}>{item.operation}</Title4>
-                            </ContentWrap>
+                                <Title5 style={{ padding: "15px", minHeight:"100px" , lineHeight:"120%"}}>{item.operation}</Title5>
+                            </Contentli>
                         ))
                     }
-                </ContentBox>
+                    </ContentUl>
+                </PageMaxNoCSSLayout>
             </PageFullWidthLayout>
         </>
     );
 };
-const ContentBox = styled.ul`
-    width: 100%;
-    margin: 0 auto;
-    padding: 0px 40px;
-    @media only screen and (max-width: 768px) {
-        width: auto;
-    }
-    @media only screen and (min-width: 1000px) {
-        width: 1000px;
-    }
-    @media only screen and (min-width: 1600px) {
-        width: 1200px;
-    }
-`;
 
-const ContentWrap = styled.li`
+const ImageWrap =styled.div`
+    position: relative;
+    width:100%;
+    height: 31vh;
+`
+
+const ContentUl =styled.ul`
+    display: inline-block;
+    padding: 0px 30px;
+    @media only screen and (max-width: 600px) {
+        margin: 40px 0px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin: 80px 0px;
+    }
+    @media only screen and (min-width: 992px) {
+        margin: 120px 0px;
+    }
+`
+const Contentli = styled.li`
     float:left;
-    border: 2px solid #15AA5A;
+    border: 2.5px solid #15AA5A;
     text-align: left;
     @media only screen and (max-width: 600px) {
-        width: calc(90% - 20px);
-        margin: 0 8px 20px 8px;
+        width: 100%;
+        margin: 0 0px 20px 0px;
     }
     @media only screen and (min-width: 600px) {
         width: calc(50% - 20px);
         margin: 0 8px 20px 8px;
     }
     @media only screen and (min-width: 992px) {
-        width: calc(33% - 20px);
-        margin: 0 8px 20px 8px;
+        width: calc(33% - 34px);
+        margin: 0 18px 20px 18px;
     }
 `
 const TextWrap = styled.div`
@@ -85,7 +92,7 @@ const TextWrap = styled.div`
         width: 96%;
         top: 100%;
         left: 2%;
-        border-bottom: 2px solid #15AA5A;
+        border-bottom: 2.5px solid #15AA5A;
     }
 `
 export const getStaticProps: GetStaticProps = async (context) => {

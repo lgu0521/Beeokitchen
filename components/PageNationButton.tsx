@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Title2 } from "./GlobalComponents";
 
 interface Props {
     itemCount: number,
@@ -12,56 +13,34 @@ const PageNationButton = ({ itemCount, pageSize, onPageChange }: Props) => {
     console.log(totallPageCount);
     return (
         <>
-            <Nav>
-                <Ul>
-                    <Li onClick={() => onPageChange(1)}>처음</Li>
-                    {Array(totallPageCount).fill(1).map((page, key) => (
-                        <Li key={key} onClick={() => onPageChange(key + 1)}>
-                            <PageNumber>{key + 1}</PageNumber>
-                        </Li>
-                    ))}
-                    <Li onClick={() => onPageChange(totallPageCount)}>마지막</Li>
-                </Ul>
-            </Nav>
+            <Ul>
+                <Li onClick={() => onPageChange(1)}>처음</Li>
+                {Array(totallPageCount).fill(1).map((page, key) => (
+                    <Li key={key} onClick={() => onPageChange(key + 1)}>
+                        <Title2>{key + 1}</Title2>
+                    </Li>
+                ))}
+                <Li onClick={() => onPageChange(totallPageCount)}>마지막</Li>
+            </Ul>
         </>
     )
 }
 
-const Nav = styled.nav`
-    width: 100%;
-    margin: 0 auto;
-    text-align: center;
-    display: inline-block;
-`
 const Ul = styled.ul`
-    display: table;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `
 
 const Li = styled.li`
-display: table-cell;
-    margin: 5px;
-`
-
-const PageNumber = styled.span`
-    display: table-cell;
-    width:30px;
-    height: 30px;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    vertical-align: middle;
-    padding: 5px;
-    font-weight: bold;
-    background-color: #175436;
-    font-weight: bold;
+    font-weight: 600;
+    color: #979797;
+    margin: 20px;
     cursor: pointer;
     &:hover {
-        background-color: #ffce32;
+        color: #175436;
         transition: background-color 0.3s;
         -webkit-transition: background-color 0.3s;
     };
 `
-
-
 export default PageNationButton

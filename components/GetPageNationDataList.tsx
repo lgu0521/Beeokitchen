@@ -3,7 +3,8 @@ type Item = {
     id: string,
     title: string,
     content: string,
-    datetime: string
+    datetime: string,
+    isNotice: boolean
 }
 
 interface Props {

@@ -52,11 +52,11 @@ const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
             <S.Form onSubmit={handleSubmit(onSubmit)}>
                 <S.InputWrap>
                     <S.Label>FAQ 제목</S.Label>
-                    <S.Input defaultValue={initialItem.title} {...register('title', { required: true, maxLength: 20 })} />
+                    <S.Input defaultValue={initialItem.title} {...register('title', { required: true, maxLength: 60 })} />
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>FAQ 내용</S.Label>
-                    <S.Input defaultValue={initialItem.content} {...register('content', { required: true, maxLength: 100 })} />
+                    <textarea defaultValue={initialItem.content} {...register('content', { required: true, maxLength: 200 })} />
                 </S.InputWrap>
                 <S.Button>저장</S.Button>
             </S.Form>

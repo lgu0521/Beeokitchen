@@ -9,7 +9,13 @@ const ModifyFaq = async (req: NextApiRequest, res: NextApiResponse) => {
             const firestore = getFirestore(firebase);
             const reqBody:FaqDTO = JSON.parse(req.body);
             const newDocRef = doc(firestore, "Faq", reqBody.id);
-            const docUpdate = await updateDoc(newDocRef, reqBody);
+            const Data = {
+              id: reqBody.id,
+              order: reqBody.order,
+              title: reqBody.title,
+              content: reqBody.content
+            }
+            const docUpdate = await updateDoc(newDocRef, Data);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

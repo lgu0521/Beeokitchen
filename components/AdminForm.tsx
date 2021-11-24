@@ -41,6 +41,21 @@ const Table = styled.table`
 margin: 0 auto;
 `
 const Button = styled.button`
+    font-weight: bold;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 20px 40px;
+    border: 0px;
+    background-color: #F9F0EC;
+    border-radius: 20px;
+    cursor: pointer;
+    &:hover {
+        background-color: #CC3D3D;
+        color: white;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+    };
 `
 const FormStyle = styled.form`
     display: inline-block;

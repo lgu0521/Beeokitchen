@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+
 @font-face {
   font-family: 'Noto Sans KR';
   font-style: normal;

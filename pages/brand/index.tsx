@@ -1,4 +1,4 @@
-import { Title1, Title2, Title3, Content, PageFullWidthLayout } from '../../components/GlobalComponents';
+import { Title1, Title2, Title3, PageFullWidthLayout } from '../../components/GlobalComponents';
 import styled from 'styled-components';
 import React from 'react';
 import PageMainTitle from '../../components/PageMainTitle';

@@ -65,16 +65,12 @@ const ModifyAndDeleteStore = ({ initialItem }: Props) => {
                     <S.Input defaultValue={initialItem.title} {...register('title', { required: true })} />
                 </S.InputWrap>
                 <S.InputWrap>
-                    <S.Label>매장 운영시간</S.Label>
+                    <S.Label>매장 정보</S.Label>
                     <S.Input defaultValue={initialItem.operation} {...register('operation', { required: true })} />
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>매장 전화번호</S.Label>
                     <S.Input defaultValue={initialItem.phonenumber} {...register('phonenumber', { required: true })} />
-                </S.InputWrap>
-                <S.InputWrap>
-                    <S.Label>매장 위치</S.Label>
-                    <S.Input defaultValue={initialItem.location} {...register('location', { required: true })} />
                 </S.InputWrap>
                 <S.ImageInput>
                     <ImageUploadAndChange InitialItem={ImageValue} GetItem={(item: ImageBlock) => setImage(item)} />

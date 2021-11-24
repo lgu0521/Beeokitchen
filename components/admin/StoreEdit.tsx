@@ -85,6 +85,7 @@ const EditUl = styled.ul`
 const EditWrap = styled.div`
     position: relative;
     float: right;
+    z-index: 1;
     &:hover ${EditUl} {
         display: block;
     }

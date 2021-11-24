@@ -66,7 +66,8 @@ const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
                     <option value="음료">음료</option>
                 </S.Select>
                 <S.Input {...register("title", { required: true, maxLength: 20 })} defaultValue={initialMenu.title} />
-                <S.Input  {...register("content", { required: true, maxLength: 20 })} defaultValue={initialMenu.content} />
+                <S.Input  {...register("content1", { required: true, maxLength: 50 })} defaultValue={initialMenu.content1} />
+                <S.Input  {...register("content2", { maxLength: 50 })} defaultValue={initialMenu.content2} />
                 <S.ImageInput>
                     <ImageUploadAndChange InitialItem={ImageValue} GetItem={(item: ImageBlock) => setImage(item)}/>
                 </S.ImageInput>

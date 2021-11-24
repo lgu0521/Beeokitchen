@@ -11,7 +11,10 @@ const CreateStore = async (req: NextApiRequest, res: NextApiResponse) => {
             const newDocRef = doc(collection(firestore, "Store"));
             const querySnapshot = await getDocs(collection(firestore, "Store"));
             const docRef = await setDoc(newDocRef, { ...reqBody, order: querySnapshot.size + 1 });
-
+            await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/image-metadata-update", {
+              method: 'POST',
+              body: JSON.stringify({ storageRef: reqBody.image.storageRef })
+          });
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

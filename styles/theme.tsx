@@ -1,9 +1,12 @@
 const calcEm = (size: number) => `${size}rem`;
 
 const fontSizes = {
-  title5: calcEm(1.3), //13px
-  title4: calcEm(1.5), //15px
-  title3: calcEm(1.8), //18px
+  title8: calcEm(1.0), //13px
+  title7: calcEm(1.1), //13px
+  title6: calcEm(1.3), //13px
+  title5: calcEm(1.5), //15px
+  title4: calcEm(1.8), //15px
+  title3: calcEm(2.0), //18px
   title2: calcEm(3.2), //32px
   title1: calcEm(5.4), //54px
 };

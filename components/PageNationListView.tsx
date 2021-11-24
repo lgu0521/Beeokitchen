@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import PageNationButton from './PageNationButton';
+import Image from 'next/image';
 import GetPageNationViewList from './GetPageNationDataList'
 import { useState } from 'react';
 import { Title2, Title3 } from './GlobalComponents';
 import { NoticeListDTO } from '../dto/notice-create.dto';
+import NoticeIcon from '../public/notice.png';
 
 interface Props {
     itemList: NoticeListDTO[],
@@ -14,8 +15,8 @@ interface Props {
 
 const PageNationView = ({ itemList, pageSize }: Props) => {
     const itemCount = itemList.length;
+    const totallPageCount = Math.ceil(itemCount / pageSize);
     const [currentCount, setCurrentCount] = useState(1);
-
     const viewItemList = GetPageNationViewList({ itemList, pageSize, currentCount });
 
     const handlePageChange = (page: number) => {
@@ -24,50 +25,129 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
 
     return (
         <>
+            <Head>
+                <Title3>총 <span>{itemCount}</span>개의 글이 있습니다</Title3>
+            </Head>
             <Table>
-                <colgroup>
-                    <col width="50px" />
-                    <col width="900px" />
-                    <col width="200px" />
-                </colgroup>
                 <Tbody>
                     {
                         viewItemList.map((item, key) => {
-                            return (
-                                <tr key={key}>
-                                    <td style={{textAlign:'center'}}><Title3>{key + 1}</Title3></td>
-                                    <th><Link href={`/board/notice/${item.id}`}><a><Title3 style={{fontWeight:600}}>{item.title}</Title3></a></Link></th>
-                                    <td><Title3>{item.datetime}</Title3></td>
-                                </tr>)
+                            const itemNum = itemCount - key - ((currentCount - 1) * 10);
+                            if(item.isNotice){
+                                return (
+                                    <tr key={key} style={{backgroundColor:"#F9F0EC"}}>
+                                        <td><Image width={36} height={26} src={NoticeIcon}/></td>
+                                        <td>
+                                            <Link href={`/board/notice/${item.id}`}>
+                                                <a>
+                                                    <Title3 >{item.title}</Title3>
+                                                </a>
+                                            </Link>
+                                        </td>
+                                        <td><Title3>{item.datetime}</Title3></td>
+                                    </tr>
+                                )
+                            }else{
+                                return (
+                                    <tr key={key}>
+                                        <td><Title2>{itemNum}</Title2></td>
+                                        <td>
+                                            <Link href={`/board/notice/${item.id}`}>
+                                                <a>
+                                                    <Title3 >{item.title}</Title3>
+                                                </a>
+                                            </Link>
+                                        </td>
+                                        <td><Title3>{item.datetime}</Title3></td>
+                                    </tr>
+                                ) 
+                            }
+                            
                         })
                     }
                 </Tbody>
             </Table>
-            <PageNationButton itemCount={itemCount} pageSize={pageSize} currentCount={currentCount} onPageChange={handlePageChange} />
+            <Ul>
+                <Li onClick={() => handlePageChange(1)}>처음</Li>
+                {Array(totallPageCount).fill(1).map((page, key) => (
+                    <Li key={key} onClick={() => handlePageChange(key + 1)}>
+                        {
+                            currentCount == (key + 1) ?
+                                <Title2><span>{key + 1}</span></Title2>
+                                : <Title2>{key + 1}</Title2>
+                        }
+                    </Li>
+                ))}
+                <Li onClick={() => handlePageChange(totallPageCount)}>마지막</Li>
+            </Ul>
         </>
     );
 };
+const Ul = styled.ul`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
 
+const Li = styled.li`
+    font-weight: 600;
+    color: #979797;
+    margin: 20px;
+    cursor: pointer;
+    &:hover {
+        color: #175436;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+    };
+    * > span {
+        color: #008B48;
+    }
+`
 const Tbody = styled.tbody`
-    & td, th{
-        border-bottom: 1px solid ${props => props.theme.colors.line};
-        text-align: center;
-        color: #292929;
-        letter-spacing: -0.04em;
-        padding: 20px;
-        font-weight: normal;
+    width:100%;
+    line-height: 22px;
+    text-align: left;
+    tr{
+        vertical-align: middle;
+        border-bottom: 2px solid #15AA5A;
+        @media only screen and (max-width: 600px) {
+            padding: 30px;
+        }
+        @media only screen and (min-width: 600px) {
+            height: 60px;
+        }
     }
-    td{
-        text-align: center;
+    *{
+        vertical-align: middle;
     }
-    th{
+    td:nth-child(1){
+        font-weight: 600;
+        color: #15AA5A;
+        text-align: center;
+        width:5%;
+    }
+    td:nth-child(2){
+        font-weight: 600;
         text-align: left;
+        width: 85%;
+    }
+    td:nth-child(3){
+        font-weight: 600;
+        color: #898A8D;
+        text-align: center;
+        width:10%;
     }
 `
 
 const Table = styled.table`
-    display: inline-block;
-    border-spacing: 0;
     width: 100%;
+    border-top: 5px solid #03502C;
+`
+
+const Head = styled.div`
+    font-weight:700;
+    span{
+        color: #CC3D3D
+    }
 `
 export default PageNationView;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Logo from '../../public/logo.png'
 import headerLogo from '../../public/headerLogo.png'
 import Image from 'next/image';
-import { Title3 } from '../GlobalComponents';
+import { Title4 } from '../GlobalComponents';
 
 const Header = () => {
     return (
@@ -18,27 +18,27 @@ const Header = () => {
                     <Ul>
                         <Li>
                             <Link href="/brand">
-                                <a><Title3>회사소개</Title3></a>
+                                <a><Title4>회사소개</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/menu">
-                                <a><Title3>키친메뉴</Title3></a>
+                                <a><Title4>키친메뉴</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/store">
-                                <a><Title3>매장위치</Title3></a>
+                                <a><Title4>매장위치</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/startup">
-                                <a><Title3>프랜차이즈</Title3></a>
+                                <a><Title4>프랜차이즈</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/board">
-                                <a><Title3>게시판</Title3></a>
+                                <a><Title4>게시판</Title4></a>
                             </Link>
                         </Li>
                     </Ul>
@@ -54,27 +54,27 @@ const Header = () => {
                     <Ul>
                         <Li>
                             <Link href="/brand">
-                                <a><Title3>소개</Title3></a>
+                                <a><Title4>브랜드</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/menu">
-                                <a><Title3>메뉴</Title3></a>
+                                <a><Title4>메뉴</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/store">
-                                <a><Title3>매장</Title3></a>
+                                <a><Title4>매장</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/startup">
-                                <a><Title3>창업</Title3></a>
+                                <a><Title4>창업</Title4></a>
                             </Link>
                         </Li>
                         <Li>
                             <Link href="/board">
-                                <a><Title3>게시판</Title3></a>
+                                <a><Title4>게시판</Title4></a>
                             </Link>
                         </Li>
                     </Ul>
@@ -117,7 +117,7 @@ const PcNav = styled.nav`
     box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
-    height: 11vh;
+    height: 110px;
     padding: 30px;
     box-shadow: 0 3px 3px rgb(0 0 0 / 20%) !important;
     @media only screen and (max-width:991px){

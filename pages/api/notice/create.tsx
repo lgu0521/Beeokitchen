@@ -9,12 +9,7 @@ const CreateNotice = async (req: NextApiRequest, res: NextApiResponse) => {
             const firestore = getFirestore(firebase);
             const reqBody:NoticeCreateDTO = JSON.parse(req.body);
             const newNoticeRef = doc(collection(firestore, "Notice"));
-            const docData:NoticeCreateDTO = {
-                title: reqBody.title,
-                content: reqBody.content,
-                datetime: '',
-            }
-            const docRef = await setDoc(newNoticeRef, docData);
+            const docRef = await setDoc(newNoticeRef, reqBody);
             res.status(200).json({ message: "success" });
         } catch (e) {
             console.log("실패: " + e);

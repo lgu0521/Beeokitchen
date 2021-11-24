@@ -48,8 +48,12 @@ const CreateMenu = () => {
                     <S.Input placeholder="메뉴 이름을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
                 </S.InputWrap>
                 <S.InputWrap>
-                    <S.Label>메뉴 설명</S.Label>
-                    <S.Input placeholder="메뉴에 대해 짧은 설명문을 입력해주세요" {...register('content', { required: true })} />
+                    <S.Label>메뉴 설명1</S.Label>
+                    <S.Input placeholder="메뉴에 대해 짧은 설명문을 입력해주세요" {...register('content1', { required: true })} />
+                </S.InputWrap>
+                <S.InputWrap>
+                    <S.Label>메뉴 설명2</S.Label>
+                    <S.Input placeholder="메뉴에 대해 짧은 설명문을 입력해주세요" {...register('content2')} />
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>메뉴 이미지</S.Label>

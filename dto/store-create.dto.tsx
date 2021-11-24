@@ -1,10 +1,9 @@
 import { ImageBlock } from "./image-create.dto";
 
-export interface StoreDTO {
+export type StoreDTO = {
     id: string,
     order:number,
     title: string,
-    location: string,
     phonenumber: string,
     operation: string,
     image: ImageBlock

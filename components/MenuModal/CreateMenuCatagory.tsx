@@ -32,7 +32,7 @@ const CreateMenuCatagory = () => {
                 </S.InputWrap>
                 <S.InputWrap>
                     <S.Label>카테고리 설명</S.Label>
-                    <S.Input placeholder="카테고리를 설명해주세요" {...register('content', { required: true, maxLength: 20 })} />
+                    <S.Input placeholder="카테고리를 설명해주세요" {...register('content', { required: true, maxLength: 40 })} />
                 </S.InputWrap>
                 <S.Button>저장</S.Button>
             </S.Form>

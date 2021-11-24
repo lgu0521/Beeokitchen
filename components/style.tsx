@@ -1,28 +1,34 @@
 import styled from 'styled-components';
 
 export const Table = styled.table`
-    border-spacing: 0;
+    width:100%;
+    line-height: 22px;
+    text-align: left;
     border-top: 4px solid #009223;
-    min-width:1200px;
-
     tr{
-        height: 69px;
+        vertical-align: middle;
+        border-bottom: 1px solid #dddddd;
+        @media only screen and (max-width: 600px) {
+            height: 50px;
+        }
+        @media only screen and (min-width: 600px) {
+            height: 69px;
+        }
+    }
+    th, td{
+        padding: 0 15px;
+        vertical-align: middle;
     }
     th{
-        text-align: left;
-        padding: 0 30px;
-        color: #292929;
-        line-height: 22px;
-        font-weight: normal;
-        border-bottom: 1px solid #dddddd;
+        font-weight: bold;
     }
-    td{
-        padding: 0 30px;
-        text-align: left;
-        color: #666;
-        line-height: 22px;
-        letter-spacing: -0.05em;
-        border-bottom: 1px solid #dddddd;
+    td:nth-child(2){
+        font-weight: 300;
+    }
+    th:nth-child(2),td:nth-child(2){
+        @media only screen and (max-width: 600px) {
+            display: none;
+        }
     }
 `;
 
@@ -37,12 +43,12 @@ export const Thead= styled.thead`
 `;
 
 export const Tfoot = styled.tfoot`
-    background-color: #f6f6f6;
+    background-color: #F9F0EC;
+    color: #CC3D3D;
     tr > th{
         font-weight: bold;
     }
     tr > td{
-        font-weight: bold;
     }
 `;
 

@@ -1,7 +1,8 @@
-export interface NoticeDTO {
+export type NoticeDTO ={
     title: string,
     content: string,
-    datetime: string
+    datetime: string,
+    isNotice: boolean
 }
 
 export interface NoticeCreateDTO extends NoticeDTO {}

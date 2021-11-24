@@ -23,8 +23,8 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-  vertical-align: baseline;
-  font-family: 'Noto Sans KR';
+	vertical-align: baseline;
+	font-family:'Noto Sans KR','Apple SD Gothic Neo',Sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -63,4 +63,12 @@ html{
 *{
   box-sizing: border-box;
   word-break: keep-all;
+}
+
+pre{
+	white-space: pre-wrap;       /* Since CSS 2.1 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       
 }
