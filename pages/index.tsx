@@ -24,7 +24,10 @@ const Home: NextPage<Props> = ({ BannerList }) => {
         <Carousel showThumbs={false} swipeable={true} autoPlay={true} infiniteLoop={true} showStatus={false}>
           {
             BannerList.map((item, key) => (
+              <div key={key}>
                 <Img src={item.downloadUrl} alt="" />
+              </div>
+
             ))
           }
         </Carousel>
