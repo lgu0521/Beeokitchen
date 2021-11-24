@@ -1,27 +1,28 @@
 // import { GetStaticProps, InferGetStaticPropsType } from "next";
 // import { StartUpFormDTO } from "../../dto/startup-form.dto";
 
-// const StartupList = (Props: InferGetStaticPropsType<typeof getStaticProps>) => {
-//     const formList: StartUpFormDTO[] = Props.sendData;
-//     console.log(Props);
-//     return (
-//         <div>
+const StartupList = () => {
+    //Props: InferGetStaticPropsType<typeof getStaticProps>
+    // const formList: StartUpFormDTO[] = Props.sendData;
+    // console.log(Props);
+    return (
+        <div>
+{/* 
+            {formList.map((item, key) => (
+                <div key={key}>
+                    <p>{item.name}</p>
+                    <p>{item.phonenumber}</p>
+                    <p>{item.area}</p>
+                    <p>{item.experience}</p>
+                    <p>{item.money}</p>
+                    <p>{item.openday}</p>
+                </div>
+            ))
+            } */}
 
-//             {formList.map((item, key) => (
-//                 <div key={key}>
-//                     <p>{item.name}</p>
-//                     <p>{item.phonenumber}</p>
-//                     <p>{item.area}</p>
-//                     <p>{item.experience}</p>
-//                     <p>{item.money}</p>
-//                     <p>{item.openday}</p>
-//                 </div>
-//             ))
-//             }
-
-//         </div>
-//     );
-// };
+        </div>
+    );
+};
 
 
 // export const getStaticProps: GetStaticProps = async () => {
@@ -41,4 +42,4 @@
 //     }
 // }
 
-// export default StartupList;
+export default StartupList;
