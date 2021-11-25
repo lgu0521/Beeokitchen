@@ -171,4 +171,5 @@ const PageFullWidthLayout = styled.div`
     margin: 0 auto;
     overflow: auto;
     text-align: center;
+    position: relative;
 `

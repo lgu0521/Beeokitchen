@@ -4,7 +4,6 @@ import Image from 'next/image';
 import PageMainTitle from '../../components/PageMainTitle';
 import { GetStaticProps } from 'next';
 import { PageTitleDTO } from '../../dto/page-title.dto';
-import brandMainImage from '../../public/brandMain.png'
 import Story1 from '../../public/story1.png';
 import Story2 from '../../public/story2.png';
 import storyIcon1 from '../../public/storyIcon1.png';
@@ -26,24 +25,32 @@ const Brand = ({ PageTitle }: Props) => {
         justifyContent: "center",
         alignItems: "center",
         backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "69vh"
     }
+
 
     return (
         <>
             <PageMainTitle {...PageTitle} />
-            <PageFullWidthLayout style={{ ...CONTENT_BOX_STYLE, backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/brandMain.png?alt=media&token=c1a96bb8-8d4c-419e-8300-74b3e69cc446')" }}>
-                <PageMaxNoCSSLayout>
-                    <Section1>
-                        <Title1>비오키친은<br />다이어트푸드 전문키친입니다.</Title1>
-                        <Title4>
-                            <ul>
-                                <li>현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.</li>
-                                <li>다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?</li>
-                                <li>라는 생각이 비오키친의 시작입니다.</li>
-                            </ul>
-                        </Title4>
-                    </Section1>
-                </PageMaxNoCSSLayout>
+            <PageFullWidthLayout style={{ ...CONTENT_BOX_STYLE }}>
+                <BackgroundWrap>
+                    <Background>
+                        <PageMaxNoCSSLayout>
+                            <Section1>
+                                <Title1>비오키친은<br />다이어트푸드 전문키친입니다.</Title1>
+                                <Title4>
+                                    <ul>
+                                        <li>현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.</li>
+                                        <li>다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?</li>
+                                        <li>라는 생각이 비오키친의 시작입니다.</li>
+                                    </ul>
+                                </Title4>
+                            </Section1>
+
+                        </PageMaxNoCSSLayout>
+                    </Background>
+                </BackgroundWrap>
             </PageFullWidthLayout>
             <PageFullWidthLayout style={{ background: "linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%)" }}>
                 <PageMaxNoCSSLayout>
@@ -140,7 +147,26 @@ const Brand = ({ PageTitle }: Props) => {
         </>
     );
 };
-
+// 이미지 스크롤시, position: pixed 수정해야함
+const BackgroundWrap = styled.div`
+clip: rect(0, auto, auto, 0);
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+`
+const Background = styled.div`
+position: fixed;
+display: block;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center center;
+background-image: url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/brandMain.png?alt=media&token=c1a96bb8-8d4c-419e-8300-74b3e69cc446');
+`
 const Section1 = styled.div`
     display: flex;
     flex-direction: column;
@@ -318,7 +344,7 @@ const Section3 = styled.div`
         }
     }
 `
-        
+
 const ImageWrap = styled(Image)`
     @media only screen and (max-width: 600px) {padding: 30px !important; }
     padding: 20px !important; 
