@@ -12,6 +12,7 @@ import storyIcon2 from '../../public/storyIcon2.png';
 import Step1 from '../../public/step1.png';
 import Step2 from '../../public/step2.png';
 import Step3 from '../../public/step3.png';
+import AfterIcon from '../../public/after.png';
 
 interface RoundProp {
     value: string
@@ -36,15 +37,9 @@ const Brand = ({ PageTitle }: Props) => {
                         <Title1>비오키친은<br />다이어트푸드 전문키친입니다.</Title1>
                         <Title4>
                             <ul>
-                                <li>
-                                    현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.
-                            </li>
-                                <li>
-                                    다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?
-                            </li>
-                                <li>
-                                    라는 생각이 비오키친의 시작입니다.
-                            </li>
+                                <li>현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.</li>
+                                <li>다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?</li>
+                                <li>라는 생각이 비오키친의 시작입니다.</li>
                             </ul>
                         </Title4>
                     </Section1>
@@ -53,11 +48,13 @@ const Brand = ({ PageTitle }: Props) => {
             <PageFullWidthLayout style={{ background: "linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%)" }}>
                 <PageMaxNoCSSLayout>
                     <Section2>
-                        <Wrap>
+                        <Section2_Wrap1>
                             <ul>
                                 <li>
                                     <li>
-                                        <Image width={130} height={130} src={storyIcon1} />
+                                        <div>
+                                            <Image objectFit="cover" layout="responsive" src={storyIcon1} />
+                                        </div>
                                         <Title3>기본과 트렌드를 동시에</Title3>
                                     </li>
                                     <li>
@@ -69,13 +66,15 @@ const Brand = ({ PageTitle }: Props) => {
                                     </li>
                                 </li>
                                 <li>
-                                    <Image width={100} height={100} src={Story1} objectFit="cover" layout="responsive" />
+                                    <Image src={Story1} objectFit="cover" layout="responsive" />
                                 </li>
                             </ul>
                             <ul>
                                 <li>
                                     <li>
-                                        <Image width={130} height={130} src={storyIcon2} />
+                                        <div>
+                                            <Image objectFit="cover" layout="responsive" src={storyIcon2} />
+                                        </div>
                                         <Title3>청결하고 꼼꼼하게</Title3>
                                     </li>
                                     <li>
@@ -87,10 +86,10 @@ const Brand = ({ PageTitle }: Props) => {
                                     </li>
                                 </li>
                                 <li>
-                                    <Image width={580} height={580} src={Story2} />
+                                    <Image objectFit="cover" layout="responsive" src={Story2} />
                                 </li>
                             </ul>
-                        </Wrap>
+                        </Section2_Wrap1>
                         <Title1>다이어트가 지속되는 한 비오키친은 지속됩니다.</Title1>
                     </Section2>
                 </PageMaxNoCSSLayout>
@@ -99,23 +98,34 @@ const Brand = ({ PageTitle }: Props) => {
                 <PageMaxNoCSSLayout>
                     <Section3>
                         <ul>
-                            <li><Title5>
-                                1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재 유행하는 간헐적단식까지<br />
-                        무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다. 그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.<br />
-                        비오키친은 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
-                        </Title5>
+                            <li>
+                                <Title5>
+                                    <li>1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재 유행하는 간헐적단식까지</li>
+                                    <li>무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다. 그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.</li>
+                                    <li>비오키친은 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.</li>
+                                </Title5>
                             </li>
                             <li>
                                 <li>
-                                    <div><Image width={100} height={100} layout="responsive" objectFit="cover" src={Step1} /></div>
+                                    <ImageWrap width={290} height={290} objectFit="fill" src={Step1} />
                                     <Title4>다이어트는 지속됩니다</Title4>
                                 </li>
                                 <li>
-                                    <div><Image width={100} height={100} layout="responsive" objectFit="cover" src={Step2} /></div>
+
+                                    <Image width={39} height={85} objectFit="cover" src={AfterIcon} />
+
+                                </li>
+                                <li>
+                                    <ImageWrap width={290} height={290} objectFit="fill" src={Step2} />
                                     <Title4>다이어트는 지속됩니다</Title4>
                                 </li>
                                 <li>
-                                    <div><Image width={100} height={100} layout="responsive" objectFit="cover" src={Step3} /></div>
+                                    <Image width={39} height={85} objectFit="cover" src={AfterIcon} />
+
+                                </li>
+                                <li>
+                                    <ImageWrap width={290} height={290} objectFit="fill" src={Step3} />
+
                                     <Title4>다이어트는 지속됩니다</Title4>
                                 </li>
                             </li>
@@ -137,137 +147,119 @@ const Section1 = styled.div`
     justify-content: center;
     align-items: center;
     color: white;
-    li {
-        line-height: 130%;
-    }
     h1{
-       line-height: 130%;
+        font-weight: 400;
+    }
+    h4{
+        font-weight: 500;
     }
     @media only screen and (max-width: 600px) {
         height: 350px;
-        h1{
-            margin-bottom: 20px;
-        }
+        h1{ margin-bottom: 20px; }
     }
     @media only screen and (min-width: 600px) {
         height: 490px;
-        h1{
-            margin-bottom: 20px;
-        }
+        h1{ margin-bottom: 20px; }
     }
     @media only screen and (min-width: 768px) {
         height: 590px;
-        h1{
-            margin-bottom: 35px;
-        }
+        h1{ margin-bottom: 35px; }
     }
     @media only screen and (min-width: 992px) {
         height: 690px;
-        h1{
-            margin-bottom: 35px;
-        }
+        h1{ margin-bottom: 35px; }
+    }
+    @media only screen and (min-width: 1200px) {
+        height: 690px;
+        h1{ margin-bottom: 35px; }
     }
 `
 
 const Section2 = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    margin: 30px 0px;
     @media only screen and (max-width: 600px) {
-        h1 {
-            margin: 20px 0px 40px 0px;
-        }
+        padding: 35px 0px;
+    }
+    @media only screen and (min-width: 600px) {
+        padding: 55px 0px;
     }
     @media only screen and (min-width: 768px) {
-        h1 {
-            margin: 40px 0px 80px 0px;
-        }
+        padding: 85px 0px;
     }
+
 `
-const Wrap = styled.div`
+const Section2_Wrap1 = styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
+    height: 100%;
     @media only screen and (max-width: 600px) {
         flex-direction: column;
+        ul { 
+            width: 90% !important;
+            margin-bottom: 20px !important; 
+        }
     }
     @media only screen and (min-width: 600px) {
         flex-direction: row;
+        margin-bottom: 60px !important;
     }
     ul {
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: space-between;
-        max-width: 580px;
-        max-height: 1000px;
-        height: 100%;
+        width: 48.7%;
         border: 3px solid #15AA5A;
-        @media only screen and (max-width: 600px) {
-            margin: 30px;
-        }
-        @media only screen and (min-width: 600px) {
-            margin: 10px;
-        }
-        @media only screen and (min-width: 992px) {
-            margin: 30px;
-        }
+        @media only screen and (max-width: 600px) {height: 600px;}
+        @media only screen and (min-width: 600px) {height: 700px;}
+        @media only screen and (min-width: 768px) {height: 900px;}
+        @media only screen and (min-width: 992px) {height: 800px;}
+        @media only screen and (min-width: 1200px){height: 1000px;}
     }
     ul > li:nth-child(1) {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
-        height: 40%;
-        @media only screen and (max-width: 600px) {
-            padding: 10px 20px;
-        }
-        @media only screen and (min-width: 600px) {
-            padding: 10px 30px;
-        }
-        @media only screen and (min-width: 768px) {
-            padding: 10px 30px;
-        }
+        align-content: center;
+        width: 100%;
+        height: 45%;
+        @media only screen and (max-width: 280px) {height: 55%; padding: 0px 10px;}
+        @media only screen and (max-width: 600px) {padding: 0px 10px;}
+        @media only screen and (min-width: 600px) {padding: 0px 20px;}
+        @media only screen and (min-width: 768px) {padding: 0px 20px;}
+        @media only screen and (min-width: 992px) {padding: 0px 30px;}
+        @media only screen and (min-width: 1200px) {padding: 30px 30px;}
     }
     ul > li:nth-child(2){
-        overflow: hidden;
         width:100%;
-        height: 60%;
+        height: 55%;
+        div{
+            height: 100%;
+        }
+        @media only screen and (max-width: 280px) {height: 45% !important;}
     }
     ul > li:nth-child(1) > li:nth-child(1) {
-        @media only screen and (max-width: 600px) {
-            margin-bottom: 20px;
-        }
-        @media only screen and (min-width: 600px) {
-            margin-bottom: 20px;
-        }
-        @media only screen and (min-width: 768px) {
-            margin-bottom: 40px;
-        }
-        @media only screen and (min-width: 992px) {
-            margin-bottom: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-weight: 600;
+        div{
+            @media only screen and (max-width: 600px) {width: 70px;height:70px;}
+            @media only screen and (min-width: 600px) {width: 70px;height:70px;}
+            @media only screen and (min-width: 768px) {width: 80px;height:80px;}
+            @media only screen and (min-width: 992px) {width: 100px;height:100px;}
         }
     }
     ul > li:nth-child(1) > li:nth-child(2) {
-        line-height: 350%;
-        @media only screen and (max-width: 600px) {
-            margin-bottom: 20px;
-        }
-        @media only screen and (min-width: 600px) {
-            margin-bottom: 20px;
-        }
-        @media only screen and (min-width: 768px) {
-            margin-bottom: 30px;
-        }
-        @media only screen and (min-width: 992px) {
-            margin-bottom: 30px;
-        }
+        font-weight: 300;
     }
     ul > li:nth-child(1) > li:nth-child(3) {
-        line-height: 200%;
-        margin-bottom: 30px
+        font-weight: 300;
     }
 `
 
@@ -280,55 +272,56 @@ const Section3 = styled.div`
         padding: 60px 0px;
     }
     ul > li:nth-child(1) {
-        line-height: 230%;
+        font-weight: 300;
     }
     ul > li:nth-child(2){
         display: flex;
-        justify-content: center;
+        flex-direction: row;
+        justify-content: space-around;
         align-items: center;
-        border-bottom: 2px solid #15AA5A;
-        padding-bottom: 60px;
-        @media only screen and (max-width: 767px) {
-            flex-direction: column;
-        }
-        @media only screen and (min-width: 768px) {
-            flex-direction: row;
-        }
-        div{
-            @media only screen and (max-width: 600px) {
-                width: 150px;
-                height: 150px;
-                flex-direction: column;
-            }
-            @media only screen and (min-width: 600px) {
-                width: 200px;
-                height: 200px;
-                flex-direction: column;
-            }
-            @media only screen and (min-width: 768px) {
-                width: 200px;
-                height: 200px;
-                flex-direction: row;
-            }
-            @media only screen and (min-width: 992px) {
-                width: 300px;
-                height: 300px;
-                flex-direction: row;
-            }
-        }
-        h4{
-            font-weight: 700;
-        }
         width:100%;
         height: 100%;
+        border-bottom: 2px solid #15AA5A;
+        font-weight: 600;
+        @media only screen and (max-width: 600px) {
+            flex-direction: column !important;
+            padding: 10px 0px 40px 0px;
+            li{
+                display: flex;
+                justify-items: center;
+                align-items: center;
+                flex-direction: row;
+            }
+            li:nth-child(2n-1) {
+                height: 120px;
+                h4{
+                    width:100%;
+                    text-align: left;
+                }
+            }
+            li:nth-child(2n){
+                display: none;
+            }
+        }
+        @media only screen and (min-width: 600px) {padding: 10px 0px 30px 0px;}
+        @media only screen and (min-width: 768px) {padding: 30px 0px 60px 0px;}
+        @media only screen and (min-width: 992px) {padding: 50px 0px 60px 0px;}
     }
     ul > li:nth-child(3){
-        margin-top: 40px;
-        line-height: 300%;
+        margin-top: 60px;
         h3{
-            font-weight: 700;
+            font-weight: 800;
+        }
+        h4{
+            margin-top: 5px;
+            font-weight: 500;
         }
     }
+`
+        
+const ImageWrap = styled(Image)`
+    @media only screen and (max-width: 600px) {padding: 30px !important; }
+    padding: 20px !important; 
 `
 
 export const getStaticProps: GetStaticProps = async (context) => {

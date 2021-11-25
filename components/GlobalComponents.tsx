@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Title1 = styled.h1`
     letter-spacing: 1px;
+    line-height: 130%;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title2};;
     }
@@ -21,6 +22,7 @@ const Title1 = styled.h1`
 
 const Title2 = styled.h2`
     letter-spacing: 1px;
+    line-height: 130%;
     @media only screen and (max-width: 600px) {
         font-size: 2.5rem;
     }
@@ -64,6 +66,7 @@ const Title3 = styled.h3`
 
 const Title4 = styled.h4`
     letter-spacing: 1px;
+    line-height: 130%;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title7};
     }
@@ -83,6 +86,7 @@ const Title4 = styled.h4`
 
 const Title5 = styled.h5`
     letter-spacing: 1px;
+    line-height: 120%;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title8};;
     }
