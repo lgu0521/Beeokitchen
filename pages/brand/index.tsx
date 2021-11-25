@@ -20,22 +20,11 @@ interface Props {
     PageTitle: PageTitleDTO
 }
 const Brand = ({ PageTitle }: Props) => {
-    const CONTENT_BOX_STYLE = {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        height: "69vh"
-    }
-
-
     return (
         <>
             <PageMainTitle {...PageTitle} />
-            <PageFullWidthLayout style={{ ...CONTENT_BOX_STYLE }}>
+            <PageFullWidthLayout>
                 <BackgroundWrap>
-                    <Background>
                         <PageMaxNoCSSLayout>
                             <Section1>
                                 <Title1>비오키친은<br />다이어트푸드 전문키친입니다.</Title1>
@@ -47,9 +36,7 @@ const Brand = ({ PageTitle }: Props) => {
                                     </ul>
                                 </Title4>
                             </Section1>
-
                         </PageMaxNoCSSLayout>
-                    </Background>
                 </BackgroundWrap>
             </PageFullWidthLayout>
             <PageFullWidthLayout style={{ background: "linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%)" }}>
@@ -149,24 +136,16 @@ const Brand = ({ PageTitle }: Props) => {
 };
 // 이미지 스크롤시, position: pixed 수정해야함
 const BackgroundWrap = styled.div`
-clip: rect(0, auto, auto, 0);
-position: absolute;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
+    background-position: center center;
+    background-repeat:  no-repeat;
+    background-attachment: fixed;
+    background-size:  cover;
+    background-image: url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/brandMain.png?alt=media&token=c1a96bb8-8d4c-419e-8300-74b3e69cc446');
+    @media only screen and (max-width: 600px) {
+        background-attachment: initial !important;
+    }
 `
-const Background = styled.div`
-position: fixed;
-display: block;
-top: 0;
-left: 0;
-width: 100%;
-height: 100%;
-background-size: cover;
-background-position: center center;
-background-image: url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/brandMain.png?alt=media&token=c1a96bb8-8d4c-419e-8300-74b3e69cc446');
-`
+
 const Section1 = styled.div`
     display: flex;
     flex-direction: column;

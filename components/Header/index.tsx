@@ -8,7 +8,7 @@ import { Title4 } from '../GlobalComponents';
 const Header = () => {
     return (
         <>
-            <head>
+            <head style={{backgroundColor:"white"}}>
                 <PcNav>
                     <Link href="/">
                         <a>
