@@ -20,10 +20,13 @@ export const Table = styled.table`
         vertical-align: middle;
     }
     th{
-        font-weight: bold;
+        font-weight: 600;
     }
     td:nth-child(2){
         font-weight: 300;
+    }
+    td:nth-child(3){
+        font-weight: 500;
     }
     th:nth-child(2),td:nth-child(2){
         @media only screen and (max-width: 600px) {
@@ -38,7 +41,7 @@ export const Tbody = styled.tbody`
 
 export const Thead= styled.thead`
     tr > th {
-    font-weight: bold;
+    font-weight: 800;
     }
 `;
 
@@ -46,7 +49,7 @@ export const Tfoot = styled.tfoot`
     background-color: #F9F0EC;
     color: #CC3D3D;
     tr > th{
-        font-weight: bold;
+        font-weight: 600;
     }
     tr > td{
     }

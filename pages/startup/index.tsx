@@ -107,7 +107,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
                 <ContentWrap>
                     <Title2 style={{ fontWeight: 600, color: "#03502C", marginBottom: "50px" }}>예상투자비용</Title2>
                     <Style.Table>
-                        <caption style={{ textAlign: "right", color: "#03502C", fontWeight: 700, marginBottom: "5px" }}>
+                        <caption style={{ textAlign: "right", color: "#03502C", fontWeight: 600, marginBottom: "5px" }}>
                             <Title4>*단위 : 만원</Title4>
                         </caption>
                         <Style.Thead>
@@ -171,18 +171,16 @@ const StartUpPage = ({ PageTitle }: Props) => {
                             <Title4>개설가능 최소평수는 12평입니다.</Title4>
                         </li>
                     </TextUl>
-                    <Button onClick={() => setIsFormClick(true)}><Title4>가맹 문의하기</Title4></Button>
                 </ContentWrap>
             </PageMaxNoCSSLayout>
-            {
-                isFormClick ?
-                    <Style.Modal>
-                        <Style.ModalContent>
-                          <StartUpModal/>
-                        </Style.ModalContent>
-                    </Style.Modal>
-                    : null
-            }
+            <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }}>
+                <Wrap>
+                    <Title2 style={{ fontWeight: 600, color: "#03502C" }}>가맹상담 신청서</Title2>
+                </Wrap>
+                <PageMaxNoCSSLayout>
+                    <StartUpModal />
+                </PageMaxNoCSSLayout>
+            </PageFullWidthLayout>
         </>
     );
 };

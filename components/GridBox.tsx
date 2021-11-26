@@ -28,7 +28,7 @@ const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
                         <Title4 style={{ marginBottom: "9px", fontWeight: 900,color:"#404346" }}>
                             {item.step}
                         </Title4>
-                        <Title3 style={{ fontWeight: 700, color:"#404346" }}>
+                        <Title3 style={{ fontWeight: 600, color:"#404346" }}>
                             {item.procedure}
                         </Title3>
                     </Wrap>
@@ -77,7 +77,7 @@ const GridItem = styled.div<GridItemProps>`
         height: 100px;
         border-radius: 20px;
     }
-    background: #F9F0EC;
+    background: white;
     cursor: pointer;
 
     @media only screen and (max-width: 600px) {

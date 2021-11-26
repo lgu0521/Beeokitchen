@@ -41,7 +41,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                                     <Title2 style={{ fontWeight: 600, color: "#15AA5A" }}>{catagory.title}</Title2>
                                 </li>
                                 <li>
-                                    <Title4>{catagory.content}</Title4>
+                                    <Title4 style={{ fontWeight: 300}}>{catagory.content}</Title4>
                                 </li>
                             </Header>
                             <Main>
@@ -56,7 +56,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                                                 
                                                 <ImageWrap src={menu.image.downloadUrl} alt="" height={380} width={380} layout="intrinsic" />
                                                 <ResTitle3>{menu.title}</ResTitle3>
-                                                <Title5 style={{ fontWeight: 700, marginTop: "10px", color: "#50555C" , lineHeight:"120%"}}>
+                                                <Title5 style={{ fontWeight: 600, marginTop: "15px", color: "#50555C" , lineHeight:"120%"}}>
                                                     {menu.content1}<br />
                                                     <MenuContent2>{menu.content2}</MenuContent2>
                                                 </Title5>
@@ -90,16 +90,17 @@ export const getStaticProps: GetStaticProps = async (context) => {
         }
     }
 }
-const MenuContent2 = styled.span`
+const MenuContent2 = styled.div`
     color: #50555C;
-    font-weight: 400;
+    font-weight: 300;
+    margin-top: 3px;
     @media only screen and (max-width: 600px) {
         display:none;
     }
 `
 
 const ResTitle3 = styled(Title3)`
-    font-weight: 700;
+    font-weight: 600;
     margin-top: 0px;
     @media only screen and (min-width: 992px) {
         margin-top: 30px !important;

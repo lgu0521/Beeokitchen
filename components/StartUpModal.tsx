@@ -83,43 +83,31 @@ const StartUpModal = () => {
                             <th>
                                 <Title3>점포유무</Title3>
                             </th>
-                            <td>
-                                <th>
-                                    <td>
-
-                                        <input type="radio" {...register('experience')} name="experience" value="있음" />
+                            <RadioTd>
+                                <RadioTh>
+                                        <input type="radio" {...register('open')} name="open" value="있음" />
                                         <Title4>있음</Title4>
-                                    </td>
-                                </th>
-                                <th>
-                                    <td>
-                                        <input type="radio" {...register('experience')} name="experience" value="있음" />
-                                        <Title4>없음</Title4>
-                                    </td>
-
-                                </th>
-                            </td>
+                                </RadioTh>
+                                <RadioTh>
+                                    <input type="radio" {...register('open')} name="open" value="없음" />
+                                    <Title4>없음</Title4>
+                                </RadioTh>
+                            </RadioTd>
                         </tr>
                         <tr>
                             <th>
-                                <Title3>외식업종운영경험</Title3>
+                                <Title3>외식업종경험</Title3>
                             </th>
-                            <td>
-                                <th>
-                                    <td>
-
-                                        <input type="radio" {...register('ex')} name="ex" value="있음" />
+                            <RadioTd>
+                                <RadioTh>
+                                        <input type="radio" {...register('experience')} name="experience" value="있음" />
                                         <Title4>있음</Title4>
-                                    </td>
-                                </th>
-                                <th>
-                                    <td>
-                                        <input type="radio" {...register('ex')} name="ex" value="있음" />
-                                        <Title4>없음</Title4>
-                                    </td>
-
-                                </th>
-                            </td>
+                                </RadioTh>
+                                <RadioTh>
+                                    <input type="radio" {...register('experience')} name="experience" value="없음" />
+                                    <Title4>없음</Title4>
+                                </RadioTh>
+                            </RadioTd>
                         </tr>
                         <tr>
                             <th>
@@ -160,22 +148,22 @@ const StartUpModal = () => {
                                 <Title3>이용동의<span>*</span></Title3>
                             </th>
                             <td>
-                                <Title3>수집하는 개인정보의 항목
-                                    <span>이름, 생년월일, 이메일 , 연락처, 점포 유무, 외식업종운영경험, 사업예산, 희망오픈지역, 희망오픈일, 문의내용</span>
-                                </Title3>
-                                <Title3>개인정보의 수집 및 이용목적
-                                    <span>가맹점 개별 문의에 대한 상담</span>
-                                </Title3>
-                                <Title3>
-                                    개인정보의 보유 및 이용기간
-                                    <span>보유 및 이용기간은 1년으로 하며, 기간 경과 후 가맹본부는 해당자료를 지체 없이 파기합니다.</span>
-                                </Title3>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input type="checkbox" {...register('title', { maxLength: 20 })} />
-                                <Title3>위 개인정보 수집 및 이용에 동의합니다</Title3>
+                                <AgreeBox>
+                                    <Title4>수집하는 개인정보의 항목<br />
+                                        <span>이름, 생년월일, 이메일 , 연락처, 점포 유무, 외식업종운영경험, 사업예산, 희망오픈지역, 희망오픈일, 문의내용</span>
+                                    </Title4>
+                                    <Title4>개인정보의 수집 및 이용목적<br />
+                                        <span>가맹점 개별 문의에 대한 상담</span>
+                                    </Title4>
+                                    <Title4>
+                                        개인정보의 보유 및 이용기간<br />
+                                        <span>보유 및 이용기간은 1년으로 하며, 기간 경과 후 가맹본부는 해당자료를 지체 없이 파기합니다.</span>
+                                    </Title4>
+                                </AgreeBox>
+                                <CheckBox>
+                                    <input type="checkbox" {...register('title', { maxLength: 20 })} />
+                                    <Title4><span>위 개인정보 수집 및 이용에 동의합니다</span></Title4>
+                                </CheckBox>
                             </td>
                         </tr>
                     </TFoot>
@@ -187,37 +175,72 @@ const StartUpModal = () => {
 };
 const Form = styled.form`
     display: block;
-    padding: 40px;
     text-align: center;
+    padding: 0px 10px;
 `
 const Table = styled.table`
     width: 100%;
+    @media only screen and (max-width: 600px) {
+        margin-top:30px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin-top:40px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin-top:50px;
+    }
+    
 `
 const Tbody = styled.tbody`
     display: inline-block;
     width: 100%;
-    margin: 40px 0px 60px 0px;
+    margin: 20px 0px 0px 0px;
     text-align: left;
+    input{
+        background: none;
+    }
     tr{
-        float: left;
-        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+            margin: 10px 0px;
+        }
+        @media only screen and (min-width: 600px) {
+            float: left;
+            width: 100%;
+            margin: 20px 0px;
+        }
+        @media only screen and (min-width: 768px) {
+            float: left;
+            width: 50%;
+            margin: 20px 0px;
+        }
     }
     th{
-        min-width: 80px;
+        width: 120px;
         font-weight: 600;
-        vertical-align: middle;
         span{
             color: #CC3D3D;
+        }
+        @media only screen and (max-width: 600px) {
+            width: 90px;
+        }
+        @media only screen and (min-width: 600px) {
+            width: 120px;
+        }
+        @media only screen and (min-width: 768px) {
+            width: 120px;
         }
     }
     td{
         width: 100%;
         padding: 0px 20px 0px 10px;
-        vertical-align: middle;
-        align-items: left;
         input{
             width: 100%;
-            height: 50px;
+            height: 40px;
             border: 0px;
             border-bottom: 2px solid #404346;
             padding: 0px 10px;
@@ -226,18 +249,12 @@ const Tbody = styled.tbody`
             }
         }
         input[type="radio"]{
-            width: 32px;
-            height: 32px;
+            width: 20px;
+            height: 20px;
             border: 0px;
             border-bottom: 2px solid #404346;
             padding: 0px;
             margin: 0px;
-        }
-        th > td{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
         }
     }
 `
@@ -248,7 +265,7 @@ const Thead = styled.thead`
     tr{
         display: block;
         border-bottom: 5px solid #326F54;
-        padding: 10px 0px;
+        padding: 5px 0px;
     }
     tr > th{
         display: flex;
@@ -261,6 +278,77 @@ const Thead = styled.thead`
         h2{
             color: #326F54;
         }
+    }
+`
+const TFoot = styled.tfoot`
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+    tr{
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+            margin: 10px 0px;
+        }
+        @media only screen and (min-width: 600px) {
+            flex-direction: column;
+            margin:20px 0px;
+        }
+        @media only screen and (min-width: 768px) {
+            flex-direction: row;
+            margin:20px 0px;
+        }
+        th{
+            font-weight: 600;
+            width: 100px;
+            span{
+                color: #CC3D3D;
+            }
+            @media only screen and (max-width: 600px) {
+                margin-bottom: 5px;
+            }
+            @media only screen and (min-width: 600px) {
+                margin-bottom: 5px;
+            }
+        }
+        td{
+            width:100%;
+            text-align: left;
+            font-weight: 600;
+            textarea{
+                width:100%;
+                resize: none;
+                padding: 10px;
+                min-height: 250px;
+                :focus {
+                outline: none;
+                }
+                @media only screen and (max-width: 600px) {
+                    min-height: 150px !important;
+                }
+                @media only screen and (min-width: 600px) {
+                    min-height: 150px !important;
+                }
+            }
+            div{
+                span{
+                    color: black;
+                    opacity:0.5;
+                }
+            }
+        }
+    }
+`
+
+const CheckBox = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 20px 0px;
+    input{
+        margin-right: 15px;
     }
 `
 
@@ -282,11 +370,31 @@ const Button = styled.button`
         -webkit-transition: background-color 0.3s;
     };
 `
-const TFoot = styled.tfoot`
-    display: inline-block;
+
+const AgreeBox = styled.div`
     width: 100%;
-    *{
-        vertical-align: middle;
+    border: 1px solid black;
+    background-color: white;
+    span{
+        color: black;
+        opacity:0.5;
+    }
+    h4{
+        margin: 20px
+    }
+`
+
+const RadioTd = styled.td`
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+`
+const RadioTh = styled.th`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    input{
+        margin-right: 8px !important;
     }
 `
 export default StartUpModal;

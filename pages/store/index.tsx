@@ -30,10 +30,10 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
                                     <Image src={item.image.downloadUrl} alt="" layout="fill" objectFit="cover" />
                                 </ImageWrap>
                                 <TextWrap>
-                                    <Title3 style={{ color: "#008B48", fontWeight: 700 }}>{item.title}</Title3>
-                                    <Title5 style={{ fontWeight: 700 }}>Tel {item.phonenumber}</Title5>
+                                    <Title3 style={{ color: "#008B48", fontWeight: 600 }}>{item.title}</Title3>
+                                    <Title5 style={{ fontWeight: 600 }}>Tel {item.phonenumber}</Title5>
                                 </TextWrap>
-                                <Title5 style={{ padding: "15px", minHeight:"100px" , lineHeight:"120%"}}>{item.operation}</Title5>
+                                <Title5 style={{ padding: "15px", minHeight:"130px" ,fontWeight: 300}}>{item.operation}</Title5>
                             </Contentli>
                         ))
                     }
@@ -48,13 +48,17 @@ const ImageWrap =styled.div`
     position: relative;
     width:100%;
     height: 31vh;
+    div{
+        width:100%;
+        height: 100%;
+    }
 `
 
 const ContentUl =styled.ul`
     display: inline-block;
     padding: 0px 30px;
     @media only screen and (max-width: 600px) {
-        margin: 40px 0px;
+        margin: 40px 20px;
     }
     @media only screen and (min-width: 600px) {
         margin: 80px 0px;
