@@ -22,21 +22,21 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
             <PageFullWidthLayout style={{ backgroundColor: "rgba(227, 181, 159, 0.2)" }}>
                 <PageMaxNoCSSLayout>
                     <ContentUl>
-                    {
-                        storeList.map((item: StoreDTO, key) => (
-                            <Contentli key={key}>
-                                {user ? <StoreEdit initialItem={item} initialItems={storeList} /> : null}
-                                <ImageWrap>
-                                    <Image src={item.image.downloadUrl} alt="" layout="fill" objectFit="cover" />
-                                </ImageWrap>
-                                <TextWrap>
-                                    <Title3 style={{ color: "#008B48", fontWeight: 600 }}>{item.title}</Title3>
-                                    <Title5 style={{ fontWeight: 600 }}>Tel {item.phonenumber}</Title5>
-                                </TextWrap>
-                                <Title5 style={{ padding: "15px", minHeight:"130px" ,fontWeight: 300}}>{item.operation}</Title5>
-                            </Contentli>
-                        ))
-                    }
+                        {
+                            storeList.map((item: StoreDTO, key) => (
+                                <Contentli key={key}>
+                                    {user ? <StoreEdit initialItem={item} initialItems={storeList} /> : null}
+                                    <ImageWrap>
+                                        <Image src={item.image.downloadUrl} alt="" layout="fill" objectFit="cover" />
+                                    </ImageWrap>
+                                    <TextWrap>
+                                        <Title3 style={{ color: "#008B48", fontWeight: 600 }}>{item.title}</Title3>
+                                        <Title5 style={{ fontWeight: 600 }}>Tel {item.phonenumber}</Title5>
+                                    </TextWrap>
+                                    <Title5 style={{ padding: "15px", minHeight: "130px", fontWeight: 300, lineHeight: "140%", letterSpacing: "0px" }}>{item.operation}</Title5>
+                                </Contentli>
+                            ))
+                        }
                     </ContentUl>
                 </PageMaxNoCSSLayout>
             </PageFullWidthLayout>
@@ -44,7 +44,7 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
     );
 };
 
-const ImageWrap =styled.div`
+const ImageWrap = styled.div`
     position: relative;
     width:100%;
     height: 31vh;
@@ -53,8 +53,7 @@ const ImageWrap =styled.div`
         height: 100%;
     }
 `
-
-const ContentUl =styled.ul`
+const ContentUl = styled.ul`
     display: inline-block;
     padding: 0px 30px;
     @media only screen and (max-width: 600px) {
@@ -99,6 +98,7 @@ const TextWrap = styled.div`
         border-bottom: 2.5px solid #15AA5A;
     }
 `
+
 export const getStaticProps: GetStaticProps = async (context) => {
     const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/api/store');
     const storeList: StoreDTO[] = await res.json();
@@ -110,12 +110,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
             notFound: true,
         }
     }
+
     return {
         props: {
             storeList,
             PageTitle
         }
-
     }
 }
 

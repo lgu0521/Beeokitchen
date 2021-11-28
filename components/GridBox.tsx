@@ -17,7 +17,6 @@ interface GridProps extends GridItemProps {
     boxItems: BoxItem[]
 }
 
-
 const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
     return (
         <>
@@ -77,7 +76,7 @@ const GridItem = styled.div<GridItemProps>`
         height: 100px;
         border-radius: 20px;
     }
-    background: white;
+    background: #F9F0EC;
     cursor: pointer;
 
     @media only screen and (max-width: 600px) {

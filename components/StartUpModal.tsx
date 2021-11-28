@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { FaqCreateDTO } from '../dto/faq-create.dto';
 import { Title2, Title3, Title4 } from '../components/GlobalComponents';
 
+
 const StartUpModal = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -41,7 +42,7 @@ const StartUpModal = () => {
                                 <Title3>성함<span>*</span></Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
+                                <input placeholder="성함을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
                             </td>
                         </tr>
                         <tr>
@@ -49,7 +50,7 @@ const StartUpModal = () => {
                                 <Title3>생년월일<span>*</span></Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
+                                <input placeholder="생년월일을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
                             </td>
                         </tr>
                         <tr>
@@ -57,7 +58,7 @@ const StartUpModal = () => {
                                 <Title3>이메일</Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { maxLength: 20 })} />
+                                <input placeholder="이메일을 입력해주세요" {...register('title', { maxLength: 20 })} />
                             </td>
                         </tr>
                         <tr>
@@ -65,7 +66,7 @@ const StartUpModal = () => {
                                 <Title3>연락처<span>*</span></Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
+                                <input placeholder="연락처를 입력해주세요" {...register('title', { required: true, maxLength: 20 })} />
                             </td>
                         </tr>
                     </Tbody>
@@ -99,9 +100,9 @@ const StartUpModal = () => {
                                 <Title3>외식업종경험</Title3>
                             </th>
                             <RadioTd>
-                                <RadioTh>
-                                        <input type="radio" {...register('experience')} name="experience" value="있음" />
-                                        <Title4>있음</Title4>
+                            <RadioTh>
+                                    <input type="radio" {...register('experience')} name="experience" value="없음" />
+                                    <Title4>있음</Title4>
                                 </RadioTh>
                                 <RadioTh>
                                     <input type="radio" {...register('experience')} name="experience" value="없음" />
@@ -114,7 +115,7 @@ const StartUpModal = () => {
                                 <Title3>희망오픈일</Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { maxLength: 20 })} />
+                                <input placeholder="희망오픈일을 입력해주세요" {...register('title', { maxLength: 20 })} />
                             </td>
                         </tr>
                         <tr>
@@ -122,7 +123,7 @@ const StartUpModal = () => {
                                 <Title3>희망오픈지역</Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { maxLength: 20 })} />
+                                <input placeholder="희망오픈지역을 입력해주세요" {...register('title', { maxLength: 20 })} />
                             </td>
                         </tr>
                         <tr>
@@ -130,7 +131,7 @@ const StartUpModal = () => {
                                 <Title3>사업예산</Title3>
                             </th>
                             <td>
-                                <input placeholder="FAQ 제목을 입력해주세요" {...register('title', { maxLength: 20 })} />
+                                <input placeholder="사업예산을 입력해주세요" {...register('title', { maxLength: 20 })} />
                             </td>
                         </tr>
                     </Tbody>
@@ -173,10 +174,12 @@ const StartUpModal = () => {
         </>
     );
 };
+
 const Form = styled.form`
     display: block;
     text-align: center;
     padding: 0px 10px;
+    margin: 40px 0px;
 `
 const Table = styled.table`
     width: 100%;
@@ -189,7 +192,6 @@ const Table = styled.table`
     @media only screen and (min-width: 768px) {
         margin-top:50px;
     }
-    
 `
 const Tbody = styled.tbody`
     display: inline-block;
@@ -244,17 +246,21 @@ const Tbody = styled.tbody`
             border: 0px;
             border-bottom: 2px solid #404346;
             padding: 0px 10px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
             :focus {
                 outline: none;
             }
-        }
-        input[type="radio"]{
-            width: 20px;
-            height: 20px;
-            border: 0px;
-            border-bottom: 2px solid #404346;
-            padding: 0px;
-            margin: 0px;
+            @media only screen and (max-width: 600px) {
+                font-size: ${props => props.theme.fontSizes.title6};
+            }
+            @media only screen and (min-width: 600px) {
+                font-size: ${props => props.theme.fontSizes.title6};
+            }
+            @media only screen and (min-width: 768px) {
+                font-size: ${props => props.theme.fontSizes.title3};
+            }
         }
     }
 `
@@ -322,14 +328,20 @@ const TFoot = styled.tfoot`
                 resize: none;
                 padding: 10px;
                 min-height: 250px;
+                border: 2px solid black;
                 :focus {
-                outline: none;
+                    outline: none;
                 }
                 @media only screen and (max-width: 600px) {
+                    font-size: ${props => props.theme.fontSizes.title6};
                     min-height: 150px !important;
                 }
                 @media only screen and (min-width: 600px) {
+                    font-size: ${props => props.theme.fontSizes.title6};
                     min-height: 150px !important;
+                }
+                @media only screen and (min-width: 768px) {
+                    font-size: ${props => props.theme.fontSizes.title3};
                 }
             }
             div{
@@ -346,9 +358,30 @@ const CheckBox = styled.div`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin: 20px 0px;
-    input{
-        margin-right: 15px;
+    input[type="checkbox"]{
+        margin-right: 8px !important;
+        border: 2px solid black;
+        background-color: white;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+    }
+    input[type="checkbox"]:checked{
+        appearance: none;
+        background-size: cover;
+        background-image: url('https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/checkBox.png?alt=media&token=5544bbd8-f4b2-49fb-8f9a-0beb0145b040');
+    }
+    @media only screen and (max-width: 600px) {
+        margin: 10px 0px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin: 10px 0px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin: 20px 0px;
     }
 `
 
@@ -356,24 +389,31 @@ const Button = styled.button`
     color: #404346;
     font-weight: bold;
     text-align: center;
-    margin-top: 30px;
     padding: 20px 40px;
     background-color: #F9F0EC;
     border: 2px solid #CC3D3D;
     border-radius: 20px;
     cursor: pointer;
-
     &:hover {
         background-color: #CC3D3D;
         color: white;
         transition: background-color 0.3s;
         -webkit-transition: background-color 0.3s;
     };
+    @media only screen and (max-width: 600px) {
+        margin: 20px 0px 60px 0px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin: 50px 0px 80px 0px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin: 50px 0px 120px 0px;
+    }
 `
 
 const AgreeBox = styled.div`
     width: 100%;
-    border: 1px solid black;
+    border: 2px solid black;
     background-color: white;
     span{
         color: black;
@@ -393,8 +433,23 @@ const RadioTh = styled.th`
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    input{
+    input[type="radio"]{
+        border-radius: 100%;
+        border:0px;
+        background-color: #C4C4C4;
         margin-right: 8px !important;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        margin: 0px;
+    }
+    input[type="radio"]:checked{
+        appearance: none;
+        border-radius: 100%;
+        background-color: #CC3D3D;
     }
 `
+
 export default StartUpModal;
