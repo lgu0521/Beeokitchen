@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from 'styled-components';
-import Logo from '../../public/logo.png'
-import headerLogo from '../../public/headerLogo.png'
+import Logo from '../../public/logo.png';
+import headerLogo from '../../public/headerLogo.png';
 import Image from 'next/image';
 import { Title4 } from '../GlobalComponents';
 

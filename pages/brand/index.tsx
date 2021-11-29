@@ -28,13 +28,11 @@ const Brand = ({ PageTitle }: Props) => {
                         <PageMaxNoCSSLayout>
                             <Section1>
                                 <Title1>비오키친은<br />다이어트푸드 전문키친입니다.</Title1>
-                                <Title4>
                                     <ul>
-                                        <li>현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.</li>
-                                        <li>다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?</li>
-                                        <li>라는 생각이 비오키친의 시작입니다.</li>
+                                        <li><Title4>현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.</Title4></li>
+                                        <li><Title4>다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순 없을까?</Title4></li>
+                                        <li><Title4>라는 생각이 비오키친의 시작입니다.</Title4></li>
                                     </ul>
-                                </Title4>
                             </Section1>
                         </PageMaxNoCSSLayout>
                 </BackgroundWrap>
@@ -47,7 +45,7 @@ const Brand = ({ PageTitle }: Props) => {
                                 <li>
                                     <li>
                                         <div>
-                                            <Image objectFit="cover" layout="responsive" src={storyIcon1} />
+                                            <Image objectFit="cover" layout="responsive" src={storyIcon1} alt=""/>
                                         </div>
                                         <Title3>기본과 트렌드를 동시에</Title3>
                                     </li>

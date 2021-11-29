@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 const Title1 = styled.h1`
-    letter-spacing: 1px;
-    line-height: 130%;
+    letter-spacing: -3px;
+    line-height: 56px;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title2};;
     }
@@ -22,7 +22,7 @@ const Title1 = styled.h1`
 
 const Title2 = styled.h2`
     letter-spacing: 1px;
-    line-height: 130%;
+    line-height: 36px;
     @media only screen and (max-width: 600px) {
         font-size: 2.5rem;
     }
@@ -41,7 +41,8 @@ const Title2 = styled.h2`
 `;
 
 const Title3 = styled.h3`
-    letter-spacing: 1px;
+    letter-spacing: 0px;
+    line-height: 28px;
     @media only screen and (max-width: 310px) {
         letter-spacing: 0px !important;
         font-size: ${props => props.theme.fontSizes.title6};
@@ -65,8 +66,8 @@ const Title3 = styled.h3`
 
 
 const Title4 = styled.h4`
-    letter-spacing: 1px;
-    line-height: 130%;
+    letter-spacing: 0px;
+    line-height: 25px;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title7};
     }
@@ -85,8 +86,8 @@ const Title4 = styled.h4`
 `;
 
 const Title5 = styled.h5`
-    letter-spacing: 1px;
-    line-height: 120%;
+    letter-spacing: 0px;
+    line-height: 20px;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title8};;
     }
@@ -105,7 +106,8 @@ const Title5 = styled.h5`
 `;
 
 const Title6 = styled.p`
-    letter-spacing: 1px;
+    letter-spacing: 0px;
+    line-height: 17px;
     @media only screen and (max-width: 600px) {
         font-size: ${props => props.theme.fontSizes.title8};;
     }

@@ -11,6 +11,18 @@ const fontSizes = {
   title1: calcEm(5.4), //54px
 };
 
+const fontWeight = {
+  Thin: 100,
+  ExtraLight: 200,
+  Light: 300,
+  Regular: 400,
+  Medium: 500,
+  SemiBold: 600,
+  Bold: 700,
+  ExtraBold: 800,
+  Black: 900
+};
+
 const paddings = {
   xm: calcEm(0.59), //13px
   sm: calcEm(0.73), //16px
@@ -71,7 +83,8 @@ const theme = {
   paddings,
   margins,
   interval,
-  verticalInterval
+  verticalInterval,
+  fontWeight
 };
 
 export default theme;

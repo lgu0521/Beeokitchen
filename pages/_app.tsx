@@ -2,7 +2,7 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from 'styled-components';
 import theme from '../styles/theme';
-import GlobalFonts from '../styles/fonts/fonts';
+import GlobalFonts from '../styles/fonts';
 import Layout from '../components/Layout'
 import { AuthProvider } from '../hook/AuthProvider';
 import AuthStateChanged from '../hook/AuthStateChanged';

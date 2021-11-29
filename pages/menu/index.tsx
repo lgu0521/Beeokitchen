@@ -30,7 +30,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
             <PageMainTitle {...PageTitle} />
             <Ul>
                 {menusWithCatagory.map((catagory, i) => (
-                    <Li>
+                    <Li key={i}>
                         <PageFullWidthLayout>
                             <PageMaxNoCSSLayout>
                                 <>
