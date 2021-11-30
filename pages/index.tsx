@@ -1,19 +1,19 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
-import styled from 'styled-components';
+import styled from "styled-components";
 import { BannerDTO } from "../dto/banner-create.dto";
-import { PageFullWidthLayout } from '../components/GlobalComponents';
-import IsUserWithLogin from '../hook/AuthStateChanged';
-import { useState } from 'react';
-import BannerEdit from '../components/admin/BannerEdit';
-import { useAuth } from '../hook/AuthProvider';
-import Skeleton from 'react-loading-skeleton'
-import 'react-loading-skeleton/dist/skeleton.css'
-import Image from 'next/image';
+import { PageFullWidthLayout } from "../components/GlobalComponents";
+import IsUserWithLogin from "../hook/AuthStateChanged";
+import { useState } from "react";
+import BannerEdit from "../components/admin/BannerEdit";
+import { useAuth } from "../hook/AuthProvider";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
+import Image from "next/image";
 
 interface Props {
-  BannerList: BannerDTO[]
+  BannerList: BannerDTO[];
 }
 
 const Home: NextPage<Props> = ({ BannerList }) => {
@@ -21,27 +21,28 @@ const Home: NextPage<Props> = ({ BannerList }) => {
   return (
     <>
       <PageFullWidthLayout>
-        <Carousel showThumbs={false} swipeable={true} autoPlay={true} infiniteLoop={true} showStatus={false}>
-          {
-            BannerList.map((item, key) => (
-              <div key={key}>
-                <Img src={item.downloadUrl} alt="" />
-              </div>
-
-            ))
-          }
+        {user ? <BannerEdit initialItems={BannerList} /> : null}
+        <Carousel
+          showThumbs={false}
+          swipeable={true}
+          autoPlay={true}
+          infiniteLoop={true}
+          showStatus={false}
+        >
+          {BannerList.map((item, key) => (
+            <div key={key}>
+              <Img src={item.downloadUrl} alt="" />
+            </div>
+          ))}
         </Carousel>
-        {
-          user ? <BannerEdit initialItems={BannerList} /> : null
-        }
       </PageFullWidthLayout>
     </>
-  )
-}
+  );
+};
 
 const Img = styled.img`
-    height: 69vh;
-    object-fit: cover;
+  height: 69vh;
+  object-fit: cover;
 `;
 
 export const getStaticProps: GetServerSideProps = async (context) => {
@@ -51,14 +52,14 @@ export const getStaticProps: GetServerSideProps = async (context) => {
   if (!BannerList) {
     return {
       notFound: true,
-    }
+    };
   }
 
   return {
     props: {
-      BannerList
-    }
-  }
-}
+      BannerList,
+    },
+  };
+};
 
-export default Home
+export default Home;

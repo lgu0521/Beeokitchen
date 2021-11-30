@@ -1,12 +1,13 @@
 export interface TmpImageBlock {
-    imageFile: FileList
+  imageFile: FileList;
 }
 export interface ImageBlock {
-    order: number
-    storageRef: string,
-    downloadUrl: string
+  order: number;
+  storageRef: string;
+  downloadUrl: string;
+  fileName?: string;
 }
 
 export interface ImageBlocks {
-    imageFileList: ImageBlock[]
+  imageFileList: ImageBlock[];
 }
