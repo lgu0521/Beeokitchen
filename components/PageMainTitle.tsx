@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useAuth } from "../hook/AuthProvider";
-import PageTitleModeifyModal from "./admin/PageTitleModeifyModal";
+import PageTitleModeifyModal from "./PageTitleModeifyModal";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import "react-loading-skeleton/dist/skeleton.css";
 import { Title1, Title4 } from "../components/GlobalComponents";

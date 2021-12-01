@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { BannerDTO } from "../../dto/banner-create.dto";
 import { ImageBlocks } from "../../dto/image-create.dto";
-import S from "../../styles/AdminModal.style";
+import S from "../../styles/AdminPage.style";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import DroppableIcon from "../../public/admin/droppable.png";
 import Image from "next/image";
@@ -40,10 +40,14 @@ const ModifyAndDeleteBanner = ({ initialItems }: Props) => {
               } as BannerDTO),
             }
           );
-          console.log(res);
+          if (res) {
+            if (typeof window != null) {
+              window.location.reload();
+            }
+          }
         } else {
           if (item.downloadUrl) {
-            await fetch(
+            const res = await fetch(
               process.env.NEXT_PUBLIC_API_URL + "/api/banner/create",
               {
                 mode: "cors",
@@ -55,13 +59,14 @@ const ModifyAndDeleteBanner = ({ initialItems }: Props) => {
                 } as BannerDTO),
               }
             );
+            if (res) {
+              if (typeof window != null) {
+                window.location.reload();
+              }
+            }
           }
         }
       });
-
-      if (typeof window != null) {
-        window.location.reload();
-      }
     } catch (e) {
       alert("다시 시도해주세요");
     }
@@ -71,11 +76,19 @@ const ModifyAndDeleteBanner = ({ initialItems }: Props) => {
     try {
       const delteItem = itemList[deleteItemIndex];
       if (delteItem.id) {
-        await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner/delete", {
-          mode: "cors",
-          method: "POST",
-          body: JSON.stringify({ id: delteItem.id }),
-        });
+        const res = await fetch(
+          process.env.NEXT_PUBLIC_API_URL + "/api/banner/delete",
+          {
+            mode: "cors",
+            method: "POST",
+            body: JSON.stringify({ id: delteItem.id }),
+          }
+        );
+        if (res) {
+          if (typeof window != null) {
+            window.location.reload();
+          }
+        }
       }
 
       const items = [...itemList];
@@ -124,6 +137,10 @@ const ModifyAndDeleteBanner = ({ initialItems }: Props) => {
                         <li>
                           <S.InputWrap>
                             <S.Label>이미지 링크</S.Label>
+                            <S.Description>
+                              권장: 1920px X 800px (비율 2:1) / 포맷 jpg, png
+                              (최대 10MB)
+                            </S.Description>
                             <S.Input
                               defaultValue={item.downloadUrl}
                               onChange={(e) => {
@@ -131,13 +148,15 @@ const ModifyAndDeleteBanner = ({ initialItems }: Props) => {
                               }}
                               required
                             />
-                            <S.DeleteButton
-                              onClick={() => {
-                                toDeleteItem(index);
-                              }}
-                            >
-                              삭제
-                            </S.DeleteButton>
+                            {index == 0 ? null : (
+                              <S.DeleteButton
+                                onClick={() => {
+                                  toDeleteItem(index);
+                                }}
+                              >
+                                삭제
+                              </S.DeleteButton>
+                            )}
                           </S.InputWrap>
                         </li>
                       </S.DroppableLi>

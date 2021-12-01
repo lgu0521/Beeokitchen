@@ -1,71 +1,76 @@
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import { Title3 } from './GlobalComponents';
-import { useEffect, useState } from 'react';
-import styled from 'styled-components';
-import Image from 'next/image';
-import DragIcon from '../public/drag.png';
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import S from "../styles/AdminPage.style";
+import DroppableIcon from "../public/admin/droppable.png";
 
 interface Props {
-    InitialItemList: {
-        id: string,
-        order: number,
-        title: string
-    }[],
-    GetItem: (item: any) => void
+  InitialItemList: {
+    id: string;
+    order: number;
+    title: string;
+  }[];
+  GetItem: (item: any) => void;
+  onSubmit: () => void;
 }
 
-const MenuModifyOrderDropAndDrop = ({ InitialItemList, GetItem }: Props) => {
-    console.log(InitialItemList);
-    const [itemList, setItemList] = useState(InitialItemList);
-    console.log(itemList);
-    useEffect(() => {
-        GetItem(itemList);
-    }, [itemList]);
+const MenuModifyOrderDropAndDrop = ({
+  InitialItemList,
+  GetItem,
+  onSubmit,
+}: Props) => {
+  const [itemList, setItemList] = useState(InitialItemList);
 
-    const handleOnDragEnd = (result: any) => {
-        if (!result.destination) return;
-        const items = [...itemList];
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
+  useEffect(() => {
+    GetItem(itemList);
+  }, [itemList]);
 
-        items.map((item, index) => {
-            item.order = (index as number) + 1;
-        });
-        setItemList(items);
-    }
+  const handleOnDragEnd = (result: any) => {
+    if (!result.destination) return;
+    const items = [...itemList];
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
 
-    return (
-        <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="itemList">
-                {(provided) => (
-                    <div {...provided.droppableProps}
-                        ref={provided.innerRef}>
-                        {itemList.map((item, index) => (
-                            <Draggable key={index} draggableId={item.order.toString()} index={index}>
-                                {(provided) => (
-                                    <div ref={provided.innerRef}
-                                        {...provided.dragHandleProps}
-                                        {...provided.draggableProps}
-                                        style={{ ...provided.draggableProps.style }}>
-                                        <Wrap>
-                                            <Image src={DragIcon} width="30px" height="30px" />
-                                            <Title3 style={{ fontWeight: 600 }}>{item.title}</Title3>
-                                        </Wrap>
-                                    </div>
-                                )}
-                            </Draggable>)
-                        )}
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
-        </DragDropContext>
-    );
+    items.map((item, index) => {
+      item.order = (index as number) + 1;
+    });
+    setItemList(items);
+  };
+
+  return (
+    <>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
+        <Droppable droppableId="itemList">
+          {(provided) => (
+            <ul {...provided.droppableProps} ref={provided.innerRef}>
+              {itemList.map((item: any, index) => (
+                <Draggable key={item.id} draggableId={item.id} index={index}>
+                  {(provided) => (
+                    <S.DroppableLi
+                      ref={provided.innerRef}
+                      {...provided.dragHandleProps}
+                      {...provided.draggableProps}
+                    >
+                      <li>
+                        <Image src={DroppableIcon} width={24} height={24} />
+                      </li>
+                      <li>
+                        <S.LabelWrap>
+                          <S.Label>{item.title}</S.Label>
+                        </S.LabelWrap>
+                      </li>
+                    </S.DroppableLi>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
+      <S.Button onClick={onSubmit}>저장</S.Button>
+    </>
+  );
 };
-
-const Wrap = styled.div`
-    width:100%;
-    display: flex;
-`
 
 export default MenuModifyOrderDropAndDrop;

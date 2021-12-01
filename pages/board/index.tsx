@@ -7,7 +7,7 @@ import { NoticeListDTO } from "../../dto/notice-create.dto";
 import { FaqDTO } from "../../dto/faq-create.dto";
 import { PageMaxNoCSSLayout, Title2 } from "../../components/GlobalComponents";
 import styled from "styled-components";
-import FaqEdit from "../../components/admin/FaqEdit";
+import FaqEdit from "../../components/FaqModal/FaqEdit";
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 

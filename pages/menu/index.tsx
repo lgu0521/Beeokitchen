@@ -14,11 +14,11 @@ import {
 } from "../../components/GlobalComponents";
 //Component
 import PageMainTitle from "../../components/PageMainTitle";
-import { MenuEdit, MenuDefaulEdit } from "../../components/admin/MenuEdit";
+import { MenuEdit, MenuDefaulEdit } from "../../components/MenuModal/MenuEdit";
 //DTO
 import { MenusWithCatagoryDTO } from "../../dto/menu-create.dto";
 import { PageTitleDTO } from "../../dto/page-title.dto";
-import MenuCatagoryEdit from "../../components/admin/MenuCatagoryEdit";
+import MenuCatagoryEdit from "../../components/MenuCatagoryModal/MenuCatagoryEdit";
 
 interface Props {
   menusWithCatagory: MenusWithCatagoryDTO[];
@@ -73,11 +73,10 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                   <Main>
                     {catagory.menus.map((menu, i) => (
                       <>
-                        <li>
+                        <MainLi>
                           {user ? (
                             <MenuEdit MenuIndex={i} Menus={catagory.menus} />
                           ) : null}
-
                           <ImageWrap
                             src={menu.image.downloadUrl}
                             alt=""
@@ -98,7 +97,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                             <br />
                             <MenuContent2>{menu.content2}</MenuContent2>
                           </Title5>
-                        </li>
+                        </MainLi>
                       </>
                     ))}
                   </Main>
@@ -212,30 +211,30 @@ const Header = styled.ul`
     padding-bottom: 50px;
   }
 `;
-
+const MainLi = styled.li`
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  @media only screen and (max-width: 600px) {
+    margin: 30px 0px;
+  }
+  @media only screen and (min-width: 600px) {
+    margin: 50px 0px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 60px 0px;
+  }
+  @media only screen and (min-width: 992px) {
+    margin: 70px 0px;
+  }
+  @media only screen and (min-width: 1200px) {
+    margin: 80px 0px;
+  }
+`;
 const Main = styled.ul`
   position: relative;
   text-align: center;
 
-  li {
-    display: inline-block;
-    width: 50%;
-    @media only screen and (max-width: 600px) {
-      margin: 30px 0px;
-    }
-    @media only screen and (min-width: 600px) {
-      margin: 50px 0px;
-    }
-    @media only screen and (min-width: 768px) {
-      margin: 60px 0px;
-    }
-    @media only screen and (min-width: 992px) {
-      margin: 70px 0px;
-    }
-    @media only screen and (min-width: 1200px) {
-      margin: 80px 0px;
-    }
-  }
   ::after {
     position: absolute;
     content: "";

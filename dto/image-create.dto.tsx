@@ -2,10 +2,9 @@ export interface TmpImageBlock {
   imageFile: FileList;
 }
 export interface ImageBlock {
-  order: number;
   storageRef: string;
   downloadUrl: string;
-  fileName?: string;
+  fileName: string;
 }
 
 export interface ImageBlocks {

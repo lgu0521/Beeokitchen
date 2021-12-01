@@ -1,39 +1,43 @@
 import { MenuDTO } from "../../dto/menu-create.dto";
-import { useState } from 'react';
-import S from '../../styles/AdminModal.style';
-import ModifyOrderDropAndDrop from '../ModifyOrderDropAndDrop';
+import { useState } from "react";
+import ModifyOrderDropAndDrop from "../ModifyOrderDropAndDrop";
 
 interface Props {
-    initialMenus: MenuDTO[]
+  initialMenus: MenuDTO[];
 }
 
 const ChangeMenuOrder = ({ initialMenus }: Props) => {
-    const [modifyOrderMenuList, setModifyOrderMenuList] = useState(initialMenus);
-    const onSubmit = async () => {
-        try {
-            modifyOrderMenuList.forEach(async (item) => {
-                console.log(item);
-                await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify", {
-                    method: 'POST',
-                    body: JSON.stringify(item)
-                });
-            })
-            if(typeof window != null){
-                window.location.reload();
-            }
-        } catch (e) {
-            alert('다시 시도해주세요');
-        }
-    }
+  const [modifyOrderMenuList, setModifyOrderMenuList] = useState(initialMenus);
 
-    return (
-        <>
-            <ModifyOrderDropAndDrop InitialItemList={modifyOrderMenuList}
-                GetItem={(item: MenuDTO[]) => setModifyOrderMenuList(item)} />
-            <button onClick={onSubmit}>저장</button>
-        </>
-    );
+  const onSubmit = async () => {
+    try {
+      modifyOrderMenuList.forEach(async (item) => {
+        const res = await fetch(
+          process.env.NEXT_PUBLIC_API_URL + "/api/menu/modify",
+          {
+            method: "POST",
+            body: JSON.stringify(item as MenuDTO),
+          }
+        );
+      });
+
+      if (typeof window != null) {
+        window.location.reload();
+      }
+    } catch (e) {
+      alert("다시 시도해주세요");
+    }
+  };
+
+  return (
+    <>
+      <ModifyOrderDropAndDrop
+        InitialItemList={modifyOrderMenuList}
+        GetItem={(item: MenuDTO[]) => setModifyOrderMenuList(item)}
+        onSubmit={onSubmit}
+      />
+    </>
+  );
 };
 
-
-export default ChangeMenuOrder
+export default ChangeMenuOrder;

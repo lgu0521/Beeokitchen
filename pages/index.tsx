@@ -6,7 +6,7 @@ import { BannerDTO } from "../dto/banner-create.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
 import IsUserWithLogin from "../hook/AuthStateChanged";
 import { useState } from "react";
-import BannerEdit from "../components/admin/BannerEdit";
+import BannerEdit from "../components/BannerModal/BannerEdit";
 import { useAuth } from "../hook/AuthProvider";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";

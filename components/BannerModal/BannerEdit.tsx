@@ -1,21 +1,23 @@
-import { MenuDTO } from "../../dto/menu-create.dto";
+//Basic
 import { useState } from "react";
-import Image from "next/image";
+
 //이미지
 import EditIcon from "../../public/Edit.png";
 import BasicModal from "../BasicModal";
 
-import CreateBanner from "../BannerModal/CreateBanner";
-import ModifyAndDeleteBanner from "../BannerModal/ModifyAndDeleteBanner";
+//Component
+import Image from "next/image";
+import ModifyAndDeleteBanner from "./ModifyAndDeleteBanner";
 import { BannerDTO } from "../../dto/banner-create.dto";
-import S from "./AdminPage.style";
+import S from "../../styles/AdminPage.style";
+
 interface Props {
   initialItems: BannerDTO[];
 }
 
 export const BannerEdit = ({ initialItems }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalName, setModalName] = useState<string>("");
+  const [modalName, setModalName] = useState<boolean>(false);
 
   return (
     <>
@@ -28,20 +30,10 @@ export const BannerEdit = ({ initialItems }: Props) => {
             <span
               onClick={() => {
                 setIsModalOpen(true);
-                setModalName("content_modify");
+                setModalName(true);
               }}
             >
               수정하기
-            </span>
-          </S.EditLi>
-          <S.EditLi>
-            <span
-              onClick={() => {
-                setIsModalOpen(true);
-                setModalName("create");
-              }}
-            >
-              추가하기
             </span>
           </S.EditLi>
         </S.EditUl>
@@ -50,10 +42,8 @@ export const BannerEdit = ({ initialItems }: Props) => {
         onClose={() => setIsModalOpen(false)}
         isModalOpen={isModalOpen}
       >
-        {modalName == "content_modify" ? (
+        {modalName ? (
           <ModifyAndDeleteBanner initialItems={initialItems} />
-        ) : modalName == "create" ? (
-          <CreateBanner />
         ) : null}
       </BasicModal>
     </>

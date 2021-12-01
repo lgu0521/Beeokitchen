@@ -2,13 +2,13 @@ import { useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 // component
-import { Form, ButtonForm } from "../Form";
-import BasicModal from "../BasicModal";
+import { Form, ButtonForm } from "./Form";
+import BasicModal from "./BasicModal";
 //이미지
-import EditIcon from "../../public/Edit.png";
+import EditIcon from "../public/Edit.png";
 import styled from "styled-components";
-import S from "../../styles/AdminModal.style";
-import { PageTitleDTO } from "../../dto/page-title.dto";
+import S from "../styles/AdminPage.style";
+import { PageTitleDTO } from "../dto/page-title.dto";
 import { useForm } from "react-hook-form";
 
 const PageTitleModefiyModal = (props: PageTitleDTO) => {

@@ -12,7 +12,7 @@ import {
   Title3,
   Title4,
 } from "../../components/GlobalComponents";
-import StoreEdit from "../../components/admin/StoreEdit";
+import StoreEdit from "../../components/StoreModal/StoreEdit";
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 
