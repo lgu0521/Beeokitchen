@@ -6,7 +6,7 @@
     "dev": "next dev",
     "lint": "next lint",
     "build": "next build",
-    "start": "next start"
+    "start": "next build && next export"
   },
   "dependencies": {
     "@toast-ui/react-editor": "^3.1.0",
