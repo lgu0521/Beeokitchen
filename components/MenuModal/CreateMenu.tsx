@@ -1,11 +1,15 @@
 //Basic
 import { useForm } from "react-hook-form";
 //DTO
-import { MenuCreateDTO } from "../../dto/menu-create.dto";
+import { MenuCreateDTO, MenuCatagoryDTO } from "../../dto/menu-create.dto";
 //Style
 import S from "../../styles/AdminPage.style";
 
-const CreateMenu = () => {
+interface Props {
+  initalMenuCatagorys: MenuCatagoryDTO[];
+}
+
+const CreateMenu = ({ initalMenuCatagorys }: Props) => {
   const {
     register,
     handleSubmit,
@@ -45,10 +49,11 @@ const CreateMenu = () => {
             메뉴 카테고리를 생성하고 싶으시면 메인에서 추가하세요
           </S.Description>
           <S.Select {...register("catagory", { required: true })}>
-            <option value="김밥">김밥</option>
-            <option value="도시락">도시락</option>
-            <option value="샐러드">샐러드</option>
-            <option value="음료">음료</option>
+            {initalMenuCatagorys.map((item, i) => (
+              <option value="item.title" key={i}>
+                {item.title}
+              </option>
+            ))}
           </S.Select>
         </S.InputWrap>
         <S.InputWrap>

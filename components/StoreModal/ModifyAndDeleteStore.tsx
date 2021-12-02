@@ -22,20 +22,23 @@ const ModifyAndDeleteStore = ({ initialItem }: Props) => {
 
   const onSubmit = async (data: any) => {
     try {
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/store/modify", {
-        method: "POST",
-        body: JSON.stringify({
-          ...data,
-          id: initialItem.id,
-          order: initialItem.order,
-          image: {
-            downloadUrl: data.downloadUrl,
-            storageRef: "/Menu",
-            fileName: data.downloadUrl.split("/").pop(),
-          },
-        } as StoreDTO),
-      });
-      if (typeof window != null) {
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_API_URL + "/api/store/modify",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            ...data,
+            id: initialItem.id,
+            order: initialItem.order,
+            image: {
+              downloadUrl: data.downloadUrl,
+              storageRef: "/Menu",
+              fileName: data.downloadUrl.split("/").pop(),
+            },
+          } as StoreDTO),
+        }
+      );
+      if (res && typeof window != null) {
         window.location.reload();
       }
     } catch (e) {
@@ -70,7 +73,7 @@ const ModifyAndDeleteStore = ({ initialItem }: Props) => {
         </S.InputWrap>
         <S.InputWrap>
           <S.Label>매장 정보</S.Label>
-          <S.Input
+          <S.TextArea
             defaultValue={initialItem.operation}
             {...register("operation", { required: true })}
           />

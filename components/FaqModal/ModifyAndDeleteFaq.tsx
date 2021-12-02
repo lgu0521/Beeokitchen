@@ -63,7 +63,7 @@ const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
         </S.InputWrap>
         <S.InputWrap>
           <S.Label>FAQ 내용</S.Label>
-          <textarea
+          <S.TextArea
             defaultValue={initialItem.content}
             {...register("content", { required: true, maxLength: 200 })}
           />

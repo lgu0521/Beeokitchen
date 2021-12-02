@@ -37,7 +37,7 @@ const CreateFaq = () => {
         </S.InputWrap>
         <S.InputWrap>
           <S.Label>FAQ 내용</S.Label>
-          <textarea
+          <S.TextArea
             placeholder="FAQ 내용 입력해주세요"
             {...register("content", { required: true, maxLength: 200 })}
           />

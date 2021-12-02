@@ -1,51 +1,92 @@
+import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
+import { useState } from "react";
 import styled from "styled-components";
 import { useAuth } from "../../hook/AuthProvider";
+import { Title5 } from "../GlobalComponents";
+import BasicModal from "../BasicModal";
+import CreateMenu from "../MenuModal/CreateMenu";
+import CreateStore from "../StoreModal/CreateStore";
+import CreateFaq from "../FaqModal/CreateFaq";
 
 const AdminHeader = () => {
   const { LoginOut } = useAuth();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalName, setModalName] = useState<string>("");
+  const router = useRouter();
+
   return (
-    <div>
-      <Nav height="50px">
-        <LineWrap width="100%" height="50px">
-          <Ul>
-            <Li>
-              <Link href="/admin/create/menu">
-                <a>메뉴 추가</a>
-              </Link>
-            </Li>
-            <Li>
-              <Link href="/admin/create/store">
-                <a>매장 추가</a>
-              </Link>
-            </Li>
-            <Li>
-              <Link href="/admin/create/faq">
-                <a>FAQ 추가</a>
-              </Link>
-            </Li>
-            <Li>
-              <Link href="/admin/create/notice">
-                <a>공지사항 추가</a>
-              </Link>
-            </Li>
-            <Li>
-              <Link href="/admin/startup-list">
-                <a>창업문의</a>
-              </Link>
-            </Li>
-            <Li>
-              <button onClick={LoginOut}>로그아웃</button>
-            </Li>
-          </Ul>
-        </LineWrap>
-      </Nav>
-    </div>
+    <>
+      <LineWrap width="100%" height="50px">
+        <Ul>
+          <Li>
+            <Title5>
+              <Span onClick={() => router.push("/admin/create/menu")}>
+                메뉴추가
+              </Span>
+            </Title5>
+          </Li>
+          <Li>
+            <Title5>
+              <Span
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setModalName("store");
+                }}
+              >
+                매장 추가
+              </Span>
+            </Title5>
+          </Li>
+          <Li>
+            <Title5>
+              <Span
+                onClick={() => {
+                  setIsModalOpen(true);
+                  setModalName("FAQ");
+                }}
+              >
+                FAQ 추가
+              </Span>
+            </Title5>
+          </Li>
+          <Li>
+            <Title5>
+              <Span onClick={() => router.push("/admin/create/notice")}>
+                공지사항 추가
+              </Span>
+            </Title5>
+          </Li>
+          <Li>
+            <Title5>
+              <Span onClick={() => router.push("/admin/startup-list")}>
+                창업문의 목록
+              </Span>
+            </Title5>
+          </Li>
+        </Ul>
+        <Button onClick={LoginOut}>
+          <Title5>로그아웃</Title5>
+        </Button>
+      </LineWrap>
+      <BasicModal
+        onClose={() => setIsModalOpen(false)}
+        isModalOpen={isModalOpen}
+      >
+        {modalName == "store" ? (
+          <CreateStore />
+        ) : modalName == "FAQ" ? (
+          <CreateFaq />
+        ) : null}
+      </BasicModal>
+    </>
   );
 };
 
 const Ul = styled.div`
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   list-style: none;
 `;
 const Li = styled.li`
@@ -83,30 +124,23 @@ type NavProps = {
   height: string;
 };
 
-const Wrap = styled.div`
-  display: flex;
-  float: left;
-  justify-content: center;
-  align-items: center;
-  height: ${(props: NavProps) => (props.height ? props.height : "")};
-  width: ${(props: WrapProps) => (props.width ? props.width : "")};
+const Span = styled.span`
+  cursor: pointer;
 `;
+
 const LineWrap = styled.div`
   display: flex;
   float: left;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0px 20px;
   height: ${(props: NavProps) => (props.height ? props.height : "")};
   width: ${(props: WrapProps) => (props.width ? props.width : "")};
   box-shadow: 4px 4px 4px rgb(0 0 0 / 5%);
-`;
-
-const Nav = styled.div`
-  width: 100%;
-  height: ${(props: NavProps) => (props.height ? props.height : "")};
   box-sizing: border-box;
   background: #2c2c2c;
 `;
+
 const PcHeade = styled.div`
   box-sizing: border-box;
   background: #2c2c2c;
@@ -115,4 +149,24 @@ const PcHeade = styled.div`
     display: none !important;
   }
 `;
+
+const Button = styled.button`
+  display: flex;
+  text-align: center;
+  align-items: center;
+  padding: 8px 15px;
+  border-radius: 10px;
+  border: 0px;
+  color: rgb(12, 36, 59);
+  font-size: 14px;
+  font-weight: bold;
+  background-color: white;
+  &:hover {
+    background-color: rgb(12, 50, 59);
+    transition: background-color 0.3s;
+    -webkit-transition: background-color 0.3s;
+  }
+  cursor: pointer;
+`;
+
 export default AdminHeader;

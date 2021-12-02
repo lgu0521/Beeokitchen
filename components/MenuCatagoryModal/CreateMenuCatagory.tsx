@@ -14,7 +14,7 @@ const CreateMenuCatagory = () => {
 
   const onSubmit = async (data: MenuCatagoryCreateDTO) => {
     try {
-      await fetch(
+      const res = await fetch(
         process.env.NEXT_PUBLIC_API_URL + "/api/menu/create/catagory",
         {
           method: "POST",
@@ -23,6 +23,9 @@ const CreateMenuCatagory = () => {
           } as MenuCatagoryCreateDTO),
         }
       );
+      if (res && typeof window != null) {
+        window.location.reload();
+      }
     } catch (e) {
       alert(e);
     }

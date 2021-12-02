@@ -134,6 +134,7 @@ export {
   Button,
   PageFullWidthLayout,
   PageMaxNoCSSLayout,
+  MarginOrPaddingLayout,
 };
 
 interface PropsType {
@@ -182,11 +183,13 @@ const PageMaxNoCSSLayout = styled.div`
     padding: 0px;
   }
 `;
-
+const MarginOrPaddingLayout = styled.div`
+  margin: 80px 0px;
+`;
 const PageFullWidthLayout = styled.div`
   width: 100%;
   margin: 0 auto;
-  overflow: auto;
+  overflow: visible;
   text-align: center;
   position: relative;
 `;

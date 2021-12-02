@@ -1,4 +1,4 @@
-import { MenuDTO } from "../../dto/menu-create.dto";
+import { MenuCatagoryDTO, MenuDTO } from "../../dto/menu-create.dto";
 import { useForm } from "react-hook-form";
 import S from "../../styles/AdminPage.style";
 import DeleteIcon from "../../public/Delete.png";
@@ -6,9 +6,13 @@ import Image from "next/image";
 
 interface Props {
   initialMenu: MenuDTO;
+  initalMenuCatagorys: MenuCatagoryDTO[];
 }
 
-const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
+const ModifyAndDeleteMenuValue = ({
+  initialMenu,
+  initalMenuCatagorys,
+}: Props) => {
   const {
     register,
     handleSubmit,
@@ -73,10 +77,11 @@ const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
             defaultValue={initialMenu.catagory}
             {...register("catagory", { required: true })}
           >
-            <option value="김밥">김밥</option>
-            <option value="도시락">도시락</option>
-            <option value="샐러드">샐러드</option>
-            <option value="음료">음료</option>
+            {initalMenuCatagorys.map((item, i) => (
+              <option value="item.title" key={i}>
+                {item.title}
+              </option>
+            ))}
           </S.Select>
         </S.InputWrap>
         <S.InputWrap>

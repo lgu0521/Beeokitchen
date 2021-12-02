@@ -1,4 +1,4 @@
-import { MenuDTO } from "../../dto/menu-create.dto";
+import { MenuCatagoryDTO, MenuDTO } from "../../dto/menu-create.dto";
 import { useState } from "react";
 import Image from "next/image";
 //이미지
@@ -14,9 +14,10 @@ import S from "../../styles/AdminPage.style";
 interface Props {
   MenuIndex: number;
   Menus: MenuDTO[];
+  MenuCatagorys: MenuCatagoryDTO[];
 }
 
-export const MenuEdit = ({ MenuIndex, Menus }: Props) => {
+export const MenuEdit = ({ MenuIndex, Menus, MenuCatagorys }: Props) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalName, setModalName] = useState<string>("");
 
@@ -70,52 +71,18 @@ export const MenuEdit = ({ MenuIndex, Menus }: Props) => {
         isModalOpen={isModalOpen}
       >
         {modalName == "content_modify" ? (
-          <ModifyAndDeleteMenuValue initialMenu={Menus[MenuIndex]} />
+          <ModifyAndDeleteMenuValue
+            initialMenu={Menus[MenuIndex]}
+            initalMenuCatagorys={MenuCatagorys}
+          />
         ) : modalName == "order_modify" ? (
           <ChangeMenuOrder initialMenus={Menus} />
         ) : modalName == "create" ? (
-          <CreateMenu />
+          <CreateMenu initalMenuCatagorys={MenuCatagorys} />
         ) : null}
       </BasicModal>
     </>
   );
 };
 
-export const MenuDefaulEdit = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <>
-      <S.EditWrap>
-        <S.EditButton>
-          <Image
-            src={EditIcon}
-            width={30}
-            height={30}
-            objectFit="none"
-            alt=""
-          />
-        </S.EditButton>
-        <S.EditUl>
-          <S.EditLi>
-            <span
-              onClick={() => {
-                setIsModalOpen(true);
-              }}
-            >
-              메뉴 추가하기
-            </span>
-          </S.EditLi>
-        </S.EditUl>
-      </S.EditWrap>
-      <BasicModal
-        onClose={() => setIsModalOpen(false)}
-        isModalOpen={isModalOpen}
-      >
-        <CreateMenu />
-      </BasicModal>
-    </>
-  );
-};
-
-export default { MenuEdit, MenuDefaulEdit };
+export default MenuEdit;

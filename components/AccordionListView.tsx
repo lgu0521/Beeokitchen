@@ -10,7 +10,7 @@ const AccordionListView = ({ title, content }: FaqDTO) => {
   return (
     <>
       <AccordionListBox>
-        <Button onClick={() => setIsOpen(!isOpen)}>
+        <Button onClick={() => setIsOpen(!isOpen)} isAdmin={user}>
           <Title2
             style={{ color: "#15AA5A", marginRight: "15px", fontWeight: 600 }}
           >
@@ -36,8 +36,8 @@ const AccordionListBox = styled.div`
   width: 100%;
 `;
 
-const Button = styled.button`
-  position: relative;
+const Button = styled.button<{ isAdmin: boolean }>`
+  position: ${(props) => (props.isAdmin ? "initial" : "relative")};
   display: flex;
   justify-content: flex-start;
   align-items: center;

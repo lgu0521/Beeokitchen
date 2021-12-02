@@ -14,18 +14,26 @@ import {
 } from "../../components/GlobalComponents";
 //Component
 import PageMainTitle from "../../components/PageMainTitle";
-import { MenuEdit, MenuDefaulEdit } from "../../components/MenuModal/MenuEdit";
+import { MenuEdit } from "../../components/MenuModal/MenuEdit";
 //DTO
-import { MenusWithCatagoryDTO } from "../../dto/menu-create.dto";
+import {
+  MenuCatagoryDTO,
+  MenusWithCatagoryDTO,
+} from "../../dto/menu-create.dto";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 import MenuCatagoryEdit from "../../components/MenuCatagoryModal/MenuCatagoryEdit";
 
 interface Props {
   menusWithCatagory: MenusWithCatagoryDTO[];
+  menuCatagorys: MenuCatagoryDTO[];
   PageTitle: PageTitleDTO;
 }
 
-const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
+const Meau: NextPage<Props> = ({
+  menusWithCatagory,
+  PageTitle,
+  menuCatagorys,
+}) => {
   const { user } = useAuth();
 
   const DragAndDropItem = (item: any) => {
@@ -75,7 +83,11 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                       <>
                         <MainLi>
                           {user ? (
-                            <MenuEdit MenuIndex={i} Menus={catagory.menus} />
+                            <MenuEdit
+                              MenuIndex={i}
+                              Menus={catagory.menus}
+                              MenuCatagorys={menuCatagorys}
+                            />
                           ) : null}
                           <ImageWrap
                             src={menu.image.downloadUrl}
@@ -111,6 +123,13 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const menuCatagorys: MenuCatagoryDTO[] = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + "/api/menu/catagory"
+  )
+    .then((res) => res.json())
+    .then((data) => {
+      return data;
+    });
   const menusWithCatagory: MenusWithCatagoryDTO[] = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/menu"
   )
@@ -126,7 +145,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       return data;
     });
 
-  if (!menusWithCatagory && !PageTitle) {
+  if (!menusWithCatagory && !PageTitle && !menuCatagorys) {
     return {
       notFound: true,
     };
@@ -136,6 +155,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       menusWithCatagory,
       PageTitle,
+      menuCatagorys,
     },
   };
 };
@@ -196,6 +216,7 @@ const ImageWrap = styled(Image)`
 `;
 
 const Header = styled.ul`
+  position: relative;
   border-bottom: 2px solid #15aa5a;
   li:nth-child(2) {
     font-weight: 400;

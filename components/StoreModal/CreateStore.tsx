@@ -44,8 +44,8 @@ const CreateStore = () => {
         </S.InputWrap>
         <S.InputWrap>
           <S.Label>매장 정보</S.Label>
-          <S.Input
-            placeholder="매장 운영시간을 입력해주세요"
+          <S.TextArea
+            placeholder="매장 정보를 입력해주세요"
             {...register("operation", { required: true })}
           />
         </S.InputWrap>

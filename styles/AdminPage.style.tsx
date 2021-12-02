@@ -126,7 +126,7 @@ const EditWrap = styled.div`
 const EditButton = styled.button`
   display: block;
   position: relative;
-  z-index: 888px;
+  z-index: 1;
   padding: 5px;
   cursor: pointer;
   right: 10px;
@@ -161,6 +161,18 @@ const Description = styled.p`
   color: rgb(139, 152, 167);
   line-height: 2;
   font-size: 12px;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  height: 100px;
+  overflow: auto;
+  border-radius: 10px;
+  border: 1px solid #d2d4de;
+  padding: 20px 20px;
+  background-color: rgba(99, 114, 131, 0.02);
+  margin: 5px 0px;
+  font-size: 13px;
 `;
 
 const Input = styled.input`
@@ -297,6 +309,7 @@ const DeleteButton = styled.div`
 `;
 
 const Style = {
+  TextArea,
   Table,
   Thead,
   Tbody,

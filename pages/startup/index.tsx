@@ -337,6 +337,7 @@ const TextUl = styled.ul`
 `;
 
 const Wrap = styled.div`
+  display: inline-block;
   @media only screen and (max-width: 600px) {
     margin-top: 60px;
   }

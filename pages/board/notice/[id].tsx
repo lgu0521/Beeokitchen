@@ -39,11 +39,6 @@ const NoticeDetailPage = ({ notice, PageTitle }: Props) => {
     <div>
       <PageMainTitle {...PageTitle} />
       <PageMaxNoCSSLayout style={{ textAlign: "center" }}>
-        {user ? (
-          <Link href={"/admin/notice/" + notice.id}>
-            <a>수정하기</a>
-          </Link>
-        ) : null}
         <Table>
           <Thead>
             <tr>
@@ -63,6 +58,14 @@ const NoticeDetailPage = ({ notice, PageTitle }: Props) => {
             </tr>
           </Tbody>
         </Table>
+        {user ? (
+          <Button
+            onClick={() => router.push("/admin/modify/" + notice.id)}
+            style={{ marginRight: "20px" }}
+          >
+            <Title3>수정하기</Title3>
+          </Button>
+        ) : null}
         <Button onClick={() => router.push("/board")}>
           <Title3>목록으로</Title3>
         </Button>
