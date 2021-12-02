@@ -118,6 +118,7 @@ const ModifyAndDeleteMenuValue = ({ initialMenu }: Props) => {
           width="25px"
           height="25px"
           onClick={DeleteMenu}
+          alt=""
         />
       </S.Icon>
     </>

@@ -1,16 +1,12 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import type { GetServerSideProps, NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import { BannerDTO } from "../dto/banner-create.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
-import IsUserWithLogin from "../hook/AuthStateChanged";
-import { useState } from "react";
 import BannerEdit from "../components/BannerModal/BannerEdit";
 import { useAuth } from "../hook/AuthProvider";
-import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
-import Image from "next/image";
 
 interface Props {
   BannerList: BannerDTO[];

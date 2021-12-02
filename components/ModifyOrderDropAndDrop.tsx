@@ -52,7 +52,12 @@ const MenuModifyOrderDropAndDrop = ({
                       {...provided.draggableProps}
                     >
                       <li>
-                        <Image src={DroppableIcon} width={24} height={24} />
+                        <Image
+                          src={DroppableIcon}
+                          width={24}
+                          height={24}
+                          alt=""
+                        />
                       </li>
                       <li>
                         <S.LabelWrap>

@@ -22,7 +22,13 @@ const MenuCatagoryEdit = ({ MenuCatagory, MenuCatagorys }: Props) => {
     <>
       <EditWrap>
         <EditButton>
-          <Image src={EditIcon} width={30} height={30} objectFit="none" />
+          <Image
+            src={EditIcon}
+            width={30}
+            height={30}
+            objectFit="none"
+            alt=""
+          />
         </EditButton>
         <EditUl>
           <EditLi>

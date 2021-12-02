@@ -76,6 +76,7 @@ const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
           width="25px"
           height="25px"
           onClick={DeleteDoc}
+          alt=""
         />
       </Icon>
     </>

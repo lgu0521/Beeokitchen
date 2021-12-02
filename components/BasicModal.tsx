@@ -20,7 +20,7 @@ const BasicModal = ({ onClose, isModalOpen, children }: ModalProps) => {
                   ✍️ Edit
                 </Title>
                 <CloseIcon onClick={onClose}>
-                  <Image src={XIcon} width={35} height={35} />
+                  <Image src={XIcon} width={35} height={35} alt="" />
                 </CloseIcon>
               </Header>
               <Body>{children}</Body>

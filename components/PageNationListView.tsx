@@ -6,8 +6,8 @@ import { useState } from "react";
 import { Title2, Title3, Title5 } from "./GlobalComponents";
 import { NoticeListDTO } from "../dto/notice-create.dto";
 import NoticeIcon from "../public/notice.png";
-import BoradLeft from "../public/BoradLeft.png";
-import BoradRight from "../public/BoradRight.png";
+import BoradLeft from "../public/boradLeft.png";
+import BoradRight from "../public/boradRight.png";
 
 interface Props {
   itemList: NoticeListDTO[];
@@ -43,7 +43,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
               return (
                 <tr key={key} style={{ backgroundColor: "#F9F0EC" }}>
                   <td>
-                    <Image width={36} height={26} src={NoticeIcon} />
+                    <Image width={36} height={26} src={NoticeIcon} alt="" />
                   </td>
                   <td>
                     <Link href={`/board/notice/${item.id}`}>
@@ -84,7 +84,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
           onClick={() => handlePageChange(1)}
           style={{ margin: "0px !important" }}
         >
-          <Image src={BoradLeft} height={32} width={32} />
+          <Image src={BoradLeft} height={32} width={32} alt="" />
         </Li>
         {Array(totallPageCount)
           .fill(1)
@@ -103,7 +103,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
           onClick={() => handlePageChange(totallPageCount)}
           style={{ margin: "0px !important" }}
         >
-          <Image src={BoradRight} height={32} width={32} />
+          <Image src={BoradRight} height={32} width={32} alt="" />
         </Li>
       </Ul>
     </>

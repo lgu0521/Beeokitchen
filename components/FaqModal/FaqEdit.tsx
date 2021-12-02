@@ -25,7 +25,13 @@ export const FaqEdit = ({ initialItem, initialItems }: Props) => {
     <>
       <S.EditWrap>
         <S.EditButton>
-          <Image src={EditIcon} width={30} height={30} objectFit="none" />
+          <Image
+            src={EditIcon}
+            width={30}
+            height={30}
+            objectFit="none"
+            alt=""
+          />
         </S.EditButton>
         <S.EditUl>
           <S.EditLi>

@@ -81,7 +81,13 @@ const ModifyAndDeleteMenuCatagory = ({ initialMenuCatagory }: Props) => {
         <S.Button>제출</S.Button>
       </S.Form>
       <S.Icon>
-        <Image src={DeleteIcon} width="25px" height="25px" onClick={Delete} />
+        <Image
+          src={DeleteIcon}
+          width="25px"
+          height="25px"
+          onClick={Delete}
+          alt=""
+        />
       </S.Icon>
     </>
   );

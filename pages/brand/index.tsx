@@ -90,7 +90,12 @@ const Brand = ({ PageTitle }: Props) => {
                     </li>
                   </li>
                   <li>
-                    <Image src={Story1} objectFit="cover" layout="responsive" />
+                    <Image
+                      src={Story1}
+                      objectFit="cover"
+                      layout="responsive"
+                      alt=""
+                    />
                   </li>
                 </ul>
                 <ul>
@@ -101,6 +106,7 @@ const Brand = ({ PageTitle }: Props) => {
                           objectFit="cover"
                           layout="responsive"
                           src={storyIcon2}
+                          alt=""
                         />
                       </div>
                       <Title3>청결하고 꼼꼼하게</Title3>
@@ -120,7 +126,12 @@ const Brand = ({ PageTitle }: Props) => {
                     </li>
                   </li>
                   <li>
-                    <Image objectFit="cover" layout="responsive" src={Story2} />
+                    <Image
+                      objectFit="cover"
+                      layout="responsive"
+                      src={Story2}
+                      alt=""
+                    />
                   </li>
                 </ul>
               </Section2_Wrap1>
@@ -167,6 +178,7 @@ const Brand = ({ PageTitle }: Props) => {
                     height={290}
                     objectFit="fill"
                     src={Step1}
+                    alt=""
                   />
                   <Title4>다이어트는 지속됩니다</Title4>
                 </li>
@@ -176,6 +188,7 @@ const Brand = ({ PageTitle }: Props) => {
                     height={85}
                     objectFit="cover"
                     src={AfterIcon}
+                    alt=""
                   />
                 </li>
                 <li>
@@ -184,6 +197,7 @@ const Brand = ({ PageTitle }: Props) => {
                     height={290}
                     objectFit="fill"
                     src={Step2}
+                    alt=""
                   />
                   <Title4>다이어트푸드 전문키친, 비오키친</Title4>
                 </li>
@@ -193,6 +207,7 @@ const Brand = ({ PageTitle }: Props) => {
                     height={85}
                     objectFit="cover"
                     src={AfterIcon}
+                    alt=""
                   />
                 </li>
                 <li>
@@ -201,6 +216,7 @@ const Brand = ({ PageTitle }: Props) => {
                     height={290}
                     objectFit="fill"
                     src={Step3}
+                    alt=""
                   />
 
                   <Title4>비오키친은 지속됩니다</Title4>

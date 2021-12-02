@@ -100,6 +100,7 @@ const ModifyAndDeleteStore = ({ initialItem }: Props) => {
           width="25px"
           height="25px"
           onClick={DeleteMenu}
+          alt=""
         />
       </Icon>
     </>
