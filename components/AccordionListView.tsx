@@ -2,12 +2,11 @@ import styled from "styled-components";
 import { useState } from "react";
 import { Title2, Title3, Title4 } from "./GlobalComponents";
 import { FaqDTO } from "../dto/faq-create.dto";
-import AnswerIcon from "../public/AnswerIcon.png";
-import Image from "next/image";
+import { useAuth } from "../hook/AuthProvider";
 
 const AccordionListView = ({ title, content }: FaqDTO) => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { user } = useAuth();
   return (
     <>
       <AccordionListBox>
@@ -18,10 +17,9 @@ const AccordionListView = ({ title, content }: FaqDTO) => {
             Q
           </Title2>
           <Title3 style={{ fontWeight: 600 }}>{title}</Title3>
-          <DropIcon isOpen={isOpen} />
+          {user ? null : <DropIcon isOpen={isOpen} />}
         </Button>
         <AccordionTextBox isOpen={isOpen}>
-          {/* <Image src={AnswerIcon} height={40} width={40} /> */}
           <Circle>
             <Title2 style={{ color: "#15AA5A" }}>A</Title2>
           </Circle>
@@ -39,13 +37,13 @@ const AccordionListBox = styled.div`
 `;
 
 const Button = styled.button`
-  display: flex;
   position: relative;
+  display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
   width: 100%;
-  padding: 20px;
+  padding: 23px;
   border-radius: 0; //button basic style remove
   border: 0; //button basic style remove
   background: none; //button basic style remove
@@ -78,26 +76,26 @@ const AccordionTextBox = styled.div<{ isOpen: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   text-align: left;
   overflow: hidden;
   height: ${(props) => (props.isOpen ? "auto" : "0px")};
   transition: padding 0.15s ease;
   background-color: #f9f0ec;
   @media only screen and (max-width: 600px) {
-    padding: ${(props) => (props.isOpen ? "20px 0px" : "0px")};
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+    padding: ${(props) => (props.isOpen ? "20px 0px 40px 0px" : "0px")};
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   @media only screen and (min-width: 600px) {
-    padding: ${(props) => (props.isOpen ? "30px 0px" : "0px")};
-    padding-left: 30px !important;
-    padding-right: 30px !important;
+    padding: ${(props) => (props.isOpen ? "20px 0px 40px 0px" : "0px")};
+    padding-left: 10px !important;
+    padding-right: 10px !important;
   }
   @media only screen and (min-width: 768px) {
-    padding: ${(props) => (props.isOpen ? "40px 0px" : "0px")};
-    padding-left: 40px !important;
-    padding-right: 40px !important;
+    padding: ${(props) => (props.isOpen ? "20px 0px 50px 0px" : "0px")};
+    padding-left: 15px !important;
+    padding-right: 10px !important;
   }
 `;
 

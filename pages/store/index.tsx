@@ -51,15 +51,9 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
                     Tel {item.phonenumber}
                   </Title5>
                 </TextWrap>
-                <Title5
-                  style={{
-                    padding: "15px",
-                    minHeight: "130px",
-                    fontWeight: 300,
-                  }}
-                >
-                  {item.operation}
-                </Title5>
+                <TextBox>
+                  <Title5>{item.operation}</Title5>
+                </TextBox>
               </Contentli>
             ))}
           </ContentUl>
@@ -72,17 +66,23 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
 const ImageWrap = styled.div`
   position: relative;
   width: 100%;
-  height: 31vh;
+
   div {
     width: 100%;
     height: 100%;
   }
+  @media only screen and (max-width: 600px) {
+    height: 38vh;
+  }
+  @media only screen and (min-width: 600px) {
+    height: 31vh;
+  }
 `;
 const ContentUl = styled.ul`
   display: inline-block;
-  padding: 0px 30px;
+  padding: 0px 0px;
   @media only screen and (max-width: 600px) {
-    margin: 40px 20px;
+    margin: 40px 0px;
   }
   @media only screen and (min-width: 600px) {
     margin: 80px 0px;
@@ -91,7 +91,9 @@ const ContentUl = styled.ul`
     margin: 120px 0px;
   }
 `;
+
 const Contentli = styled.li`
+  position: relative;
   float: left;
   background-color: white;
   border: 3px solid #15aa5a;
@@ -101,12 +103,29 @@ const Contentli = styled.li`
     margin: 0 0px 20px 0px;
   }
   @media only screen and (min-width: 600px) {
-    width: calc(50% - 20px);
+    width: calc(50% - 16px);
     margin: 0 8px 20px 8px;
   }
   @media only screen and (min-width: 992px) {
-    width: calc(33% - 34px);
-    margin: 0 18px 20px 18px;
+    width: calc(33% - 20px);
+    margin: 0 10px 20px 10px;
+  }
+`;
+
+const TextBox = styled.div`
+  h5 {
+    padding: 15px;
+    word-break: inherit;
+    font-weight: 400;
+    @media only screen and (max-width: 600px) {
+      min-height: 85px;
+    }
+    @media only screen and (min-width: 600px) {
+      min-height: 90px;
+    }
+    @media only screen and (min-width: 992px) {
+      min-height: 130px;
+    }
   }
 `;
 const TextWrap = styled.div`

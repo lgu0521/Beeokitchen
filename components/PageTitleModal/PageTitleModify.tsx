@@ -1,35 +1,36 @@
-import { FaqDTO } from "../../dto/faq-create.dto";
 import Image from "next/image";
-// component
+//이미지
 import DeleteIcon from "../../public/Delete.png";
 import styled from "styled-components";
-//Style
 import S from "../../styles/AdminPage.style";
+import { PageTitleDTO } from "../../dto/page-title.dto";
 import { useForm } from "react-hook-form";
 
 interface Props {
-  initialItem: FaqDTO;
+  initialItem: PageTitleDTO;
 }
 
-const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
+const PageTitleModify = ({ initialItem }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const onSubmit = async (data: FaqDTO) => {
-    const sendData: FaqDTO = {
+  const onSubmit = async (data: PageTitleDTO) => {
+    const sendData: PageTitleDTO = {
       ...data,
       id: initialItem.id,
-      order: initialItem.order,
     };
     try {
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/faq/modify", {
-        method: "POST",
-        body: JSON.stringify(sendData),
-      });
-      if (typeof window != undefined) {
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_API_URL + "/api/page-title/modify",
+        {
+          method: "POST",
+          body: JSON.stringify(sendData),
+        }
+      );
+      if (res && typeof window != undefined) {
         window.location.reload();
       }
     } catch (e) {
@@ -39,7 +40,7 @@ const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
 
   const DeleteDoc = async () => {
     try {
-      await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/faq/delete", {
+      await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/page-title/delete", {
         method: "POST",
         body: JSON.stringify({ id: initialItem.id }),
       });
@@ -55,17 +56,24 @@ const ModifyAndDeleteFaq = ({ initialItem }: Props) => {
     <>
       <S.Form onSubmit={handleSubmit(onSubmit)}>
         <S.InputWrap>
-          <S.Label>FAQ 제목</S.Label>
+          <S.Label>페이지 제목</S.Label>
           <S.Input
             defaultValue={initialItem.title}
-            {...register("title", { required: true, maxLength: 60 })}
+            {...register("title", { required: true })}
           />
         </S.InputWrap>
         <S.InputWrap>
-          <S.Label>FAQ 내용</S.Label>
-          <textarea
-            defaultValue={initialItem.content}
-            {...register("content", { required: true, maxLength: 200 })}
+          <S.Label>페이지 설명1</S.Label>
+          <S.Input
+            defaultValue={initialItem.content_1}
+            {...register("content_1", { required: true })}
+          />
+        </S.InputWrap>
+        <S.InputWrap>
+          <S.Label>페이지 설명2</S.Label>
+          <S.Input
+            defaultValue={initialItem.content_2}
+            {...register("content_2", { required: true })}
           />
         </S.InputWrap>
         <S.Button>저장</S.Button>
@@ -92,4 +100,4 @@ const Icon = styled.button`
   border: 1px solid #175436;
 `;
 
-export default ModifyAndDeleteFaq;
+export default PageTitleModify;

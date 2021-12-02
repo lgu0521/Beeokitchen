@@ -1,8 +1,8 @@
 //이미지
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { FaqCreateDTO } from "../dto/faq-create.dto";
-import { Title2, Title3, Title4 } from "../components/GlobalComponents";
+import { FaqCreateDTO } from "../../dto/faq-create.dto";
+import { Title2, Title3, Title4 } from "../GlobalComponents";
 
 const StartUpModal = () => {
   const {
@@ -37,18 +37,18 @@ const StartUpModal = () => {
             <tr>
               <th>
                 <Title2>기본정보</Title2>
-                <Title3>
+                <Title4>
                   <span>*필수 입력사항입니다.</span>
-                </Title3>
+                </Title4>
               </th>
             </tr>
           </Thead>
           <Tbody>
             <tr>
               <th>
-                <Title3>
-                  성함<span>*</span>
-                </Title3>
+                <Title4>
+                  신청자명<span>*</span>
+                </Title4>
               </th>
               <td>
                 <input
@@ -59,9 +59,9 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>
+                <Title4>
                   생년월일<span>*</span>
-                </Title3>
+                </Title4>
               </th>
               <td>
                 <input
@@ -72,7 +72,7 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>이메일</Title3>
+                <Title4>이메일</Title4>
               </th>
               <td>
                 <input
@@ -83,9 +83,9 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>
-                  연락처<span>*</span>
-                </Title3>
+                <Title4>
+                  전화번호<span>*</span>
+                </Title4>
               </th>
               <td>
                 <input
@@ -107,7 +107,7 @@ const StartUpModal = () => {
           <Tbody>
             <tr>
               <th>
-                <Title3>점포유무</Title3>
+                <Title4>점포창업유무</Title4>
               </th>
               <RadioTd>
                 <RadioTh>
@@ -132,7 +132,7 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>외식업종경험</Title3>
+                <Title4>외식업종경험</Title4>
               </th>
               <RadioTd>
                 <RadioTh>
@@ -157,7 +157,7 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>희망오픈일</Title3>
+                <Title4>희망오픈일자</Title4>
               </th>
               <td>
                 <input
@@ -168,22 +168,22 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>희망오픈지역</Title3>
+                <Title4>희망오픈지역</Title4>
               </th>
               <td>
                 <input
-                  placeholder="희망오픈지역을 입력해주세요"
+                  placeholder="지역을 입력해주세요"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
             </tr>
             <tr>
               <th>
-                <Title3>사업예산</Title3>
+                <Title4>예상사업예산</Title4>
               </th>
               <td>
                 <input
-                  placeholder="사업예산을 입력해주세요"
+                  placeholder="예산을 입력해주세요(00만원/숫자만 입력)"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -192,7 +192,7 @@ const StartUpModal = () => {
           <TFoot>
             <tr>
               <th>
-                <Title3>문의내용</Title3>
+                <Title4>문의내용</Title4>
               </th>
               <td>
                 <textarea />
@@ -200,9 +200,9 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title3>
+                <Title4>
                   이용동의<span>*</span>
-                </Title3>
+                </Title4>
               </th>
               <td>
                 <AgreeBox>
@@ -255,8 +255,45 @@ const Form = styled.form`
   text-align: center;
   padding: 0px 10px;
   margin: 40px 0px;
+  table:nth-child(1) {
+    tbody {
+      th {
+        @media only screen and (max-width: 600px) {
+          width: 70px;
+        }
+        @media only screen and (min-width: 600px) {
+          width: 70px;
+        }
+        @media only screen and (min-width: 768px) {
+          width: 110px;
+        }
+        @media only screen and (min-width: 992px) {
+          width: 100px;
+        }
+      }
+    }
+  }
+  table:nth-child(2) {
+    tbody {
+      th {
+        @media only screen and (max-width: 600px) {
+          width: 90px;
+        }
+        @media only screen and (min-width: 600px) {
+          width: 90px;
+        }
+        @media only screen and (min-width: 768px) {
+          width: 160px;
+        }
+        @media only screen and (min-width: 992px) {
+          width: 150px;
+        }
+      }
+    }
+  }
 `;
 const Table = styled.table`
+  display: inline-block;
   width: 100%;
   @media only screen and (max-width: 600px) {
     margin-top: 30px;
@@ -283,58 +320,61 @@ const Tbody = styled.tbody`
     align-items: center;
     @media only screen and (max-width: 600px) {
       width: 100%;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
     }
     @media only screen and (min-width: 600px) {
       float: left;
       width: 100%;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
     @media only screen and (min-width: 768px) {
       float: left;
       width: 50%;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    tr:nth-child(2n) {
+      th {
+        margin-left: 20px;
+      }
     }
   }
   th {
-    width: 120px;
     font-weight: 600;
     span {
       color: #cc3d3d;
     }
-    @media only screen and (max-width: 600px) {
-      width: 90px;
-    }
-    @media only screen and (min-width: 600px) {
-      width: 120px;
-    }
-    @media only screen and (min-width: 768px) {
-      width: 120px;
-    }
   }
   td {
     width: 100%;
-    padding: 0px 20px 0px 10px;
     input {
       width: 100%;
       height: 40px;
       border: 0px;
       border-bottom: 2px solid #404346;
-      padding: 0px 10px;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
       :focus {
         outline: none;
       }
+      letter-spacing: 0px;
+      line-height: 1.4;
       @media only screen and (max-width: 600px) {
-        font-size: ${(props) => props.theme.fontSizes.title6};
+        font-size: ${(props) => props.theme.fontSizes.title7};
       }
       @media only screen and (min-width: 600px) {
-        font-size: ${(props) => props.theme.fontSizes.title6};
+        font-size: ${(props) => props.theme.fontSizes.title7};
       }
       @media only screen and (min-width: 768px) {
-        font-size: ${(props) => props.theme.fontSizes.title3};
+        font-size: ${(props) => props.theme.fontSizes.title4};
+      }
+      @media only screen and (min-width: 992px) {
+        font-size: ${(props) => props.theme.fontSizes.title4};
+      }
+      @media only screen and (min-width: 1200px) {
+        font-size: ${(props) => props.theme.fontSizes.title4};
       }
     }
   }
@@ -519,14 +559,26 @@ const RadioTh = styled.th`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 0px;
   }
   input[type="radio"]:checked {
     appearance: none;
     border-radius: 100%;
     background-color: #cc3d3d;
+  }
+  @media only screen and (max-width: 600px) {
+    padding: 0px 0px 0px 5px;
+  }
+  @media only screen and (min-width: 600px) {
+    padding: 0;
+  }
+  @media only screen and (min-width: 768px) {
+    padding: 0px 0px 0px 8px;
+  }
+  @media only screen and (min-width: 992px) {
+    padding: 0;
   }
 `;
 

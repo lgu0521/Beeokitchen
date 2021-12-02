@@ -55,7 +55,7 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
         {isFaq ? (
           <ContextBox style={{ borderTop: "5px solid #03502c" }}>
             {faqList.map((item, key) => (
-              <div key={key}>
+              <div key={key} style={{ position: "relative" }}>
                 {user ? (
                   <FaqEdit initialItem={item} initialItems={faqList} />
                 ) : null}

@@ -8,10 +8,10 @@ import {
   Title3,
   Title2,
   Title4,
+  Title5,
 } from "../../components/GlobalComponents";
 import PageMainTitle from "../../components/PageMainTitle";
-import Style from "../../components/style";
-import StartUpModal from "../../components/StartUpModal";
+import StartUpModal from "../../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 import { GetStaticProps } from "next";
@@ -117,7 +117,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
         <PageMaxNoCSSLayout>
           <Wrap>
             <Title2 style={{ fontWeight: 600, color: "#03502C" }}>
-              가맹 절차
+              가맹절차
             </Title2>
           </Wrap>
           <GridBox
@@ -143,7 +143,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
           >
             예상투자비용
           </Title2>
-          <Style.Table>
+          <Table>
             <caption
               style={{
                 textAlign: "right",
@@ -154,7 +154,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
             >
               <Title4>*단위 : 만원</Title4>
             </caption>
-            <Style.Thead>
+            <Thead>
               <tr>
                 <th scope="col">
                   <Title3>항목</Title3>
@@ -166,8 +166,8 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   <Title3>내용</Title3>
                 </th>
               </tr>
-            </Style.Thead>
-            <Style.Tbody>
+            </Thead>
+            <Tbody>
               <tr>
                 <th scope="row">
                   <Title3>가맹비</Title3>
@@ -238,8 +238,8 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   <Title3>부가세별도</Title3>
                 </td>
               </tr>
-            </Style.Tbody>
-            <Style.Tfoot>
+            </Tbody>
+            <Tfoot>
               <tr>
                 <th scope="row">
                   <Title3>합계</Title3>
@@ -253,28 +253,27 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   </Title3>
                 </td>
               </tr>
-            </Style.Tfoot>
-          </Style.Table>
+            </Tfoot>
+          </Table>
           <TextUl>
             <li>
-              <Title4>
+              <Title5>
                 별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실
-                등
-              </Title4>
+              </Title5>
             </li>
             <li>
-              <Title4>
+              <Title5>
                 본 인테리어 비용은 이해를 돕기 위한 예상비용으로 현장 실측 후
                 정확한 비용이 산출됩니다.
-              </Title4>
+              </Title5>
             </li>
             <li>
-              <Title4>
+              <Title5>
                 매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
-              </Title4>
+              </Title5>
             </li>
             <li>
-              <Title4>개설가능 최소평수는 12평입니다.</Title4>
+              <Title5>개설가능 최소평수는 12평입니다.</Title5>
             </li>
           </TextUl>
         </ContentWrap>
@@ -331,7 +330,7 @@ const TextUl = styled.ul`
   text-align: left;
   font-weight: 600;
   line-height: 130%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   li {
     margin-top: 7px;
   }
@@ -349,23 +348,103 @@ const Wrap = styled.div`
   }
 `;
 
-const Button = styled.button`
-  color: #404346;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 30px;
-  padding: 20px 40px;
-  background-color: #f9f0ec;
-  border: 2px solid #cc3d3d;
-  border-radius: 20px;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #cc3d3d;
-    color: white;
-    transition: background-color 0.3s;
-    -webkit-transition: background-color 0.3s;
+export const Table = styled.table`
+  width: 100%;
+  line-height: 22px;
+  text-align: left;
+  tr {
+    vertical-align: middle;
+    border-top: 0.5px solid #008b48;
+    @media only screen and (max-width: 600px) {
+      height: 50px;
+    }
+    @media only screen and (min-width: 600px) {
+      height: 69px;
+    }
+  }
+  th,
+  td {
+    padding: 0 15px;
+    vertical-align: middle;
+  }
+  th {
+    font-weight: 600;
+  }
+  td:nth-child(2) {
+    font-weight: 300;
+  }
+  td:nth-child(3) {
+    font-weight: 500;
+  }
+  th:nth-child(3),
+  td:nth-child(3) {
+    @media only screen and (max-width: 600px) {
+      display: none;
+    }
   }
 `;
 
+export const Tbody = styled.tbody``;
+
+export const Thead = styled.thead`
+  border-top: 5px solid #009223;
+  border-bottom: 3px solid #009223;
+  tr > th {
+    font-weight: 800;
+  }
+`;
+
+export const Tfoot = styled.tfoot`
+  background-color: #f9f0ec;
+  color: #cc3d3d;
+  tr > th {
+    font-weight: 600;
+  }
+  tr {
+    border: 0px;
+  }
+`;
+
+export const Modal = styled.div`
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+`;
+
+export const ModalContent = styled.div`
+  background-color: #fefefe;
+  margin: 5% auto;
+  border: 1px solid #888;
+  height: 70%;
+  border-radius: 20px;
+  border: 0px;
+  display: table;
+
+  @media only screen and (max-width: 600px) {
+    padding: 10px;
+    width: 90%;
+  }
+  @media only screen and (min-width: 600px) {
+    padding: 10px;
+    width: 80%;
+  }
+  @media only screen and (min-width: 768px) {
+    padding: 20px;
+    width: 70%;
+  }
+  @media only screen and (min-width: 992px) {
+    padding: 20px;
+    width: 60%;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 20px;
+    width: 50%;
+  }
+`;
 export default StartUpPage;

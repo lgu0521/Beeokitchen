@@ -65,9 +65,9 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                       </Title2>
                     </li>
                     <li>
-                      <Title4 style={{ fontWeight: 300, marginTop: "6px" }}>
+                      <Title5 style={{ fontWeight: 400, marginTop: "6px" }}>
                         {catagory.content}
-                      </Title4>
+                      </Title5>
                     </li>
                   </Header>
                   <Main>
@@ -90,7 +90,6 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
                               fontWeight: 600,
                               marginTop: "15px",
                               color: "#50555C",
-                              lineHeight: "120%",
                             }}
                           >
                             {menu.content1}
@@ -142,16 +141,16 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 const Li = styled.li`
   @media only screen and (max-width: 600px) {
-    padding: 50px;
+    padding: 50px 10px;
   }
   @media only screen and (min-width: 600px) {
-    padding: 50px;
+    padding: 50px 0px;
   }
   @media only screen and (min-width: 768px) {
-    padding: 80px;
+    padding: 80px 0px;
   }
   @media only screen and (min-width: 992px) {
-    padding: 100px;
+    padding: 100px 0px;
   }
 `;
 
@@ -165,7 +164,7 @@ const Ul = styled.ul`
 `;
 const MenuContent2 = styled.div`
   color: #50555c;
-  font-weight: 300;
+  font-weight: 400;
   margin-top: 3px;
   @media only screen and (max-width: 600px) {
     display: none;
@@ -183,7 +182,7 @@ const ResTitle3 = styled(Title3)`
 const ImageWrap = styled(Image)`
   border-radius: 100%;
   @media only screen and (max-width: 600px) {
-    padding: 15px !important;
+    padding: 10px !important;
   }
   @media only screen and (min-width: 600px) {
     padding: 30px !important;
@@ -197,7 +196,7 @@ const ImageWrap = styled(Image)`
 `;
 
 const Header = styled.ul`
-  border-bottom: 1.5px solid #15aa5a;
+  border-bottom: 2px solid #15aa5a;
   li:nth-child(2) {
     font-weight: 400;
   }
@@ -216,6 +215,8 @@ const MainLi = styled.li`
   display: inline-block;
   width: 50%;
   @media only screen and (max-width: 600px) {
+    width: 50%;
+    padding: 0px 5px;
     margin: 30px 0px;
   }
   @media only screen and (min-width: 600px) {
@@ -283,6 +284,12 @@ const Button = styled.button`
     color: white;
     transition: background-color 0.3s;
     -webkit-transition: background-color 0.3s;
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 15px 30px;
+    border-radius: 17px;
+    margin-top: 10px;
   }
 `;
 

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { useAuth } from "../hook/AuthProvider";
-import PageTitleModeifyModal from "./PageTitleModeifyModal";
+import PageTitleEdit from "./PageTitleModal/PageTitleEdit";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import "react-loading-skeleton/dist/skeleton.css";
-import { Title1, Title4 } from "../components/GlobalComponents";
+import {
+  PageMaxNoCSSLayout,
+  Title1,
+  Title4,
+} from "../components/GlobalComponents";
 
 const PageMainTitle = (props: PageTitleDTO) => {
   const { user } = useAuth();
@@ -11,15 +15,17 @@ const PageMainTitle = (props: PageTitleDTO) => {
   return (
     <>
       <ContentBox>
-        {user ? <PageTitleModeifyModal {...props} /> : null}
-        <Wrap>
-          <Title1>{props.title}</Title1>
-        </Wrap>
-        <Title4>
-          {props.content_1}
-          <br />
-          {props.content_2 ? props.content_2 : null}
-        </Title4>
+        <PageMaxNoCSSLayout>
+          <Wrap>
+            {user ? <PageTitleEdit initialItem={props} /> : null}
+            <Title1>{props.title}</Title1>
+          </Wrap>
+          <Title4>
+            {props.content_1}
+            <br />
+            {props.content_2 ? props.content_2 : null}
+          </Title4>
+        </PageMaxNoCSSLayout>
       </ContentBox>
     </>
   );
@@ -39,6 +45,7 @@ const Wrap = styled.div`
 
 const ContentBox = styled.div`
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-items: center;

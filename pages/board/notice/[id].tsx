@@ -63,7 +63,9 @@ const NoticeDetailPage = ({ notice, PageTitle }: Props) => {
             </tr>
           </Tbody>
         </Table>
-        <Button onClick={() => router.push("/board")}>목록으로</Button>
+        <Button onClick={() => router.push("/board")}>
+          <Title3>목록으로</Title3>
+        </Button>
       </PageMaxNoCSSLayout>
     </div>
   );
@@ -97,6 +99,7 @@ export const getServerSideProps: GetServerSideProps = async ({
 };
 
 const Table = styled.table`
+  width: 100%;
   border-bottom: 1px solid #03502c;
   text-align: left;
   @media only screen and (max-width: 600px) {
@@ -161,7 +164,6 @@ const Tbody = styled.tbody`
 
 const Button = styled.button`
   color: #404346;
-  font-weight: bold;
   text-align: center;
   margin-bottom: 30px;
   padding: 20px 40px;
@@ -169,7 +171,9 @@ const Button = styled.button`
   border: 2px solid #cc3d3d;
   border-radius: 20px;
   cursor: pointer;
-
+  h3 {
+    font-weight: 800;
+  }
   &:hover {
     background-color: #cc3d3d;
     color: white;

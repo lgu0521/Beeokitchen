@@ -55,7 +55,7 @@ const ContentBox = styled.div`
   display: inline-block;
   line-height: 170%;
   @media only screen and (max-width: 600px) {
-    margin: 20px 10px 40px 10px;
+    margin: 20px 0px 40px 0px;
   }
   @media only screen and (min-width: 600px) {
     margin: 30px 0px 80px 0px;
@@ -73,29 +73,20 @@ const GridItem = styled.div<GridItemProps>`
   text-align: center;
   border: 2px solid #d15b56;
   @media only screen and (max-width: 600px) {
-    height: 70px;
+    height: 60px;
     border-radius: 15px;
+    margin: 5px 7px;
+    width: calc(100% / ${(props) => (props.smCol ? props.smCol : 2)} - 14px);
   }
   @media only screen and (min-width: 600px) {
     height: 70px;
     border-radius: 15px;
-  }
-  @media only screen and (min-width: 768px) {
-    height: 100px;
-    border-radius: 20px;
-  }
-  background: #f9f0ec;
-  cursor: pointer;
-
-  @media only screen and (max-width: 600px) {
-    margin: 5px 5px;
-    width: calc(100% / ${(props) => (props.smCol ? props.smCol : 2)} - 10px);
-  }
-  @media only screen and (min-width: 600px) {
     margin: 5px 10px;
     width: calc(100% / ${(props) => (props.smCol ? props.smCol : 2)} - 20px);
   }
   @media only screen and (min-width: 768px) {
+    height: 100px;
+    border-radius: 20px;
     margin: 5px 10px;
     width: calc(100% / ${(props) => (props.mdCol ? props.mdCol : 3)} - 20px);
   }
@@ -103,6 +94,9 @@ const GridItem = styled.div<GridItemProps>`
     margin: 10px;
     width: calc(100% / ${(props) => (props.col ? props.col : 4)} - 20px);
   }
+  background: #f9f0ec;
+  cursor: pointer;
+
   :hover {
     background: #cc3d3d;
     transition: background-color 0.3s;

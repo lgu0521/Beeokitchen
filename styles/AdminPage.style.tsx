@@ -89,7 +89,6 @@ export const ModalContent = styled.div`
 
 const EditLi = styled.li`
   padding: 15px 15px;
-  z-index: 1;
   cursor: pointer;
   border-radius: 10px;
   :hover {
@@ -103,7 +102,7 @@ const EditLi = styled.li`
 const EditUl = styled.ul`
   display: none;
   position: absolute;
-  z-index: 1;
+  z-index: 9999;
   right: 10px;
   text-align: left;
   white-space: nowrap;
@@ -116,7 +115,6 @@ const EditUl = styled.ul`
 `;
 
 const EditWrap = styled.div`
-  z-index: 1;
   position: absolute;
   top: 10px;
   right: 0px;
@@ -128,6 +126,7 @@ const EditWrap = styled.div`
 const EditButton = styled.button`
   display: block;
   position: relative;
+  z-index: 888px;
   padding: 5px;
   cursor: pointer;
   right: 10px;

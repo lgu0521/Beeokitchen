@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const Title1 = styled.h1`
   letter-spacing: -3px;
-  line-height: 1.56;
+  line-height: 1.3;
   @media only screen and (max-width: 600px) {
-    font-size: ${(props) => props.theme.fontSizes.title2};
+    font-size: 3rem;
   }
   @media only screen and (min-width: 600px) {
     font-size: ${(props) => props.theme.fontSizes.title2};
@@ -24,16 +24,16 @@ const Title2 = styled.h2`
   letter-spacing: 1px;
   line-height: 1.36;
   @media only screen and (max-width: 600px) {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
   @media only screen and (min-width: 600px) {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
   @media only screen and (min-width: 768px) {
-    font-size: ${(props) => props.theme.fontSizes.title2};
+    font-size: 2.6rem;
   }
   @media only screen and (min-width: 992px) {
-    font-size: ${(props) => props.theme.fontSizes.title2};
+    font-size: 3rem;
   }
   @media only screen and (min-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.title2};
@@ -45,19 +45,19 @@ const Title3 = styled.h3`
   line-height: 1.28;
   @media only screen and (max-width: 310px) {
     letter-spacing: 0px !important;
-    font-size: ${(props) => props.theme.fontSizes.title6};
+    font-size: 0.8rem;
   }
   @media only screen and (min-width: 310px) {
-    font-size: ${(props) => props.theme.fontSizes.title6};
+    font-size: ${(props) => props.theme.fontSizes.title8};
   }
   @media only screen and (min-width: 600px) {
-    font-size: ${(props) => props.theme.fontSizes.title3};
+    font-size: ${(props) => props.theme.fontSizes.title6};
   }
   @media only screen and (min-width: 768px) {
-    font-size: ${(props) => props.theme.fontSizes.title3};
+    font-size: ${(props) => props.theme.fontSizes.title5};
   }
   @media only screen and (min-width: 992px) {
-    font-size: ${(props) => props.theme.fontSizes.title3};
+    font-size: ${(props) => props.theme.fontSizes.title5};
   }
   @media only screen and (min-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.title3};
@@ -66,7 +66,7 @@ const Title3 = styled.h3`
 
 const Title4 = styled.h4`
   letter-spacing: 0px;
-  line-height: 1.25;
+  line-height: 1.4;
   @media only screen and (max-width: 600px) {
     font-size: ${(props) => props.theme.fontSizes.title7};
   }
@@ -86,18 +86,18 @@ const Title4 = styled.h4`
 
 const Title5 = styled.h5`
   letter-spacing: 0px;
-  line-height: 1.2;
+  line-height: 1.3;
   @media only screen and (max-width: 600px) {
-    font-size: ${(props) => props.theme.fontSizes.title8};
+    font-size: 0.9rem;
   }
   @media only screen and (min-width: 600px) {
     font-size: ${(props) => props.theme.fontSizes.title8};
   }
   @media only screen and (min-width: 768px) {
-    font-size: ${(props) => props.theme.fontSizes.title5};
+    font-size: ${(props) => props.theme.fontSizes.title6};
   }
   @media only screen and (min-width: 992px) {
-    font-size: ${(props) => props.theme.fontSizes.title5};
+    font-size: ${(props) => props.theme.fontSizes.title6};
   }
   @media only screen and (min-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.title5};
@@ -167,10 +167,19 @@ const PageMaxNoCSSLayout = styled.div`
   width: 100%;
   margin: 0 auto;
   @media only screen and (max-width: 600px) {
-    padding: 0 10px;
+    padding: 0 20px;
   }
   @media only screen and (min-width: 600px) {
+    padding: 0 20px;
+  }
+  @media only screen and (min-width: 768px) {
+    padding: 0 30px;
+  }
+  @media only screen and (min-width: 992px) {
     padding: 0 40px;
+  }
+  @media only screen and (min-width: 1200px) {
+    padding: 0px;
   }
 `;
 

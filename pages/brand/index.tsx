@@ -21,9 +21,6 @@ import Step2 from "../../public/step2.png";
 import Step3 from "../../public/step3.png";
 import AfterIcon from "../../public/after.png";
 
-interface RoundProp {
-  value: string;
-}
 interface Props {
   PageTitle: PageTitleDTO;
 }
@@ -60,85 +57,83 @@ const Brand = ({ PageTitle }: Props) => {
           </PageMaxNoCSSLayout>
         </BackgroundWrap>
       </PageFullWidthLayout>
-      <PageFullWidthLayout
-        style={{
-          background:
-            "linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%)",
-        }}
-      >
-        <PageMaxNoCSSLayout>
-          <Section2>
-            <Section2_Wrap1>
-              <ul>
-                <li>
+      <PageFullWidthLayout>
+        <BackgroundColor>
+          <PageMaxNoCSSLayout>
+            <Section2>
+              <Section2_Wrap1>
+                <ul>
                   <li>
-                    <div>
-                      <Image
-                        objectFit="cover"
-                        layout="responsive"
-                        src={storyIcon1}
-                        alt=""
-                      />
-                    </div>
-                    <Title3>기본과 트렌드를 동시에</Title3>
+                    <li>
+                      <div>
+                        <Image
+                          objectFit="cover"
+                          layout="responsive"
+                          src={storyIcon1}
+                          alt=""
+                        />
+                      </div>
+                      <Title3>기본과 트렌드를 동시에</Title3>
+                    </li>
+                    <li>
+                      <Title2>
+                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다{" "}
+                      </Title2>
+                    </li>
+                    <li>
+                      <Title5>
+                        비오키친에서는 전통적인 다이어트 도시락과 새롭게
+                        떠오르는 다이어트 메뉴들이 공존합니다. 다이어터들의
+                        필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을
+                        지속적으로 고민합니다.{" "}
+                      </Title5>
+                    </li>
                   </li>
                   <li>
-                    <Title2>
-                      건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다{" "}
-                    </Title2>
+                    <Image src={Story1} objectFit="cover" layout="responsive" />
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <li>
+                      <div>
+                        <Image
+                          objectFit="cover"
+                          layout="responsive"
+                          src={storyIcon2}
+                        />
+                      </div>
+                      <Title3>청결하고 꼼꼼하게</Title3>
+                    </li>
+                    <li>
+                      <Title2>
+                        비오키친이 선별하는 산지직송의 신선한 식자재{" "}
+                      </Title2>
+                    </li>
+                    <li>
+                      <Title5>
+                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는
+                        청송에서! 산지직송 식자재를 직접 관리합니다. 정확한
+                        개량의 조리법으로 조리됩니다. 내 가족이 먹는다는
+                        마음으로 청결하고 꼼꼼하게 운영합니다.
+                      </Title5>
+                    </li>
                   </li>
                   <li>
-                    <Title5>
-                      비오키친에서는 전통적인 다이어트 도시락과 새롭게 떠오르는
-                      다이어트 메뉴들이 공존합니다. 다이어터들의 필요와 즐거움을
-                      충족시킬 수 있는 다양한 메뉴들을 지속적으로 고민합니다.{" "}
-                    </Title5>
+                    <Image objectFit="cover" layout="responsive" src={Story2} />
                   </li>
-                </li>
-                <li>
-                  <Image src={Story1} objectFit="cover" layout="responsive" />
-                </li>
-              </ul>
-              <ul>
-                <li>
-                  <li>
-                    <div>
-                      <Image
-                        objectFit="cover"
-                        layout="responsive"
-                        src={storyIcon2}
-                      />
-                    </div>
-                    <Title3>청결하고 꼼꼼하게</Title3>
-                  </li>
-                  <li>
-                    <Title2>
-                      비오키친이 선별하는 산지직송의 신선한 식자재{" "}
-                    </Title2>
-                  </li>
-                  <li>
-                    <Title5>
-                      현미는 철원산지에서, 호박고구마는 당진에서, 사과는
-                      청송에서! 산지직송 식자재를 직접 관리합니다. 정확한 개량의
-                      조리법으로 조리됩니다. 내 가족이 먹는다는 마음으로
-                      청결하고 꼼꼼하게 운영합니다.
-                    </Title5>
-                  </li>
-                </li>
-                <li>
-                  <Image objectFit="cover" layout="responsive" src={Story2} />
-                </li>
-              </ul>
-            </Section2_Wrap1>
-            <Title1>다이어트가 지속되는 한 비오키친은 지속됩니다.</Title1>
-          </Section2>
-        </PageMaxNoCSSLayout>
+                </ul>
+              </Section2_Wrap1>
+              <Title1>다이어트가 지속되는 한 비오키친은 지속됩니다.</Title1>
+            </Section2>
+          </PageMaxNoCSSLayout>
+        </BackgroundColor>
       </PageFullWidthLayout>
       <PageFullWidthLayout>
         <PageMaxNoCSSLayout>
           <Section3>
             <ul>
-              <li>
+              <PCversion>
                 <Title5>
                   <li>
                     1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
@@ -153,7 +148,18 @@ const Brand = ({ PageTitle }: Props) => {
                     위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
-              </li>
+              </PCversion>
+              <MBversion>
+                <Title5>
+                  <li>
+                    1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
+                    유행하는 간헐적단식까지 무수히 많은 다이어트 식단이 개발되고
+                    퍼져 왔습니다. 그러나 중요한 것은 다이어트에 관한 나만의
+                    신념을 가지는 것입니다. 비오키친은 변화가 심한 다이어트
+                    트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
+                  </li>
+                </Title5>
+              </MBversion>
               <li>
                 <li>
                   <ImageWrap
@@ -179,7 +185,7 @@ const Brand = ({ PageTitle }: Props) => {
                     objectFit="fill"
                     src={Step2}
                   />
-                  <Title4>다이어트는 지속됩니다</Title4>
+                  <Title4>다이어트푸드 전문키친, 비오키친</Title4>
                 </li>
                 <li>
                   <Image
@@ -197,7 +203,7 @@ const Brand = ({ PageTitle }: Props) => {
                     src={Step3}
                   />
 
-                  <Title4>다이어트는 지속됩니다</Title4>
+                  <Title4>비오키친은 지속됩니다</Title4>
                 </li>
               </li>
               <li>
@@ -273,6 +279,9 @@ const Section2 = styled.div`
   align-items: center;
   @media only screen and (max-width: 600px) {
     padding: 35px 0px;
+    h1 {
+      display: none;
+    }
   }
   @media only screen and (min-width: 600px) {
     padding: 55px 0px;
@@ -290,7 +299,7 @@ const Section2_Wrap1 = styled.div`
   @media only screen and (max-width: 600px) {
     flex-direction: column;
     ul {
-      width: 90% !important;
+      width: 100% !important;
       margin-bottom: 20px !important;
     }
   }
@@ -305,13 +314,13 @@ const Section2_Wrap1 = styled.div`
     width: 48.7%;
     border: 3px solid #15aa5a;
     @media only screen and (max-width: 600px) {
-      height: 600px;
+      height: 550px;
     }
     @media only screen and (min-width: 600px) {
       height: 700px;
     }
     @media only screen and (min-width: 768px) {
-      height: 900px;
+      height: 800px;
     }
     @media only screen and (min-width: 992px) {
       height: 800px;
@@ -328,8 +337,9 @@ const Section2_Wrap1 = styled.div`
     align-content: center;
     width: 100%;
     height: 45%;
+    margin: 30px 0px;
     @media only screen and (max-width: 280px) {
-      height: 55%;
+      height: 55% !important;
       padding: 0px 10px;
     }
     @media only screen and (max-width: 600px) {
@@ -351,6 +361,7 @@ const Section2_Wrap1 = styled.div`
   ul > li:nth-child(2) {
     width: 100%;
     height: 55%;
+    overflow: hidden;
     div {
       height: 100%;
     }
@@ -384,10 +395,10 @@ const Section2_Wrap1 = styled.div`
     }
   }
   ul > li:nth-child(1) > li:nth-child(2) {
-    font-weight: 300;
+    font-weight: 400;
   }
   ul > li:nth-child(1) > li:nth-child(3) {
-    font-weight: 300;
+    font-weight: 400;
   }
 `;
 
@@ -398,12 +409,17 @@ const Section3 = styled.div`
     justify-content: center;
     align-items: center;
     margin: 60px 0px;
-  }
-  ul > li:nth-child(1) {
-    font-weight: 300;
-    width: 100%;
     @media only screen and (max-width: 600px) {
-      margin-bottom: 60px;
+      margin: 0px 0px 40px 0px !important;
+    }
+  }
+  ul > li:nth-child(1),
+  ul > li:nth-child(2) {
+    font-weight: 400;
+    width: 100%;
+    word-break: initial !important;
+    @media only screen and (max-width: 600px) {
+      margin-bottom: 35px;
     }
     @media only screen and (min-width: 600px) {
       margin-bottom: 60px;
@@ -415,7 +431,7 @@ const Section3 = styled.div`
       margin-bottom: 60px;
     }
   }
-  ul > li:nth-child(2) {
+  ul > li:nth-child(3) {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -426,7 +442,7 @@ const Section3 = styled.div`
     font-weight: 600;
     @media only screen and (max-width: 600px) {
       flex-direction: column !important;
-      padding-bottom: 75px;
+      padding-bottom: 35px;
       li {
         display: flex;
         justify-items: center;
@@ -445,17 +461,18 @@ const Section3 = styled.div`
       }
     }
     @media only screen and (min-width: 600px) {
-      padding-bottom: 75px;
+      padding-bottom: 60px;
     }
     @media only screen and (min-width: 768px) {
-      padding-bottom: 75px;
+      padding-bottom: 60px;
     }
     @media only screen and (min-width: 992px) {
-      padding-bottom: 75px;
+      padding-bottom: 60px;
     }
   }
-  ul > li:nth-child(3) {
+  ul > li:nth-child(4) {
     margin-top: 40px;
+    margin-bottom: 20px;
     h3 {
       font-weight: 800;
     }
@@ -466,13 +483,32 @@ const Section3 = styled.div`
   }
 `;
 
+const BackgroundColor = styled.div`
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%);
+  @media only screen and (max-width: 600px) {
+    background: none !important;
+  }
+`;
 const ImageWrap = styled(Image)`
   @media only screen and (max-width: 600px) {
     padding: 30px !important;
   }
   padding: 20px !important;
 `;
-
+const PCversion = styled.li`
+  display: none;
+  @media only screen and (min-width: 600px) {
+    display: block !important;
+  }
+`;
+const MBversion = styled.li`
+  display: none;
+  @media only screen and (max-width: 600px) {
+    display: block !important;
+  }
+`;
 export const getStaticProps: GetStaticProps = async (context) => {
   const resPageTitle = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/page-title/Brand"
