@@ -166,7 +166,7 @@ input {
   margin: 0px 10px !important;
 }
 
-.selected {
+.dot.selected {
   background: #cc3d3d !important;
 }
 

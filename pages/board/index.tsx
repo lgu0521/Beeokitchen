@@ -10,6 +10,7 @@ import styled from "styled-components";
 import FaqEdit from "../../components/FaqModal/FaqEdit";
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
+import { useRouter } from "next/dist/client/router";
 
 interface Props {
   noticeList: NoticeListDTO[];
@@ -18,8 +19,9 @@ interface Props {
 }
 
 const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
-  const [isFaq, setIsFaq] = useState(true);
-  const [isNotice, setIsNotice] = useState(false);
+  const router = useRouter();
+  const [isFaq, setIsFaq] = useState(router.query.page ? false : true);
+  const [isNotice, setIsNotice] = useState(router.query.page ? true : false);
   const { user } = useAuth();
 
   return (

@@ -13,6 +13,7 @@ import {
   Title2,
 } from "../../../components/GlobalComponents";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/dist/client/router";
 
 const TuiNoSSRWrapper = dynamic<TuiEditorWithForwardedProps>(
   () => import("../../../components/Editor"),
@@ -31,6 +32,7 @@ const TuiWrapper = React.forwardRef((props: EditorProps, ref) => (
 TuiWrapper.displayName = "Editor";
 
 const AdminCreateNotice = () => {
+  const router = useRouter();
   const editorRef = useRef<Editor>(null);
   const {
     register,
@@ -52,6 +54,10 @@ const AdminCreateNotice = () => {
           }),
         }
       );
+      if (res) {
+        console.log(res);
+        router.push("/board");
+      }
     }
   };
   return (
@@ -71,20 +77,21 @@ const AdminCreateNotice = () => {
             <S.Label>공지사항 제목</S.Label>
             <S.Input {...register("title", { required: true })} />
           </S.InputWrap>
+          <S.InputWrap>
+            <S.Label>공지사항 내용</S.Label>
+            <S.Description>
+              사진 첨부시, 반드시 FireBase에서 이미지 업로드 후 URL을
+              넣어주세요.
+            </S.Description>
+            <TuiWrapper
+              height="800px"
+              initialEditType="wysiwyg"
+              useCommandShortcut={true}
+              ref={editorRef}
+            />
+          </S.InputWrap>
+          <S.Button>저장</S.Button>
         </S.Form>
-        <S.InputWrap>
-          <S.Label>공지사항 내용</S.Label>
-          <S.Description>
-            사진 첨부시, 반드시 FireBase에서 이미지 업로드 후 URL을 넣어주세요.
-          </S.Description>
-          <TuiWrapper
-            height="800px"
-            initialEditType="wysiwyg"
-            useCommandShortcut={true}
-            ref={editorRef}
-          />
-        </S.InputWrap>
-        <S.Button>저장</S.Button>
       </MarginOrPaddingLayout>
     </PageMaxNoCSSLayout>
   );
