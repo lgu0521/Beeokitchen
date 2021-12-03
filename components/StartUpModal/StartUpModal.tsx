@@ -254,7 +254,7 @@ const Form = styled.form`
   display: block;
   text-align: center;
   padding: 0px 10px;
-  margin: 40px 0px;
+  margin-top: 40px;
   table:nth-child(1) {
     tbody {
       th {
