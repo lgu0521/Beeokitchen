@@ -97,11 +97,10 @@ const Meau: NextPage<Props> = ({
                             layout="intrinsic"
                           />
                           <ResTitle3>{menu.title}</ResTitle3>
-                          <Title5>
-                            <MenuContent1>{menu.content1}</MenuContent1>
-                            <br />
-                            <MenuContent2>{menu.content2}</MenuContent2>
-                          </Title5>
+
+                          <MenuContent1>{menu.content1}</MenuContent1>
+
+                          <MenuContent2>{menu.content2}</MenuContent2>
                         </MainLi>
                       </>
                     ))}
@@ -177,7 +176,7 @@ const Ul = styled.ul`
   }
 `;
 
-const MenuContent1 = styled.div`
+const MenuContent1 = styled(Title5)`
   font-weight: 600;
   margin-top: 15px;
   color: #50555c;
@@ -187,7 +186,7 @@ const MenuContent1 = styled.div`
   }
 `;
 
-const MenuContent2 = styled.div`
+const MenuContent2 = styled(Title5)`
   color: #50555c;
   font-weight: 400;
   margin-top: 3px;
