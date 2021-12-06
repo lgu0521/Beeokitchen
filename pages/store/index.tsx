@@ -131,6 +131,7 @@ const TextBox = styled.div`
 const TextWrap = styled.div`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   align-content: center;
   position: relative;
   padding: 15px;
