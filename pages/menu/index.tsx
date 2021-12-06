@@ -182,7 +182,7 @@ const MenuContent1 = styled.div`
   margin-top: 15px;
   color: #50555c;
   @media only screen and (max-width: 600px) {
-    margin-top: 11px;
+    margin-top: 3px;
     font-weight: 400;
   }
 `;
