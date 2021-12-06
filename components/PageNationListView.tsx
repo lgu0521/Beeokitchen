@@ -84,7 +84,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
           onClick={() => handlePageChange(1)}
           style={{ margin: "0px !important" }}
         >
-          <Image src={BoradLeft} height={32} width={32} alt="" />
+          <Image src={BoradLeft} height={30} width={30} alt="" />
         </Li>
         {Array(totallPageCount)
           .fill(1)
@@ -103,12 +103,13 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
           onClick={() => handlePageChange(totallPageCount)}
           style={{ margin: "0px !important" }}
         >
-          <Image src={BoradRight} height={32} width={32} alt="" />
+          <Image src={BoradRight} height={30} width={30} alt="" />
         </Li>
       </Ul>
     </>
   );
 };
+
 const Ul = styled.ul`
   display: flex;
   justify-content: center;
@@ -138,6 +139,7 @@ const Li = styled.li`
     color: #008b48;
   }
 `;
+
 const Tbody = styled.tbody`
   width: 100%;
   text-align: left;
