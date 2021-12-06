@@ -52,7 +52,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="성함을 입력해주세요"
+                  placeholder="성함 입력"
                   {...register("title", { required: true, maxLength: 20 })}
                 />
               </td>
@@ -65,7 +65,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="생년월일을 입력해주세요"
+                  placeholder="생년월일 입력"
                   {...register("title", { required: true, maxLength: 20 })}
                 />
               </td>
@@ -76,7 +76,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="이메일을 입력해주세요"
+                  placeholder="이메일 입력"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -89,7 +89,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="연락처를 입력해주세요"
+                  placeholder="연락처 입력"
                   {...register("title", { required: true, maxLength: 20 })}
                 />
               </td>
@@ -110,7 +110,7 @@ const StartUpModal = () => {
                 <Title4>점포창업유무</Title4>
               </th>
               <RadioTd>
-                <RadioTh>
+                <RadioDiv>
                   <input
                     type="radio"
                     {...register("open")}
@@ -118,8 +118,8 @@ const StartUpModal = () => {
                     value="있음"
                   />
                   <Title4>있음</Title4>
-                </RadioTh>
-                <RadioTh>
+                </RadioDiv>
+                <RadioDiv>
                   <input
                     type="radio"
                     {...register("open")}
@@ -127,7 +127,7 @@ const StartUpModal = () => {
                     value="없음"
                   />
                   <Title4>없음</Title4>
-                </RadioTh>
+                </RadioDiv>
               </RadioTd>
             </tr>
             <tr>
@@ -135,7 +135,7 @@ const StartUpModal = () => {
                 <Title4>외식업종경험</Title4>
               </th>
               <RadioTd>
-                <RadioTh>
+                <RadioDiv>
                   <input
                     type="radio"
                     {...register("experience")}
@@ -143,8 +143,8 @@ const StartUpModal = () => {
                     value="없음"
                   />
                   <Title4>있음</Title4>
-                </RadioTh>
-                <RadioTh>
+                </RadioDiv>
+                <RadioDiv>
                   <input
                     type="radio"
                     {...register("experience")}
@@ -152,7 +152,7 @@ const StartUpModal = () => {
                     value="없음"
                   />
                   <Title4>없음</Title4>
-                </RadioTh>
+                </RadioDiv>
               </RadioTd>
             </tr>
             <tr>
@@ -161,7 +161,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="희망오픈일을 입력해주세요"
+                  placeholder="희망오픈일 입력"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -172,7 +172,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="희망지역을 입력해주세요"
+                  placeholder="희망지역 입력"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -183,7 +183,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="예산을 입력해주세요(00만원/숫자만 입력)"
+                  placeholder="예산 입력(00만원/숫자만 입력)"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -292,6 +292,7 @@ const Form = styled.form`
     }
   }
 `;
+
 const Table = styled.table`
   display: inline-block;
   width: 100%;
@@ -305,6 +306,7 @@ const Table = styled.table`
     margin-top: 50px;
   }
 `;
+
 const Tbody = styled.tbody`
   display: inline-block;
   width: 100%;
@@ -547,10 +549,13 @@ const RadioTd = styled.td`
   justify-content: flex-start;
   flex-direction: row;
 `;
-const RadioTh = styled.th`
+
+const RadioDiv = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  font-weight: 600;
+  margin-right: 20px;
   input[type="radio"] {
     border-radius: 100%;
     border: 0px;
