@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { Title2, Title3, Title4 } from "./GlobalComponents";
+import { Title2, Title3, Title4, Title5 } from "./GlobalComponents";
 import { FaqDTO } from "../dto/faq-create.dto";
 import { useAuth } from "../hook/AuthProvider";
 
@@ -23,9 +23,9 @@ const AccordionListView = ({ title, content }: FaqDTO) => {
           <Circle>
             <Title2 style={{ color: "#15AA5A" }}>A</Title2>
           </Circle>
-          <Title4 style={{ fontWeight: 500 }}>
+          <Title5 style={{ fontWeight: 500 }}>
             <pre>{content}</pre>
-          </Title4>
+          </Title5>
         </AccordionTextBox>
       </AccordionListBox>
     </>
@@ -49,6 +49,7 @@ const Button = styled.button<{ isAdmin: boolean }>`
   background: none; //button basic style remove
   appearance: none; //button basic style remove
 `;
+
 const DropIcon = styled.span<{ isOpen: boolean }>`
   position: absolute;
   height: 100%;

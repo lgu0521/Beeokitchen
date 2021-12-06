@@ -183,7 +183,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="예산 입력(00만원/숫자만 입력)"
+                  placeholder="예산입력(00만원/숫자만 입력)"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
@@ -370,13 +370,13 @@ const Tbody = styled.tbody`
         font-size: ${(props) => props.theme.fontSizes.title7};
       }
       @media only screen and (min-width: 768px) {
-        font-size: ${(props) => props.theme.fontSizes.title4};
+        font-size: ${(props) => props.theme.fontSizes.title5};
       }
       @media only screen and (min-width: 992px) {
-        font-size: ${(props) => props.theme.fontSizes.title4};
+        font-size: ${(props) => props.theme.fontSizes.title5};
       }
       @media only screen and (min-width: 1200px) {
-        font-size: ${(props) => props.theme.fontSizes.title4};
+        font-size: ${(props) => props.theme.fontSizes.title5};
       }
     }
   }

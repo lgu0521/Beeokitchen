@@ -249,6 +249,10 @@ const Thead = styled.thead`
     vertical-align: middle;
     border-top: 5px solid #03502c;
     border-bottom: 5px solid #03502c;
+    @media only screen and (max-width: 600px) {
+      border-top: 3px solid #03502c !important;
+      border-bottom: 3px solid #03502c !important;
+    }
   }
   th {
     vertical-align: middle;
