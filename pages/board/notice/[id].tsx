@@ -116,9 +116,11 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
             <Title3>수정하기</Title3>
           </Button>
         ) : null}
-        <Button onClick={() => router.push("/board?page=notice")}>
-          <Title3>목록으로</Title3>
-        </Button>
+        <ContextBox>
+          <Button onClick={() => router.push("/board?page=notice")}>
+            <Title3>목록으로</Title3>
+          </Button>
+        </ContextBox>
       </PageMaxNoCSSLayout>
     </div>
   );
@@ -314,6 +316,19 @@ const Button = styled.button`
     color: white;
     transition: background-color 0.3s;
     -webkit-transition: background-color 0.3s;
+  }
+`;
+
+const ContextBox = styled.div`
+  width: 100%;
+  @media only screen and (max-width: 600px) {
+    margin: 30px 0px 100px 0px;
+  }
+  @media only screen and (min-width: 600px) {
+    margin: 60px 0px 150px 0px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 80px 0px 250px 0px;
   }
 `;
 export default NoticeDetailPage;

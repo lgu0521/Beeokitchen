@@ -172,7 +172,7 @@ const StartUpModal = () => {
               </th>
               <td>
                 <input
-                  placeholder="지역을 입력해주세요"
+                  placeholder="희망지역을 입력해주세요"
                   {...register("title", { maxLength: 20 })}
                 />
               </td>
