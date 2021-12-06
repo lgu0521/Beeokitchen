@@ -97,14 +97,8 @@ const Meau: NextPage<Props> = ({
                             layout="intrinsic"
                           />
                           <ResTitle3>{menu.title}</ResTitle3>
-                          <Title5
-                            style={{
-                              fontWeight: 600,
-                              marginTop: "15px",
-                              color: "#50555C",
-                            }}
-                          >
-                            {menu.content1}
+                          <Title5>
+                            <MenuContent1>{menu.content1}</MenuContent1>
                             <br />
                             <MenuContent2>{menu.content2}</MenuContent2>
                           </Title5>
@@ -182,6 +176,17 @@ const Ul = styled.ul`
     align-items: center;
   }
 `;
+
+const MenuContent1 = styled.div`
+  font-weight: 600;
+  margin-top: 15px;
+  color: #50555c;
+  @media only screen and (max-width: 600px) {
+    margin-top: 11px;
+    font-weight: 400;
+  }
+`;
+
 const MenuContent2 = styled.div`
   color: #50555c;
   font-weight: 400;
