@@ -53,7 +53,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="성함 입력"
-                  {...register("title", { required: true, maxLength: 20 })}
+                  {...register("name", { required: true, maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -66,7 +66,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="생년월일 입력"
-                  {...register("title", { required: true, maxLength: 20 })}
+                  {...register("birthday", { required: true, maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -77,7 +77,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="이메일 입력"
-                  {...register("title", { maxLength: 20 })}
+                  {...register("email", { maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -90,7 +90,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="연락처 입력"
-                  {...register("title", { required: true, maxLength: 20 })}
+                  {...register("phonenumber", { required: true, maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -113,8 +113,8 @@ const StartUpModal = () => {
                 <RadioDiv>
                   <input
                     type="radio"
-                    {...register("open")}
-                    name="open"
+                    {...register("isopen")}
+                    name="isopen"
                     value="있음"
                   />
                   <Title4>있음</Title4>
@@ -122,8 +122,8 @@ const StartUpModal = () => {
                 <RadioDiv>
                   <input
                     type="radio"
-                    {...register("open")}
-                    name="open"
+                    {...register("isopen")}
+                    name="isopen"
                     value="없음"
                   />
                   <Title4>없음</Title4>
@@ -140,7 +140,7 @@ const StartUpModal = () => {
                     type="radio"
                     {...register("experience")}
                     name="experience"
-                    value="없음"
+                    value="있음"
                   />
                   <Title4>있음</Title4>
                 </RadioDiv>
@@ -162,7 +162,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="희망오픈일 입력"
-                  {...register("title", { maxLength: 20 })}
+                  {...register("openday", { maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -173,7 +173,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="희망지역 입력"
-                  {...register("title", { maxLength: 20 })}
+                  {...register("openarea", { maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -184,7 +184,7 @@ const StartUpModal = () => {
               <td>
                 <input
                   placeholder="예산입력(00만원/숫자만 입력)"
-                  {...register("title", { maxLength: 20 })}
+                  {...register("money", { maxLength: 20 })}
                 />
               </td>
             </tr>
@@ -195,7 +195,7 @@ const StartUpModal = () => {
                 <Title4>문의내용</Title4>
               </th>
               <td>
-                <textarea />
+                <textarea {...register("text", { required: true })}/>
               </td>
             </tr>
             <tr>
@@ -232,7 +232,7 @@ const StartUpModal = () => {
                 <CheckBox>
                   <input
                     type="checkbox"
-                    {...register("title", { maxLength: 20 })}
+                    {...register("agree", { required: true })}
                   />
                   <Title4>
                     <span>위 개인정보 수집 및 이용에 동의합니다</span>
