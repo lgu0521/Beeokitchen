@@ -12,6 +12,7 @@ class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                    <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />
                     <meta property="og:type" content="website" />
                     <meta property="og:title" content="비오키친" />
                     <meta property="og:site_name" content="다이어트푸드 전문키친" />
