@@ -58,89 +58,6 @@ const Brand = ({ PageTitle }: Props) => {
         </BackgroundWrap>
       </PageFullWidthLayout>
       <PageFullWidthLayout>
-        <BackgroundColor>
-          <PageMaxNoCSSLayout>
-            <Section2>
-              <Section2_Wrap1>
-                <ul>
-                  <li>
-                    <li>
-                      <div>
-                        <Image
-                          objectFit="cover"
-                          layout="responsive"
-                          src={storyIcon1}
-                          alt=""
-                        />
-                      </div>
-                      <Title3>기본과 트렌드를 동시에</Title3>
-                    </li>
-                    <li>
-                      <Title2>
-                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다{" "}
-                      </Title2>
-                    </li>
-                    <li>
-                      <Title5>
-                        비오키친에서는 전통적인 다이어트 도시락과 새롭게
-                        떠오르는 다이어트 메뉴들이 공존합니다. 다이어터들의
-                        필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을
-                        지속적으로 고민합니다.{" "}
-                      </Title5>
-                    </li>
-                  </li>
-                  <li>
-                    <Image
-                      src={Story1}
-                      objectFit="cover"
-                      layout="responsive"
-                      alt=""
-                    />
-                  </li>
-                </ul>
-                <ul>
-                  <li>
-                    <li>
-                      <div>
-                        <Image
-                          objectFit="cover"
-                          layout="responsive"
-                          src={storyIcon2}
-                          alt=""
-                        />
-                      </div>
-                      <Title3>청결하고 꼼꼼하게</Title3>
-                    </li>
-                    <li>
-                      <Title2>
-                        비오키친이 선별하는 산지직송의 신선한 식자재{" "}
-                      </Title2>
-                    </li>
-                    <li>
-                      <Title5>
-                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는
-                        청송에서! 산지직송 식자재를 직접 관리합니다. 정확한
-                        개량의 조리법으로 조리됩니다. 내 가족이 먹는다는
-                        마음으로 청결하고 꼼꼼하게 운영합니다.
-                      </Title5>
-                    </li>
-                  </li>
-                  <li>
-                    <Image
-                      objectFit="cover"
-                      layout="responsive"
-                      src={Story2}
-                      alt=""
-                    />
-                  </li>
-                </ul>
-              </Section2_Wrap1>
-              <Title1>다이어트가 지속되는 한 비오키친은 지속됩니다.</Title1>
-            </Section2>
-          </PageMaxNoCSSLayout>
-        </BackgroundColor>
-      </PageFullWidthLayout>
-      <PageFullWidthLayout>
         <PageMaxNoCSSLayout>
           <Section3>
             <ul>
@@ -229,6 +146,88 @@ const Brand = ({ PageTitle }: Props) => {
             </ul>
           </Section3>
         </PageMaxNoCSSLayout>
+      </PageFullWidthLayout>
+      <PageFullWidthLayout>
+        <BackgroundColor>
+          <PageMaxNoCSSLayout>
+            <Section2>
+              <Section2_Wrap1>
+                <ul>
+                  <li>
+                    <li>
+                      <div>
+                        <Image
+                          objectFit="cover"
+                          layout="responsive"
+                          src={storyIcon1}
+                          alt=""
+                        />
+                      </div>
+                      <Title3>기본과 트렌드를 동시에</Title3>
+                    </li>
+                    <li>
+                      <Title2>
+                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다{" "}
+                      </Title2>
+                    </li>
+                    <li>
+                      <Title5>
+                        비오키친에서는 전통적인 다이어트 도시락과 새롭게
+                        떠오르는 다이어트 메뉴들이 공존합니다. 다이어터들의
+                        필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을
+                        지속적으로 고민합니다.{" "}
+                      </Title5>
+                    </li>
+                  </li>
+                  <li>
+                    <Image
+                      src={Story1}
+                      objectFit="cover"
+                      layout="responsive"
+                      alt=""
+                    />
+                  </li>
+                </ul>
+                <ul>
+                  <li>
+                    <li>
+                      <div>
+                        <Image
+                          objectFit="cover"
+                          layout="responsive"
+                          src={storyIcon2}
+                          alt=""
+                        />
+                      </div>
+                      <Title3>청결하고 꼼꼼하게</Title3>
+                    </li>
+                    <li>
+                      <Title2>
+                        비오키친이 선별하는 산지직송의 신선한 식자재{" "}
+                      </Title2>
+                    </li>
+                    <li>
+                      <Title5>
+                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는
+                        청송에서! 산지직송 식자재를 직접 관리합니다. 정확한
+                        개량의 조리법으로 조리됩니다. 내 가족이 먹는다는
+                        마음으로 청결하고 꼼꼼하게 운영합니다.
+                      </Title5>
+                    </li>
+                  </li>
+                  <li>
+                    <Image
+                      objectFit="cover"
+                      layout="responsive"
+                      src={Story2}
+                      alt=""
+                    />
+                  </li>
+                </ul>
+              </Section2_Wrap1>
+            </Section2>
+          </PageMaxNoCSSLayout>
+        </BackgroundColor>
       </PageFullWidthLayout>
     </>
   );

@@ -24,6 +24,7 @@ const Home: NextPage<Props> = ({ BannerList }) => {
           autoPlay={true}
           infiniteLoop={true}
           showStatus={false}
+          showArrows={false}
         >
           {BannerList.map((item, key) => (
             <div key={key}>

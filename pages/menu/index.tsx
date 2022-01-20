@@ -95,6 +95,7 @@ const Meau: NextPage<Props> = ({
                             height={380}
                             width={380}
                             layout="intrinsic"
+                            placeholder="blur"
                           />
                           <ResTitle3>{menu.title}</ResTitle3>
 
