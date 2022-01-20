@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="https://www.xn--9w3b27lmmhzmc.kr/schemas/sitemap/0.9">
+  <url>
+	<loc>http://www.example.com/article-1.html</loc>
+	<lastmod>2019-08-26T11:16:53+09:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.8</priority>
+  </url>
+  <url>
+	<loc>http://www.example.com/article-2.html</loc>
+	<lastmod>2019-08-26T11:16:53+09:00</lastmod>
+	<changefreq>weekly</changefreq>
+	<priority>0.8</priority>
+  </url>  
+</urlset>
