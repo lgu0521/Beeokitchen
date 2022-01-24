@@ -20,6 +20,7 @@ import Step1 from "../../public/step1.png";
 import Step2 from "../../public/step2.png";
 import Step3 from "../../public/step3.png";
 import AfterIcon from "../../public/after.png";
+import Head from 'next/head';
 
 interface Props {
   PageTitle: PageTitleDTO;
@@ -27,6 +28,10 @@ interface Props {
 const Brand = ({ PageTitle }: Props) => {
   return (
     <>
+      <Head>
+        <meta name="title" content="브랜드 스토리" />
+        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록 건강한 식습관, 비오키친" />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
         <BackgroundWrap>

@@ -2,6 +2,7 @@
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
 import { useAuth } from "../../hook/AuthProvider";
+import Head from 'next/head';
 //Style
 import styled from "styled-components";
 import {
@@ -42,6 +43,10 @@ const Meau: NextPage<Props> = ({
 
   return (
     <>
+      <Head>
+        <meta name="title" content="비오키친 메뉴" />
+        <meta name="description" content="아무리 바빠도, 나를 위한 건강하고 맛있는 한끼" />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <MenuNutritionSection>
         <a

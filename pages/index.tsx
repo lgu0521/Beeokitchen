@@ -7,6 +7,7 @@ import { PageFullWidthLayout } from "../components/GlobalComponents";
 import BannerEdit from "../components/BannerModal/BannerEdit";
 import { useAuth } from "../hook/AuthProvider";
 import "react-loading-skeleton/dist/skeleton.css";
+import Head from 'next/head';
 
 interface Props {
   BannerList: BannerDTO[];
@@ -16,6 +17,10 @@ const Home: NextPage<Props> = ({ BannerList }) => {
   const { user } = useAuth();
   return (
     <>
+      <Head>
+        <meta name="title" content="비오키친 홈"/>
+        <meta name="description" content="건강한 식습관, 비오키친" />
+      </Head>
       <PageFullWidthLayout>
         {user ? <BannerEdit initialItems={BannerList} /> : null}
         <Carousel
