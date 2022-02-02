@@ -23,7 +23,7 @@ const Header = () => {
                         </Li>
                         <Li>
                             <Link href="/menu">
-                                <a><Title4>키친메뉴</Title4></a>
+                                <a><Title4>메뉴</Title4></a>
                             </Link>
                         </Li>
                         <Li>
