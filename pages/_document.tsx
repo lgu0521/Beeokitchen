@@ -12,14 +12,14 @@ class MyDocument extends Document {
                 <Head>
                     <meta charSet="utf-8" />
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <link rel="shortcut icon" href="favicon.ico"/>
-                    <link rel="icon" href="favicon.png"/>
+                    <link rel="shortcut icon" href="/favicon.ico"/>
+                    <link rel="icon" href="/favicon.png"/>
                     <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />
                     <meta property="og:type" content="website" />
                     <meta property="og:title" content="비오키친" />
                     <meta property="og:site_name" content="다이어트푸드 전문키친" />
                     <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/brand" />
-                    <meta property="og:image" content="https://www.studiozinzin.com/image/ThumnailImage.jpeg" />
+                    <meta property="og:image" content="/image/ThumnailImage.jpeg" />
                     <meta property="og:image:width" content="800" />
                     <meta property="og:image:height" content="400" />
                     <meta property="og:description" content="건강한 식습관, 비오키친" key="description" />
