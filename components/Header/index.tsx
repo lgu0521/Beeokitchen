@@ -32,7 +32,7 @@ const Header = () => {
                             </Link>
                         </Li>
                         <Li>
-                            <Link href="/startup">
+                            <Link href="/franchise">
                                 <a><Title4>프랜차이즈</Title4></a>
                             </Link>
                         </Li>
@@ -68,7 +68,7 @@ const Header = () => {
                             </Link>
                         </Li>
                         <Li>
-                            <Link href="/startup">
+                            <Link href="/franchise">
                                 <a><Title4>창업</Title4></a>
                             </Link>
                         </Li>

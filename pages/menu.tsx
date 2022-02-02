@@ -1,7 +1,7 @@
 //Basic
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-import { useAuth } from "../../hook/AuthProvider";
+import { useAuth } from "../hook/AuthProvider";
 import Head from 'next/head';
 //Style
 import styled from "styled-components";
@@ -12,17 +12,17 @@ import {
   PageFullWidthLayout,
   Title2,
   Title4,
-} from "../../components/GlobalComponents";
+} from "../components/GlobalComponents";
 //Component
-import PageMainTitle from "../../components/PageMainTitle";
-import { MenuEdit } from "../../components/MenuModal/MenuEdit";
+import PageMainTitle from "../components/PageMainTitle";
+import { MenuEdit } from "../components/MenuModal/MenuEdit";
 //DTO
 import {
   MenuCatagoryDTO,
   MenusWithCatagoryDTO,
-} from "../../dto/menu-create.dto";
-import { PageTitleDTO } from "../../dto/page-title.dto";
-import MenuCatagoryEdit from "../../components/MenuCatagoryModal/MenuCatagoryEdit";
+} from "../dto/menu-create.dto";
+import { PageTitleDTO } from "../dto/page-title.dto";
+import MenuCatagoryEdit from "../components/MenuCatagoryModal/MenuCatagoryEdit";
 
 interface Props {
   menusWithCatagory: MenusWithCatagoryDTO[];
@@ -94,13 +94,13 @@ const Meau: NextPage<Props> = ({
                               MenuCatagorys={menuCatagorys}
                             />
                           ) : null}
-                          <ImageWrap
+                          <Image
                             src={menu.image.downloadUrl}
                             alt=""
-                            height={380}
-                            width={380}
-                            layout="intrinsic"
+                            height={350}
+                            width={350}
                             placeholder="blur"
+                            blurDataURL="/blur.png"
                           />
                           <ResTitle3>{menu.title}</ResTitle3>
 
@@ -175,7 +175,6 @@ const Li = styled.li`
 
 const Ul = styled.ul`
   ${Li}:nth-child(2n-1) {
-    background-color: rgba(227, 181, 159, 0.2);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -209,21 +208,6 @@ const ResTitle3 = styled(Title3)`
   }
 `;
 
-const ImageWrap = styled(Image)`
-  border-radius: 100%;
-  @media only screen and (max-width: 600px) {
-    padding: 10px !important;
-  }
-  @media only screen and (min-width: 600px) {
-    padding: 30px !important;
-  }
-  @media only screen and (min-width: 768px) {
-    padding: 30px !important;
-  }
-  @media only screen and (min-width: 992px) {
-    padding: 0px !important;
-  }
-`;
 
 const Header = styled.ul`
   position: relative;
@@ -283,7 +267,6 @@ const Main = styled.ul`
 `;
 const MenuNutritionSection = styled.div`
   text-align: center;
-  background-color: #f9f0ec;
   font-weight: 800;
   @media only screen and (max-width: 600px) {
     padding-top: 50px;

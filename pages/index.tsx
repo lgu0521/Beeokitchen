@@ -30,6 +30,7 @@ const Home: NextPage<Props> = ({ BannerList }) => {
           infiniteLoop={true}
           showStatus={false}
           showArrows={false}
+          stopOnHover={false}
         >
           {BannerList.map((item, key) => (
             <div key={key}>

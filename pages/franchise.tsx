@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { StartUpFormDTO } from "../../dto/startup-form.dto";
-import GridBox from "../../components/GridBox";
+import { StartUpFormDTO } from "../dto/startup-form.dto";
+import GridBox from "../components/GridBox";
 import {
   PageMaxNoCSSLayout,
   PageFullWidthLayout,
@@ -9,11 +9,11 @@ import {
   Title2,
   Title4,
   Title5,
-} from "../../components/GlobalComponents";
-import PageMainTitle from "../../components/PageMainTitle";
-import StartUpModal from "../../components/StartUpModal/StartUpModal";
+} from "../components/GlobalComponents";
+import PageMainTitle from "../components/PageMainTitle";
+import StartUpModal from "../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
-import { PageTitleDTO } from "../../dto/page-title.dto";
+import { PageTitleDTO } from "../dto/page-title.dto";
 import { GetStaticProps } from "next";
 
 interface BoxItem {
@@ -60,7 +60,7 @@ const BoxItems: BoxItem[] = [
   },
   {
     step: "Step 10",
-    procedure: "가맹점 영업계시",
+    procedure: "가맹점 영업개시",
   },
   {
     step: "Step 11",
@@ -116,7 +116,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
       >
         <PageMaxNoCSSLayout>
           <Wrap>
-            <Title2 style={{ fontWeight: 600, color: "#03502C" }}>
+            <Title2 style={{ fontWeight: 600, color: "#ffffff" }}>
               가맹절차
             </Title2>
           </Wrap>
@@ -187,33 +187,29 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   <Title2>500</Title2>
                 </td>
                 <td>
-                  <Title3>
-                    부가세별도, 소멸성
-                    <br />
-                    교육에 대한 추가 비용 없음
-                  </Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>인테리어설계(도면,3D)및 감리</Title3>
-                </th>
-                <td>
-                  <Title2>300</Title2>
-                </td>
-                <td>
                   <Title3>부가세별도, 소멸성</Title3>
                 </td>
               </tr>
               <tr>
                 <th scope="row">
-                  <Title3>인테리어(12평기준)</Title3>
+                  <Title3>계약이행보증금</Title3>
                 </th>
                 <td>
-                  <Title2>3,600</Title2>
+                  <Title2>200</Title2>
                 </td>
                 <td>
-                  <Title3>부가세별도</Title3>
+                  <Title3>부가세없음</Title3>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <Title3>인테리어(15평 기준)</Title3>
+                </th>
+                <td>
+                  <Title2>3,000</Title2>
+                </td>
+                <td>
+                  <Title3>1평=3.3제곱미터(평 당 200만원), 부가세별도</Title3>
                 </td>
               </tr>
               <tr>
@@ -221,18 +217,18 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   <Title3>인테리어 외</Title3>
                 </th>
                 <td>
-                  <Title2>2,000</Title2>
+                  <Title2>1,530</Title2>
                 </td>
                 <td>
-                  <Title3>부가세별도</Title3>
+                  <Title3>간판, 가구, 사인몰, 인쇄물 등, 부가세별도 </Title3>
                 </td>
               </tr>
               <tr>
                 <th scope="row">
-                  <Title3>집기&비품</Title3>
+                  <Title3>주방설비&집기류</Title3>
                 </th>
                 <td>
-                  <Title2>3,000</Title2>
+                  <Title2>2,600</Title2>
                 </td>
                 <td>
                   <Title3>부가세별도</Title3>
@@ -245,11 +241,11 @@ const StartUpPage = ({ PageTitle }: Props) => {
                   <Title3>합계</Title3>
                 </th>
                 <td>
-                  <Title2>9,700</Title2>
+                  <Title2>8,130</Title2>
                 </td>
                 <td>
                   <Title3 style={{ fontWeight: 700 }}>
-                    총 비용은 경우에 따라 변동 될 수 있습니다.
+                  총 비용은 경우에 따라 변동 될 수 있습니다.
                   </Title3>
                 </td>
               </tr>
@@ -258,22 +254,18 @@ const StartUpPage = ({ PageTitle }: Props) => {
           <TextUl>
             <li>
               <Title5>
-                별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실
+              별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
               </Title5>
             </li>
             <li>
               <Title5>
-                본 인테리어 비용은 이해를 돕기 위한 예상비용으로 현장 실측 후
-                정확한 비용이 산출됩니다.
+              가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
               </Title5>
             </li>
             <li>
               <Title5>
-                매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
+              매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
               </Title5>
-            </li>
-            <li>
-              <Title5>개설가능 최소평수는 12평입니다.</Title5>
             </li>
           </TextUl>
         </ContentWrap>

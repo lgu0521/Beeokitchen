@@ -66,7 +66,7 @@ const Title3 = styled.h3`
 
 const Title4 = styled.h4`
   letter-spacing: 0px;
-  line-height: 1.4;
+  line-height: 1.5;
   @media only screen and (max-width: 600px) {
     font-size: ${(props) => props.theme.fontSizes.title7};
   }

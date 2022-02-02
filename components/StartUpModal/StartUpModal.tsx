@@ -157,7 +157,7 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title4>희망오픈일자</Title4>
+                <Title4>희망오픈일</Title4>
               </th>
               <td>
                 <input
@@ -179,7 +179,7 @@ const StartUpModal = () => {
             </tr>
             <tr>
               <th>
-                <Title4>예상사업예산</Title4>
+                <Title4>사업예산</Title4>
               </th>
               <td>
                 <input
@@ -210,9 +210,7 @@ const StartUpModal = () => {
                     수집하는 개인정보의 항목
                     <br />
                     <span>
-                      이름, 생년월일, 이메일 , 연락처, 점포 유무,
-                      외식업종운영경험, 사업예산, 희망오픈지역, 희망오픈일,
-                      문의내용
+                    이름, 생년월일, 이메일 , 연락처, 점포 유무, 외식업종운영경험, 사업예산, 희망오픈지역, 희망오픈일, 문의내용
                     </span>
                   </Title4>
                   <Title4>
@@ -224,8 +222,7 @@ const StartUpModal = () => {
                     개인정보의 보유 및 이용기간
                     <br />
                     <span>
-                      보유 및 이용기간은 1년으로 하며, 기간 경과 후 가맹본부는
-                      해당자료를 지체 없이 파기합니다.
+                    보유 및 이용기간은 1년으로 하며, 기간 경과 후 가맹본부는 해당자료를 지체 없이 파기합니다.
                     </span>
                   </Title4>
                 </AgreeBox>

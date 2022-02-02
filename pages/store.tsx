@@ -3,18 +3,18 @@ import styled from "styled-components";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import PageMainTitle from "../../components/PageMainTitle";
-import { StoreDTO } from "../../dto/store-create.dto";
+import PageMainTitle from "../components/PageMainTitle";
+import { StoreDTO } from "../dto/store-create.dto";
 import {
   PageFullWidthLayout,
   PageMaxNoCSSLayout,
   Title5,
   Title3,
   Title4,
-} from "../../components/GlobalComponents";
-import StoreEdit from "../../components/StoreModal/StoreEdit";
-import { useAuth } from "../../hook/AuthProvider";
-import { PageTitleDTO } from "../../dto/page-title.dto";
+} from "../components/GlobalComponents";
+import StoreEdit from "../components/StoreModal/StoreEdit";
+import { useAuth } from "../hook/AuthProvider";
+import { PageTitleDTO } from "../dto/page-title.dto";
 
 interface Props {
   storeList: StoreDTO[];

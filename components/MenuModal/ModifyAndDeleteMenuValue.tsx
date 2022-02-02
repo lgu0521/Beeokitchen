@@ -78,7 +78,7 @@ const ModifyAndDeleteMenuValue = ({
             {...register("catagory", { required: true })}
           >
             {initalMenuCatagorys.map((item, i) => (
-              <option value="item.title" key={i}>
+              <option value={item.title} key={i}>
                 {item.title}
               </option>
             ))}

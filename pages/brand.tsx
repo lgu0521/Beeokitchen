@@ -6,20 +6,18 @@ import {
   Title2,
   Title3,
   PageMaxNoCSSLayout,
-} from "../../components/GlobalComponents";
+} from "../components/GlobalComponents";
 import styled from "styled-components";
 import Image from "next/image";
-import PageMainTitle from "../../components/PageMainTitle";
+import PageMainTitle from "../components/PageMainTitle";
 import { GetStaticProps } from "next";
-import { PageTitleDTO } from "../../dto/page-title.dto";
-import Story1 from "../../public/story1.png";
-import Story2 from "../../public/story2.png";
-import storyIcon1 from "../../public/storyIcon1.png";
-import storyIcon2 from "../../public/storyIcon2.png";
-import Step1 from "../../public/step1.png";
-import Step2 from "../../public/step2.png";
-import Step3 from "../../public/step3.png";
-import AfterIcon from "../../public/after.png";
+import { PageTitleDTO } from "../dto/page-title.dto";
+import Story1 from "../public/story-sub1.png";
+import Story2 from "../public/story-sub2.png";
+import storyIcon1 from "../public/story-icon2.png";
+import storyIcon2 from "../public/story-icon1.png";
+import StoryWeb from "../public/brand-story-web.png";
+import StoryMobile from "../public/brand-story-moblie.png";
 import Head from 'next/head';
 
 interface Props {
@@ -38,24 +36,22 @@ const Brand = ({ PageTitle }: Props) => {
           <PageMaxNoCSSLayout>
             <Section1>
               <Title1>
-                비오키친은
-                <br />
-                다이어트푸드 전문키친입니다.
+                비-오 주시옵소서!<br />
+                비오키친
               </Title1>
               <ul>
                 <li>
-                  <Title4>
-                    현대인들에게 다이어트와 건강관리는 이제 일상이 되었습니다.
+                  <Title4 style={{ fontWeight: 600 }}>
+                    비오키친은 나쁜 것들을 비워낸다는 의미입니다.
                   </Title4>
                 </li>
                 <li>
                   <Title4>
-                    다이어트와 건강관리에 도움이 되면서도 맛있는 한끼를 먹을 순
-                    없을까?
+                    몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
                   </Title4>
                 </li>
                 <li>
-                  <Title4>라는 생각이 비오키친의 시작입니다.</Title4>
+                  <Title4>비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
                 </li>
               </ul>
             </Section1>
@@ -67,6 +63,11 @@ const Brand = ({ PageTitle }: Props) => {
           <Section3>
             <ul>
               <PCversion>
+                <Title1>
+                  <li style={{ lineHeight: "2" }}>
+                    다이어트는 예나, 지금이나
+                    </li>
+                </Title1>
                 <Title5>
                   <li>
                     1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
@@ -81,8 +82,18 @@ const Brand = ({ PageTitle }: Props) => {
                     위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
+                <li>
+                  <Image
+                    width={1000}
+                    height={326}
+                    objectFit='contain'
+                    src={StoryWeb}
+                    alt=""
+                  />
+                </li>
               </PCversion>
               <MBversion>
+                <Title1><li style={{marginBottom:"20px"}}>다이어트는 예나, 지금이나</li></Title1>
                 <Title5>
                   <li>
                     1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
@@ -92,62 +103,16 @@ const Brand = ({ PageTitle }: Props) => {
                     트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
+                <li>
+                  <Image
+                    width={180}
+                    height={600}
+                    objectFit='contain'
+                    src={StoryMobile}
+                    alt=""
+                  />
+                </li>
               </MBversion>
-              <li>
-                <li>
-                  <ImageWrap
-                    width={290}
-                    height={290}
-                    objectFit="fill"
-                    src={Step1}
-                    alt=""
-                  />
-                  <Title4>다이어트는 지속됩니다</Title4>
-                </li>
-                <li>
-                  <Image
-                    width={39}
-                    height={85}
-                    objectFit="cover"
-                    src={AfterIcon}
-                    alt=""
-                  />
-                </li>
-                <li>
-                  <ImageWrap
-                    width={290}
-                    height={290}
-                    objectFit="fill"
-                    src={Step2}
-                    alt=""
-                  />
-                  <Title4>다이어트푸드 전문키친, 비오키친</Title4>
-                </li>
-                <li>
-                  <Image
-                    width={39}
-                    height={85}
-                    objectFit="cover"
-                    src={AfterIcon}
-                    alt=""
-                  />
-                </li>
-                <li>
-                  <ImageWrap
-                    width={290}
-                    height={290}
-                    objectFit="fill"
-                    src={Step3}
-                    alt=""
-                  />
-
-                  <Title4>비오키친은 지속됩니다</Title4>
-                </li>
-              </li>
-              <li>
-                <Title3>건강한 식습관, 비오키친</Title3>
-                <Title4>Diet, Ever and ever</Title4>
-              </li>
             </ul>
           </Section3>
         </PageMaxNoCSSLayout>
@@ -156,6 +121,10 @@ const Brand = ({ PageTitle }: Props) => {
         <BackgroundColor>
           <PageMaxNoCSSLayout>
             <Section2>
+              <Typography>
+              <Title2>건강한 식습관, 비오키친</Title2>
+              <Title3>Diet, Ever and ever</Title3>
+              </Typography>
               <Section2_Wrap1>
                 <ul>
                   <li>
@@ -255,11 +224,8 @@ const Section1 = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  h1 {
+  h1, h4 {
     font-weight: 400;
-  }
-  h4 {
-    font-weight: 500;
   }
   @media only screen and (max-width: 600px) {
     height: 350px;
@@ -297,19 +263,9 @@ const Section2 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  @media only screen and (max-width: 600px) {
-    padding: 35px 0px;
-    h1 {
-      display: none;
-    }
-  }
-  @media only screen and (min-width: 600px) {
-    padding: 55px 0px;
-  }
-  @media only screen and (min-width: 768px) {
-    padding: 85px 0px;
-  }
+  padding: 60px 0px;
 `;
+
 const Section2_Wrap1 = styled.div`
   display: flex;
   justify-content: space-between;
@@ -396,6 +352,7 @@ const Section2_Wrap1 = styled.div`
     align-items: center;
     font-weight: 600;
     div {
+      margin: 10px;
       @media only screen and (max-width: 600px) {
         width: 70px;
         height: 70px;
@@ -409,8 +366,8 @@ const Section2_Wrap1 = styled.div`
         height: 80px;
       }
       @media only screen and (min-width: 992px) {
-        width: 100px;
-        height: 100px;
+        width: 85px;
+        height: 85px;
       }
     }
   }
@@ -428,95 +385,19 @@ const Section3 = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 60px 0px;
-    @media only screen and (max-width: 600px) {
-      margin: 0px 0px 40px 0px !important;
-    }
-  }
-  ul > li:nth-child(1),
-  ul > li:nth-child(2) {
-    font-weight: 400;
-    width: 100%;
-    word-break: initial !important;
-    @media only screen and (max-width: 600px) {
-      margin-bottom: 35px;
-    }
-    @media only screen and (min-width: 600px) {
-      margin-bottom: 60px;
-    }
-    @media only screen and (min-width: 768px) {
-      margin-bottom: 60px;
-    }
-    @media only screen and (min-width: 992px) {
-      margin-bottom: 60px;
-    }
-  }
-  ul > li:nth-child(3) {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-    border-bottom: 2px solid #15aa5a;
-    font-weight: 600;
-    @media only screen and (max-width: 600px) {
-      flex-direction: column !important;
-      padding-bottom: 35px;
-      li {
-        display: flex;
-        justify-items: center;
-        align-items: center;
-        flex-direction: row;
-      }
-      li:nth-child(2n-1) {
-        height: 120px;
-        h4 {
-          width: 100%;
-          text-align: left;
-        }
-      }
-      li:nth-child(2n) {
-        display: none;
-      }
-    }
-    @media only screen and (min-width: 600px) {
-      padding-bottom: 60px;
-    }
-    @media only screen and (min-width: 768px) {
-      padding-bottom: 60px;
-    }
-    @media only screen and (min-width: 992px) {
-      padding-bottom: 60px;
-    }
-  }
-  ul > li:nth-child(4) {
-    margin-top: 40px;
-    margin-bottom: 20px;
-    h3 {
-      font-weight: 800;
-    }
-    h4 {
-      margin-top: 5px;
-      font-weight: 500;
-    }
+    padding: 60px 0px;
   }
 `;
 
 const BackgroundColor = styled.div`
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, #ffffff 50%, rgb(227, 181, 159, 0.4) 50%);
-  @media only screen and (max-width: 600px) {
+  background: linear-gradient(180deg, rgb(227, 181, 159, 0.4) 60%, #ffffff 50% );
+  /* @media only screen and (max-width: 600px) {
     background: none !important;
-  }
+  } */
 `;
-const ImageWrap = styled(Image)`
-  @media only screen and (max-width: 600px) {
-    padding: 30px !important;
-  }
-  padding: 20px !important;
-`;
+
 const PCversion = styled.li`
   display: none;
   @media only screen and (min-width: 600px) {
@@ -529,6 +410,15 @@ const MBversion = styled.li`
     display: block !important;
   }
 `;
+
+const Typography = styled.div`
+  @media only screen and (max-width: 600px) {
+    margin-bottom: 30px;
+  }
+  @media only screen and (min-width: 600px) {
+    margin-bottom: 60px;
+  }
+`
 export const getStaticProps: GetStaticProps = async (context) => {
   const resPageTitle = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/page-title/Brand"
