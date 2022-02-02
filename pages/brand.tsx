@@ -82,7 +82,7 @@ const Brand = ({ PageTitle }: Props) => {
                     위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
-                <li>
+                <ImageWrap>
                   <Image
                     width={1000}
                     height={326}
@@ -90,7 +90,7 @@ const Brand = ({ PageTitle }: Props) => {
                     src={StoryWeb}
                     alt=""
                   />
-                </li>
+                </ImageWrap>
               </PCversion>
               <MBversion>
                 <Title1><li style={{marginBottom:"20px"}}>다이어트는 예나, 지금이나</li></Title1>
@@ -103,7 +103,7 @@ const Brand = ({ PageTitle }: Props) => {
                     트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
-                <li>
+                <ImageWrap>
                   <Image
                     width={180}
                     height={600}
@@ -111,7 +111,7 @@ const Brand = ({ PageTitle }: Props) => {
                     src={StoryMobile}
                     alt=""
                   />
-                </li>
+                </ImageWrap>
               </MBversion>
             </ul>
           </Section3>
@@ -418,6 +418,16 @@ const Typography = styled.div`
   @media only screen and (min-width: 600px) {
     margin-bottom: 60px;
   }
+`
+
+const ImageWrap = styled.div`
+ @media only screen and (max-width: 600px) {
+    margin-top: 30px;
+  }
+  @media only screen and (min-width: 600px) {
+    margin-top: 50px;
+  }
+  
 `
 export const getStaticProps: GetStaticProps = async (context) => {
   const resPageTitle = await fetch(
