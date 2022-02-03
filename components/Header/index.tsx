@@ -18,7 +18,7 @@ const Header = () => {
                     <Ul>
                         <Li>
                             <Link href="/brand">
-                                <a><Title4>회사소개</Title4></a>
+                                <a><Title4>스토리</Title4></a>
                             </Link>
                         </Li>
                         <Li>
@@ -54,7 +54,7 @@ const Header = () => {
                     <Ul>
                         <Li>
                             <Link href="/brand">
-                                <a><Title4>브랜드</Title4></a>
+                                <a><Title4>브랜드스토리</Title4></a>
                             </Link>
                         </Li>
                         <Li>
