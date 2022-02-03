@@ -97,23 +97,11 @@ const StartUpPage = ({ PageTitle }: Props) => {
       setIsFormClick(false);
     }
   };
-
-  const CONTENT_BOX_STYLE = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundSize: "cover",
-  };
-
   return (
     <>
       <PageMainTitle {...PageTitle} />
-      <PageFullWidthLayout
-        style={{
-          ...CONTENT_BOX_STYLE,
-          backgroundImage: "url('/startupBackground.png')",
-        }}
-      >
+      <PageFullWidthLayout>
+         <BackgroundWrap>
         <PageMaxNoCSSLayout>
           <Wrap>
             <Title2 style={{ fontWeight: 600, color: "#ffffff" }}>
@@ -128,6 +116,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
             height="100px"
           />
         </PageMaxNoCSSLayout>
+        </BackgroundWrap>
       </PageFullWidthLayout>
       <PageMaxNoCSSLayout
         style={{
@@ -395,6 +384,17 @@ export const Tfoot = styled.tfoot`
   }
   tr {
     border: 0px;
+  }
+`;
+// 이미지 스크롤시, position: pixed 수정해야함
+const BackgroundWrap = styled.div`
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image: url("/brandMain.png");
+  @media only screen and (max-width: 600px) {
+    background-attachment: initial !important;
   }
 `;
 

@@ -37,7 +37,7 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
                 setIsNotice(false);
               }}
             >
-              Q&A
+              FAQ
             </TabButton>
           </Title2>
           <Title2>

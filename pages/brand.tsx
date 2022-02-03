@@ -45,14 +45,24 @@ const Brand = ({ PageTitle }: Props) => {
                     비오키친은 나쁜 것들을 비워낸다는 의미입니다.
                   </Title4>
                 </li>
-                <li>
-                  <Title4>
-                    몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
+                <PCversion>
+                  <li>
+                    <Title4>
+                      몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
                   </Title4>
-                </li>
-                <li>
-                  <Title4>비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
-                </li>
+                  </li>
+                  <li>
+                    <Title4>비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
+                  </li>
+                </PCversion>
+                <MBversion>
+                  <li>
+                    <Title4>
+                      몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
+                      비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
+                  </Title4>
+                  </li>
+                </MBversion>
               </ul>
             </Section1>
           </PageMaxNoCSSLayout>
@@ -93,7 +103,7 @@ const Brand = ({ PageTitle }: Props) => {
                 </ImageWrap>
               </PCversion>
               <MBversion>
-                <Title1><li style={{marginBottom:"20px"}}>다이어트는 예나, 지금이나</li></Title1>
+                <Title1><li style={{ marginBottom: "20px" }}>다이어트는 예나, 지금이나</li></Title1>
                 <Title5>
                   <li>
                     1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
@@ -122,8 +132,8 @@ const Brand = ({ PageTitle }: Props) => {
           <PageMaxNoCSSLayout>
             <Section2>
               <Typography>
-              <Title2>건강한 식습관, 비오키친</Title2>
-              <Title3>Diet, Ever and ever</Title3>
+                <Title2>건강한 식습관, 비오키친</Title2>
+                <Title3>Diet, Ever and ever</Title3>
               </Typography>
               <Section2_Wrap1>
                 <ul>
@@ -393,9 +403,9 @@ const BackgroundColor = styled.div`
   width: 100%;
   height: 100%;
   background: linear-gradient(180deg, rgb(227, 181, 159, 0.4) 60%, #ffffff 50% );
-  /* @media only screen and (max-width: 600px) {
-    background: none !important;
-  } */
+  @media only screen and (max-width: 600px) {
+    background: rgb(227, 181, 159, 0.4);
+  }
 `;
 
 const PCversion = styled.li`
