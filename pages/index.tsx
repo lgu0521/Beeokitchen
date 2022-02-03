@@ -11,10 +11,25 @@ import Head from 'next/head';
 
 interface Props {
   PcBanner: BannerDTO[];
-  MbBanner: BannerDTO[];
 }
 
-const Home: NextPage<Props> = ({ PcBanner, MbBanner }) => {
+
+const MBImage = [
+  {
+    src: "/banner/mobile1.png"
+  },
+  {
+    src: "/banner/mobile2.png"
+  },
+  {
+    src: "/banner/mobile3.png"
+  },
+  {
+    src: "/banner/mobile4.png"
+  },
+]
+
+const Home: NextPage<Props> = ({ PcBanner }) => {
   const { user } = useAuth();
   return (
     <>
@@ -51,9 +66,9 @@ const Home: NextPage<Props> = ({ PcBanner, MbBanner }) => {
             showArrows={false}
             stopOnHover={false}
           >
-            {PcBanner.map((item, key) => (
+            {MBImage.map((item, key) => (
               <div key={key}>
-                <Img src={item.downloadUrl} alt="" />
+                <Img src={item.src} alt="" />
               </div>
             ))}
           </Carousel>
@@ -84,11 +99,9 @@ const MBversion = styled.div`
 
 export const getStaticProps: GetServerSideProps = async (context) => {
   const pcBanner = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
-  const mbBanner = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/mobile_banner");
   const PcBanner: BannerDTO[] = await pcBanner.json();
-  const MbBanner: BannerDTO[] = await mbBanner.json();
 
-  if (!PcBanner && !MbBanner) {
+  if (!PcBanner) {
     return {
       notFound: true,
     };
@@ -96,8 +109,7 @@ export const getStaticProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      PcBanner,
-      MbBanner
+      PcBanner
     },
   };
 };

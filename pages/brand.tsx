@@ -14,10 +14,10 @@ import { GetStaticProps } from "next";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import Story1 from "../public/story-sub1.png";
 import Story2 from "../public/story-sub2.png";
-import storyIcon1 from "../public/story-icon2.png";
-import storyIcon2 from "../public/story-icon1.png";
-import StoryWeb from "../public/brand-story-web.png";
-import StoryMobile from "../public/brand-story-moblie.png";
+import storyIcon1 from "../public/story-icon2.svg";
+import storyIcon2 from "../public/story-icon1.svg";
+import StoryWeb from "../public/brand-story-web.svg";
+import StoryMobile from "../public/brand-story-moblie.svg";
 import Head from 'next/head';
 
 interface Props {

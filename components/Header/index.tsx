@@ -1,7 +1,6 @@
 import Link from "next/link";
 import styled from 'styled-components';
-import Logo from '../../public/logo.png';
-import headerLogo from '../../public/headerLogo.png';
+import headerLogo from '../../public/logo.svg';
 import Image from 'next/image';
 import { Title4 } from '../GlobalComponents';
 
@@ -12,7 +11,7 @@ const Header = () => {
                 <PcNav>
                     <Link href="/">
                         <a>
-                            <Image height={40} width={130} src={headerLogo} alt="" objectFit="contain" />
+                            <Image height={65} width={210} src={headerLogo} alt="" objectFit="contain" />
                         </a>
                     </Link>
                     <Ul>
@@ -47,7 +46,7 @@ const Header = () => {
                     <ImageWrap>
                         <Link href="/">
                             <a>
-                                <Image height={30} width={110} src={headerLogo} alt="" objectFit="contain" />
+                                <Image height={45} width={150} src={headerLogo} alt="" objectFit="contain" />
                             </a>
                         </Link>
                     </ImageWrap>
