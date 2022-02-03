@@ -10,34 +10,54 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
 
 interface Props {
-  BannerList: BannerDTO[];
+  PcBanner: BannerDTO[];
+  MbBanner: BannerDTO[];
 }
 
-const Home: NextPage<Props> = ({ BannerList }) => {
+const Home: NextPage<Props> = ({ PcBanner, MbBanner }) => {
   const { user } = useAuth();
   return (
     <>
       <Head>
-        <meta name="title" content="비오키친 홈"/>
+        <meta name="title" content="비오키친 홈" />
         <meta name="description" content="건강한 식습관, 비오키친" />
       </Head>
       <PageFullWidthLayout>
-        {user ? <BannerEdit initialItems={BannerList} /> : null}
-        <Carousel
-          showThumbs={false}
-          swipeable={true}
-          autoPlay={true}
-          infiniteLoop={true}
-          showStatus={false}
-          showArrows={false}
-          stopOnHover={false}
-        >
-          {BannerList.map((item, key) => (
-            <div key={key}>
-              <Img src={item.downloadUrl} alt="" />
-            </div>
-          ))}
-        </Carousel>
+        {user ? <BannerEdit initialItems={PcBanner} /> : null}
+        <PCversion>
+          <Carousel
+            showThumbs={false}
+            swipeable={true}
+            autoPlay={true}
+            infiniteLoop={true}
+            showStatus={false}
+            showArrows={false}
+            stopOnHover={false}
+          >
+            {PcBanner.map((item, key) => (
+              <div key={key}>
+                <Img src={item.downloadUrl} alt="" />
+              </div>
+            ))}
+          </Carousel>
+        </PCversion>
+        <MBversion>
+          <Carousel
+            showThumbs={false}
+            swipeable={true}
+            autoPlay={true}
+            infiniteLoop={true}
+            showStatus={false}
+            showArrows={false}
+            stopOnHover={false}
+          >
+            {PcBanner.map((item, key) => (
+              <div key={key}>
+                <Img src={item.downloadUrl} alt="" />
+              </div>
+            ))}
+          </Carousel>
+        </MBversion>
       </PageFullWidthLayout>
     </>
   );
@@ -48,11 +68,27 @@ const Img = styled.img`
   object-fit: cover;
 `;
 
-export const getStaticProps: GetServerSideProps = async (context) => {
-  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
-  const BannerList: BannerDTO[] = await res.json();
+const PCversion = styled.div`
+  display: none;
+  @media only screen and (min-width: 600px) {
+    display: block !important;
+  }
+`;
 
-  if (!BannerList) {
+const MBversion = styled.div`
+  display: none;
+  @media only screen and (max-width: 600px) {
+    display: block !important;
+  }
+`;
+
+export const getStaticProps: GetServerSideProps = async (context) => {
+  const pcBanner = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
+  const mbBanner = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/mobile_banner");
+  const PcBanner: BannerDTO[] = await pcBanner.json();
+  const MbBanner: BannerDTO[] = await mbBanner.json();
+
+  if (!PcBanner && !MbBanner) {
     return {
       notFound: true,
     };
@@ -60,7 +96,8 @@ export const getStaticProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      BannerList,
+      PcBanner,
+      MbBanner
     },
   };
 };
