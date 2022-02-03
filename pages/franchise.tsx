@@ -392,7 +392,7 @@ const BackgroundWrap = styled.div`
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url("/brandMain.png");
+  background-image: url("/startupBackground.png");
   @media only screen and (max-width: 600px) {
     background-attachment: initial !important;
   }
