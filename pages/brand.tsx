@@ -136,7 +136,7 @@ const Brand = ({ PageTitle }: Props) => {
                 <Title3>Diet, Ever and ever</Title3>
               </Typography>
               <Section2_Wrap1>
-                <ul>
+                <ul style={{backgroundColor: "white"}}>
                   <li>
                     <li>
                       <div>
@@ -172,7 +172,7 @@ const Brand = ({ PageTitle }: Props) => {
                     />
                   </li>
                 </ul>
-                <ul>
+                <ul style={{backgroundColor: "white"}}>
                   <li>
                     <li>
                       <div>
@@ -402,10 +402,7 @@ const Section3 = styled.div`
 const BackgroundColor = styled.div`
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgb(227, 181, 159, 0.4) 60%, #ffffff 50% );
-  @media only screen and (max-width: 600px) {
-    background: rgb(227, 181, 159, 0.4);
-  }
+  background: rgb(227, 181, 159, 0.4);
 `;
 
 const PCversion = styled.li`
