@@ -1,16 +1,58 @@
 
     <?xml version="1.0" encoding="UTF-8"?>
-    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      
-    
-          <sitemap>
-            <loc>https://www.xn--9w3b27lmmhzmc.kr/sitemap/sitemap-common.xml.gz</loc>
-            <lastmod>2022-02-06T12:52:15.825Z</lastmod>
-          </sitemap>
-          <sitemap>
-            <loc>https://www.xn--9w3b27lmmhzmc.kr/sitemap/sitemap-posts.xml.gz</loc>
-            <lastmod>2022-02-06T12:52:15.825Z</lastmod>
-          </sitemap>
-  
-    </sitemapindex>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/brand</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/franchise</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/menu</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/store</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/board</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/create/menu</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/create/notice</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/modify/[id]</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/board/notice/[id]</loc>
+            <lastmod>2022-02-06T13:22:48.512Z</lastmod>
+          </url>
+          <url>
+          <loc>https://www.xn--9w3b27lmmhzmc.kr/community/threads/qggZhOPavXKVePJ4tCPB</loc>
+          <lastmod>2022-02-06T13:22:48.847Z</lastmod>
+        </url>
+    </urlset>
   
