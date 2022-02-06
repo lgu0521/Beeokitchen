@@ -33,13 +33,13 @@ const PageMainTitle = (props: PageTitleDTO) => {
 
 const Wrap = styled.div`
   @media only screen and (max-width: 600px) {
-    padding-bottom: 10px;
+    padding-bottom: 5px;
   }
   @media only screen and (min-width: 600px) {
-    padding-bottom: 20px;
+    padding-bottom: 5px;
   }
   @media only screen and (min-width: 768px) {
-    padding-bottom: 30px;
+    padding-bottom: 10px;
   }
 `;
 

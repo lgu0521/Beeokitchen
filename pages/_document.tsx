@@ -11,7 +11,6 @@ class MyDocument extends Document {
             <Html>
                 <Head>
                     <meta charSet="utf-8" />
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
                     <link rel="shortcut icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.ico"/>
                     <link rel="icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.png"/>
                     <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />

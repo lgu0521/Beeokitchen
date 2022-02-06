@@ -10,6 +10,7 @@ import NProgress from 'nprogress';
 import '../public/nprogress.css'
 import { useEffect } from "react";
 import Router from "next/router";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -30,18 +31,23 @@ function MyApp({ Component, pageProps }: AppProps) {
       Router.events.off('routeChangeError', handleStop)
     }
   }, [Router]);
-  
+
   return (
-    <AuthProvider>
-      <AuthStateChanged>
-        <ThemeProvider theme={theme}>
-          <Layout>
-            <GlobalFonts />
-            <Component {...pageProps} />
-          </Layout>
-        </ThemeProvider>
-      </AuthStateChanged>
-    </AuthProvider>
+    <>
+      <Head>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <AuthProvider>
+        <AuthStateChanged>
+          <ThemeProvider theme={theme}>
+            <Layout>
+              <GlobalFonts />
+              <Component {...pageProps} />
+            </Layout>
+          </ThemeProvider>
+        </AuthStateChanged>
+      </AuthProvider>
+    </>
   );
 }
 

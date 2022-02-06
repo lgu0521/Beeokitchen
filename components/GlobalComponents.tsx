@@ -86,7 +86,7 @@ const Title4 = styled.h4`
 
 const Title5 = styled.h5`
   letter-spacing: 0px;
-  line-height: 1.3;
+  line-height: 1.5;
   @media only screen and (max-width: 600px) {
     font-size: 0.9rem;
   }

@@ -395,6 +395,7 @@ const BackgroundWrap = styled.div`
   background-image: url("/startupBackground.png");
   @media only screen and (max-width: 600px) {
     background-attachment: initial !important;
+    background-image: url("/franchise_background_moblie.png");
   }
 `;
 
