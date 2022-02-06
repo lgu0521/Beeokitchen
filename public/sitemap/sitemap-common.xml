@@ -1,0 +1,58 @@
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+        
+    
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/brand</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/franchise</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/menu</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/store</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/board</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/create/menu</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/create/notice</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/admin/modify/[id]</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+          <url>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/board/notice/[id]</loc>
+            <lastmod>2022-02-06T12:52:14.626Z</lastmod>
+          </url>
+        
+    
+    </urlset>
+    

@@ -13,6 +13,7 @@ class MyDocument extends Document {
                     <meta charSet="utf-8" />
                     <link rel="shortcut icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.ico"/>
                     <link rel="icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.png"/>
+                    <meta name="google-site-verification" content="AMDIh0U1uc2qnbti6OVyxiOuehBj6BTGk0NERU9yums" />
                     <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />
                     <meta property="og:type" content="website" />
                     <meta property="og:title" content="비오키친" />

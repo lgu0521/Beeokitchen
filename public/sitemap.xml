@@ -1,35 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/menu</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/brand</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/store</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/startup</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/board</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-<url>
-  <loc>https://www.xn--9w3b27lmmhzmc.kr/notice</loc>
-  <lastmod>2022-01-24T05:19:45+00:00</lastmod>
-</url>
-</urlset>
+
+    <?xml version="1.0" encoding="UTF-8"?>
+    <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      
+    
+          <sitemap>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/sitemap/sitemap-common.xml.gz</loc>
+            <lastmod>2022-02-06T12:52:15.825Z</lastmod>
+          </sitemap>
+          <sitemap>
+            <loc>https://www.xn--9w3b27lmmhzmc.kr/sitemap/sitemap-posts.xml.gz</loc>
+            <lastmod>2022-02-06T12:52:15.825Z</lastmod>
+          </sitemap>
+  
+    </sitemapindex>
+  

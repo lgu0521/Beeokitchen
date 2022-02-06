@@ -31,6 +31,7 @@ const AccordionListView = ({ title, content }: FaqDTO) => {
     </>
   );
 };
+
 const AccordionListBox = styled.div`
   border-bottom: 2px solid #15aa5a;
   width: 100%;
