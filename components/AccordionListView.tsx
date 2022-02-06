@@ -16,7 +16,7 @@ const AccordionListView = ({ title, content }: FaqDTO) => {
           >
             Q
           </Title2>
-          <Title3 style={{ fontWeight: 600 }}>{title}</Title3>
+          <Title3 style={{ fontWeight: 600, color: "black" }}>{title}</Title3>
           {user ? null : <DropIcon isOpen={isOpen} />}
         </Button>
         <AccordionTextBox isOpen={isOpen}>
