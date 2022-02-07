@@ -27,8 +27,8 @@ const Brand = ({ PageTitle }: Props) => {
   return (
     <>
       <Head>
-        <meta name="title" content="브랜드 스토리" />
-        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록 건강한 식습관, 비오키친" />
+        <title>브랜드 스토리</title>
+        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>

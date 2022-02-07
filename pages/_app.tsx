@@ -36,8 +36,6 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <link sizes="48x48" rel="shortcut icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.ico"/>
-        <link rel="icon" href="https://www.xn--9w3b27lmmhzmc.kr/favicon.png"/>
       </Head>
       <AuthProvider>
         <AuthStateChanged>

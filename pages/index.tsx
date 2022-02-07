@@ -34,7 +34,7 @@ const Home: NextPage<Props> = ({ PcBanner }) => {
   return (
     <>
       <Head>
-        <meta name="title" content="비오키친 홈" />
+        <title>비오키친 홈</title>
         <meta name="description" content="건강한 식습관, 비오키친" />
       </Head>
       <PageFullWidthLayout>

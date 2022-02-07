@@ -44,7 +44,7 @@ const Meau: NextPage<Props> = ({
   return (
     <>
       <Head>
-        <meta name="title" content="비오키친 메뉴" />
+        <title>비오키친 메뉴</title>
         <meta name="description" content="아무리 바빠도, 나를 위한 건강하고 맛있는 한끼" />
       </Head>
       <PageMainTitle {...PageTitle} />

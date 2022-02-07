@@ -1,7 +1,7 @@
 import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
-import Link from "next/link";
+import Head from 'next/head';
 import React, { useState } from "react";
 import PageMainTitle from "../components/PageMainTitle";
 import { StoreDTO } from "../dto/store-create.dto";
@@ -24,6 +24,10 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
   const { user } = useAuth();
   return (
     <>
+      <Head>
+        <title>비오키친 매장</title>
+        <meta name="description" content="여러분의 일상과 가장 가까운 곳에서 비오키친을 만나보세요" />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout
         style={{ backgroundColor: "rgba(227, 181, 159, 0.2)" }}

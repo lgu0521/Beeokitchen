@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { StartUpFormDTO } from "../dto/startup-form.dto";
 import GridBox from "../components/GridBox";
+import Head from 'next/head';
 import {
   PageMaxNoCSSLayout,
   PageFullWidthLayout,
@@ -99,23 +100,27 @@ const StartUpPage = ({ PageTitle }: Props) => {
   };
   return (
     <>
+      <Head>
+        <title>비오키친 프랜차이즈</title>
+        <meta name="description" content="비오키친과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
-         <BackgroundWrap>
-        <PageMaxNoCSSLayout>
-          <Wrap>
-            <Title2 style={{ fontWeight: 600, color: "#ffffff" }}>
-              가맹절차
+        <BackgroundWrap>
+          <PageMaxNoCSSLayout>
+            <Wrap>
+              <Title2 style={{ fontWeight: 600, color: "#ffffff" }}>
+                가맹절차
             </Title2>
-          </Wrap>
-          <GridBox
-            boxItems={BoxItems}
-            col={4}
-            mdCol={3}
-            smCol={2}
-            height="100px"
-          />
-        </PageMaxNoCSSLayout>
+            </Wrap>
+            <GridBox
+              boxItems={BoxItems}
+              col={4}
+              mdCol={3}
+              smCol={2}
+              height="100px"
+            />
+          </PageMaxNoCSSLayout>
         </BackgroundWrap>
       </PageFullWidthLayout>
       <PageMaxNoCSSLayout
@@ -234,7 +239,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
                 </td>
                 <td>
                   <Title3 style={{ fontWeight: 700 }}>
-                  총 비용은 경우에 따라 변동 될 수 있습니다.
+                    총 비용은 경우에 따라 변동 될 수 있습니다.
                   </Title3>
                 </td>
               </tr>
@@ -243,17 +248,17 @@ const StartUpPage = ({ PageTitle }: Props) => {
           <TextUl>
             <li>
               <Title5>
-              별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
+                별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
               </Title5>
             </li>
             <li>
               <Title5>
-              가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
+                가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
               </Title5>
             </li>
             <li>
               <Title5>
-              매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
+                매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
               </Title5>
             </li>
           </TextUl>

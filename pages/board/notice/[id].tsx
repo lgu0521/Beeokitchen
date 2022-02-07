@@ -1,6 +1,7 @@
 import React from "react";
 import { GetServerSideProps } from "next";
 import { Params } from "next/dist/server/router";
+import Head from 'next/head';
 import {
   NoticeCurrentAndAfterAndBefroeListDTO,
   NoticeDetailDTO,
@@ -43,6 +44,10 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   const router = useRouter();
   return (
     <div>
+      <Head>
+        <title>브랜드 게시판</title>
+        <meta name="description" content="비오키친의 최신소식과 Q&A를 빠르게 확인하세요" />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <PageMaxNoCSSLayout style={{ textAlign: "center" }}>
         <Table>

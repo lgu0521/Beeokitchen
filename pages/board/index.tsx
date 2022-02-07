@@ -11,7 +11,7 @@ import FaqEdit from "../../components/FaqModal/FaqEdit";
 import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 import { useRouter } from "next/dist/client/router";
-
+import Head from 'next/head';
 interface Props {
   noticeList: NoticeListDTO[];
   faqList: FaqDTO[];
@@ -26,6 +26,10 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
 
   return (
     <>
+      <Head>
+        <title>브랜드 게시판</title>
+        <meta name="description" content="비오키친의 최신소식과 Q&A를 빠르게 확인하세요" />
+      </Head>
       <PageMainTitle {...PageTitle} />
       <PageMaxNoCSSLayout style={{ display: "flex" }}>
         <Nav>
