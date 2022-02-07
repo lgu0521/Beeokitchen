@@ -36,6 +36,7 @@ const Home: NextPage<Props> = ({ PcBanner }) => {
       <Head>
         <title>비오키친 홈</title>
         <meta name="description" content="건강한 식습관, 비오키친" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageFullWidthLayout>
         {user ? <BannerEdit initialItems={PcBanner} /> : null}
