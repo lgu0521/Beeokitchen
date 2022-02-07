@@ -24,12 +24,29 @@ interface Props {
   PageTitle: PageTitleDTO;
 }
 const Brand = ({ PageTitle }: Props) => {
+  const schemaData =
+  {
+    
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      "name": "비오키친",
+      "url": "https://비오키친.kr",
+      "sameAs": [
+        "https://www.instagram.com/beeokitchen"
+      ]
+  }
+
+
   return (
     <>
       <Head>
         <title>브랜드 스토리</title>
         <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록" />
       </Head>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
+      />
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
         <BackgroundWrap>
@@ -136,7 +153,7 @@ const Brand = ({ PageTitle }: Props) => {
                 <Title3>Diet, Ever and ever</Title3>
               </Typography>
               <Section2_Wrap1>
-                <ul style={{backgroundColor: "white"}}>
+                <ul style={{ backgroundColor: "white" }}>
                   <li>
                     <li>
                       <div>
@@ -172,7 +189,7 @@ const Brand = ({ PageTitle }: Props) => {
                     />
                   </li>
                 </ul>
-                <ul style={{backgroundColor: "white"}}>
+                <ul style={{ backgroundColor: "white" }}>
                   <li>
                     <li>
                       <div>
