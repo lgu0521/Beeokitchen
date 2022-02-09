@@ -2,10 +2,8 @@ import type { GetServerSideProps, NextPage } from "next";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
-import { BannerDTO } from "../dto/banner-create.dto";
+import { BannerDTO } from "../dto/banner.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
-import BannerEdit from "../components/BannerModal/BannerEdit";
-import { useAuth } from "../hook/AuthProvider";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
 
@@ -30,7 +28,6 @@ const MBImage = [
 ]
 
 const Home: NextPage<Props> = ({ PcBanner }) => {
-  const { user } = useAuth();
   return (
     <>
       <Head>
@@ -39,7 +36,6 @@ const Home: NextPage<Props> = ({ PcBanner }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageFullWidthLayout>
-        {user ? <BannerEdit initialItems={PcBanner} /> : null}
         <PCversion>
           <Carousel
             showThumbs={false}

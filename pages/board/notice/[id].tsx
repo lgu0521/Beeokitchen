@@ -4,8 +4,8 @@ import { Params } from "next/dist/server/router";
 import Head from 'next/head';
 import {
   NoticeCurrentAndAfterAndBefroeListDTO,
-  NoticeDetailDTO,
-} from "../../../dto/notice-create.dto";
+  NoticeDetailDTO
+} from "../../../dto/notice.dto";
 import dynamic from "next/dynamic";
 import { ViewerProps } from "@toast-ui/react-editor";
 import PageMainTitle from "../../../components/PageMainTitle";
@@ -15,8 +15,6 @@ import {
   Title3,
 } from "../../../components/GlobalComponents";
 import styled from "styled-components";
-import Link from "next/link";
-import { useAuth } from "../../../hook/AuthProvider";
 import { PageTitleDTO } from "../../../dto/page-title.dto";
 import { Router, useRouter } from "next/dist/client/router";
 
@@ -39,8 +37,6 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   ));
   TuiWrapper.displayName = "Editor";
 
-  console.log(notice);
-  const { user } = useAuth();
   const router = useRouter();
   return (
     <div>
@@ -113,14 +109,6 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
             ) : null}
           </Tfoot>
         </Table>
-        {user ? (
-          <Button
-            onClick={() => router.push("/admin/modify/" + notice.id)}
-            style={{ marginRight: "20px" }}
-          >
-            <Title3>수정하기</Title3>
-          </Button>
-        ) : null}
         <ContextBox>
           <Button onClick={() => router.push("/board?page=notice")}>
             <Title3>목록으로</Title3>
@@ -132,8 +120,7 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({
-  params,
-}: Params) => {
+  params,}: Params) => {
   const { id } = params;
   const notice: NoticeDetailDTO = await fetch(
     process.env.NEXT_PUBLIC_API_URL + `/api/notice/${id}`

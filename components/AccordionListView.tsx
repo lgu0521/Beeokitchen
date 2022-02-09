@@ -1,23 +1,20 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { Title2, Title3, Title4, Title5 } from "./GlobalComponents";
-import { FaqDTO } from "../dto/faq-create.dto";
-import { useAuth } from "../hook/AuthProvider";
+import { FaqDTO } from "../dto/faq.dto";
 
 const AccordionListView = ({ title, content }: FaqDTO) => {
   const [isOpen, setIsOpen] = useState(false);
-  const { user } = useAuth();
   return (
     <>
       <AccordionListBox>
-        <Button onClick={() => setIsOpen(!isOpen)} isAdmin={user}>
+        <Button onClick={() => setIsOpen(!isOpen)}>
           <Title2
             style={{ color: "#15AA5A", marginRight: "15px", fontWeight: 600 }}
           >
             Q
           </Title2>
           <Title3 style={{ fontWeight: 600, color: "black" }}>{title}</Title3>
-          {user ? null : <DropIcon isOpen={isOpen} />}
         </Button>
         <AccordionTextBox isOpen={isOpen}>
           <Circle>
@@ -37,18 +34,18 @@ const AccordionListBox = styled.div`
   width: 100%;
 `;
 
-const Button = styled.button<{ isAdmin: boolean }>`
-  position: ${(props) => (props.isAdmin ? "initial" : "relative")};
+const Button = styled.button`
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   text-align: left;
   width: 100%;
   padding: 23px;
-  border-radius: 0; //button basic style remove
-  border: 0; //button basic style remove
-  background: none; //button basic style remove
-  appearance: none; //button basic style remove
+  border-radius: 0;
+  border: 0;
+  background: none;
+  appearance: none;
 `;
 
 const DropIcon = styled.span<{ isOpen: boolean }>`

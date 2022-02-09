@@ -4,7 +4,7 @@ import Image from "next/image";
 import Head from 'next/head';
 import React, { useState } from "react";
 import PageMainTitle from "../components/PageMainTitle";
-import { StoreDTO } from "../dto/store-create.dto";
+import { StoreDTO } from "../dto/store.dto";
 import {
   PageFullWidthLayout,
   PageMaxNoCSSLayout,
@@ -12,8 +12,6 @@ import {
   Title3,
   Title4,
 } from "../components/GlobalComponents";
-import StoreEdit from "../components/StoreModal/StoreEdit";
-import { useAuth } from "../hook/AuthProvider";
 import { PageTitleDTO } from "../dto/page-title.dto";
 
 interface Props {
@@ -21,7 +19,6 @@ interface Props {
   PageTitle: PageTitleDTO;
 }
 const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
-  const { user } = useAuth();
   return (
     <>
       <Head>
@@ -36,9 +33,6 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
           <ContentUl>
             {storeList.map((item: StoreDTO, key) => (
               <Contentli key={key}>
-                {user ? (
-                  <StoreEdit initialItem={item} initialItems={storeList} />
-                ) : null}
                 <ImageWrap>
                   <Image
                     src={item.image.downloadUrl}

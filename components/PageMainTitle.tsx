@@ -1,6 +1,4 @@
 import styled from "styled-components";
-import { useAuth } from "../hook/AuthProvider";
-import PageTitleEdit from "./PageTitleModal/PageTitleEdit";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import "react-loading-skeleton/dist/skeleton.css";
 import {
@@ -10,14 +8,11 @@ import {
 } from "../components/GlobalComponents";
 
 const PageMainTitle = (props: PageTitleDTO) => {
-  const { user } = useAuth();
-
   return (
     <>
       <ContentBox>
         <PageMaxNoCSSLayout>
           <Wrap>
-            {user ? <PageTitleEdit initialItem={props} /> : null}
             <Title1>{props.title}</Title1>
           </Wrap>
           <Title4>

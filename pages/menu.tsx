@@ -1,7 +1,6 @@
 //Basic
 import { GetStaticProps, NextPage } from "next";
 import Image from "next/image";
-import { useAuth } from "../hook/AuthProvider";
 import Head from 'next/head';
 //Style
 import styled from "styled-components";
@@ -15,14 +14,9 @@ import {
 } from "../components/GlobalComponents";
 //Component
 import PageMainTitle from "../components/PageMainTitle";
-import { MenuEdit } from "../components/MenuModal/MenuEdit";
 //DTO
-import {
-  MenuCatagoryDTO,
-  MenusWithCatagoryDTO,
-} from "../dto/menu-create.dto";
+import {MenuCatagoryDTO, MenusWithCatagoryDTO,} from "../dto/menu.dto";
 import { PageTitleDTO } from "../dto/page-title.dto";
-import MenuCatagoryEdit from "../components/MenuCatagoryModal/MenuCatagoryEdit";
 
 interface Props {
   menusWithCatagory: MenusWithCatagoryDTO[];
@@ -35,7 +29,6 @@ const Meau: NextPage<Props> = ({
   PageTitle,
   menuCatagorys,
 }) => {
-  const { user } = useAuth();
 
   const DragAndDropItem = (item: any) => {
     console.log(item);
@@ -66,12 +59,6 @@ const Meau: NextPage<Props> = ({
               <PageMaxNoCSSLayout>
                 <>
                   <Header key={i}>
-                    {user ? (
-                      <MenuCatagoryEdit
-                        MenuCatagory={catagory}
-                        MenuCatagorys={menusWithCatagory}
-                      />
-                    ) : null}
                     <li>
                       <Title2 style={{ fontWeight: 600, color: "#15AA5A" }}>
                         {catagory.title}
@@ -87,13 +74,6 @@ const Meau: NextPage<Props> = ({
                     {catagory.menus.map((menu, i) => (
                       <>
                         <MainLi>
-                          {user ? (
-                            <MenuEdit
-                              MenuIndex={i}
-                              Menus={catagory.menus}
-                              MenuCatagorys={menuCatagorys}
-                            />
-                          ) : null}
                           <Image
                             src={menu.image.downloadUrl}
                             alt=""

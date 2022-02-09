@@ -1,7 +1,7 @@
 //이미지
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import { FaqCreateDTO } from "../../dto/faq-create.dto";
+import { FaqCreateDTO } from "../../dto/faq.dto";
 import { Title2, Title3, Title4 } from "../GlobalComponents";
 
 const StartUpModal = () => {

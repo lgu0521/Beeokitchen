@@ -1,6 +1,4 @@
-import React, { Children, Dispatch, SetStateAction, useState } from "react";
 import styled from "styled-components";
-import { Title1 } from "./GlobalComponents";
 import Image from "next/image";
 import XIcon from "../public/Close.png";
 interface ModalProps {

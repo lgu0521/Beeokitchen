@@ -3,12 +3,10 @@ import PageNationListView from "../../components/PageNationListView";
 import AccordionListView from "../../components/AccordionListView";
 import PageMainTitle from "../../components/PageMainTitle";
 import { useState } from "react";
-import { NoticeListDTO } from "../../dto/notice-create.dto";
-import { FaqDTO } from "../../dto/faq-create.dto";
+import { NoticeListDTO } from "../../dto/notice.dto";
+import { FaqDTO } from "../../dto/faq.dto";
 import { PageMaxNoCSSLayout, Title2 } from "../../components/GlobalComponents";
 import styled from "styled-components";
-import FaqEdit from "../../components/FaqModal/FaqEdit";
-import { useAuth } from "../../hook/AuthProvider";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 import { useRouter } from "next/dist/client/router";
 import Head from 'next/head';
@@ -22,7 +20,6 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
   const router = useRouter();
   const [isFaq, setIsFaq] = useState(router.query.page ? false : true);
   const [isNotice, setIsNotice] = useState(router.query.page ? true : false);
-  const { user } = useAuth();
 
   return (
     <>
@@ -62,9 +59,6 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
           <ContextBox style={{ borderTop: "5px solid #03502c" }}>
             {faqList.map((item, key) => (
               <div key={key} style={{ position: "relative" }}>
-                {user ? (
-                  <FaqEdit initialItem={item} initialItems={faqList} />
-                ) : null}
                 <AccordionListView {...item} />
               </div>
             ))}
