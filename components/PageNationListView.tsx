@@ -4,7 +4,7 @@ import Image from "next/image";
 import GetPageNationViewList from "./GetPageNationDataList";
 import { useState } from "react";
 import { Title2, Title3, Title5 } from "./GlobalComponents";
-import { NoticeListDTO } from "../dto/notice-create.dto";
+import { NoticeListDTO } from "../dto/notice.dto";
 import NoticeIcon from "../public/notice.png";
 import BoradLeft from "../public/boradLeft.png";
 import BoradRight from "../public/boradRight.png";

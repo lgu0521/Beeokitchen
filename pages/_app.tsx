@@ -4,8 +4,6 @@ import { ThemeProvider } from "styled-components";
 import theme from "../styles/theme";
 import GlobalFonts from "../styles/fonts";
 import Layout from "../components/Layout";
-import { AuthProvider } from "../hook/AuthProvider";
-import AuthStateChanged from "../hook/AuthStateChanged";
 import NProgress from 'nprogress';
 import '../public/nprogress.css'
 import { useEffect } from "react";
@@ -39,8 +37,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"></link>
         <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
       </Head>
-      <AuthProvider>
-        <AuthStateChanged>
           <ThemeProvider theme={theme}>
 
             <Layout>
@@ -48,8 +44,6 @@ function MyApp({ Component, pageProps }: AppProps) {
               <Component {...pageProps} />
             </Layout>
           </ThemeProvider>
-        </AuthStateChanged>
-      </AuthProvider>
     </>
   );
 }
