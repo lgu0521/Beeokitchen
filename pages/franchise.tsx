@@ -16,68 +16,14 @@ import StartUpModal from "../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import { GetStaticProps } from "next";
-
-interface BoxItem {
-  step: string;
-  procedure: string;
-}
-
-const BoxItems: BoxItem[] = [
-  {
-    step: "Step 01",
-    procedure: "가맹창업문의",
-  },
-  {
-    step: "Step 02",
-    procedure: "가맹접수 및 상담",
-  },
-  {
-    step: "Step 03",
-    procedure: "가맹점개설 본사승인",
-  },
-  {
-    step: "Step 04",
-    procedure: "점포실측 및 시행",
-  },
-  {
-    step: "Step 05",
-    procedure: "가맹계약의 체결",
-  },
-  {
-    step: "Step 06",
-    procedure: "인테리어시공",
-  },
-  {
-    step: "Step 07",
-    procedure: "점주교육",
-  },
-  {
-    step: "Step 08",
-    procedure: "인허가준비",
-  },
-  {
-    step: "Step 09",
-    procedure: "영업준비",
-  },
-  {
-    step: "Step 10",
-    procedure: "가맹점 영업개시",
-  },
-  {
-    step: "Step 11",
-    procedure: "오픈 및 유지관리",
-  },
-  {
-    step: "Step 12",
-    procedure: "사후관리 및 영업지원",
-  },
-];
+import { FranChiseDTO } from "../dto/franchise.dto";
 
 interface Props {
+  franchises: FranChiseDTO;
   PageTitle: PageTitleDTO;
 }
 
-const StartUpPage = ({ PageTitle }: Props) => {
+const StartUpPage = ({ franchises, PageTitle }: Props) => {
   const [isFormClick, setIsFormClick] = useState(false);
   const {
     register,
@@ -114,7 +60,7 @@ const StartUpPage = ({ PageTitle }: Props) => {
             </Title2>
             </Wrap>
             <GridBox
-              boxItems={BoxItems}
+              boxItems={franchises}
               col={4}
               mdCol={3}
               smCol={2}
@@ -279,12 +225,17 @@ const StartUpPage = ({ PageTitle }: Props) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const res = await fetch(
+    process.env.NEXT_PUBLIC_API_URL + "/api/franchise"
+  );
+  const franchises: FranChiseDTO = await res.json();
+
   const resPageTitle = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/page-title/StartUp"
   );
   const PageTitle: PageTitleDTO = await resPageTitle.json();
 
-  if (!PageTitle) {
+  if (!PageTitle && !franchises) {
     return {
       notFound: true,
     };
@@ -292,6 +243,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       PageTitle,
+      franchises
     },
   };
 };

@@ -8,26 +8,12 @@ import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
 
 interface Props {
-  PcBanner: BannerDTO[];
+  banners: BannerDTO[];
 }
 
-
-const MBImage = [
-  {
-    src: "/banner/mobile1.png"
-  },
-  {
-    src: "/banner/mobile2.png"
-  },
-  {
-    src: "/banner/mobile3.png"
-  },
-  {
-    src: "/banner/mobile4.png"
-  },
-]
-
-const Home: NextPage<Props> = ({ PcBanner }) => {
+const Home: NextPage<Props> = ({ banners }) => {
+  const PcBanner:BannerDTO[] = banners.filter((item) => item.type == 'PC');
+  const MbBanner:BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (
     <>
       <Head>
@@ -49,8 +35,8 @@ const Home: NextPage<Props> = ({ PcBanner }) => {
             {PcBanner.map((item, key) => (
               <div key={key}>
                 <Img src={item.downloadUrl} alt="" />
-              </div>
-            ))}
+              </div>)
+            )}
           </Carousel>
         </PCversion>
         <MBversion>
@@ -63,11 +49,11 @@ const Home: NextPage<Props> = ({ PcBanner }) => {
             showArrows={false}
             stopOnHover={false}
           >
-            {MBImage.map((item, key) => (
+            {MbBanner.map((item, key) => (
               <div key={key}>
-                <Img src={item.src} alt="" />
-              </div>
-            ))}
+                <Img src={item.downloadUrl} alt="" />
+              </div>)
+            )}
           </Carousel>
         </MBversion>
       </PageFullWidthLayout>
@@ -95,10 +81,10 @@ const MBversion = styled.div`
 `;
 
 export const getStaticProps: GetServerSideProps = async (context) => {
-  const pcBanner = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
-  const PcBanner: BannerDTO[] = await pcBanner.json();
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
+  const banners: BannerDTO[] = await res.json();
 
-  if (!PcBanner) {
+  if (!banners) {
     return {
       notFound: true,
     };
@@ -106,7 +92,7 @@ export const getStaticProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      PcBanner
+      banners
     },
   };
 };

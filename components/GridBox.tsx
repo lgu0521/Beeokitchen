@@ -1,10 +1,6 @@
 import styled from "styled-components";
+import { FranChiseDTO } from "../dto/franchise.dto";
 import { Title2, Title3, Title4 } from "./GlobalComponents";
-
-interface BoxItem {
-  step: string;
-  procedure: string;
-}
 
 interface GridItemProps {
   height: string;
@@ -14,7 +10,7 @@ interface GridItemProps {
 }
 
 interface GridProps extends GridItemProps {
-  boxItems: BoxItem[];
+  boxItems: FranChiseDTO[];
 }
 
 const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
@@ -37,10 +33,10 @@ const GridBox = ({ boxItems, height, col, mdCol, smCol }: GridProps) => {
                   color: "#404346",
                 }}
               >
-                {item.step}
+                Step {key + 1 < 10 ? `0${key + 1}` : key + 1}
               </Title4>
               <Title3 style={{ fontWeight: 600, color: "#404346" }}>
-                {item.procedure}
+                {item.description}
               </Title3>
             </Wrap>
           </GridItem>
