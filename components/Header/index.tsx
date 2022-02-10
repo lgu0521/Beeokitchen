@@ -6,7 +6,7 @@ import { Title4 } from '../GlobalComponents';
 
 const Header = () => {
     return (
-        <>
+        <div>
             <head style={{backgroundColor:"white"}}>
                 <PcNav>
                     <Link href="/">
@@ -79,7 +79,7 @@ const Header = () => {
                     </Ul>
                 </MobileNav>
             </head>
-        </>
+        </div>
     )
 };
 

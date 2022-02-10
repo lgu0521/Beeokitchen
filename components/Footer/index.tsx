@@ -6,7 +6,7 @@ import { Title6 } from "../GlobalComponents";
 
 const Footer = () => {
   return (
-    <>
+    <div>
       <PcNav>
         <footer
           style={{
@@ -83,7 +83,7 @@ const Footer = () => {
           </ImageWrap>
         </footer>
       </MobileNav>
-    </>
+    </div>
   );
 };
 
@@ -93,7 +93,7 @@ const PcNav = styled.nav`
     display: block !important;
   }
 `;
-const MobileNav = styled.div`
+const MobileNav = styled.nav`
   display: none;
   @media only screen and (max-width: 991px) {
     display: block !important;

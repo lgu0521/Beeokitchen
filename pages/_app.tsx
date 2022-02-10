@@ -37,13 +37,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"></link>
         <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
       </Head>
-          <ThemeProvider theme={theme}>
-
-            <Layout>
-              <GlobalFonts />
-              <Component {...pageProps} />
-            </Layout>
-          </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Layout>
+          <GlobalFonts />
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
     </>
   );
 }
