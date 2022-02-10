@@ -19,7 +19,7 @@ import { GetStaticProps } from "next";
 import { FranChiseDTO } from "../dto/franchise.dto";
 
 interface Props {
-  franchises: FranChiseDTO;
+  franchises: FranChiseDTO[];
   PageTitle: PageTitleDTO;
 }
 
