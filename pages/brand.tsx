@@ -26,22 +26,36 @@ interface Props {
 const Brand = ({ PageTitle }: Props) => {
   const schemaData =
   {
-    
-      "@context": "http://schema.org",
-      "@type": "WebSite",
-      "name": "비오키친",
-      "url": "https://비오키친.kr",
-      "sameAs": [
-        "https://www.instagram.com/beeokitchen"
-      ]
+
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "name": "비오키친",
+    "url": "https://비오키친.kr",
+    "sameAs": [
+      "https://www.instagram.com/beeokitchen"
+    ]
   }
 
 
   return (
     <>
       <Head>
-        <title>브랜드 스토리</title>
-        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록" />
+        <title>비오키친 브랜드스토리</title>
+        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 비오키친은 나쁜 것들을 비워낸다는 의미입니다.
+몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
+비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
+" />
+        <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/brand" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="비오키친 브랜드스토리" />
+        <meta property="og:site_name" content="비오키친 브랜드스토리" />
+        <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/brand" />
+        <meta property="og:image" content="/story-sub1.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 비오키친은 나쁜 것들을 비워낸다는 의미입니다.
+몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
+비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다." key="description" />
       </Head>
       <script
         type="application/ld+json"

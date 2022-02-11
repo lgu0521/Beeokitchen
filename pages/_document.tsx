@@ -13,11 +13,10 @@ class MyDocument extends Document {
                     <meta charSet="utf-8" />
                     <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"/>
                     <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
-                    <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/brand"/>
-
                     <meta name="google-site-verification" content="AMDIh0U1uc2qnbti6OVyxiOuehBj6BTGk0NERU9yums" />
                     <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />
-
+                    
+                    <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr"/>
                     <meta property="og:type" content="website" />
                     <meta property="og:title" content="비오키친" />
                     <meta property="og:site_name" content="다이어트푸드 전문키친" />

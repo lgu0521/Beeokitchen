@@ -38,7 +38,16 @@ const Meau: NextPage<Props> = ({
     <>
       <Head>
         <title>비오키친 메뉴</title>
-        <meta name="description" content="아무리 바빠도, 나를 위한 건강하고 맛있는 한끼" />
+        <meta name="description" content="아무리 바빠도, 나를 위한 건강하고 맛있는 한끼. 키토김밥, 다이어트도시락, 샐러드, 다이어트푸드" />
+        <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/menu" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="비오키친 메뉴" />
+        <meta property="og:site_name" content="다이어트푸드 전문키친" />
+        <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/menu" />
+        <meta property="og:image" content="/story-sub1.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:description" content="아무리 바빠도, 나를 위한 건강하고 맛있는 한끼. 키토김밥, 다이어트도시락, 샐러드, 다이어트푸드" key="description" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <MenuNutritionSection>

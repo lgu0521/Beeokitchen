@@ -29,6 +29,15 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
       <Head>
         <title>비오키친 프랜차이즈</title>
         <meta name="description" content="비오키친과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." />
+        <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/franchise" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="비오키친 프랜차이즈" />
+        <meta property="og:site_name" content="비오키친 프랜차이즈" />
+        <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/franchise" />
+        <meta property="og:image" content="/story-sub1.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:description" content="비오키친과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." key="description" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>

@@ -41,8 +41,17 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   return (
     <div>
       <Head>
-        <title>브랜드 게시판</title>
+        <title>비오키친 브랜드 게시판 | 공지사항</title>
         <meta name="description" content="비오키친의 최신소식과 Q&A를 빠르게 확인하세요" />
+        <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/board" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="비오키친 브랜드 게시판 | 공지사항" />
+        <meta property="og:site_name" content="비오키친 브랜드 게시판 | 공지사항" />
+        <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/board" />
+        <meta property="og:image" content="/story-sub1.png" />
+        <meta property="og:image:width" content="800" />
+        <meta property="og:image:height" content="400" />
+        <meta property="og:description" content="비오키친의 최신소식과 Q&A를 빠르게 확인하세요" key="description" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageMaxNoCSSLayout style={{ textAlign: "center" }}>
