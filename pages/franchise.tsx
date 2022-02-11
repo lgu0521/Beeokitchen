@@ -24,26 +24,6 @@ interface Props {
 }
 
 const StartUpPage = ({ franchises, PageTitle }: Props) => {
-  const [isFormClick, setIsFormClick] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<StartUpFormDTO>();
-
-  const onSubmit = async (data: StartUpFormDTO) => {
-    const res = await fetch(
-      process.env.NEXT_PUBLIC_API_URL + "/api/startup-form/create",
-      {
-        method: "POST",
-        body: JSON.stringify(data),
-      }
-    );
-    if (res) {
-      alert("상담 신청이 완료되었습니다");
-      setIsFormClick(false);
-    }
-  };
   return (
     <>
       <Head>
