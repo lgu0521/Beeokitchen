@@ -27,13 +27,13 @@ interface Props {
 }
 const Brand = ({ PageTitle }: Props) => {
   const router = useRouter();
-  const refreshData = useCallback( () => {
+  const refreshData =  () => {
     router.replace(router.asPath);
-  }, [router]);
+  };
 
   useEffect(() => {
     refreshData()
-  }, [PageTitle, refreshData]);
+  }, [PageTitle]);
   const schemaData =
   {
 

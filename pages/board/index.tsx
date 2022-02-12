@@ -10,6 +10,7 @@ import styled from "styled-components";
 import { PageTitleDTO } from "../../dto/page-title.dto";
 import { useRouter } from "next/dist/client/router";
 import Head from 'next/head';
+
 interface Props {
   noticeList: NoticeListDTO[];
   faqList: FaqDTO[];

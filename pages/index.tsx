@@ -7,21 +7,25 @@ import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useEffect, useCallback } from "react";
-
+import { useEffect, useCallback, useState } from "react";
 interface Props {
   banners: BannerDTO[];
 }
 
 const Home: NextPage<Props> = ({ banners }) => {
   const router = useRouter();
+  const [isRefreshing, setRefreshing] = useState(false);
+
   const refreshData = useCallback(() => {
+    setRefreshing(true);
     router.replace(router.asPath);
   }, [router]);
 
   useEffect(() => {
+    setRefreshing(false);
     refreshData()
   }, [banners, refreshData]);
+
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (
@@ -102,7 +106,6 @@ const MBversion = styled.div`
 export const getStaticProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
   const banners: BannerDTO[] = await res.json();
-
   if (!banners) {
     return {
       notFound: true,
