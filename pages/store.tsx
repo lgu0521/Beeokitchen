@@ -2,7 +2,7 @@ import { GetServerSideProps, GetStaticProps, NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
 import Head from 'next/head';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageMainTitle from "../components/PageMainTitle";
 import { StoreDTO } from "../dto/store.dto";
 import {
@@ -13,12 +13,20 @@ import {
   Title4,
 } from "../components/GlobalComponents";
 import { PageTitleDTO } from "../dto/page-title.dto";
+import { useRouter } from "next/router";
 
 interface Props {
   storeList: StoreDTO[];
   PageTitle: PageTitleDTO;
 }
 const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+  useEffect(() => {
+    refreshData()
+  }, [])
   return (
     <>
       <Head>

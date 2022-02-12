@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { StartUpFormDTO } from "../dto/startup-form.dto";
 import GridBox from "../components/GridBox";
@@ -17,6 +17,7 @@ import styled from "styled-components";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import { GetStaticProps } from "next";
 import { FranChiseDTO } from "../dto/franchise.dto";
+import { useRouter } from "next/router";
 
 interface Props {
   franchises: FranChiseDTO[];
@@ -24,6 +25,13 @@ interface Props {
 }
 
 const StartUpPage = ({ franchises, PageTitle }: Props) => {
+  const router= useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+  useEffect(() => {
+     refreshData()
+  }, [])
   return (
     <>
       <Head>

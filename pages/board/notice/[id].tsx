@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { GetServerSideProps } from "next";
 import { Params } from "next/dist/server/router";
 import Head from 'next/head';
@@ -25,6 +25,13 @@ interface Props {
 }
 
 const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
+  useEffect(() => {
+    refreshData()
+  }, []);
   const TuiNoSSRWrapper = dynamic<ViewerProps>(
     () => import("../../../components/ViewEditor"),
     {
@@ -37,7 +44,6 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   ));
   TuiWrapper.displayName = "Editor";
 
-  const router = useRouter();
   return (
     <div>
       <Head>
@@ -129,7 +135,7 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
 };
 
 export const getServerSideProps: GetServerSideProps = async ({
-  params,}: Params) => {
+  params, }: Params) => {
   const { id } = params;
   const notice: NoticeDetailDTO = await fetch(
     process.env.NEXT_PUBLIC_API_URL + `/api/notice/${id}`

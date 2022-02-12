@@ -19,11 +19,20 @@ import storyIcon2 from "../public/story-icon1.svg";
 import StoryWeb from "../public/brand-story-web.svg";
 import StoryMobile from "../public/brand-story-moblie.svg";
 import Head from 'next/head';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 interface Props {
   PageTitle: PageTitleDTO;
 }
 const Brand = ({ PageTitle }: Props) => {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+  useEffect(() => {
+    refreshData()
+  }, [])
   const schemaData =
   {
 

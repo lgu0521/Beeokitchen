@@ -6,12 +6,21 @@ import { BannerDTO } from "../dto/banner.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 interface Props {
   banners: BannerDTO[];
 }
 
 const Home: NextPage<Props> = ({ banners }) => {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  };
+  useEffect(() => {
+    refreshData()
+  }, []);
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (

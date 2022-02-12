@@ -15,8 +15,10 @@ import {
 //Component
 import PageMainTitle from "../components/PageMainTitle";
 //DTO
-import {MenuCatagoryDTO, MenusWithCatagoryDTO,} from "../dto/menu.dto";
+import { MenuCatagoryDTO, MenusWithCatagoryDTO, } from "../dto/menu.dto";
 import { PageTitleDTO } from "../dto/page-title.dto";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 
 interface Props {
   menusWithCatagory: MenusWithCatagoryDTO[];
@@ -24,16 +26,14 @@ interface Props {
   PageTitle: PageTitleDTO;
 }
 
-const Meau: NextPage<Props> = ({
-  menusWithCatagory,
-  PageTitle,
-  menuCatagorys,
-}) => {
-
-  const DragAndDropItem = (item: any) => {
-    console.log(item);
-  };
-
+const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
+  const router = useRouter();
+  const refreshData = () => {
+    router.replace(router.asPath);
+  }
+  useEffect(() => {
+    refreshData()
+  }, [])
   return (
     <>
       <Head>
