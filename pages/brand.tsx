@@ -20,19 +20,20 @@ import StoryWeb from "../public/brand-story-web.svg";
 import StoryMobile from "../public/brand-story-moblie.svg";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect,useCallback } from "react";
 
 interface Props {
   PageTitle: PageTitleDTO;
 }
 const Brand = ({ PageTitle }: Props) => {
   const router = useRouter();
-  const refreshData = () => {
+  const refreshData = useCallback( () => {
     router.replace(router.asPath);
-  }
+  }, [router]);
+
   useEffect(() => {
     refreshData()
-  }, [])
+  }, [PageTitle, refreshData]);
   const schemaData =
   {
 

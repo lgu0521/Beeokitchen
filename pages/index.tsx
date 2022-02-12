@@ -7,7 +7,7 @@ import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 
 interface Props {
   banners: BannerDTO[];
@@ -15,12 +15,13 @@ interface Props {
 
 const Home: NextPage<Props> = ({ banners }) => {
   const router = useRouter();
-  const refreshData = () => {
+  const refreshData = useCallback(() => {
     router.replace(router.asPath);
-  };
+  }, [router]);
+
   useEffect(() => {
     refreshData()
-  }, []);
+  }, [banners, refreshData]);
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (

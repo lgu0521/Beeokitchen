@@ -17,7 +17,7 @@ import PageMainTitle from "../components/PageMainTitle";
 //DTO
 import { MenuCatagoryDTO, MenusWithCatagoryDTO, } from "../dto/menu.dto";
 import { PageTitleDTO } from "../dto/page-title.dto";
-import { useEffect } from "react";
+import { useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
 
 interface Props {
@@ -28,12 +28,13 @@ interface Props {
 
 const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
   const router = useRouter();
-  const refreshData = () => {
+  const refreshData = useCallback( () => {
     router.replace(router.asPath);
-  }
+  }, [router]);
+
   useEffect(() => {
     refreshData()
-  }, [])
+  }, [menusWithCatagory, refreshData]);
   return (
     <>
       <Head>

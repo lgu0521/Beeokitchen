@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect,useCallback } from "react";
 import { GetServerSideProps } from "next";
 import { Params } from "next/dist/server/router";
 import Head from 'next/head';
@@ -26,12 +26,15 @@ interface Props {
 
 const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   const router = useRouter();
-  const refreshData = () => {
+
+  const refreshData = useCallback( () => {
     router.replace(router.asPath);
-  };
+  }, [router]);
+
   useEffect(() => {
     refreshData()
-  }, []);
+  }, [notice, refreshData]);
+
   const TuiNoSSRWrapper = dynamic<ViewerProps>(
     () => import("../../../components/ViewEditor"),
     {

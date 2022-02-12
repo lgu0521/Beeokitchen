@@ -2,7 +2,7 @@ import { GetStaticProps, NextPage } from "next";
 import PageNationListView from "../../components/PageNationListView";
 import AccordionListView from "../../components/AccordionListView";
 import PageMainTitle from "../../components/PageMainTitle";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { NoticeListDTO } from "../../dto/notice.dto";
 import { FaqDTO } from "../../dto/faq.dto";
 import { PageMaxNoCSSLayout, Title2 } from "../../components/GlobalComponents";
@@ -18,12 +18,13 @@ interface Props {
 
 const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
   const router = useRouter();
-  const refreshData = () => {
+  const refreshData = useCallback(() => {
     router.replace(router.asPath);
-  };
+  }, [router]);
+
   useEffect(() => {
-     refreshData()
-  }, []);
+    refreshData()
+  }, [noticeList, refreshData]);
   const [isFaq, setIsFaq] = useState(router.query.page ? false : true);
   const [isNotice, setIsNotice] = useState(router.query.page ? true : false);
 

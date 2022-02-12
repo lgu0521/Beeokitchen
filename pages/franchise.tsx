@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import { StartUpFormDTO } from "../dto/startup-form.dto";
 import GridBox from "../components/GridBox";
@@ -26,12 +26,13 @@ interface Props {
 
 const StartUpPage = ({ franchises, PageTitle }: Props) => {
   const router= useRouter();
-  const refreshData = () => {
+  const refreshData = useCallback( () => {
     router.replace(router.asPath);
-  }
+  }, [router]);
+
   useEffect(() => {
-     refreshData()
-  }, [])
+    refreshData()
+  }, [franchises, refreshData]);
   return (
     <>
       <Head>
