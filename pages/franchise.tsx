@@ -205,7 +205,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
   );
 };
 
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/franchise"
   );

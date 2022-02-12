@@ -103,7 +103,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
   );
 };
 
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const menuCatagorys: MenuCatagoryDTO[] = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/menu/catagory"
   )

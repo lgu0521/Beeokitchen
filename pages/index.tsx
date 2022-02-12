@@ -90,7 +90,7 @@ const MBversion = styled.div`
   }
 `;
 
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
   const banners: BannerDTO[] = await res.json();
   if (!banners) {

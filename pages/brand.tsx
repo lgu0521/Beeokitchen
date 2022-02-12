@@ -19,9 +19,6 @@ import storyIcon2 from "../public/story-icon1.svg";
 import StoryWeb from "../public/brand-story-web.svg";
 import StoryMobile from "../public/brand-story-moblie.svg";
 import Head from 'next/head';
-import { useRouter } from "next/router";
-import { useEffect, useCallback } from "react";
-
 interface Props {
   PageTitle: PageTitleDTO;
 }
@@ -470,7 +467,7 @@ const ImageWrap = styled.div`
   }
   
 `
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const resPageTitle = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/page-title/Brand"
   );
@@ -487,4 +484,5 @@ export const getStaticProps: GetServerSideProps = async (context) => {
     },
   };
 };
+
 export default Brand;

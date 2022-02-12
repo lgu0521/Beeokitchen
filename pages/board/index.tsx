@@ -84,7 +84,7 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
   );
 };
 
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const resNotice = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/notice/"
   );

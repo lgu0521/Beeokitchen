@@ -154,7 +154,7 @@ const TextWrap = styled.div`
   }
 `;
 
-export const getStaticProps: GetServerSideProps = async (context) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/store");
   const storeList: StoreDTO[] = await res.json();
   const resPageTitle = await fetch(
