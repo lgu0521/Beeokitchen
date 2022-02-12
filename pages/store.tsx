@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import styled from "styled-components";
 import Image from "next/image";
 import Head from 'next/head';
@@ -20,14 +20,7 @@ interface Props {
   PageTitle: PageTitleDTO;
 }
 const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
-  const router = useRouter();
-  const refreshData = useCallback( () => {
-    router.replace(router.asPath);
-  }, [router]);
 
-  useEffect(() => {
-    refreshData()
-  }, [storeList, refreshData]);
   return (
     <>
       <Head>
@@ -161,7 +154,7 @@ const TextWrap = styled.div`
   }
 `;
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/store");
   const storeList: StoreDTO[] = await res.json();
   const resPageTitle = await fetch(

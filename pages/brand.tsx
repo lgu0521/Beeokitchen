@@ -10,7 +10,7 @@ import {
 import styled from "styled-components";
 import Image from "next/image";
 import PageMainTitle from "../components/PageMainTitle";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import Story1 from "../public/story-sub1.png";
 import Story2 from "../public/story-sub2.png";
@@ -20,20 +20,13 @@ import StoryWeb from "../public/brand-story-web.svg";
 import StoryMobile from "../public/brand-story-moblie.svg";
 import Head from 'next/head';
 import { useRouter } from "next/router";
-import { useEffect,useCallback } from "react";
+import { useEffect, useCallback } from "react";
 
 interface Props {
   PageTitle: PageTitleDTO;
 }
 const Brand = ({ PageTitle }: Props) => {
-  const router = useRouter();
-  const refreshData =  () => {
-    router.replace(router.asPath);
-  };
 
-  useEffect(() => {
-    refreshData()
-  }, [PageTitle]);
   const schemaData =
   {
 
@@ -477,7 +470,7 @@ const ImageWrap = styled.div`
   }
   
 `
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const resPageTitle = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/page-title/Brand"
   );

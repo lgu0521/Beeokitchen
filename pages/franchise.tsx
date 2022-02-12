@@ -1,21 +1,12 @@
 import React, { useEffect, useCallback } from "react";
-import { useForm } from "react-hook-form";
-import { StartUpFormDTO } from "../dto/startup-form.dto";
 import GridBox from "../components/GridBox";
 import Head from 'next/head';
-import {
-  PageMaxNoCSSLayout,
-  PageFullWidthLayout,
-  Title3,
-  Title2,
-  Title4,
-  Title5,
-} from "../components/GlobalComponents";
+import { PageMaxNoCSSLayout, PageFullWidthLayout, Title3, Title2, Title4, Title5, } from "../components/GlobalComponents";
 import PageMainTitle from "../components/PageMainTitle";
 import StartUpModal from "../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
 import { PageTitleDTO } from "../dto/page-title.dto";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import { FranChiseDTO } from "../dto/franchise.dto";
 import { useRouter } from "next/router";
 
@@ -25,14 +16,6 @@ interface Props {
 }
 
 const StartUpPage = ({ franchises, PageTitle }: Props) => {
-  const router= useRouter();
-  const refreshData = useCallback( () => {
-    router.replace(router.asPath);
-  }, [router]);
-
-  useEffect(() => {
-    refreshData()
-  }, [franchises, refreshData]);
   return (
     <>
       <Head>
@@ -222,7 +205,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const res = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/franchise"
   );

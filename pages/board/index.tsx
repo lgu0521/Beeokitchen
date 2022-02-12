@@ -1,4 +1,4 @@
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import PageNationListView from "../../components/PageNationListView";
 import AccordionListView from "../../components/AccordionListView";
 import PageMainTitle from "../../components/PageMainTitle";
@@ -19,13 +19,6 @@ interface Props {
 
 const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
   const router = useRouter();
-  const refreshData = useCallback(() => {
-    router.replace(router.asPath);
-  }, [router]);
-
-  useEffect(() => {
-    refreshData()
-  }, [noticeList, refreshData]);
   const [isFaq, setIsFaq] = useState(router.query.page ? false : true);
   const [isNotice, setIsNotice] = useState(router.query.page ? true : false);
 
@@ -91,7 +84,7 @@ const BrandPage: NextPage<Props> = ({ noticeList, faqList, PageTitle }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const resNotice = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/notice/"
   );

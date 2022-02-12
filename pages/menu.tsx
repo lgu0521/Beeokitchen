@@ -1,5 +1,5 @@
 //Basic
-import { GetStaticProps, NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 import Image from "next/image";
 import Head from 'next/head';
 //Style
@@ -27,14 +27,6 @@ interface Props {
 }
 
 const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
-  const router = useRouter();
-  const refreshData = useCallback( () => {
-    router.replace(router.asPath);
-  }, [router]);
-
-  useEffect(() => {
-    refreshData()
-  }, [menusWithCatagory, refreshData]);
   return (
     <>
       <Head>
@@ -111,7 +103,7 @@ const Meau: NextPage<Props> = ({ menusWithCatagory, PageTitle }) => {
   );
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetServerSideProps = async (context) => {
   const menuCatagorys: MenuCatagoryDTO[] = await fetch(
     process.env.NEXT_PUBLIC_API_URL + "/api/menu/catagory"
   )

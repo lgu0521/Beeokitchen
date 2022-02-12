@@ -14,17 +14,14 @@ interface Props {
 
 const Home: NextPage<Props> = ({ banners }) => {
   const router = useRouter();
-  const [isRefreshing, setRefreshing] = useState(false);
 
   const refreshData = useCallback(() => {
-    setRefreshing(true);
     router.replace(router.asPath);
   }, [router]);
 
   useEffect(() => {
-    setRefreshing(false);
-    refreshData()
-  }, [banners, refreshData]);
+    refreshData();
+  });
 
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
