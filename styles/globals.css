@@ -190,10 +190,6 @@ br {
   }
 }
 
-.editor ol, ul {
-  list-style-type: auto !important;
-}
-
 .hrgDUS{
   display: none !important;
 }
