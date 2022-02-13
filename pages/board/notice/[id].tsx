@@ -1,7 +1,8 @@
-import React, { useEffect,useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { GetServerSideProps } from "next";
 import { Params } from "next/dist/server/router";
 import Head from 'next/head';
+import MarkdownEditor from "rich-markdown-editor";
 import {
   NoticeCurrentAndAfterAndBefroeListDTO,
   NoticeDetailDTO
@@ -69,7 +70,8 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
           <Tbody>
             <tr>
               <th rowSpan={2}>
-                <Title4>{<TuiWrapper initialValue={notice.content} />}</Title4>
+                <Title4 className="editor">{
+                  <MarkdownEditor value={notice.content} readOnly={true}/>}</Title4>
               </th>
             </tr>
           </Tbody>

@@ -189,3 +189,11 @@ br {
     margin: 0px 8px !important;
   }
 }
+
+.editor ol, ul {
+  list-style-type: auto !important;
+}
+
+.hrgDUS{
+  display: none !important;
+}
