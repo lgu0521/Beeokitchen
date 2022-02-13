@@ -26,15 +26,6 @@ interface Props {
 
 const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
   const router = useRouter();
-
-  const refreshData = useCallback( () => {
-    router.replace(router.asPath);
-  }, [router]);
-
-  useEffect(() => {
-    refreshData()
-  }, [notice, refreshData]);
-
   const TuiNoSSRWrapper = dynamic<ViewerProps>(
     () => import("../../../components/ViewEditor"),
     {
