@@ -48,6 +48,21 @@ const Home: NextPage<Props> = ({ banners }) => {
               </div>)
             )}
           </Carousel>
+          <Carousel
+            showThumbs={false}
+            swipeable={false}
+            autoPlay={false}
+            showStatus={false}
+            showArrows={true}
+            stopOnHover={false}
+            showIndicators={false}
+          >
+            {PcBanner.map((item, key) => (
+              <div key={key}>
+                <Img src={item.downloadUrl} alt="" />
+              </div>)
+            )}
+          </Carousel>
         </PCversion>
         <MBversion>
           <Carousel

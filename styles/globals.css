@@ -193,3 +193,32 @@ br {
 .hrgDUS{
   display: none !important;
 }
+
+.carousel .control-prev.control-arrow:before,
+.control-next.control-arrow:before {
+  border-left: 0px !important;
+  border-right: 0px !important;
+  border-top: 0px !important;
+  border-bottom: 0px !important;
+}
+
+.carousel .control-prev.control-arrow:before {
+  background:url("/left-arrow.svg") no-repeat center/32px 32px; 
+  width: 32px;
+  height: 32px;
+  opacity: 1 !important;
+}
+
+.carousel .control-next.control-arrow:before {
+  background:url("/right-arrow.svg") no-repeat center/32px 32px; 
+  width: 32px;
+  height: 32px;
+}
+
+.carousel.carousel-slider .control-arrow:hover {
+  background: none !important;
+}
+
+.carousel .control-arrow, .carousel.carousel-slider .control-arrow{
+    opacity: 1 !important;
+}

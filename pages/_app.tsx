@@ -9,7 +9,7 @@ import '../public/nprogress.css'
 import { useEffect } from "react";
 import Router from "next/router";
 import Head from "next/head";
-
+import SideBanner from '../components/SideBanner';
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     const handleStart = (url: string) => {
@@ -39,6 +39,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={theme}>
         <Layout>
+          <SideBanner/>
           <GlobalFonts />
           <Component {...pageProps} />
         </Layout>
