@@ -13,8 +13,22 @@ const SideBanner = () => {
     const [formValues, setFormValues] = useState(initialValues);
     const [disable, setDisable] = useState(false);
 
-    const handlerOnSubmit = () => {
-        console.log(formValues);
+    const handlerOnSubmit = async () => {
+        try {
+            await fetch(
+                process.env.NEXT_PUBLIC_API_URL + "/api/simple-signup",
+                {
+                    method: "POST",
+                    body: JSON.stringify(formValues),
+                }
+            );
+            alert("문의가 접수되었습니다. 담당자가 빠른 확인 후 연락드리도록 하겠습니다");
+            if (typeof window != null) {
+                window.location.reload();
+            }
+        } catch (e) {
+            alert("다시 시도해주세요");
+        }
     }
 
     const handlerOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -132,7 +146,7 @@ const CheckBox = styled.div`
   }
 `;
 
-const ArrowImage = styled(Image)<{ isClick: boolean }>`
+const ArrowImage = styled(Image) <{ isClick: boolean }>`
    transform:  ${(props) => props.isClick ? 'rotate(0turn)' : 'rotate(0.5turn)'};
 `
 const Button = styled.button`
