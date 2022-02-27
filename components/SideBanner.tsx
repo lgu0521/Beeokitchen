@@ -16,7 +16,7 @@ const SideBanner = () => {
     const handlerOnSubmit = async () => {
         try {
             await fetch(
-                process.env.NEXT_PUBLIC_API_URL + "/api/simple-signup",
+                process.env.NEXT_PUBLIC_API_URL + "/api/simple-signup/create",
                 {
                     method: "POST",
                     body: JSON.stringify(formValues),
