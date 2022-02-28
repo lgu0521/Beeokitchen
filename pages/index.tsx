@@ -6,13 +6,13 @@ import { BannerDTO } from "../dto/banner.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
-import { useRouter } from "next/router";
-import { useEffect, useCallback, useState } from "react";
+
 interface Props {
   banners: BannerDTO[];
+  miniBanners: BannerDTO[];
 }
 
-const Home: NextPage<Props> = ({ banners }) => {
+const Home: NextPage<Props> = ({ banners, miniBanners }) => {
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (
@@ -41,10 +41,28 @@ const Home: NextPage<Props> = ({ banners }) => {
             showStatus={false}
             showArrows={false}
             stopOnHover={false}
+            interval={5000}
           >
             {PcBanner.map((item, key) => (
               <div key={key}>
-                <Img src={item.downloadUrl} alt="" />
+                <PcImg src={item.downloadUrl} alt="" />
+              </div>)
+            )}
+          </Carousel>
+          <Carousel
+            showThumbs={false}
+            swipeable={false}
+            autoPlay={false}
+            infiniteLoop={false}
+            showStatus={false}
+            showArrows={true}
+            stopOnHover={false}
+            showIndicators={false}
+            dynamicHeight={true}
+          >
+            {miniBanners.filter((val) => { if (val.type == 'PC') return val }).map((item, key) => (
+              <div key={key}>
+                <img src={item.downloadUrl} alt="" />
               </div>)
             )}
           </Carousel>
@@ -52,7 +70,7 @@ const Home: NextPage<Props> = ({ banners }) => {
         <MBversion>
           <Carousel
             showThumbs={false}
-            swipeable={true}
+            swipeable={false}
             autoPlay={true}
             infiniteLoop={true}
             showStatus={false}
@@ -61,7 +79,23 @@ const Home: NextPage<Props> = ({ banners }) => {
           >
             {MbBanner.map((item, key) => (
               <div key={key}>
-                <Img src={item.downloadUrl} alt="" />
+                <MbImg src={item.downloadUrl} alt="" />
+              </div>)
+            )}
+          </Carousel>
+          <Carousel
+            showThumbs={false}
+            swipeable={true}
+            autoPlay={false}
+            infiniteLoop={false}
+            showStatus={false}
+            showArrows={true}
+            stopOnHover={false}
+            showIndicators={false}
+          >
+            {miniBanners.filter((val) => { if (val.type == 'PC') return val }).map((item, key) => (
+              <div key={key}>
+                <img src={item.downloadUrl} alt="" />
               </div>)
             )}
           </Carousel>
@@ -71,8 +105,12 @@ const Home: NextPage<Props> = ({ banners }) => {
   );
 };
 
-const Img = styled.img`
+const PcImg = styled.img`
   height: 69vh;
+  object-fit: cover;
+`;
+const MbImg = styled.img`
+  height: 45vh;
   object-fit: cover;
 `;
 
@@ -93,7 +131,9 @@ const MBversion = styled.div`
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/banner");
   const banners: BannerDTO[] = await res.json();
-  if (!banners) {
+  const res2 = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/minibanner");
+  const miniBanners: BannerDTO[] = await res2.json();
+  if (!banners && !miniBanners) {
     return {
       notFound: true,
     };
@@ -101,7 +141,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
   return {
     props: {
-      banners
+      banners,
+      miniBanners
     },
   };
 };

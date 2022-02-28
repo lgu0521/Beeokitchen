@@ -45,12 +45,12 @@ const SideBanner = () => {
             <ArrowImage isClick={disable} src={SideBannerIcon} alt="사이드배너 화살표" onClick={handlerOnArrowClick} />
             <BoxContainer layout={disable}>
                 <BoxHeader>
-                    <Title3 style={{
+                    <Typograpy style={{
                         color: 'white'
-                    }}>창업 간편상담</Title3>
-                    <Title3 style={{
+                    }}>창업 간편상담</Typograpy>
+                    <Typograpy style={{
                         color: '#E3B59F', fontWeight: 700
-                    }}>031.704.0337</Title3>
+                    }}>031.704.0337</Typograpy>
                 </BoxHeader>
                 <BoxContent>
                     <form onSubmit={handlerOnSubmit}>
@@ -72,9 +72,7 @@ const SideBanner = () => {
                                 <span>개인정보 수집 및 이용동의</span>
                             </Title6>
                         </CheckBox>
-                        <Button>
-                            <Title4 style={{ fontWeight: 700 }}>제출</Title4>
-                        </Button>
+                        <Button>제출</Button>
                     </form>
                 </BoxContent>
             </BoxContainer>
@@ -84,7 +82,7 @@ const SideBanner = () => {
 
 const BoxWrapper = styled.div`
   position: fixed;
-  z-index: 1;
+  z-index: 9998;
   top: 30%;
   right: 0px;
   display: flex;
@@ -99,6 +97,11 @@ const BoxContainer = styled.div<{ layout: boolean }>`
     border-radius: 15px 0px 0px 15px;
     transition: width 0.1s;
     overflow: hidden;
+`
+
+const Typograpy = styled.p`
+    font-size: 20px;
+    line-height: 1.28;
 `
 const BoxHeader = styled.div`
     margin-bottom: 15px;
@@ -158,5 +161,7 @@ const Button = styled.button`
     border-radius: 15px;
     margin: 20px 0px;
     cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
 `
 export default SideBanner;
