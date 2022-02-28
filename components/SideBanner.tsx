@@ -72,7 +72,9 @@ const SideBanner = () => {
                                 <span>개인정보 수집 및 이용동의</span>
                             </Title6>
                         </CheckBox>
-                        <Button>제출</Button>
+                        <Button>
+                            <Title4 style={{ fontWeight: 700 }}>제출</Title4>
+                        </Button>
                     </form>
                 </BoxContent>
             </BoxContainer>
@@ -91,37 +93,80 @@ const BoxWrapper = styled.div`
 
 const BoxContainer = styled.div<{ layout: boolean }>`
     position: relative;
-    width: ${(props) => props.layout ? '0px' : '200px'};
-    height: 330px;
     background-color: #202020;
     border-radius: 15px 0px 0px 15px;
     transition: width 0.1s;
     overflow: hidden;
+    @media only screen and (max-width: 600px) {
+        width: ${(props) => props.layout ? '0px' : '160px'};
+        padding: ${(props) => props.layout ? '0px' : '25px 18px'};
+    }
+    @media only screen and (min-width: 600px) {
+        width: ${(props) => props.layout ? '0px' : '180px'};
+        padding: ${(props) => props.layout ? '0px' : '30px 18px'};
+    }
+    @media only screen and (min-width: 992px) {
+        width: ${(props) => props.layout ? '0px' : '200px'};
+        padding: ${(props) => props.layout ? '0px' : '40px 18px'};
+    }
 `
 
-const Typograpy = styled.p`
-    font-size: 20px;
-    line-height: 1.28;
-`
 const BoxHeader = styled.div`
     margin-bottom: 15px;
-    padding-top: 40px;
-    padding-left: 18px;
-    padding-right: 18px;
+`
+
+const Typograpy = styled.h3`
+    letter-spacing: 0px;
+    line-height: 1.28;
+    @media only screen and (max-width: 600px) {
+        font-size: ${(props) => props.theme.fontSizes.title5};
+        width: 130px;
+    }
+    @media only screen and (min-width: 600px) {
+        font-size: ${(props) => props.theme.fontSizes.title4};
+        width: 130px;
+    }
+    @media only screen and (min-width: 992px) {
+        font-size: ${(props) => props.theme.fontSizes.title3};
+    }
 `
 const BoxContent = styled.div`
     color: white;
-    padding: 0px 18px;
     input{
         color: black;
-        width: 150px;
         height: 40px;
         border-radius: 6px;
-        font-size: 20px;
         outline: none;
         border: 0px;
         padding: 10px;
         margin: 5px 0px;
+        letter-spacing: 0px;
+        line-height: 1.28;
+        @media only screen and (max-width: 310px) {
+            letter-spacing: 0px !important;
+            font-size: 0.8rem;
+            width: 130px;
+        }
+        @media only screen and (min-width: 310px) {
+            font-size: ${(props) => props.theme.fontSizes.title8};
+            width: 130px;
+        }
+        @media only screen and (min-width: 600px) {
+            font-size: ${(props) => props.theme.fontSizes.title6};
+            width: 130px;
+        }
+        @media only screen and (min-width: 768px) {
+            font-size: ${(props) => props.theme.fontSizes.title5};
+            width: 140px;
+        }
+        @media only screen and (min-width: 992px) {
+            font-size: ${(props) => props.theme.fontSizes.title5};
+            width: 150px;
+        }
+        @media only screen and (min-width: 1200px) {
+            font-size: ${(props) => props.theme.fontSizes.title3};
+            width: 150px;
+        }
     }
 `
 
@@ -150,19 +195,51 @@ const CheckBox = styled.div`
 `;
 
 const ArrowImage = styled(Image) <{ isClick: boolean }>`
-   transform:  ${(props) => props.isClick ? 'rotate(0turn)' : 'rotate(0.5turn)'};
+    position: relative;
+    left: auto !important;
+    transform:  ${(props) => props.isClick ? 'rotate(0turn)' : 'rotate(0.5turn)'};
+    @media only screen and (max-width: 600px) {
+        min-width: 38px !important;
+        min-height: 38px !important;
+        max-width: 38px !important;
+        max-height: 38px !important;
+    }
+    @media only screen and (min-width: 600px) {
+        min-width: 43px !important;
+        min-height: 43px !important;
+        max-width: 43px !important;
+        max-height: 43px !important;
+    }
+    @media only screen and (min-width: 992px) {
+        min-width: 48px !important;
+        min-height: 48px !important;
+        max-width: 48px !important;
+        max-height: 48px !important;
+    }
 `
 const Button = styled.button`
     background-color: #E3B59F;
-    width: 60px;
-    height: 45px;
     border: 0px;
     outline: none;
     border-radius: 15px;
-    margin: 20px 0px;
     cursor: pointer;
     font-size: 15px;
     font-weight: 700;
     color: black;
+    @media only screen and (max-width: 600px) {
+        width: 50px;
+        height: 35px;
+        margin-top: 10px;
+    }
+    @media only screen and (min-width: 600px) {
+        margin-top: 15px;
+        width: 50px;
+        height: 38px;
+    }
+    @media only screen and (min-width: 992px) {
+        margin-top: 20px;
+        width: 60px;
+        height: 45px;
+    }
 `
 export default SideBanner;
