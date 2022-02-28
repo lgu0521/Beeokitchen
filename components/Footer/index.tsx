@@ -38,6 +38,11 @@ const Footer = () => {
                 RESERVED
               </Title6>
             </li>
+            <li>
+              <Title6 style={{ color: "white" }}>
+                <strong>창업문의</strong> 31.704.0337
+              </Title6>
+            </li>
           </ul>
           <Image width={60} height={60} src={Logo} objectFit="cover" alt="" />
         </footer>
