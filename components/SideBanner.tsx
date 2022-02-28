@@ -83,7 +83,7 @@ const SideBanner = () => {
 const BoxWrapper = styled.div`
   position: fixed;
   z-index: 9998;
-  top: 30%;
+  top: 15%;
   right: 0px;
   display: flex;
   flex-direction: row;
@@ -163,5 +163,6 @@ const Button = styled.button`
     cursor: pointer;
     font-size: 15px;
     font-weight: 700;
+    color: black;
 `
 export default SideBanner;

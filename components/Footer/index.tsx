@@ -40,7 +40,7 @@ const Footer = () => {
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>창업문의</strong> 31.704.0337
+                <strong>창업문의</strong> 031.704.0337
               </Title6>
             </li>
           </ul>
@@ -84,7 +84,7 @@ const Footer = () => {
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>창업문의</strong> 31.704.0337
+                <strong>창업문의</strong> 031.704.0337
               </Title6>
             </li>
           </ul>
