@@ -242,6 +242,9 @@ const ArrowImage = styled(Image) <{ isClick: boolean }>`
     }
 `
 const Button = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #E3B59F;
     border: 0px;
     outline: none;
