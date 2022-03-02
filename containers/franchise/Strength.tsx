@@ -4,6 +4,7 @@ import Title from '../../public/franchise-strength-title.svg';
 import SubIcon1 from '../../public/franchise-strength-subIcon1.svg';
 import SubIcon2 from '../../public/franchise-strength-subIcon2.svg';
 import SubIcon3 from '../../public/franchise-strength-subIcon3.svg';
+import Icon from '../../public/franchise-strength-icon.svg';
 import Image from 'next/image';
 import styled from "styled-components";
 const StrengthSection = () => {
@@ -19,7 +20,7 @@ const StrengthSection = () => {
                 </ContentHeader>
                 <ContentMain>
                     <Line />
-                    <Image src={SubIcon1} width={110} height={110} alt="로고" />
+                    <Image src={Icon} width={110} height={110} alt="로고" />
                 </ContentMain>
                 <ContentFooter>
                     <Image src={Title} width={423} height={114} alt="비오키친 창업강점" />
@@ -179,12 +180,15 @@ const Line = styled.hr`
     border-left: 4px solid #006F39;
     @media only screen and (max-width: 600px) {
         height: 150px;
+        margin-bottom: 18px;
     }
     @media only screen and (min-width: 600px) {
         height: 200px;
+        margin-bottom: 23px;
     }
     @media only screen and (min-width: 992px) {
         height: 245px;
+        margin-bottom: 25px;
     }
 `
 
