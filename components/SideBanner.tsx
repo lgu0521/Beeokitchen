@@ -95,6 +95,9 @@ const BoxWrapper = styled.div`
   right: 0px;
   display: flex;
   flex-direction: row;
+  @media only screen and (max-width: 600px) {
+    top: 20% !important;
+}
 `
 
 const BoxContainer = styled.div<{ layout: boolean }>`
