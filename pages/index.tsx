@@ -6,13 +6,15 @@ import { BannerDTO } from "../dto/banner.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
+import PopUp from "../components/PopUp";
 
 interface Props {
   banners: BannerDTO[];
   miniBanners: BannerDTO[];
+  popupBanners: BannerDTO[];
 }
 
-const Home: NextPage<Props> = ({ banners, miniBanners }) => {
+const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
   const PcBanner: BannerDTO[] = banners.filter((item) => item.type == 'PC');
   const MbBanner: BannerDTO[] = banners.filter((item) => item.type == 'MB');
   return (
@@ -100,10 +102,31 @@ const Home: NextPage<Props> = ({ banners, miniBanners }) => {
             )}
           </Carousel>
         </MBversion>
+        <PopupWrapper>
+          <PopupContainer>
+            {
+              popupBanners.map((item, k) => (
+                <PopUp key={k} image={item} />
+              ))
+            }
+          </PopupContainer>
+        </PopupWrapper>
       </PageFullWidthLayout>
     </>
   );
 };
+
+const PopupWrapper = styled.div`
+  z-index: 77777;
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: left;
+`
+
+const PopupContainer = styled.div`
+  position: relative;
+`
 
 const PcImg = styled.img`
   height: 69vh;
@@ -133,7 +156,9 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const banners: BannerDTO[] = await res.json();
   const res2 = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/minibanner");
   const miniBanners: BannerDTO[] = await res2.json();
-  if (!banners && !miniBanners) {
+  const res3 = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/popup");
+  const popupBanners: BannerDTO[] = await res3.json();
+  if (!banners && !miniBanners && !popupBanners) {
     return {
       notFound: true,
     };
@@ -142,7 +167,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
       banners,
-      miniBanners
+      miniBanners,
+      popupBanners
     },
   };
 };

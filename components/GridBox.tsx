@@ -51,13 +51,13 @@ const ContentBox = styled.div`
   display: inline-block;
   line-height: 170%;
   @media only screen and (max-width: 600px) {
-    margin: 20px 0px 40px 0px;
+    margin: 20px 0px 0px 0px;
   }
   @media only screen and (min-width: 600px) {
-    margin: 30px 0px 80px 0px;
+    margin: 30px 0px 0px 0px;
   }
   @media only screen and (min-width: 768px) {
-    margin: 40px 0px 120px 0px;
+    margin: 40px 0px 0px 0px;
   }
 `;
 const GridItem = styled.div<GridItemProps>`

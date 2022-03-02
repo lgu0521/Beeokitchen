@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import GridBox from "../components/GridBox";
 import Head from 'next/head';
-import { PageMaxNoCSSLayout, PageFullWidthLayout, Title3, Title2, Title4, Title5, } from "../components/GlobalComponents";
+import { PageMaxNoCSSLayout, PromotionTitle1, PromotionTitle2, PageFullWidthLayout, Title3, Title2, Title4, Title5, Title1, } from "../components/GlobalComponents";
 import PageMainTitle from "../components/PageMainTitle";
 import StartUpModal from "../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
@@ -9,6 +9,10 @@ import { PageTitleDTO } from "../dto/page-title.dto";
 import { GetServerSideProps } from "next";
 import { FranChiseDTO } from "../dto/franchise.dto";
 import { useRouter } from "next/router";
+import StrengthSection from "../containers/franchise/Strength";
+import DeliveryContent from "../containers/franchise/DeliveryContent";
+import PcWrapper from "../components/PcWrapper";
+import MbWrapper from "../components/MbWrapper";
 
 interface Props {
   franchises: FranChiseDTO[];
@@ -35,20 +39,44 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
       <PageFullWidthLayout>
         <BackgroundWrap>
           <PageMaxNoCSSLayout>
-            <Wrap>
-              <Title2 style={{ fontWeight: 600, color: "#ffffff" }}>
-                가맹절차
-            </Title2>
-            </Wrap>
-            <GridBox
-              boxItems={franchises}
-              col={4}
-              mdCol={3}
-              smCol={2}
-              height="100px"
-            />
+            <Container>
+              <Content>
+                <PromotionTitle2>2022년, 비오키친 지원</PromotionTitle2>
+                <PromotionTitle1 style={{ fontWeight: 700 }}> 창업혜택 안내</PromotionTitle1>
+              </Content>
+            <PcWrapper>
+            <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도<br />
+                많은 분들의 사랑으로 빠르게 성장했습니다.
+              </Title2>
+              <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+            </PcWrapper>
+            <MbWrapper>
+            <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.감사의 마음을 담았습니다.</Title2>
+            </MbWrapper>
+            </Container>
           </PageMaxNoCSSLayout>
         </BackgroundWrap>
+      </PageFullWidthLayout>
+      <PageFullWidthLayout>
+        <PageMaxNoCSSLayout>
+          <StrengthSection />
+        </PageMaxNoCSSLayout>
+      </PageFullWidthLayout>
+      <PageFullWidthLayout>
+        <PageMaxNoCSSLayout>
+          <Wrap>
+            <Title2 style={{ fontWeight: 600, color: "#03502C" }}>
+              가맹절차
+            </Title2>
+          </Wrap>
+          <GridBox
+            boxItems={franchises}
+            col={4}
+            mdCol={3}
+            smCol={2}
+            height="100px"
+          />
+        </PageMaxNoCSSLayout>
       </PageFullWidthLayout>
       <PageMaxNoCSSLayout
         style={{
@@ -172,23 +200,26 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
               </tr>
             </Tfoot>
           </Table>
-          <TextUl>
-            <li>
-              <Title5>
-                별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
+          <ContentFooter>
+            <TextUl>
+              <li>
+                <Title5>
+                  별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
               </Title5>
-            </li>
-            <li>
-              <Title5>
-                가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
+              </li>
+              <li>
+                <Title5>
+                  가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
               </Title5>
-            </li>
-            <li>
-              <Title5>
-                매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
+              </li>
+              <li>
+                <Title5>
+                  매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
               </Title5>
-            </li>
-          </TextUl>
+              </li>
+            </TextUl>
+            <DeliveryContent/>
+          </ContentFooter>
         </ContentWrap>
       </PageMaxNoCSSLayout>
       <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }}>
@@ -229,6 +260,51 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   };
 };
 
+const ContentFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media only screen and (max-width: 600px) {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+`
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  @media only screen and (max-width: 600px) {
+    height: 350px;
+  }
+  @media only screen and (min-width: 600px) {
+    height: 490px;
+  }
+  @media only screen and (min-width: 768px) {
+    height: 590px;
+  }
+  @media only screen and (min-width: 992px) {
+    height: 690px;
+  }
+`;
+
+const Content = styled.div`
+  letter-spacing: 10px !important;
+  @media only screen and (max-width: 600px) {
+      margin-bottom: 30px;
+  }
+  @media only screen and (min-width: 600px) {
+      margin-bottom: 40px;
+  }
+  @media only screen and (min-width: 768px) {
+      margin-bottom: 50px;
+  }
+  @media only screen and (min-width: 992px) {
+      margin-bottom: 60px;
+  }
+`
 const ContentWrap = styled.div`
   width: 100%;
   display: inline-block;
@@ -272,6 +348,7 @@ export const Table = styled.table`
   width: 100%;
   line-height: 22px;
   text-align: left;
+  overflow-y: scroll;
   tr {
     vertical-align: middle;
     border-top: 0.5px solid #008b48;
@@ -295,12 +372,6 @@ export const Table = styled.table`
   }
   td:nth-child(3) {
     font-weight: 500;
-  }
-  th:nth-child(3),
-  td:nth-child(3) {
-    @media only screen and (max-width: 600px) {
-      display: none;
-    }
   }
 `;
 

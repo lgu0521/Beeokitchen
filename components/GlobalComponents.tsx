@@ -1,5 +1,39 @@
 import styled from "styled-components";
 
+const PromotionTitle1 = styled.h1`
+  letter-spacing: -3px;
+  line-height: 1.3;
+  @media only screen and (max-width: 600px) {
+    font-size:  35px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 45px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 55px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: ${(props) => props.theme.fontSizes.promotionTitle1};
+  }
+`;
+
+const PromotionTitle2 = styled.h1`
+  letter-spacing: -3px;
+  line-height: 1.3;
+  @media only screen and (max-width: 600px) {
+    font-size: 30px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 40px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 50px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: ${(props) => props.theme.fontSizes.promotionTitle2};
+  }
+`;
+
 const Title1 = styled.h1`
   letter-spacing: -3px;
   line-height: 1.3;
@@ -22,7 +56,7 @@ const Title1 = styled.h1`
 
 const Title2 = styled.h2`
   letter-spacing: 1px;
-  line-height: 1.36;
+  line-height: 1.3;
   @media only screen and (max-width: 600px) {
     font-size: 2rem;
   }
@@ -135,6 +169,8 @@ export {
   PageFullWidthLayout,
   PageMaxNoCSSLayout,
   MarginOrPaddingLayout,
+  PromotionTitle1,
+  PromotionTitle2
 };
 
 interface PropsType {
