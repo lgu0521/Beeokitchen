@@ -2,11 +2,11 @@ import Image from "next/image";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Cookies } from "react-cookie";
 import styled from "styled-components";
-import { BannerDTO } from "../dto/banner.dto";
+import { PopupDto } from "../dto/popup.dto";
 import { Title6 } from "./GlobalComponents";
-
+import Link from 'next/link';
 type Props = {
-    image: BannerDTO;
+    image: PopupDto;
 };
 
 const PopUp: React.FC<Props> = ({ image }) => {
@@ -37,6 +37,8 @@ const PopUp: React.FC<Props> = ({ image }) => {
     return (
         isShow == true ?
             <Container>
+                <Link href={image.link}>
+                <a>
                 <Image src={image.downloadUrl} width={431} height={512} alt="팝업 이미지" />
                 <ContentFooter>
                     <Button>
@@ -46,6 +48,8 @@ const PopUp: React.FC<Props> = ({ image }) => {
                         <Title6 onClick={() => setIsShow(false)}>닫기</Title6>
                     </Button>
                 </ContentFooter>
+                </a>
+                </Link>
             </Container> : null
     )
 }
@@ -54,6 +58,7 @@ const PopUp: React.FC<Props> = ({ image }) => {
 const Container = styled.div`
     display: inline-block;
     background-color: #008B48;
+    border: 2px solid #D8D8D8;
     margin-right: 10px;
     @media only screen and (max-width: 600px) {
         position: absolute;
@@ -63,8 +68,9 @@ const Container = styled.div`
 
 const ContentFooter = styled.div`
     width: 100%;
+    border-top: 2px solid #D8D8D8;
     button:nth-child(1){
-        border-right: 3px solid black;
+        border-right: 3px solid #D8D8D8;
     }
 `
 const Button = styled.button`
@@ -76,7 +82,8 @@ const Button = styled.button`
     font-weight: ${(props) => props.theme.fontWeight.SemiBold};
     background-color: #008B48;
     &:hover {
-        background-color: #007A40;
+        background-color: black;
+        color: #008B48;
         transition: background-color 0.3s;
         -webkit-transition: background-color 0.3s;
     }

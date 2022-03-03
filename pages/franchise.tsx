@@ -44,15 +44,15 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <PromotionTitle2>2022년, 비오키친 지원</PromotionTitle2>
                 <PromotionTitle1 style={{ fontWeight: 700 }}> 창업혜택 안내</PromotionTitle1>
               </Content>
-            <PcWrapper>
-            <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도<br />
+              <PcWrapper>
+                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도<br />
                 많은 분들의 사랑으로 빠르게 성장했습니다.
               </Title2>
-              <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
-            </PcWrapper>
-            <MbWrapper>
-            <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.감사의 마음을 담았습니다.</Title2>
-            </MbWrapper>
+                <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+              </PcWrapper>
+              <MbWrapper>
+                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.감사의 마음을 담았습니다.</Title2>
+              </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>
         </BackgroundWrap>
@@ -86,12 +86,13 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
           alignItems: "center",
         }}
       >
-        <ContentWrap>
-          <Title2
-            style={{ fontWeight: 600, color: "#03502C", marginBottom: "50px" }}
-          >
-            예상투자비용
-          </Title2>
+          <Wrap>
+            <StyleTitle2
+              style={{ fontWeight: 600, color: "#03502C"}}
+            >
+              예상투자비용
+          </StyleTitle2>
+          </Wrap>
           <Table>
             <caption
               style={{
@@ -218,9 +219,8 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
               </Title5>
               </li>
             </TextUl>
-            <DeliveryContent/>
+            <DeliveryContent />
           </ContentFooter>
-        </ContentWrap>
       </PageMaxNoCSSLayout>
       <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }}>
         <Wrap>
@@ -262,13 +262,15 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
 const ContentFooter = styled.div`
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   @media only screen and (max-width: 600px) {
     flex-direction: column !important;
     align-items: flex-start !important;
   }
+  margin-bottom: 50px;
 `
 const Container = styled.div`
   display: flex;
@@ -305,18 +307,15 @@ const Content = styled.div`
       margin-bottom: 60px;
   }
 `
-const ContentWrap = styled.div`
-  width: 100%;
-  display: inline-block;
-  text-align: center;
-  @media only screen and (max-width: 600px) {
-    margin: 60px 0px;
+const StyleTitle2 = styled(Title2)`
+    @media only screen and (max-width: 600px) {
+    margin-bottom: 20px;
   }
   @media only screen and (min-width: 600px) {
-    margin: 80px 0px;
+    margin-bottom: 30px;
   }
   @media only screen and (min-width: 768px) {
-    margin: 120px 0px;
+    margin-bottom: 40px;
   }
 `;
 
@@ -333,14 +332,16 @@ const TextUl = styled.ul`
 
 const Wrap = styled.div`
   display: inline-block;
+  text-align: center;
+  width: 100%;
   @media only screen and (max-width: 600px) {
-    margin-top: 60px;
+    margin-top: 90px;
   }
   @media only screen and (min-width: 600px) {
-    margin-top: 80px;
+    margin-top: 110px;
   }
   @media only screen and (min-width: 768px) {
-    margin-top: 120px;
+    margin-top: 150px;
   }
 `;
 

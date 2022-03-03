@@ -145,40 +145,25 @@ const BoxContent = styled.div`
         padding: 10px;
         letter-spacing: 0px;
         line-height: 1.28;
+        width: 100%;
         @media only screen and (max-width: 310px) {
             letter-spacing: 0px !important;
             font-size: 0.8rem;
-            width: 80px;
             height: 20px;
             margin: 3px 0px;
         }
         @media only screen and (min-width: 310px) {
             font-size: 12px;
-            width: 80px;
             height: 20px;
             margin: 3px 0px;
         }
         @media only screen and (min-width: 600px) {
             font-size: ${(props) => props.theme.fontSizes.title6};
-            width: 130px;
-            height: 30px;
-            margin: 5px 0px;
-        }
-        @media only screen and (min-width: 768px) {
-            font-size: ${(props) => props.theme.fontSizes.title5};
-            width: 130px;
             height: 30px;
             margin: 5px 0px;
         }
         @media only screen and (min-width: 992px) {
-            font-size: ${(props) => props.theme.fontSizes.title5};
-            width: 130px;
-            height: 40px;
-            margin: 5px 0px;
-        }
-        @media only screen and (min-width: 1200px) {
-            font-size: ${(props) => props.theme.fontSizes.title3};
-            width: 130px;
+            font-size: ${(props) => props.theme.fontSizes.title6};
             height: 40px;
             margin: 5px 0px;
         }
@@ -198,11 +183,11 @@ const CheckBox = styled.div`
     -moz-appearance: none;
     appearance: none;
     margin: 0px;
+    border-radius: 0px !important;
     @media only screen and (max-width: 600px) {
         padding: 7px;
         width: 0px;
         height: 0px;
-        border-radius: 3px;
     }
     @media only screen and (min-width: 600px) {
         width: 15px;
@@ -226,10 +211,10 @@ const ArrowImage = styled(Image) <{ isClick: boolean }>`
     left: auto !important;
     transform:  ${(props) => props.isClick ? 'rotate(0turn)' : 'rotate(0.5turn)'};
     @media only screen and (max-width: 600px) {
-        min-width: 16px !important;
-        min-height: 16px !important;
-        max-width: 16px !important;
-        max-height: 16px !important;
+        min-width: 22px !important;
+        min-height: 22px !important;
+        max-width: 22px !important;
+        max-height: 22px !important;
     }
     @media only screen and (min-width: 600px) {
         min-width: 30px !important;
@@ -272,6 +257,11 @@ const Button = styled.button`
         width: 60px;
         height: 45px;
         border-radius: 15px;
+    }
+    &:hover {
+        background-color: #CC3D3D;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
     }
 `
 export default SideBanner;

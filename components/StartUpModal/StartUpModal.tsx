@@ -22,6 +22,7 @@ const StartUpModal = () => {
       );
       alert("문의가 접수되었습니다. 담당자가 빠른 확인 후 연락드리도록 하겠습니다");
       if (typeof window != null) {
+        window.scrollTo(0, 0);
         window.location.reload();
       }
     } catch (e) {

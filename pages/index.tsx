@@ -3,6 +3,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from "react-responsive-carousel";
 import styled from "styled-components";
 import { BannerDTO } from "../dto/banner.dto";
+import { PopupDto } from "../dto/popup.dto";
 import { PageFullWidthLayout } from "../components/GlobalComponents";
 import "react-loading-skeleton/dist/skeleton.css";
 import Head from 'next/head';
@@ -11,7 +12,7 @@ import PopUp from "../components/PopUp";
 interface Props {
   banners: BannerDTO[];
   miniBanners: BannerDTO[];
-  popupBanners: BannerDTO[];
+  popupBanners: PopupDto[];
 }
 
 const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
@@ -102,16 +103,16 @@ const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
             )}
           </Carousel>
         </MBversion>
-        <PopupWrapper>
-          <PopupContainer>
-            {
-              popupBanners.map((item, k) => (
-                <PopUp key={k} image={item} />
-              ))
-            }
-          </PopupContainer>
-        </PopupWrapper>
       </PageFullWidthLayout>
+      <PopupWrapper>
+        <PopupContainer>
+          {
+            popupBanners.map((item, k) => (
+              <PopUp key={k} image={item} />
+            ))
+          }
+        </PopupContainer>
+      </PopupWrapper>
     </>
   );
 };
@@ -157,7 +158,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   const res2 = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/minibanner");
   const miniBanners: BannerDTO[] = await res2.json();
   const res3 = await fetch(process.env.NEXT_PUBLIC_API_URL + "/api/popup");
-  const popupBanners: BannerDTO[] = await res3.json();
+  const popupBanners: PopupDto[] = await res3.json();
   if (!banners && !miniBanners && !popupBanners) {
     return {
       notFound: true,
