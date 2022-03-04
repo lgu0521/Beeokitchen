@@ -95,8 +95,9 @@ const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
             showArrows={true}
             stopOnHover={false}
             showIndicators={false}
+            dynamicHeight={true}
           >
-            {miniBanners.filter((val) => { if (val.type == 'PC') return val }).map((item, key) => (
+            {miniBanners.filter((val) => { if (val.type == 'MB') return val }).map((item, key) => (
               <div key={key}>
                 <img src={item.downloadUrl} alt="" />
               </div>)

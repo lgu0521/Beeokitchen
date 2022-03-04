@@ -38,8 +38,10 @@ const PopUp: React.FC<Props> = ({ image }) => {
         isShow == true ?
             <Container>
                 <Link href={image.link}>
-                <a>
-                <Image src={image.downloadUrl} width={431} height={512} alt="팝업 이미지" />
+                    <a>
+                        <Image src={image.downloadUrl} width={431} height={512} alt="팝업 이미지" />
+                    </a>
+                </Link>
                 <ContentFooter>
                     <Button>
                         <Title6 onClick={() => setCookie(image.id)}>오늘하루 열지않기</Title6>
@@ -48,8 +50,7 @@ const PopUp: React.FC<Props> = ({ image }) => {
                         <Title6 onClick={() => setIsShow(false)}>닫기</Title6>
                     </Button>
                 </ContentFooter>
-                </a>
-                </Link>
+
             </Container> : null
     )
 }
