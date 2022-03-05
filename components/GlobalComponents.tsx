@@ -4,12 +4,9 @@ const PromotionTitle1 = styled.h1`
   letter-spacing: -3px;
   line-height: 1.3;
   @media only screen and (max-width: 600px) {
-    font-size:  35px;
+    font-size:  28px;
   }
   @media only screen and (min-width: 600px) {
-    font-size: 45px;
-  }
-  @media only screen and (min-width: 768px) {
     font-size: 55px;
   }
   @media only screen and (min-width: 992px) {
@@ -26,13 +23,25 @@ const PromotionTitle2 = styled.h1`
   @media only screen and (min-width: 600px) {
     font-size: 40px;
   }
-  @media only screen and (min-width: 768px) {
-    font-size: 50px;
-  }
   @media only screen and (min-width: 992px) {
     font-size: ${(props) => props.theme.fontSizes.promotionTitle2};
   }
 `;
+
+const PromotionTitle3 = styled.h1`
+  letter-spacing: -3px;
+  line-height: 1.3;
+  @media only screen and (max-width: 600px) {
+    font-size: 20px;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 45px;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 54px;
+  }
+`;
+
 
 const Title1 = styled.h1`
   letter-spacing: -3px;
@@ -170,7 +179,8 @@ export {
   PageMaxNoCSSLayout,
   MarginOrPaddingLayout,
   PromotionTitle1,
-  PromotionTitle2
+  PromotionTitle2,
+  PromotionTitle3
 };
 
 interface PropsType {

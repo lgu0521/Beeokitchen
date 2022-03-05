@@ -51,7 +51,8 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
               </PcWrapper>
               <MbWrapper>
-                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.감사의 마음을 담았습니다.</Title2>
+                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.</Title2>
+                <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
               </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>
