@@ -48,11 +48,17 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도<br />
                 많은 분들의 사랑으로 빠르게 성장했습니다.
               </Title2>
-                <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                <TitleWrap>
+                  <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                </TitleWrap>
+
               </PcWrapper>
               <MbWrapper>
                 <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.</Title2>
-                <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                <TitleWrap>
+                  <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                </TitleWrap>
+
               </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>
@@ -87,141 +93,141 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
           alignItems: "center",
         }}
       >
-          <Wrap>
-            <StyleTitle2
-              style={{ fontWeight: 600, color: "#03502C"}}
-            >
-              예상투자비용
+        <Wrap>
+          <StyleTitle2
+            style={{ fontWeight: 600, color: "#03502C" }}
+          >
+            예상투자비용
           </StyleTitle2>
-          </Wrap>
-          <Table>
-            <caption
-              style={{
-                textAlign: "right",
-                color: "#03502C",
-                fontWeight: 600,
-                marginBottom: "5px",
-              }}
-            >
-              <Title4>*단위 : 만원</Title4>
-            </caption>
-            <Thead>
-              <tr>
-                <th scope="col">
-                  <Title3>항목</Title3>
-                </th>
-                <th scope="col">
-                  <Title3>금액</Title3>
-                </th>
-                <th scope="col">
-                  <Title3>내용</Title3>
-                </th>
-              </tr>
-            </Thead>
-            <Tbody>
-              <tr>
-                <th scope="row">
-                  <Title3>가맹비</Title3>
-                </th>
-                <td>
-                  <Title2>300</Title2>
-                </td>
-                <td>
-                  <Title3>부가세별도, 소멸성</Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>교육비</Title3>
-                </th>
-                <td>
-                  <Title2>500</Title2>
-                </td>
-                <td>
-                  <Title3>부가세별도, 소멸성</Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>계약이행보증금</Title3>
-                </th>
-                <td>
-                  <Title2>200</Title2>
-                </td>
-                <td>
-                  <Title3>부가세없음</Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>인테리어(15평 기준)</Title3>
-                </th>
-                <td>
-                  <Title2>3,000</Title2>
-                </td>
-                <td>
-                  <Title3>1평=3.3제곱미터(평 당 200만원), 부가세별도</Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>인테리어 외</Title3>
-                </th>
-                <td>
-                  <Title2>1,530</Title2>
-                </td>
-                <td>
-                  <Title3>간판, 가구, 사인몰, 인쇄물 등, 부가세별도 </Title3>
-                </td>
-              </tr>
-              <tr>
-                <th scope="row">
-                  <Title3>주방설비&집기류</Title3>
-                </th>
-                <td>
-                  <Title2>2,600</Title2>
-                </td>
-                <td>
-                  <Title3>부가세별도</Title3>
-                </td>
-              </tr>
-            </Tbody>
-            <Tfoot>
-              <tr>
-                <th scope="row">
-                  <Title3>합계</Title3>
-                </th>
-                <td>
-                  <Title2>8,130</Title2>
-                </td>
-                <td>
-                  <Title3 style={{ fontWeight: 700 }}>
-                    총 비용은 경우에 따라 변동 될 수 있습니다.
+        </Wrap>
+        <Table>
+          <caption
+            style={{
+              textAlign: "right",
+              color: "#03502C",
+              fontWeight: 600,
+              marginBottom: "5px",
+            }}
+          >
+            <Title4>*단위 : 만원</Title4>
+          </caption>
+          <Thead>
+            <tr>
+              <th scope="col">
+                <Title3>항목</Title3>
+              </th>
+              <th scope="col">
+                <Title3>금액</Title3>
+              </th>
+              <th scope="col">
+                <Title3>내용</Title3>
+              </th>
+            </tr>
+          </Thead>
+          <Tbody>
+            <tr>
+              <th scope="row">
+                <Title3>가맹비</Title3>
+              </th>
+              <td>
+                <Title2>300</Title2>
+              </td>
+              <td>
+                <Title3>부가세별도, 소멸성</Title3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <Title3>교육비</Title3>
+              </th>
+              <td>
+                <Title2>500</Title2>
+              </td>
+              <td>
+                <Title3>부가세별도, 소멸성</Title3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <Title3>계약이행보증금</Title3>
+              </th>
+              <td>
+                <Title2>200</Title2>
+              </td>
+              <td>
+                <Title3>부가세없음</Title3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <Title3>인테리어(15평 기준)</Title3>
+              </th>
+              <td>
+                <Title2>3,000</Title2>
+              </td>
+              <td>
+                <Title3>1평=3.3제곱미터(평 당 200만원), 부가세별도</Title3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <Title3>인테리어 외</Title3>
+              </th>
+              <td>
+                <Title2>1,530</Title2>
+              </td>
+              <td>
+                <Title3>간판, 가구, 사인몰, 인쇄물 등, 부가세별도 </Title3>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <Title3>주방설비&집기류</Title3>
+              </th>
+              <td>
+                <Title2>2,600</Title2>
+              </td>
+              <td>
+                <Title3>부가세별도</Title3>
+              </td>
+            </tr>
+          </Tbody>
+          <Tfoot>
+            <tr>
+              <th scope="row">
+                <Title3>합계</Title3>
+              </th>
+              <td>
+                <Title2>8,130</Title2>
+              </td>
+              <td>
+                <Title3 style={{ fontWeight: 700 }}>
+                  총 비용은 경우에 따라 변동 될 수 있습니다.
                   </Title3>
-                </td>
-              </tr>
-            </Tfoot>
-          </Table>
-          <ContentFooter>
-            <TextUl>
-              <li>
-                <Title5>
-                  별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
+              </td>
+            </tr>
+          </Tfoot>
+        </Table>
+        <ContentFooter>
+          <TextUl>
+            <li>
+              <Title5>
+                별도 : 가스 / 소방 / 전기증설 / 냉난방 / 테라스 / 철거 / 화장실 등
               </Title5>
-              </li>
-              <li>
-                <Title5>
-                  가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
+            </li>
+            <li>
+              <Title5>
+                가맹비,교육비,보증금 외 비용은 현장상황에 따라 상이할 수 있습니다.
               </Title5>
-              </li>
-              <li>
-                <Title5>
-                  매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
+            </li>
+            <li>
+              <Title5>
+                매장 상황에 따라 인테리어, 주방설비 등은 변동 될 수 있습니다.
               </Title5>
-              </li>
-            </TextUl>
-            <DeliveryContent />
-          </ContentFooter>
+            </li>
+          </TextUl>
+          <DeliveryContent />
+        </ContentFooter>
       </PageMaxNoCSSLayout>
       <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }}>
         <Wrap>
@@ -452,4 +458,16 @@ export const ModalContent = styled.div`
     width: 50%;
   }
 `;
+
+const  TitleWrap = styled.div`
+@media only screen and (max-width: 600px) {
+    margin-top: 20px;
+  }
+  @media only screen and (min-width: 600px) {
+    margin-top: 30px;
+  }
+  @media only screen and (min-width: 992px) {
+    margin-top: 50px;
+  }
+`
 export default StartUpPage;
