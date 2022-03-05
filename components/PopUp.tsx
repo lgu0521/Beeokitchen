@@ -82,6 +82,8 @@ const Button = styled.button`
     color: black;
     font-weight: ${(props) => props.theme.fontWeight.SemiBold};
     background-color: #008B48;
+    margin: 0px;
+    height: 100%;
     &:hover {
         background-color: black;
         color: #008B48;
