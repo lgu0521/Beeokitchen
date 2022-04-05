@@ -45,20 +45,19 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <PromotionTitle1 style={{ fontWeight: 700 }}> 창업혜택 안내</PromotionTitle1>
               </Content>
               <PcWrapper>
-                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도<br />
+                <Title2 style={{ fontWeight: 300 }} color="#fff">2020년, 2021년 코로나 상황 속에서도<br />
                 많은 분들의 사랑으로 빠르게 성장했습니다.
               </Title2>
                 <TitleWrap>
-                  <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                  <Title2 style={{ fontWeight: 300 }} color="#fff">감사의 마음을 담았습니다.</Title2>
                 </TitleWrap>
 
               </PcWrapper>
               <MbWrapper>
-                <Title2 style={{ fontWeight: 300 }}>2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.</Title2>
+                <Title2 style={{ fontWeight: 300 }} color="#fff">2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.</Title2>
                 <TitleWrap>
-                  <Title2 style={{ fontWeight: 300 }}>감사의 마음을 담았습니다.</Title2>
+                  <Title2 style={{ fontWeight: 300 }} color="#fff">감사의 마음을 담았습니다.</Title2>
                 </TitleWrap>
-
               </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>
@@ -130,7 +129,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title3>가맹비</Title3>
               </th>
               <td>
-                <Title2>300</Title2>
+                <Title2>500</Title2>
               </td>
               <td>
                 <Title3>부가세별도, 소멸성</Title3>
@@ -141,7 +140,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title3>교육비</Title3>
               </th>
               <td>
-                <Title2>500</Title2>
+                <Title2>300</Title2>
               </td>
               <td>
                 <Title3>부가세별도, 소멸성</Title3>
@@ -272,7 +271,8 @@ const ContentFooter = styled.div`
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: flex-start;
+  margin-top: 30px;
   @media only screen and (max-width: 600px) {
     flex-direction: column !important;
     align-items: flex-start !important;
@@ -331,7 +331,7 @@ const TextUl = styled.ul`
   text-align: left;
   font-weight: 600;
   line-height: 130%;
-  padding: 15px 20px;
+  padding: 0px 20px;
   li {
     margin-top: 7px;
   }

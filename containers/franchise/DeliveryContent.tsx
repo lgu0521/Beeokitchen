@@ -5,10 +5,13 @@ const DeliveryContent = () => {
     return (
         <Content>
             <TextWrapper>
-                <h3 style={{ fontWeight: 600 }}>비오키친 딜리버리</h3>
-                <h4>창업관련 별도문의</h4>
+                <h3 style={{ fontWeight: 600 }}>비오키친 배달&테이크아웃</h3>
+                <h4>전용매장 창업 별도문의</h4>
             </TextWrapper>
-            <Title2 style={{ fontWeight: 600 }}>031.704.0337</Title2>
+            <RightTextWrapper>
+                <Title2 color="#fff"><strong>7평~10평</strong></Title2>
+                <Title4 color="#fff"><strong>소형평수 창업가능</strong></Title4>
+            </RightTextWrapper>
         </Content>
     )
 }
@@ -22,12 +25,11 @@ const Content = styled.div`
     justify-content: center;
     background-color: #F7E9E2;
     border-radius: 25px;
-    padding: 20px 30px;
 `
 const TextWrapper = styled.div`
     text-align: right;
-    margin-right: 20px;
     line-height: 1.3;
+    padding: 15px 20px;
     h3{
         @media only screen and (max-width: 600px) {
             font-size: 12px;
@@ -51,6 +53,13 @@ const TextWrapper = styled.div`
             font-size: 18px;
         }
     }
+`
+
+const RightTextWrapper = styled.div`
+    border-radius: 0px 25px 25px 0px;
+    text-align: right;
+    padding: 15px 25px;
+    background-color: #15AA5A;
 `
 
 export default DeliveryContent;

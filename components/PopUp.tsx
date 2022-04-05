@@ -58,7 +58,7 @@ const PopUp: React.FC<Props> = ({ image }) => {
 
 const Container = styled.div`
     display: inline-block;
-    background-color: #008B48;
+    background-color: #404346;
     border: 2px solid #D8D8D8;
     margin-right: 10px;
     @media only screen and (max-width: 600px) {
@@ -79,9 +79,9 @@ const Button = styled.button`
     padding: 20px 0px;
     text-align: center;
     border: 0px;
-    color: black;
+    color: #fff;
     font-weight: ${(props) => props.theme.fontWeight.SemiBold};
-    background-color: #008B48;
+    background-color: #404346;
     margin: 0px;
     height: 100%;
     &:hover {

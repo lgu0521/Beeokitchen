@@ -63,9 +63,10 @@ const Title1 = styled.h1`
   }
 `;
 
-const Title2 = styled.h2`
+const Title2 = styled.h2<{color?: string}>`
   letter-spacing: 1px;
   line-height: 1.3;
+  color: ${({color}) => color ? color : "black"};
   @media only screen and (max-width: 600px) {
     font-size: 2rem;
   }
@@ -107,9 +108,10 @@ const Title3 = styled.h3`
   }
 `;
 
-const Title4 = styled.h4`
+const Title4 = styled.h4<{color?: string}>`
   letter-spacing: 0px;
   line-height: 1.6;
+  color: ${({color}) => color ? color : "black"};
   @media only screen and (max-width: 600px) {
     font-size: ${(props) => props.theme.fontSizes.title7};
   }

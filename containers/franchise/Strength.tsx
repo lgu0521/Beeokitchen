@@ -14,15 +14,16 @@ const StrengthSection = () => {
         <>
             <Container>
                 <ContentHeader>
+                    <Title2 color="#008B48"><strong>비오키친 가맹신청 이벤트</strong></Title2>
+                    <Title2 style={{ marginTop: "5px" }}><strong>대상</strong> 가맹 점주분들 / <strong>기간</strong> 5월 31일 까지</Title2>
                     <StyledPromotionTitle1><span>20호점까지</span> 지원합니다</StyledPromotionTitle1>
                     <TextWrapper>
-                        <PromotionTitle3>가맹비 <span>무료</span></PromotionTitle3>
+                        <PromotionTitle3>가맹비&교육비 <span>할인</span></PromotionTitle3>
                         <PromotionTitle3>점포선정 컨설팅비 <span>무료</span></PromotionTitle3>
                     </TextWrapper>
                 </ContentHeader>
                 <ContentMain>
                     <Line />
-
                     <PcWrapper>
                         <Image src={Icon} width={110} height={110} alt="로고" />
                     </PcWrapper>
@@ -39,10 +40,10 @@ const StrengthSection = () => {
                         <li>
                             <StyledTitle3>건강식단은 세계적인 흐름</StyledTitle3>
                             <PcWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>다이어트푸드 전문점<br /> 비오키친은<br /> 롱런이 가능합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점<br /> 비오키친은<br /> 롱런이 가능합니다</Title2>
                             </PcWrapper>
                             <MbWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>다이어트푸드 전문점 비오키친은<br /> 롱런이 가능합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점 비오키친은<br /> 롱런이 가능합니다</Title2>
                             </MbWrapper>
                             <StyleImage>
                                 <Image src={SubIcon1} width={200} height={200} alt="건강식단은 세계적인 흐름 설명 아이콘" />
@@ -55,10 +56,10 @@ const StrengthSection = () => {
                         <li>
                             <StyledTitle3>선정, 매장오픈&운영까지</StyledTitle3>
                             <PcWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>비오키친의<br /> 탄탄한 경영지원이<br /> 함께 합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">비오키친의<br /> 탄탄한 경영지원이<br /> 함께 합니다</Title2>
                             </PcWrapper>
                             <MbWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>비오키친의 탄탄한 경영지원이<br /> 함께 합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">비오키친의 탄탄한 경영지원이<br /> 함께 합니다</Title2>
                             </MbWrapper>
                             <StyleImage>
                                 <Image src={SubIcon2} width={200} height={200} alt="선정, 매장오픈&운영까지 설명 아이콘" />
@@ -71,10 +72,10 @@ const StrengthSection = () => {
                         <li>
                             <StyledTitle3>외식업에서 가장 중요한 식재료</StyledTitle3>
                             <PcWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>안정적인<br /> 물류공급 시스템을<br /> 갖추고 있습니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">안정적인<br /> 물류공급 시스템을<br /> 갖추고 있습니다</Title2>
                             </PcWrapper>
                             <MbWrapper>
-                                <Title2 style={{ fontWeight: 600 }}>안정적인 물류공급 시스템을<br /> 갖추고 있습니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">안정적인 물류공급 시스템을<br /> 갖추고 있습니다</Title2>
                             </MbWrapper>
 
                             <StyleImage>
@@ -99,6 +100,7 @@ const StyledTitle3 = styled(Title3)`
 `
 
 const StyledPromotionTitle1 = styled(PromotionTitle1)`
+    margin-top: 5.7vh;
     margin-bottom: 30px;
     span{
         color: white;
