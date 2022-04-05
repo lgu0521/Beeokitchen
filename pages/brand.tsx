@@ -72,23 +72,23 @@ const Brand = ({ PageTitle }: Props) => {
               </Title1>
               <ul>
                 <li>
-                  <Title4 style={{ fontWeight: 600 }}>
+                  <Title4 style={{ fontWeight: 600 }} color="#fff">
                     비오키친은 나쁜 것들을 비워낸다는 의미입니다.
                   </Title4>
                 </li>
                 <PCversion>
                   <li>
-                    <Title4>
+                    <Title4 color="#fff">
                       몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
                   </Title4>
                   </li>
                   <li>
-                    <Title4>비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
+                    <Title4 color="#fff">비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
                   </li>
                 </PCversion>
                 <MBversion>
                   <li>
-                    <Title4>
+                    <Title4 color="#fff">
                       몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
                       비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
                   </Title4>
