@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Cookies } from "react-cookie";
 import styled from "styled-components";
 import { PopupDto } from "../dto/popup.dto";
@@ -36,26 +36,39 @@ const PopUp: React.FC<Props> = ({ image }) => {
 
     return (
         isShow == true ?
-            <Container>
-                <Link href={image.link}>
-                    <a>
-                        <Image src={image.downloadUrl} width={431} height={512} alt="팝업 이미지" />
-                    </a>
-                </Link>
-                <ContentFooter>
-                    <Button>
-                        <Title6 onClick={() => setCookie(image.id)}>오늘하루 열지않기</Title6>
-                    </Button>
-                    <Button>
-                        <Title6 onClick={() => setIsShow(false)}>닫기</Title6>
-                    </Button>
-                </ContentFooter>
+            <Wrap>
+                <Container>
+                    <Link href={image.link}>
+                        <a>
+                            <Image src={image.downloadUrl} width={431} height={512} alt="팝업 이미지" />
+                        </a>
+                    </Link>
+                    <ContentFooter>
+                        <Button>
+                            <Title6 onClick={() => setCookie(image.id)}>오늘하루 열지않기</Title6>
+                        </Button>
+                        <Button>
+                            <Title6 onClick={() => setIsShow(false)}>닫기</Title6>
+                        </Button>
+                    </ContentFooter>
 
-            </Container> : null
+                </Container>
+            </Wrap> : null
+
     )
 }
 
-
+const Wrap = styled.div`
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+`
 const Container = styled.div`
     display: inline-block;
     background-color: #404346;
