@@ -1,14 +1,13 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import GridBox from "../components/GridBox";
 import Head from 'next/head';
-import { PageMaxNoCSSLayout, PromotionTitle1, PromotionTitle2, PageFullWidthLayout, Title3, Title2, Title4, Title5, Title1, } from "../components/GlobalComponents";
+import { PageMaxNoCSSLayout, PromotionTitle1, PageFullWidthLayout, Title3, Title2, Title4, Title5, Title1, } from "../components/GlobalComponents";
 import PageMainTitle from "../components/PageMainTitle";
 import StartUpModal from "../components/StartUpModal/StartUpModal";
 import styled from "styled-components";
 import { PageTitleDTO } from "../dto/page-title.dto";
 import { GetServerSideProps } from "next";
 import { FranChiseDTO } from "../dto/franchise.dto";
-import { useRouter } from "next/router";
 import StrengthSection from "../containers/franchise/Strength";
 import DeliveryContent from "../containers/franchise/DeliveryContent";
 import PcWrapper from "../components/PcWrapper";
@@ -23,17 +22,17 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
   return (
     <>
       <Head>
-        <title>비오키친 프랜차이즈</title>
-        <meta name="description" content="비오키친과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." />
+        <title>헬키푸키 창업안내</title>
+        <meta name="description" content="헬키푸키과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." />
         <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/franchise" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="비오키친 프랜차이즈" />
-        <meta property="og:site_name" content="비오키친 프랜차이즈" />
+        <meta property="og:title" content="헬키푸키 프랜차이즈" />
+        <meta property="og:site_name" content="헬키푸키 프랜차이즈" />
         <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/franchise" />
         <meta property="og:image" content="/story-sub1.png" />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="400" />
-        <meta property="og:description" content="비오키친과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." key="description" />
+        <meta property="og:description" content="헬키푸키과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." key="description" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
@@ -41,23 +40,18 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
           <PageMaxNoCSSLayout>
             <Container>
               <Content>
-                <PromotionTitle2>2022년, 비오키친 지원</PromotionTitle2>
-                <PromotionTitle1 style={{ fontWeight: 700 }}> 창업혜택 안내</PromotionTitle1>
+                <PromotionTitle1 style={{ fontWeight: 700 }}>헬키푸키 창업안내</PromotionTitle1>
               </Content>
               <PcWrapper>
-                <Title2 style={{ fontWeight: 300 }} color="#fff">2020년, 2021년 코로나 상황 속에서도<br />
-                많은 분들의 사랑으로 빠르게 성장했습니다.
-              </Title2>
-                <TitleWrap>
-                  <Title2 style={{ fontWeight: 300 }} color="#fff">감사의 마음을 담았습니다.</Title2>
-                </TitleWrap>
-
+                <Title2 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.
+                  헬키푸키와 함께 다이어트 푸드키친이라는 새로운 카테고리의 <br />
+                  외식산업을 함께하실 점주님들을 찾습니다.
+                </Title2>
               </PcWrapper>
               <MbWrapper>
-                <Title2 style={{ fontWeight: 300 }} color="#fff">2020년, 2021년 코로나 상황 속에서도 많은 분들의 사랑으로 빠르게 성장했습니다.</Title2>
-                <TitleWrap>
-                  <Title2 style={{ fontWeight: 300 }} color="#fff">감사의 마음을 담았습니다.</Title2>
-                </TitleWrap>
+                <Title2 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.
+                  헬키푸키와 함께 다이어트 푸드키친이라는 새로운 카테고리의
+                  외식산업을 함께하실 점주님들을 찾습니다.</Title2>
               </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>
@@ -202,7 +196,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
               <td>
                 <Title3 style={{ fontWeight: 700 }}>
                   총 비용은 경우에 따라 변동 될 수 있습니다.
-                  </Title3>
+                </Title3>
               </td>
             </tr>
           </Tfoot>
@@ -459,7 +453,7 @@ export const ModalContent = styled.div`
   }
 `;
 
-const  TitleWrap = styled.div`
+const TitleWrap = styled.div`
 @media only screen and (max-width: 600px) {
     margin-top: 20px;
   }

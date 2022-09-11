@@ -5,7 +5,7 @@ const DeliveryContent = () => {
     return (
         <Content>
             <TextWrapper>
-                <h3 style={{ fontWeight: 600 }}>비오키친 배달&테이크아웃</h3>
+                <h3 style={{ fontWeight: 600 }}>헬키푸키 배달&테이크아웃</h3>
                 <h4>전용매장 창업 별도문의</h4>
             </TextWrapper>
             <RightTextWrapper>

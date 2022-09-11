@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Image from "next/image";
-import Logo from "../../public/footer.png";
+import Logo from "../../public/2022/mini_logo_green.svg";
 import { Title6 } from "../GlobalComponents";
 
 const Footer = () => {
@@ -28,21 +28,20 @@ const Footer = () => {
           >
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>회사명</strong> 비오키친 <strong>사업자등록번호</strong>{" "}
+                <strong>회사명</strong> 헬키푸키 <strong>사업자등록번호</strong>{" "}
                 856-35-00894
               </Title6>
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>COPYRIGHT(C)</strong> 2021 비오키친.CO.LTD ALL RIGHT
-                RESERVED
+                <strong>COPYRIGHT(C)</strong> 2022 헬키푸키.CO.LTD ALL RIGHT RESERVED
               </Title6>
             </li>
-            <li>
+            {/* <li>
               <Title6 style={{ color: "white" }}>
                 <strong>창업문의</strong> 031.704.0337
               </Title6>
-            </li>
+            </li> */}
           </ul>
           <Image width={60} height={60} src={Logo} objectFit="cover" alt="" />
         </footer>
@@ -68,7 +67,7 @@ const Footer = () => {
           >
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>회사명</strong> 비오키친
+                <strong>회사명</strong> 헬키푸키
               </Title6>
             </li>
             <li>
@@ -78,7 +77,7 @@ const Footer = () => {
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>COPYRIGHT(C)</strong> 2021 비오키친.CO.LTD ALL RIGHT
+                <strong>COPYRIGHT(C)</strong> 2021 헬키푸키.CO.LTD ALL RIGHT
                 RESERVED
               </Title6>
             </li>

@@ -1,6 +1,6 @@
-import { PromotionTitle1, PromotionTitle3, Title1, Title2, Title3, Title4 } from "../../components/GlobalComponents"
+import { NEW_Title2, PromotionTitle1, PromotionTitle3, Title1, Title2, Title3, Title4, Title5 } from "../../components/GlobalComponents"
 import CheckIcon from '../../public/franchise-check.svg';
-import Title from '../../public/franchise-strength-title.svg';
+import Title from '../../public/2022/franchise.svg';
 import SubIcon1 from '../../public/franchise-strength-subIcon1.svg';
 import SubIcon2 from '../../public/franchise-strength-subIcon2.svg';
 import SubIcon3 from '../../public/franchise-strength-subIcon3.svg';
@@ -14,59 +14,79 @@ const StrengthSection = () => {
         <>
             <Container>
                 <ContentHeader>
-                    <Title2 color="#008B48"><strong>비오키친 가맹신청 이벤트</strong></Title2>
-                    <Title2 style={{ marginTop: "5px" }}><strong>대상</strong> 가맹 점주분들 / <strong>기간</strong> 5월 31일 까지</Title2>
-                    <StyledPromotionTitle1><span>20호점까지</span> 지원합니다</StyledPromotionTitle1>
-                    <TextWrapper>
+                    <PcWrapper>
+                        <NEW_Title2><strong>건강을 키우는 푸드키친 : 헬키푸키</strong></NEW_Title2>
+                        <NEW_Title2 style={{ marginTop: "5px" }}><strong>Healthy food kitchen, Helkipooki</strong></NEW_Title2>
+                        <NEW_Title2 style={{ marginTop: "100px" }}>
+                            헬키푸키는 외식문화의 시대적 흐름을 놓치지 않으면서도<br/>
+                            한국인들 입맛에 맞춘 다이어트푸드의 영역을 개척해 나가고 있습니다.
+                        </NEW_Title2>
+                        <NEW_Title2 style={{ marginTop: "50px" }}>
+                            2021년 용인점 오픈 이후 지속적인 신메뉴개발과 업데이트,<br/>
+                            유연한 판매채널의 확장과 프로모션을 통해 고객들의 폭팔적인 호응을 얻으며<br/>
+                            현재 경기/서울지역까지 빠르게 성장 중입니다.</NEW_Title2>
+                    </PcWrapper>
+                    <MbWrapper style={{textAlign: "left"}}>
+                        <NEW_Title2><strong>건강을 키우는 푸드키친 : 헬키푸키</strong></NEW_Title2>
+                        <NEW_Title2 style={{ marginTop: "5px" }}><strong>Healthy food kitchen, Helkipooki</strong></NEW_Title2>
+                        <NEW_Title2 style={{ marginTop: "30px" }}>
+                            헬키푸키는 외식문화의 시대적 흐름을 놓치지 않으면서도
+                            한국인들 입맛에 맞춘 다이어트푸드의 영역을 개척해 나가고 있습니다.<br />
+                            2021년 용인점 오픈 이후 지속적인 신메뉴개발과 업데이트,
+                            유연한 판매채널의 확장과 프로모션을 통해 고객들의 폭팔적인 호응을 얻으며
+                            현재 경기/서울지역까지 빠르게 성장 중입니다.
+                        </NEW_Title2>
+                        {/* <StyledPromotionTitle1><span>20호점까지</span> 지원합니다</StyledPromotionTitle1> */}
+                        {/* <TextWrapper>
                         <PromotionTitle3>가맹비&교육비 <span>할인</span></PromotionTitle3>
                         <PromotionTitle3>점포선정 컨설팅비 <span>무료</span></PromotionTitle3>
-                    </TextWrapper>
+                    </TextWrapper> */}
+                    </MbWrapper>
                 </ContentHeader>
                 <ContentMain>
                     <Line />
                     <PcWrapper>
-                        <Image src={Icon} width={110} height={110} alt="로고" />
+                        <Image src={Icon} width={110} height={110} alt="로고" objectFit="cover" />
                     </PcWrapper>
                     <MbWrapper>
-                        <Image src={Icon} width={50} height={50} alt="로고" />
+                        <Image src={Icon} width={50} height={50} alt="로고" objectFit="cover" />
                     </MbWrapper>
-
                 </ContentMain>
                 <ContentFooter>
                     <TitleImage>
-                        <Image src={Title} width={423} height={114} alt="비오키친 창업강점" />
+                        <Image src={Title} width={504} height={120} alt="헬키푸키 창업강점" />
                     </TitleImage>
                     <ul>
                         <li>
                             <StyledTitle3>건강식단은 세계적인 흐름</StyledTitle3>
                             <PcWrapper>
-                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점<br /> 비오키친은<br /> 롱런이 가능합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점<br /> 헬키푸키은<br /> 롱런이 가능합니다</Title2>
                             </PcWrapper>
                             <MbWrapper>
-                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점 비오키친은<br /> 롱런이 가능합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">다이어트푸드 전문점 헬키푸키은<br /> 롱런이 가능합니다</Title2>
                             </MbWrapper>
                             <StyleImage>
                                 <Image src={SubIcon1} width={200} height={200} alt="건강식단은 세계적인 흐름 설명 아이콘" />
                             </StyleImage>
                             <Title4 color="#fff">유행을 반영한 트렌디한 메뉴와 클래식한 메뉴가 공존합니다.
-                            한국인의 소울푸드 김밥부터 중동식 메뉴 후무스까지, 한계없는 카테고리의 다양한 메뉴를 비오키친만의 노하우로 재해석해
-                            지속적인 다이어트 신메뉴를 출시합니다
+                                한국인의 소울푸드 김밥부터 중동식 메뉴 후무스까지, 한계없는 카테고리의 다양한 메뉴를 헬키푸키만의 노하우로 재해석해
+                                지속적인 다이어트 신메뉴를 출시합니다
                             </Title4>
                         </li>
                         <li>
                             <StyledTitle3>선정, 매장오픈&운영까지</StyledTitle3>
                             <PcWrapper>
-                                <Title2 style={{ fontWeight: 600 }} color="#fff">비오키친의<br /> 탄탄한 경영지원이<br /> 함께 합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">헬키푸키의<br /> 탄탄한 경영지원이<br /> 함께 합니다</Title2>
                             </PcWrapper>
                             <MbWrapper>
-                                <Title2 style={{ fontWeight: 600 }} color="#fff">비오키친의 탄탄한 경영지원이<br /> 함께 합니다</Title2>
+                                <Title2 style={{ fontWeight: 600 }} color="#fff">헬키푸키의 탄탄한 경영지원이<br /> 함께 합니다</Title2>
                             </MbWrapper>
                             <StyleImage>
                                 <Image src={SubIcon2} width={200} height={200} alt="선정, 매장오픈&운영까지 설명 아이콘" />
                             </StyleImage>
                             <Title4 color="#fff">해당지점 슈퍼바이저가 점주님과의 인간적인 관계를 추구합니다.
-                            조리부터  마케팅,인사,경영까지 꼼꼼하게 지속적으로 컨설팅해 드리는
-                            탄탄한 경영지원으로 점주님들의 매출향상에  집중합니다.
+                                조리부터  마케팅,인사,경영까지 꼼꼼하게 지속적으로 컨설팅해 드리는
+                                탄탄한 경영지원으로 점주님들의 매출향상에  집중합니다.
                             </Title4>
                         </li>
                         <li>
@@ -83,8 +103,8 @@ const StrengthSection = () => {
                             </StyleImage>
 
                             <Title4 color="#fff">삼성 웰스토리와의 B2B계약으로 안정적인 물류공급 시스템을
-                            갖추고 있으며 이는 물류비 마진을 최소화하여
-                            가맹점주님의 이익 극대화를 추구하는 것이 목적입니다.
+                                갖추고 있으며 이는 물류비 마진을 최소화하여
+                                가맹점주님의 이익 극대화를 추구하는 것이 목적입니다.
                             </Title4>
                         </li>
                     </ul>

@@ -24,17 +24,17 @@ const StorePage: NextPage<Props> = ({ storeList, PageTitle }) => {
   return (
     <>
       <Head>
-        <title>비오키친 매장</title>
-        <meta name="description" content="여러분의 일상과 가장 가까운 곳에서 비오키친을 만나보세요" />
+        <title>헬키푸키 매장</title>
+        <meta name="description" content="여러분의 일상과 가장 가까운 곳에서 헬키푸키를 만나보세요" />
         <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/store" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="비오키친 매장" />
-        <meta property="og:site_name" content="비오키친 매장" />
+        <meta property="og:title" content="헬키푸키 매장" />
+        <meta property="og:site_name" content="헬키푸키 매장" />
         <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/store" />
         <meta property="og:image" content="/story-sub1.png" />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="400" />
-        <meta property="og:description" content="여러분의 일상과 가장 가까운 곳에서 비오키친을 만나보세요." key="description" />
+        <meta property="og:description" content="여러분의 일상과 가장 가까운 곳에서 헬키푸키를 만나보세요" key="description" />
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout

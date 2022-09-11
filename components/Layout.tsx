@@ -10,7 +10,7 @@ const Layout = ({ children }: LayoutProps) => {
   return (
     <>
       <Head>
-        <title>비오키친</title>
+        <title>헬키푸키</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Header></Header>

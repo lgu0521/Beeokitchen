@@ -16,8 +16,8 @@ import Story1 from "../public/story-sub1.png";
 import Story2 from "../public/story-sub2.png";
 import storyIcon1 from "../public/story-icon2.svg";
 import storyIcon2 from "../public/story-icon1.svg";
-import StoryWeb from "../public/brand-story-web.svg";
-import StoryMobile from "../public/brand-story-moblie.svg";
+import StoryWeb from "../public/2022/branstory_pc.svg";
+import StoryMobile from "../public/2022/branstory_mobile.svg";
 import Head from 'next/head';
 interface Props {
   PageTitle: PageTitleDTO;
@@ -29,8 +29,8 @@ const Brand = ({ PageTitle }: Props) => {
 
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "name": "비오키친",
-    "url": "https://비오키친.kr",
+    "name": "헬키푸키",
+    "url": "https://헬키푸키.kr",
     "sameAs": [
       "https://www.instagram.com/beeokitchen"
     ]
@@ -40,22 +40,22 @@ const Brand = ({ PageTitle }: Props) => {
   return (
     <>
       <Head>
-        <title>비오키친 브랜드스토리</title>
-        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 비오키친은 나쁜 것들을 비워낸다는 의미입니다.
+        <title>헬키푸키 브랜드스토리</title>
+        <meta name="description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 헬키푸키은 나쁜 것들을 비워낸다는 의미입니다.
 몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
-비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
+헬키푸키은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
 " />
         <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr/brand" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="비오키친 브랜드스토리" />
-        <meta property="og:site_name" content="비오키친 브랜드스토리" />
+        <meta property="og:title" content="헬키푸키 브랜드스토리" />
+        <meta property="og:site_name" content="헬키푸키 브랜드스토리" />
         <meta property="og:url" content="https://www.xn--9w3b27lmmhzmc.kr/brand" />
         <meta property="og:image" content="/story-sub1.png" />
         <meta property="og:image:width" content="800" />
         <meta property="og:image:height" content="400" />
-        <meta property="og:description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 비오키친은 나쁜 것들을 비워낸다는 의미입니다.
+        <meta property="og:description" content="식단관리가 괴로운 것이 아니라 나를 위한 선물이 될 수 있도록. 헬키푸키은 나쁜 것들을 비워낸다는 의미입니다.
 몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
-비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다." key="description" />
+헬키푸키은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다." key="description" />
       </Head>
       <script
         type="application/ld+json"
@@ -67,31 +67,33 @@ const Brand = ({ PageTitle }: Props) => {
           <PageMaxNoCSSLayout>
             <Section1>
               <Title1>
-                비-오 주시옵소서!<br />
-                비오키친
+                건강을 키우는 다이어트 푸드키친<br />
+                <strong>Healthy Food Kitchen : 헬키푸키</strong>
               </Title1>
               <ul>
-                <li>
-                  <Title4 style={{ fontWeight: 600 }} color="#fff">
-                    비오키친은 나쁜 것들을 비워낸다는 의미입니다.
-                  </Title4>
-                </li>
                 <PCversion>
                   <li>
                     <Title4 color="#fff">
-                      몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
-                  </Title4>
+                      신선한 재료와 건강한 메뉴들로 식단을 균형있게 만들기 위해 노력합니다.
+                    </Title4>
                   </li>
                   <li>
-                    <Title4 color="#fff">비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.</Title4>
+                    <Title4 color="#fff">
+                      현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.</Title4>
+                  </li>
+                  <li>
+                    <Title4 color="#fff">맛있는 다이어트 푸드를 추구합니다.</Title4>
                   </li>
                 </PCversion>
                 <MBversion>
                   <li>
                     <Title4 color="#fff">
-                      몸속에 나쁜 영향을 주는 지방, 노폐물, 독소 등을 건강하게 비우려면 균형 잡힌 식단이 중요합니다.
-                      비오키친은 신선한 재료와 건강한 메뉴들로 식단을 균형 있게 만들기 위해 노력합니다.
-                  </Title4>
+
+
+                      신선한 재료와 건강한 메뉴들로 식단을 균형있게 만들기 위해 노력합니다.
+                      현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.
+                      맛있는 다이어트 푸드를 추구합니다.
+                    </Title4>
                   </li>
                 </MBversion>
               </ul>
@@ -107,20 +109,19 @@ const Brand = ({ PageTitle }: Props) => {
                 <Title1>
                   <li style={{ lineHeight: "2" }}>
                     다이어트는 예나, 지금이나
-                    </li>
+                  </li>
                 </Title1>
                 <Title5>
                   <li>
-                    1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
-                    유행하는 간헐적단식까지
+                    1960년대부터 유행한 원푸드 다이어트, 디톡스 다이어트부터 현재 유행하는 간헐적 단식까지
+                    무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다.
                   </li>
                   <li>
-                    무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다. 그러나
-                    중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.
+                    그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.
                   </li>
                   <li>
-                    비오키친은 변화가 심한 다이어트 트렌드 속 에서도 건강을
-                    위하는 다이어트의 본질을 지킵니다.
+
+                    헬키푸키는 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
                 <ImageWrap>
@@ -137,11 +138,10 @@ const Brand = ({ PageTitle }: Props) => {
                 <Title1><li style={{ marginBottom: "20px" }}>다이어트는 예나, 지금이나</li></Title1>
                 <Title5>
                   <li>
-                    1960년대부터 유행한 원푸드다이어트, 디톡스다이어트부터 현재
-                    유행하는 간헐적단식까지 무수히 많은 다이어트 식단이 개발되고
-                    퍼져 왔습니다. 그러나 중요한 것은 다이어트에 관한 나만의
-                    신념을 가지는 것입니다. 비오키친은 변화가 심한 다이어트
-                    트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
+                    1960년대부터 유행한 원푸드 다이어트, 디톡스 다이어트부터 현재 유행하는 간헐적 단식까지
+                    무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다.
+                    그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.
+                    헬키푸키는 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
                   </li>
                 </Title5>
                 <ImageWrap>
@@ -163,8 +163,8 @@ const Brand = ({ PageTitle }: Props) => {
           <PageMaxNoCSSLayout>
             <Section2>
               <Typography>
-                <Title2>건강한 식습관, 비오키친</Title2>
-                <Title3>Diet, Ever and ever</Title3>
+                <Title2>건강을 키우는 푸드키친, 헬키푸키</Title2>
+                <Title3>Healthy food kitchen, helkipooki</Title3>
               </Typography>
               <Section2_Wrap1>
                 <ul style={{ backgroundColor: "white" }}>
@@ -182,15 +182,13 @@ const Brand = ({ PageTitle }: Props) => {
                     </li>
                     <li>
                       <Title2>
-                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다{" "}
+                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다 {" "}
                       </Title2>
                     </li>
                     <li>
                       <Title5>
-                        비오키친에서는 전통적인 다이어트 도시락과 새롭게
-                        떠오르는 다이어트 메뉴들이 공존합니다. 다이어터들의
-                        필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을
-                        지속적으로 고민합니다.{" "}
+                        헬키푸키에는 전통적인 다이어트 도시락과 새롭게 떠오르는 다이어트 메뉴들이 공존합니다.
+                        다이어터들의 필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을 지속적으로 선보입니다.{" "}
                       </Title5>
                     </li>
                   </li>
@@ -218,15 +216,13 @@ const Brand = ({ PageTitle }: Props) => {
                     </li>
                     <li>
                       <Title2>
-                        비오키친이 선별하는 산지직송의 신선한 식자재{" "}
+                        헬키푸키가 선별하는 산지직송의
+                        신선한 식자재{" "}
                       </Title2>
                     </li>
                     <li>
                       <Title5>
-                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는
-                        청송에서! 산지직송 식자재를 직접 관리합니다. 정확한
-                        개량의 조리법으로 조리됩니다. 내 가족이 먹는다는
-                        마음으로 청결하고 꼼꼼하게 운영합니다.
+                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는 청송에서! 산지직송 식자재를 직접 관리합니다. 내 가족이 먹는다는 마음으로 청결하고 꼼꼼하게, 정직하게.
                       </Title5>
                     </li>
                   </li>

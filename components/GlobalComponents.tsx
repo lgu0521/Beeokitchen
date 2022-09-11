@@ -149,6 +149,28 @@ const Title5 = styled.h5`
   }
 `;
 
+
+const NEW_Title2 = styled.h5`
+  letter-spacing: 0px;
+  line-height: 1.5;
+  @media only screen and (max-width: 600px) {
+    font-size: ${(props) => props.theme.fontSizes.title5};
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: ${(props) => props.theme.fontSizes.title4};
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: ${(props) => props.theme.fontSizes.title4};
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: ${(props) => props.theme.fontSizes.title2};
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: ${(props) => props.theme.fontSizes.title2};
+  }
+`;
+
+
 const Title6 = styled.p`
   letter-spacing: 0px;
   line-height: 1.7;
@@ -182,7 +204,8 @@ export {
   MarginOrPaddingLayout,
   PromotionTitle1,
   PromotionTitle2,
-  PromotionTitle3
+  PromotionTitle3,
+  NEW_Title2
 };
 
 interface PropsType {
