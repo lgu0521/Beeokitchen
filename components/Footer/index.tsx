@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styled from "styled-components";
 import Image from "next/image";
-import Logo from "../../public/2022/mini_logo_green.svg";
+import Logo from "../../public/2022/mini_logo_full_white.svg";
 import { Title6 } from "../GlobalComponents";
 
 const Footer = () => {

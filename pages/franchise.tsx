@@ -43,15 +43,15 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <PromotionTitle1 style={{ fontWeight: 700 }}>헬키푸키 창업안내</PromotionTitle1>
               </Content>
               <PcWrapper>
-                <Title2 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.
+                <Title4 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.<br />
                   헬키푸키와 함께 다이어트 푸드키친이라는 새로운 카테고리의 <br />
                   외식산업을 함께하실 점주님들을 찾습니다.
-                </Title2>
+                </Title4>
               </PcWrapper>
               <MbWrapper>
-                <Title2 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.
+                <Title4 style={{ fontWeight: 300 }} color="#fff">(구)비오키친이 헬키푸키로 상호명이 변경되었습니다.
                   헬키푸키와 함께 다이어트 푸드키친이라는 새로운 카테고리의
-                  외식산업을 함께하실 점주님들을 찾습니다.</Title2>
+                  외식산업을 함께하실 점주님들을 찾습니다.</Title4>
               </MbWrapper>
             </Container>
           </PageMaxNoCSSLayout>

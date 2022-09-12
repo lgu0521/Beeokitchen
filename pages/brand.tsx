@@ -6,6 +6,7 @@ import {
   Title2,
   Title3,
   PageMaxNoCSSLayout,
+  NEW_Title3,
 } from "../components/GlobalComponents";
 import styled from "styled-components";
 import Image from "next/image";
@@ -66,9 +67,11 @@ const Brand = ({ PageTitle }: Props) => {
         <BackgroundWrap>
           <PageMaxNoCSSLayout>
             <Section1>
+              <NEW_Title3 color="#fff" style={{marginBottom: "10px"}}>
+                건강을 키우는 다이어트 푸드키친
+              </NEW_Title3>
               <Title1>
-                건강을 키우는 다이어트 푸드키친<br />
-                <strong>Healthy Food Kitchen : 헬키푸키</strong>
+                <strong>Healthy Food Kitchen 헬키푸키</strong>
               </Title1>
               <ul>
                 <PCversion>
@@ -82,17 +85,15 @@ const Brand = ({ PageTitle }: Props) => {
                       현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.</Title4>
                   </li>
                   <li>
-                    <Title4 color="#fff">맛있는 다이어트 푸드를 추구합니다.</Title4>
+                    <Title4 color="#fff">맛있는 다이어트푸드를 추구합니다.</Title4>
                   </li>
                 </PCversion>
                 <MBversion>
                   <li>
                     <Title4 color="#fff">
-
-
                       신선한 재료와 건강한 메뉴들로 식단을 균형있게 만들기 위해 노력합니다.
                       현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.
-                      맛있는 다이어트 푸드를 추구합니다.
+                      맛있는 다이어트푸드를 추구합니다.
                     </Title4>
                   </li>
                 </MBversion>
@@ -267,13 +268,13 @@ const Section1 = styled.div`
   @media only screen and (max-width: 600px) {
     height: 350px;
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
   }
   @media only screen and (min-width: 600px) {
     height: 490px;
     h1 {
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
   }
   @media only screen and (min-width: 768px) {
@@ -285,13 +286,13 @@ const Section1 = styled.div`
   @media only screen and (min-width: 992px) {
     height: 690px;
     h1 {
-      margin-bottom: 35px;
+      margin-bottom: 40px;
     }
   }
   @media only screen and (min-width: 1200px) {
     height: 690px;
     h1 {
-      margin-bottom: 35px;
+      margin-bottom: 45px;
     }
   }
 `;

@@ -44,7 +44,7 @@ const PromotionTitle3 = styled.h1`
 
 
 const Title1 = styled.h1`
-  letter-spacing: -3px;
+  letter-spacing:  -1px;
   line-height: 1.3;
   @media only screen and (max-width: 600px) {
     font-size: 3rem;
@@ -81,6 +81,27 @@ const Title2 = styled.h2<{color?: string}>`
   }
   @media only screen and (min-width: 1200px) {
     font-size: ${(props) => props.theme.fontSizes.title2};
+  }
+`;
+
+const NEW_Title3 = styled.h2<{color?: string}>`
+  letter-spacing: -1px;
+  line-height: 1.3;
+  color: ${({color}) => color ? color : "black"};
+  @media only screen and (max-width: 600px) {
+    font-size: 1.7rem;
+  }
+  @media only screen and (min-width: 600px) {
+    font-size: 1.9rem;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
+  @media only screen and (min-width: 992px) {
+    font-size: 2.3rem;
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: 2.5rem;
   }
 `;
 
@@ -205,7 +226,8 @@ export {
   PromotionTitle1,
   PromotionTitle2,
   PromotionTitle3,
-  NEW_Title2
+  NEW_Title2,
+  NEW_Title3
 };
 
 interface PropsType {

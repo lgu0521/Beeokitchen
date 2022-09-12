@@ -24,7 +24,7 @@ const StrengthSection = () => {
                         <NEW_Title2 style={{ marginTop: "50px" }}>
                             2021년 용인점 오픈 이후 지속적인 신메뉴개발과 업데이트,<br/>
                             유연한 판매채널의 확장과 프로모션을 통해 고객들의 폭팔적인 호응을 얻으며<br/>
-                            현재 경기/서울지역까지 빠르게 성장 중입니다.</NEW_Title2>
+                            현재 경기/서울 지역까지 빠르게 성장 중입니다.</NEW_Title2>
                     </PcWrapper>
                     <MbWrapper style={{textAlign: "left"}}>
                         <NEW_Title2><strong>건강을 키우는 푸드키친 : 헬키푸키</strong></NEW_Title2>
@@ -34,7 +34,7 @@ const StrengthSection = () => {
                             한국인들 입맛에 맞춘 다이어트푸드의 영역을 개척해 나가고 있습니다.<br />
                             2021년 용인점 오픈 이후 지속적인 신메뉴개발과 업데이트,
                             유연한 판매채널의 확장과 프로모션을 통해 고객들의 폭팔적인 호응을 얻으며
-                            현재 경기/서울지역까지 빠르게 성장 중입니다.
+                            현재 경기/서울 지역까지 빠르게 성장 중입니다.
                         </NEW_Title2>
                         {/* <StyledPromotionTitle1><span>20호점까지</span> 지원합니다</StyledPromotionTitle1> */}
                         {/* <TextWrapper>

@@ -25,6 +25,13 @@ const Content = styled.div`
     justify-content: center;
     background-color: #F7E9E2;
     border-radius: 25px;
+
+    @media only screen and (max-width: 600px) {
+        width: 100%;
+        justify-content: space-between;
+        text-align:left ;
+        margin-top: 30px;
+    }
 `
 const TextWrapper = styled.div`
     text-align: right;
@@ -33,6 +40,7 @@ const TextWrapper = styled.div`
     h3{
         @media only screen and (max-width: 600px) {
             font-size: 12px;
+            text-align: left;
         }
         @media only screen and (min-width: 600px) {
             font-size: 15px;
@@ -45,6 +53,7 @@ const TextWrapper = styled.div`
     h4{
         @media only screen and (max-width: 600px) {
             font-size: 10px;
+            text-align: left;
         }
         @media only screen and (min-width: 600px) {
             font-size: 13px;
