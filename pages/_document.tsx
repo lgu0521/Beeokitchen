@@ -16,7 +16,7 @@ class MyDocument extends Document {
                     <link rel="icon" type="image/x-icon" href="/images/favicon.png" />
                     <meta name="google-site-verification" content="AMDIh0U1uc2qnbti6OVyxiOuehBj6BTGk0NERU9yums" />
                     <meta name="naver-site-verification" content="318a146517bed2f8a2764ebd615cba64c31a5b60" />
-
+                    <meta name="naver-site-verification" content="e557ce6973b536ecf068c6d73016af1e92a1b56e" />
                     <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr" />
                     <meta property="og:type" content="website" />
                     <meta property="og:title" content="헬키푸키" />
