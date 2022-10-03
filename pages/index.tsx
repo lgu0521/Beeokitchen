@@ -22,7 +22,7 @@ const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
     <>
       <Head>
         <title>헬키푸키</title>
-        <meta name="description" content="건강을 키우는 다이어트푸드 키친, 헬키푸키" />
+        <meta name="description" content="건강을 키우는 다이어트푸드 키친, 헬키푸키(구)비오키친 추가" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="canonical" href="https://www.xn--9w3b27lmmhzmc.kr" />
         <meta property="og:type" content="website" />
