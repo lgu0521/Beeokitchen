@@ -53,7 +53,7 @@ const SideBanner = () => {
                     }}>031.704.0337</Title2>
                 </BoxHeader>
                 <BoxContent>
-                    <Link href="http://localhost:3000/franchise#startUpform">
+                    <Link href="/franchise#startUpform">
                         <Button>
                         <Title4 color={"white"} style={{ fontWeight: 700 }}>온라인 창업문의</Title4>
                         </Button>
