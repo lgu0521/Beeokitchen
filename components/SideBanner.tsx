@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled, { keyframes } from "styled-components"
-import { Title3, Title4, Title6 } from "./GlobalComponents"
 import Image from 'next/image';
 import SideBannerIcon from '../public/sidebanner-arrow.svg';
+import Link from "next/link";
 type Values = {
     name: string,
     phonenumber: string,
@@ -46,14 +46,19 @@ const SideBanner = () => {
             <BoxContainer layout={disable}>
                 <BoxHeader>
                     <Title3 style={{
-                        color: 'white'
+                        color: '#E3B59F'
                     }}>창업 간편상담</Title3>
-                    <Title3 style={{
-                        color: '#E3B59F', fontWeight: 700
-                    }}>031.704.0337</Title3>
+                    <Title2 style={{
+                        color: 'white', fontWeight: 700
+                    }}>031.704.0337</Title2>
                 </BoxHeader>
                 <BoxContent>
-                    <form onSubmit={handlerOnSubmit}>
+                    <Link href="http://localhost:3000/franchise#startUpform">
+                        <Button>
+                        <Title4 color={"white"} style={{ fontWeight: 700 }}>온라인 창업문의</Title4>
+                        </Button>
+                    </Link>
+                    {/* <form onSubmit={handlerOnSubmit}>
                         <input placeholder="이름"
                             name="name"
                             value={formValues.name}
@@ -70,22 +75,27 @@ const SideBanner = () => {
                             />
                             <span><Typograpy>개인정보 수집 및 이용동의</Typograpy></span>
                         </CheckBox>
-                        <Button>
-                            <Title4 style={{ fontWeight: 700 }}>제출</Title4>
-                        </Button>
-                    </form>
+                    </form> */}
                 </BoxContent>
             </BoxContainer>
         </BoxWrapper>
     )
 }
-const Typograpy = styled.h1`
-    letter-spacing: 0px !important;
-    font-size: 10px;
-    line-height: 1.3;
-    @media only screen and (max-width: 600px) {
-        font-weight: 500 !important;
-    }
+const Title2 = styled.h2`
+    font-size: 2.7rem;
+    letter-spacing: -1px;
+`
+
+const Title3 = styled.h3`
+    font-size: 2rem;
+    letter-spacing: -1px;
+    line-height: 1.6;
+`
+
+const Title4 = styled.h4`
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    line-height: 1.6;
 `
 
 const BoxWrapper = styled.div`
@@ -106,18 +116,20 @@ const BoxContainer = styled.div<{ layout: boolean }>`
     border-radius: 15px 0px 0px 15px;
     transition: width 0.1s;
     overflow: hidden;
-    @media only screen and (max-width: 600px) {
-        width: ${(props) => props.layout ? '0px' : '100px'};
+    width:${(props) => props.layout ? '0px' : 'fit-content'};
+    padding: ${(props) => props.layout ? '0px' : '2rem'};
+    /* @media only screen and (max-width: 600px) {
+        
         padding: ${(props) => props.layout ? '0px' : '20px 10px'};
     }
     @media only screen and (min-width: 600px) {
-        width: ${(props) => props.layout ? '0px' : '180px'};
+        
         padding: ${(props) => props.layout ? '0px' : '30px 18px'};
     }
     @media only screen and (min-width: 992px) {
-        width: ${(props) => props.layout ? '0px' : '200px'};
+        
         padding: ${(props) => props.layout ? '0px' : '40px 18px'};
-    }
+    } */
 `
 
 const BoxHeader = styled.div`
@@ -170,42 +182,6 @@ const BoxContent = styled.div`
     }
 `
 
-const CheckBox = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  font-weight: 700;
-  margin-top: 5px;
-  input[type="checkbox"] {
-    margin-right: 8px !important;
-    background-color: white;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0px;
-    border-radius: 0px !important;
-    @media only screen and (max-width: 600px) {
-        padding: 7px;
-        width: 0px;
-        height: 0px;
-    }
-    @media only screen and (min-width: 600px) {
-        width: 15px;
-        height: 15px;
-    }
-    @media only screen and (min-width: 992px) {
-        width: 20px;
-        height: 20px;
-    }
-    cursor: pointer;
-  }
-  input[type="checkbox"]:checked {
-    appearance: none;
-    background-size: cover;
-    background-image: url("https://firebasestorage.googleapis.com/v0/b/beeokitchen-env.appspot.com/o/checkBox.png?alt=media&token=5544bbd8-f4b2-49fb-8f9a-0beb0145b040");
-  }
-`;
-
 const ArrowImage = styled(Image) <{ isClick: boolean }>`
     position: relative;
     left: auto !important;
@@ -233,14 +209,22 @@ const Button = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #E3B59F;
+    width: 100%;
+    border-radius: 1.5rem;
+    background-color: #008B48;
     border: 0px;
     outline: none;
     cursor: pointer;
     font-size: 15px;
     font-weight: 700;
-    color: black;
-    @media only screen and (max-width: 600px) {
+    color: white;
+    padding: 1rem 0;
+    &:hover {
+        background-color: #CC3D3D;
+        transition: background-color 0.3s;
+        -webkit-transition: background-color 0.3s;
+    }
+    /* @media only screen and (max-width: 600px) {
         width: 40px;
         height: 25px;
         margin-top: 10px;
@@ -257,11 +241,6 @@ const Button = styled.button`
         width: 60px;
         height: 45px;
         border-radius: 15px;
-    }
-    &:hover {
-        background-color: #CC3D3D;
-        transition: background-color 0.3s;
-        -webkit-transition: background-color 0.3s;
-    }
+    } */
 `
 export default SideBanner;

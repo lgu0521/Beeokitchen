@@ -222,7 +222,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
           <DeliveryContent />
         </ContentFooter>
       </PageMaxNoCSSLayout>
-      <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }}>
+      <PageFullWidthLayout style={{ backgroundColor: "#F9F0EC" }} id="startUpform">
         <Wrap>
           <Title2 style={{ fontWeight: 600, color: "#03502C" }}>
             가맹상담 신청서
