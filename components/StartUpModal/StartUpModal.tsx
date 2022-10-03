@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { FaqCreateDTO } from "../../dto/faq.dto";
 import { Title2, Title3, Title4 } from "../GlobalComponents";
+import swal from 'sweetalert';
 
 const StartUpModal = () => {
   const {
@@ -20,13 +21,15 @@ const StartUpModal = () => {
           body: JSON.stringify(data),
         }
       );
-      alert("문의가 접수되었습니다. 담당자가 빠른 확인 후 연락드리도록 하겠습니다");
-      if (typeof window != null) {
-        window.scrollTo(0, 0);
-        window.location.reload();
-      }
+      swal("문의가 접수되었습니다. 담당자가 빠른 확인 후 연락드리도록 하겠습니다").then(() => {
+          if (typeof window != null) {
+            window.scrollTo(0, 0);
+            window.location.reload();
+          }
+        })
     } catch (e) {
-      alert("다시 시도해주세요");
+      swal("다시 시도해주세요");
+
     }
   };
 
