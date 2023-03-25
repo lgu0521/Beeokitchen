@@ -50,7 +50,7 @@ const SideBanner = () => {
                     }}>창업 간편상담</Title3>
                     <Title2 style={{
                         color: 'white', fontWeight: 700
-                    }}>031.704.0337</Title2>
+                    }}>1599-4252</Title2>
                 </BoxHeader>
                 <BoxContent>
                     <Link href="/franchise#startUpform">
@@ -211,7 +211,7 @@ const Button = styled.button`
     align-items: center;
     width: 100%;
     border-radius: 1.5rem;
-    background-color: #008B48;
+    background-color: #CC3D3D;
     border: 0px;
     outline: none;
     cursor: pointer;

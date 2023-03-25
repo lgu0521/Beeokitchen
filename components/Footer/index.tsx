@@ -28,18 +28,18 @@ const Footer = () => {
           >
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>회사명</strong> 헬키푸키 <strong>사업자등록번호</strong>{" "}
+                <strong>회사명</strong> (주) 헬키푸키 <strong>사업자등록번호</strong>{" "}
                 856-35-00894
               </Title6>
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>COPYRIGHT(C)</strong> 2022 헬키푸키.CO.LTD ALL RIGHT RESERVED
+                <strong>COPYRIGHT(C)</strong> 2023 헬키푸키.CO.LTD ALL RIGHT RESERVED
               </Title6>
             </li>
             {/* <li>
               <Title6 style={{ color: "white" }}>
-                <strong>창업문의</strong> 031.704.0337
+                <strong>창업문의</strong> 1599-4252
               </Title6>
             </li> */}
           </ul>
@@ -67,7 +67,7 @@ const Footer = () => {
           >
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>회사명</strong> 헬키푸키
+                <strong>회사명</strong> (주) 헬키푸키
               </Title6>
             </li>
             <li>
@@ -77,13 +77,7 @@ const Footer = () => {
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>COPYRIGHT(C)</strong> 2021 헬키푸키.CO.LTD ALL RIGHT
-                RESERVED
-              </Title6>
-            </li>
-            <li>
-              <Title6 style={{ color: "white" }}>
-                <strong>창업문의</strong> 031.704.0337
+                <strong>COPYRIGHT(C)</strong> 2023 헬키푸키.CO.LTD ALL RIGHT RESERVED
               </Title6>
             </li>
           </ul>

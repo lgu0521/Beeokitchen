@@ -67,9 +67,9 @@ const Brand = ({ PageTitle }: Props) => {
         <BackgroundWrap>
           <PageMaxNoCSSLayout>
             <Section1>
-              <NEW_Title3 color="#fff" style={{marginBottom: "10px"}}>
+              <Title1 color="#fff">
                 건강을 키우는 다이어트 푸드키친
-              </NEW_Title3>
+              </Title1>
               <Title1>
                 <strong>Healthy Food Kitchen 헬키푸키</strong>
               </Title1>
