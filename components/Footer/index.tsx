@@ -29,7 +29,7 @@ const Footer = () => {
             <li>
               <Title6 style={{ color: "white" }}>
                 <strong>회사명</strong> (주) 헬키푸키 <strong>사업자등록번호</strong>{" "}
-                856-35-00894
+                808-88-02695
               </Title6>
             </li>
             <li>
@@ -72,7 +72,7 @@ const Footer = () => {
             </li>
             <li>
               <Title6 style={{ color: "white" }}>
-                <strong>사업자등록번호</strong> 856-35-00894
+                <strong>사업자등록번호</strong> 808-88-02695
               </Title6>
             </li>
             <li>
