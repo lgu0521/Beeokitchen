@@ -167,7 +167,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title3>인테리어 외</Title3>
               </th>
               <td>
-                <Title2>1,530</Title2>
+                <Title2>900</Title2>
               </td>
               <td>
                 <Title3>간판, 가구, 사인몰, 인쇄물 등, 부가세별도 </Title3>
@@ -178,7 +178,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title3>주방설비&집기류</Title3>
               </th>
               <td>
-                <Title2>2,600</Title2>
+                <Title2>2,700</Title2>
               </td>
               <td>
                 <Title3>부가세별도</Title3>
@@ -191,7 +191,7 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
                 <Title3>합계</Title3>
               </th>
               <td>
-                <Title2>8,130</Title2>
+                <Title2>7,600</Title2>
               </td>
               <td>
                 <Title3 style={{ fontWeight: 700 }}>

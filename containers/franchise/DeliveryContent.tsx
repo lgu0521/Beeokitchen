@@ -9,7 +9,7 @@ const DeliveryContent = () => {
                 <h4>전용매장 창업 별도문의</h4>
             </TextWrapper>
             <RightTextWrapper>
-                <Title2 color="#fff"><strong>7평~10평</strong></Title2>
+                <Title2 color="#fff"><strong>10평</strong></Title2>
                 <Title4 color="#fff"><strong>소형평수 창업가능</strong></Title4>
             </RightTextWrapper>
         </Content>
