@@ -4,14 +4,14 @@ import { Title2, Title3, Title4 } from "../../components/GlobalComponents";
 const DeliveryContent = () => {
     return (
         <Content>
-            <TextWrapper>
+            {/* <TextWrapper>
                 <h3 style={{ fontWeight: 600 }}>헬키푸키 배달&테이크아웃</h3>
                 <h4>전용매장 창업 별도문의</h4>
             </TextWrapper>
-            <RightTextWrapper>
-                <Title2 color="#fff"><strong>10평</strong></Title2>
-                <Title4 color="#fff"><strong>소형평수 창업가능</strong></Title4>
-            </RightTextWrapper>
+            <RightTextWrapper> */}
+                {/* <Title2 color="#fff"><strong>10평</strong></Title2> */}
+                <Title4 color="#fff"><strong>10평 소형평수 창업가능</strong></Title4>
+            {/* </RightTextWrapper> */}
         </Content>
     )
 }
@@ -28,10 +28,12 @@ const Content = styled.div`
 
     @media only screen and (max-width: 600px) {
         width: 100%;
-        justify-content: space-between;
-        text-align:left ;
         margin-top: 30px;
     }
+    
+    padding: 15px 25px;
+    background-color: #15AA5A;
+
 `
 const TextWrapper = styled.div`
     text-align: right;
