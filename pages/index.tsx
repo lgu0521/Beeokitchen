@@ -107,11 +107,7 @@ const Home: NextPage<Props> = ({ banners, miniBanners, popupBanners }) => {
       </PageFullWidthLayout>
       <PopupWrapper>
         <PopupContainer>
-          {
-            popupBanners.map((item, k) => (
-              <PopUp key={k} image={item} />
-            ))
-          }
+          <PopUp image={popupBanners} />
         </PopupContainer>
       </PopupWrapper>
     </>
