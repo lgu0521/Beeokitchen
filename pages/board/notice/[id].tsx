@@ -63,7 +63,7 @@ const NoticeDetailPage = ({ notice, PageTitle, noticeBeforeAfter }: Props) => {
                 <Title3>{notice.title}</Title3>
               </th>
               <th>
-                <Title3>{notice.datetime.split("/")[0]}</Title3>
+                <Title3>{notice.datetime.split("T")[0]}</Title3>
               </th>
             </tr>
           </Thead>

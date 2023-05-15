@@ -71,7 +71,7 @@ const PageNationView = ({ itemList, pageSize }: Props) => {
                     </Link>
                   </td>
                   <td>
-                    <Title5>{item.datetime.split("/")[0]}</Title5>
+                    <Title5>{item.datetime.split("T")[0]}</Title5>
                   </td>
                 </tr>
               );
