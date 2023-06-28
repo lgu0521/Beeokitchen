@@ -39,7 +39,6 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
   };
   return (
     <>
-    
       <Head>
         <title>헬키푸키 창업안내</title>
         <meta name="description" content="헬키푸키과 함께 건강한 식문화를 만들어가실 점주님과의 패밀리십 체결을 희망합니다." />
