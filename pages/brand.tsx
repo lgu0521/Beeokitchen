@@ -13,8 +13,8 @@ import Image from "next/image";
 import PageMainTitle from "../components/PageMainTitle";
 import { GetServerSideProps } from "next";
 import { PageTitleDTO } from "../dto/page-title.dto";
-import Story1 from "../public/story-sub1.png";
-import Story2 from "../public/story-sub2.png";
+import Story1 from "../public/banner1.jpeg";
+import Story2 from "../public/banner2.jpeg";
 import storyIcon1 from "../public/story-icon2.svg";
 import storyIcon2 from "../public/story-icon1.svg";
 import StoryWeb from "../public/2022/branstory_pc.svg";
@@ -71,29 +71,26 @@ const Brand = ({ PageTitle }: Props) => {
                 건강을 키우는 다이어트 푸드키친
               </Title1>
               <Title1>
-                <strong>Healthy Food Kitchen 헬키푸키</strong>
+                <strong>Healthy Food Kitchen : 헬키푸키</strong>
               </Title1>
               <ul>
                 <PCversion>
                   <li>
                     <Title4 color="#fff">
-                      신선한 재료와 건강한 메뉴들로 식단을 균형있게 만들기 위해 노력합니다.
+                      대충 때우는 한끼부터 조금 더 신경쓰면 어떨까? 라는 생각에서 시작했습니다.
                     </Title4>
                   </li>
                   <li>
                     <Title4 color="#fff">
-                      현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.</Title4>
-                  </li>
-                  <li>
-                    <Title4 color="#fff">맛있는 다이어트푸드를 추구합니다.</Title4>
+                      바쁜 일상 속에서도 건강하고 즐거운 한끼를 위해 요리하는 건강을 키우는 키친, 헬키푸키 입니다.
+                    </Title4>
                   </li>
                 </PCversion>
                 <MBversion>
                   <li>
                     <Title4 color="#fff">
-                      신선한 재료와 건강한 메뉴들로 식단을 균형있게 만들기 위해 노력합니다.
-                      현대인들의 라이프스타일에 맞게 다양한 방식의 다이어트푸드를 선보입니다.
-                      맛있는 다이어트푸드를 추구합니다.
+                      대충 때우는 한끼부터 조금 더 신경쓰면 어떨까? 라는 생각에서 시작했습니다.
+                      바쁜 일상 속에서도 건강하고 즐거운 한끼를 위해 요리하는 건강을 키우는 키친, 헬키푸키 입니다.
                     </Title4>
                   </li>
                 </MBversion>
@@ -114,15 +111,10 @@ const Brand = ({ PageTitle }: Props) => {
                 </Title1>
                 <Title5>
                   <li>
-                    1960년대부터 유행한 원푸드 다이어트, 디톡스 다이어트부터 현재 유행하는 간헐적 단식까지
-                    무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다.
+                    1960년대부터 원푸드 다이어트, 디톡스, 간헐적단식, 현재 유행하는 키토식단, 지중해식단까지. 건강을 위해 무수히 많은 스타일의 식단이 개발되고 퍼져 왔습니다.
                   </li>
                   <li>
-                    그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.
-                  </li>
-                  <li>
-
-                    헬키푸키는 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
+                    그러나 중요한 것은 매일먹는 식사의 건강함입니다. 헬키푸키는 변화가 심한 건강식 트렌드 속 에서도 건강을 위하는 본질을 지킵니다.
                   </li>
                 </Title5>
                 <ImageWrap>
@@ -139,10 +131,8 @@ const Brand = ({ PageTitle }: Props) => {
                 <Title1><li style={{ marginBottom: "20px" }}>다이어트는 예나, 지금이나</li></Title1>
                 <Title5>
                   <li>
-                    1960년대부터 유행한 원푸드 다이어트, 디톡스 다이어트부터 현재 유행하는 간헐적 단식까지
-                    무수히 많은 다이어트 식단이 개발되고 퍼져 왔습니다.
-                    그러나 중요한 것은 다이어트에 관한 나만의 신념을 가지는 것입니다.
-                    헬키푸키는 변화가 심한 다이어트 트렌드 속 에서도 건강을 위하는 다이어트의 본질을 지킵니다.
+                    1960년대부터 원푸드 다이어트, 디톡스, 간헐적단식, 현재 유행하는 키토식단, 지중해식단까지. 건강을 위해 무수히 많은 스타일의 식단이 개발되고 퍼져 왔습니다.
+                    그러나 중요한 것은 매일먹는 식사의 건강함입니다. 헬키푸키는 변화가 심한 건강식 트렌드 속 에서도 건강을 위하는 본질을 지킵니다.
                   </li>
                 </Title5>
                 <ImageWrap>
@@ -175,21 +165,22 @@ const Brand = ({ PageTitle }: Props) => {
                         <Image
                           objectFit="cover"
                           layout="responsive"
-                          src={storyIcon1}
+                          src={storyIcon2}
                           alt=""
                         />
                       </div>
-                      <Title3>기본과 트렌드를 동시에</Title3>
+                      <Title3>매일먹는 한끼부터 건강하게</Title3>
                     </li>
                     <li>
                       <Title2>
-                        건강하고 맛있는 다이어트푸드를 지속적으로 선보입니다 {" "}
+                        항상 먹는 메뉴부터<br />
+                        조금 더 건강하게, 그렇지만 맛있게!
                       </Title2>
                     </li>
                     <li>
                       <Title5>
-                        헬키푸키에는 전통적인 다이어트 도시락과 새롭게 떠오르는 다이어트 메뉴들이 공존합니다.
-                        다이어터들의 필요와 즐거움을 충족시킬 수 있는 다양한 메뉴들을 지속적으로 선보입니다.{" "}
+                        한국인들의 패스트푸드- 김밥 & 떡볶이 & 덮밥부터 건강하게 만들어봤습니다.
+                        밥없이 계란으로 만들어진 키토김밥으로 탄수화물 관리중이신 분들께 많은 호응을 받았어요. 건강김밥에는 현미강황밥을 사용하고, 소스는 자체개발한 저당소스를 사용합니다.{" "}
                       </Title5>
                     </li>
                   </li>
@@ -209,21 +200,21 @@ const Brand = ({ PageTitle }: Props) => {
                         <Image
                           objectFit="cover"
                           layout="responsive"
-                          src={storyIcon2}
+                          src={storyIcon1}
                           alt=""
                         />
                       </div>
-                      <Title3>청결하고 꼼꼼하게</Title3>
+                      <Title3>신선하게 & 새롭게</Title3>
                     </li>
                     <li>
                       <Title2>
-                        헬키푸키가 선별하는 산지직송의
-                        신선한 식자재{" "}
+                        주5일 물료공급 & 자체 개발시설 완비
                       </Title2>
                     </li>
                     <li>
                       <Title5>
-                        현미는 철원산지에서, 호박고구마는 당진에서, 사과는 청송에서! 산지직송 식자재를 직접 관리합니다. 내 가족이 먹는다는 마음으로 청결하고 꼼꼼하게, 정직하게.
+                        헬키푸키는 새로운 메뉴개발과 신선한 식자재 공급에 진심입니다.
+                        자체개발시설을 완비해 지속적으로 건강메뉴를 개발 중이며 삼성웰스토리와 주5일 물류계약으로 신선한 식자재를 매일매일 공수합니다.
                       </Title5>
                     </li>
                   </li>

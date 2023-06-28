@@ -12,6 +12,7 @@ import StrengthSection from "../containers/franchise/Strength";
 import DeliveryContent from "../containers/franchise/DeliveryContent";
 import PcWrapper from "../components/PcWrapper";
 import MbWrapper from "../components/MbWrapper";
+import YouTube, { YouTubeProps } from "react-youtube";
 
 interface Props {
   franchises: FranChiseDTO[];
@@ -19,6 +20,23 @@ interface Props {
 }
 
 const StartUpPage = ({ franchises, PageTitle }: Props) => {
+  const onPlayerReady: YouTubeProps['onReady'] = (event) => {
+    // access to player in all event handlers via event.target
+    event.target.pauseVideo();
+  }
+
+  const opts = {
+    playerVars: {
+      autoplay: 1,
+      controls: 0,
+      rel: 0,
+      showinfo: 0,
+      mute: 1,
+      loop: 1,
+      modestbranding: 1, // 컨트롤 바에 youtube 로고를 표시하지 않음
+      disablekb: 1,
+    },
+  };
   return (
     <>
       <Head>
@@ -36,6 +54,9 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
+        <Wrapdd>
+          <YouTube videoId="4N5h-pCVn2A" opts={opts} onReady={onPlayerReady} onEnd={(e) => { e.target.stopVideo(0); }} />;
+        </Wrapdd>
         <BackgroundWrap>
           <PageMaxNoCSSLayout>
             <Container>
@@ -331,6 +352,31 @@ const TextUl = styled.ul`
   }
 `;
 
+const Wrapdd = styled.div`
+
+  @media only screen and (max-width: 600px) {
+    width :100%;
+  height :40vh;
+  }
+  @media only screen and (min-width: 600px) {
+    width :100%;
+  height :50vh;
+  }
+  @media only screen and (min-width: 768px) {
+    width :100%;
+  height :70vh;
+  }
+
+
+  > div{
+    width: 100%;
+    height: 100%;
+  }
+  iframe {
+    width: 100%;
+    height: 100%;
+  }
+`
 const Wrap = styled.div`
   display: inline-block;
   text-align: center;
