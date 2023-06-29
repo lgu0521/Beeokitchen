@@ -54,9 +54,9 @@ const StartUpPage = ({ franchises, PageTitle }: Props) => {
       </Head>
       <PageMainTitle {...PageTitle} />
       <PageFullWidthLayout>
-        <Wrapdd>
+        {/* <Wrapdd>
           <YouTube videoId="4N5h-pCVn2A" opts={opts} onReady={onPlayerReady} onEnd={(e) => { e.target.stopVideo(0); }} />;
-        </Wrapdd>
+        </Wrapdd> */}
         <BackgroundWrap>
           <PageMaxNoCSSLayout>
             <Container>
