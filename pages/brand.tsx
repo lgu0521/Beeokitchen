@@ -224,6 +224,7 @@ const Brand = ({ PageTitle }: Props) => {
                       layout="responsive"
                       src={Story2}
                       alt=""
+                      
                     />
                   </li>
                 </ul>
@@ -367,6 +368,7 @@ const Section2_Wrap1 = styled.div`
     width: 100%;
     height: 55%;
     overflow: hidden;
+    position: relative;
     div {
       height: 100%;
     }
