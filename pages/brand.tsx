@@ -208,7 +208,7 @@ const Brand = ({ PageTitle }: Props) => {
                     </li>
                     <li>
                       <Title2>
-                        주5일 물료공급 & 자체 개발시설 완비
+                        주6일(월~토) 물료공급 & 자체 개발시설 완비
                       </Title2>
                     </li>
                     <li>
